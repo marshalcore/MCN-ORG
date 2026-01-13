@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Marshal Core | Officer Verification</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: "Open Sans", sans-serif;
+      background-color: #fffcf4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .layout_padding {
+      padding: 75px 0;
+    }
+
+    .footer_section {
+      background-color: #254a93;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .contact_form-container input,
+    .contact_form-container textarea,
+    .contact_form-container select {
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .contact_form-container button {
+      background-color: #254a93;
+      color: #fff;
+      border: none;
+      padding: 15px 30px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 18px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .contact_form-container button:hover {
+      background-color: #1a3570;
+    }
+
+    .header-container {
+      background-color: #d32f2f;
+      color: #fff;
+      position: relative;
+      padding: 20px 40px;
+    }
+
+    .header-logo {
+      position: absolute;
+      top: 20px;
+      left: 40px;
+    }
+
+    .header-logo img {
+      height: 110px;
+      max-width: 200px;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(1.4) contrast(1.2);
+      display: block;
+    }
+
+    .header-rc {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .header-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      padding-top: 50px;
+      padding-bottom: 10px;
+      color: #ffffff;
+    }
+
+    .header-subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      padding-bottom: 20px;
+      color: #ffffff;
+    }
+
+    @media (max-width: 768px) {
+      .header-logo,
+      .header-rc {
+        position: static;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+
+      .header-title {
+        font-size: 1.5rem;
+        padding: 10px 0;
+      }
+
+      .header-subtitle {
+        font-size: 1rem;
+        padding: 10px 0;
+      }
+
+      .header-logo img {
+        height: 60px;
+      }
+    }
+
+    .page-loader {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.7);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #1f233e;
+    }
+    
+    .section-container {
+      display: none;
+    }
+    
+    .active-section {
+      display: block;
+    }
+    
+    #verificationMessage {
+      color: #d32f2f;
+      margin-top: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+    
+    .success-message {
+      color: green;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    
+    .error-message {
+      color: red;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .status-message {
+      background-color: #f8f9fa;
+      border-left: 4px solid #254a93;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 4px;
+    }
+
+    .verification-banner {
+      background-color: #d32f2f;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .verification-banner h3 {
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+
+    .verification-banner p {
+      margin-bottom: 0;
+      font-size: 1rem;
+    }
+
+    /* Form styling */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .form-group label.required::after {
+      content: " *";
+      color: #d32f2f;
+    }
+
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .form-col {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .file-upload-container {
+      border: 2px dashed #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      margin-top: 10px;
+      background-color: #f9f9f9;
+    }
+
+    .file-upload-container input[type="file"] {
+      display: block;
+      margin: 10px auto;
+      padding: 10px;
+    }
+
+    .file-upload-container .file-info {
+      font-size: 14px;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    .password-match {
+      color: green;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .password-mismatch {
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .form-section {
+      background-color: white;
+      border-radius: 8px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .form-section h3 {
+      color: #d32f2f;
+      margin-top: 0;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #eee;
+    }
+
+    .instructions {
+      background-color: #e8f4fd;
+      border-left: 4px solid #254a93;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+    }
+
+    .instructions h4 {
+      margin-top: 0;
+      color: #254a93;
+    }
+
+    .instructions ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+
+    .instructions li {
+      margin-bottom: 5px;
+    }
+
+    /* Terms & Conditions Styling */
+    .terms-container {
+      background-color: #f8f9fa;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .terms-content {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .terms-content h4 {
+      color: #d32f2f;
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
+
+    .terms-content ul {
+      padding-left: 20px;
+      margin: 10px 0;
+    }
+
+    .terms-content li {
+      margin-bottom: 8px;
+    }
+
+    .terms-checkbox {
+      display: flex;
+      align-items: flex-start;
+      margin: 20px 0;
+      padding: 15px;
+      background-color: #f0f8ff;
+      border-radius: 8px;
+      border: 1px solid #cce7ff;
+    }
+
+    .terms-checkbox input[type="checkbox"] {
+      margin-right: 12px;
+      margin-top: 4px;
+      transform: scale(1.2);
+    }
+
+    .terms-checkbox label {
+      font-weight: normal;
+      cursor: pointer;
+      line-height: 1.5;
+    }
+
+    .terms-checkbox label a {
+      color: #254a93;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    .terms-checkbox label a:hover {
+      color: #d32f2f;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: 5% auto;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 800px;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #d32f2f;
+    }
+
+    .modal-header h3 {
+      color: #d32f2f;
+      margin: 0;
+    }
+
+    .close-modal {
+      background: #d32f2f;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .close-modal:hover {
+      background: #b71c1c;
+    }
+
+    .modal-body {
+      line-height: 1.6;
+    }
+
+    .modal-body h4 {
+      color: #254a93;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    .modal-body ul {
+      padding-left: 20px;
+      margin: 10px 0;
+    }
+
+    .modal-body li {
+      margin-bottom: 8px;
+    }
+
+    .read-more-btn {
+      background: none;
+      border: none;
+      color: #254a93;
+      text-decoration: underline;
+      cursor: pointer;
+      font-weight: bold;
+      padding: 0;
+      margin-left: 5px;
+    }
+
+    .read-more-btn:hover {
+      color: #d32f2f;
+    }
+
+    .btn-disabled {
+      background-color: #cccccc !important;
+      cursor: not-allowed !important;
+    }
+  </style>
+</head>
+<body>
+
+<header class="header-container">
+  <div class="header-logo">
+    <img src="images/logo.png" alt="Marshal Core Logo">
+  </div>
+  <div class="header-rc">
+    Certificate No: YA/CLB/10100
+  </div>
+  <div class="header-title">
+    Marshal Core Officer Verification Portal
+  </div>
+  <div class="header-subtitle">
+    For Existing Officers Only - No Payment Required
+  </div>
+</header>
+
+<!-- OFFICER VERIFICATION SECTION -->
+<section class="layout_padding section-container active-section" id="verificationSection">
+  <div class="container">
+    <div class="verification-banner">
+      <h3>🔍 Officer Verification Required</h3>
+      <p>As an existing officer, please verify your identity before proceeding with registration.</p>
+    </div>
+    
+    <div class="form-section">
+      <h2>Step 1: Officer Verification</h2>
+      <div id="statusMessage" class="status-message" style="display: none;"></div>
+      <form id="verificationForm" class="contact_form-container">
+        <div class="form-row">
+          <div class="form-col">
+            <label for="officerId" class="required">Officer ID / Service Number</label>
+            <input type="text" id="officerId" placeholder="Enter your Officer ID / Service Number" required />
+          </div>
+          <div class="form-col">
+            <label for="officerEmail" class="required">Official Email Address</label>
+            <input type="email" id="officerEmail" placeholder="Enter your official email" required />
+          </div>
+        </div>
+        <button type="submit">Verify Officer Identity</button>
+      </form>
+      <p id="verificationMessage"></p>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATION FORM SECTION -->
+<section class="layout_padding section-container" id="applicationFormSection">
+  <div class="container">
+    <div class="verification-banner" style="background-color: #4CAF50;">
+      <h3>✅ Officer Verified Successfully!</h3>
+      <p>Please complete your registration form below. Fields marked with * are required.</p>
+    </div>
+
+    <div class="form-section">
+      <h2>Step 2: Officer Registration Form</h2>
+      <div class="instructions">
+        <h4>📋 Instructions:</h4>
+        <ul>
+          <li>Fill in all required fields marked with *</li>
+          <li>Upload clear scans/photos of all documents</li>
+          <li>Ensure file sizes are under 5MB each</li>
+          <li>Accepted formats: PDF, JPG, PNG</li>
+        </ul>
+      </div>
+
+      <form id="applicationForm" enctype="multipart/form-data">
+
+        <!-- Personal Information Section -->
+        <div class="form-section">
+          <h3>📝 Personal Information</h3>
+          <div class="form-row">
+            <div class="form-col">
+              <label for="surname" class="required">Surname *</label>
+              <input type="text" id="surname" name="surname" placeholder="Enter your surname" required />
+            </div>
+            <div class="form-col">
+              <label for="first_name" class="required">First Name *</label>
+              <input type="text" id="first_name" name="first_name" placeholder="Enter your first name" required />
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-col">
+              <label for="other_name">Other Name (Optional)</label>
+              <input type="text" id="other_name" name="other_name" placeholder="Enter your other name" />
+            </div>
+            <div class="form-col">
+              <label for="date_of_birth" class="required">Date of Birth *</label>
+              <input type="date" id="date_of_birth" name="date_of_birth" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-col">
+              <label for="residential_address" class="required">Residential Address *</label>
+              <textarea id="residential_address" name="residential_address" rows="3" placeholder="Enter your full residential address" required></textarea>
+            </div>
+            <div class="form-col">
+              <label for="id_card_number" class="required">ID Card Number *</label>
+              <input type="text" id="id_card_number" name="id_card_number" placeholder="Enter your ID card number" required />
+            </div>
+          </div>
+        </div>
+
+        <!-- Service Information Section -->
+        <div class="form-section">
+          <h3>🎖️ Service Information</h3>
+          <div class="form-row">
+            <div class="form-col">
+              <label for="rank" class="required">Rank *</label>
+              <select id="rank" name="rank" required>
+                <option value="">Select Rank</option>
+                <option value="Assistant Director General">Assistant Director General</option>
+                <option value="Director">Director</option>
+                <option value="Deputy Director">Deputy Director</option>
+                <option value="Assistant Director">Assistant Director</option>
+                <option value="Superintendent of Marshal">Superintendent of Marshal</option>
+                <option value="Deputy Superintendent">Deputy Superintendent</option>
+                <option value="Assistant Marshal Officer I">Assistant Marshal Officer I</option>
+                <option value="Assistant Marshal Officer II">Assistant Marshal Officer II</option>
+                <option value="Senior Marshal Officer">Senior Marshal Officer</option>
+                <option value="Marshal Staff">Marshal Staff</option>
+                <option value="Marshal Sergeant">Marshal Sergeant</option>
+                <option value="Marshal Corporal">Marshal Corporal</option>
+                <option value="Marshal Lance Corporal">Marshal Lance Corporal</option>
+                <option value="Marshal Private">Marshal Private</option>
+              </select>
+            </div>
+            <div class="form-col">
+              <label for="appointment">Appointment (If Applicable)</label>
+              <input type="text" id="appointment" name="appointment" placeholder="Enter your appointment" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Information Section -->
+        <div class="form-section">
+          <h3>📞 Contact Information</h3>
+          <div class="form-row">
+            <div class="form-col">
+              <label for="email_address">Email Address</label>
+              <input type="email" id="email_address" name="email_address" placeholder="Enter your email address" />
+            </div>
+            <div class="form-col">
+              <label for="whatsapp_number">WhatsApp Number</label>
+              <input type="tel" id="whatsapp_number" name="whatsapp_number" placeholder="Enter your WhatsApp number" />
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-col">
+              <label for="mobile_number" class="required">Mobile Number *</label>
+              <input type="tel" id="mobile_number" name="mobile_number" placeholder="Enter your mobile number" required />
+            </div>
+          </div>
+        </div>
+
+        <!-- Document Uploads Section -->
+        <div class="form-section">
+          <h3>📄 Document Uploads</h3>
+          
+          <!-- Required Documents -->
+          <div class="instructions">
+            <h4>Required Documents (Must Upload):</h4>
+          </div>
+
+          <div class="form-row">
+            <div class="form-col">
+              <div class="file-upload-container">
+                <label for="nin_slip" class="required">Upload NIN Slip *</label>
+                <input type="file" id="nin_slip" name="nin_slip" accept=".pdf,.jpg,.jpeg,.png" required />
+                <div class="file-info">PDF, JPG, PNG (Max 5MB)</div>
+              </div>
+            </div>
+            <div class="form-col">
+              <div class="file-upload-container">
+                <label for="affidavit" class="required">Affidavit of Non-Membership of Secret Cult *</label>
+                <input type="file" id="affidavit" name="affidavit" accept=".pdf,.jpg,.jpeg,.png" required />
+                <div class="file-info">PDF, JPG, PNG (Max 5MB)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-col">
+              <div class="file-upload-container">
+                <label for="bio_data_form" class="required">Bio-Data Capturing Form *</label>
+                <input type="file" id="bio_data_form" name="bio_data_form" accept=".pdf,.jpg,.jpeg,.png" required />
+                <div class="file-info">PDF, JPG, PNG (Max 5MB)</div>
+              </div>
+            </div>
+            <div class="form-col">
+              <div class="file-upload-container">
+                <label for="gmail_forms" class="required">Gmail Forms (All Pages) *</label>
+                <input type="file" id="gmail_forms" name="gmail_forms" accept=".pdf,.jpg,.jpeg,.png" required />
+                <div class="file-info">PDF, JPG, PNG (Max 5MB)</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Optional Documents -->
+          <div class="instructions" style="background-color: #f0f0f0; border-left-color: #666;">
+            <h4>Additional Documents (Optional but Recommended):</h4>
+          </div>
+
+          <div class="form-row">
+            <div class="form-col">
+              <div class="file-upload-container">
+                <label for="application_form">Application Form</label>
+                <input type="file" id="application_form" name="application_form" accept=".pdf,.jpg,.jpeg,.png" />
+                <div class="file-info">PDF, JPG, PNG (Max 5MB)</div>
+              </div>
+            </div>
+            <div class="form-col">
+              <div class="file-upload-container">
+                <label for="educational_certificates">Educational Certificates</label>
+                <input type="file" id="educational_certificates" name="educational_certificates" accept=".pdf,.jpg,.jpeg,.png" multiple />
+                <div class="file-info">WAEC, NECO, Primary Six, LGA Certificate, Higher Education (PDF, JPG, PNG)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-col">
+              <div class="file-upload-container">
+                <label for="appointment_letter">Appointment Letter</label>
+                <input type="file" id="appointment_letter" name="appointment_letter" accept=".pdf,.jpg,.jpeg,.png" />
+                <div class="file-info">PDF, JPG, PNG (Max 5MB)</div>
+              </div>
+            </div>
+            <div class="form-col">
+              <div class="file-upload-container">
+                <label for="certificate_participation">Certificate of Participation</label>
+                <input type="file" id="certificate_participation" name="certificate_participation" accept=".pdf,.jpg,.jpeg,.png" />
+                <div class="file-info">PDF, JPG, PNG (Max 5MB)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-col">
+              <div class="file-upload-container">
+                <label for="certificate_course">Certificate of Course Attendance</label>
+                <input type="file" id="certificate_course" name="certificate_course" accept=".pdf,.jpg,.jpeg,.png" />
+                <div class="file-info">PDF, JPG, PNG (Max 5MB)</div>
+              </div>
+            </div>
+            <div class="form-col">
+              <div class="file-upload-container">
+                <label for="marshal_id_card">Marshal Identity Card (Front & Back)</label>
+                <input type="file" id="marshal_id_card" name="marshal_id_card" accept=".pdf,.jpg,.jpeg,.png" multiple />
+                <div class="file-info">Upload both front and back sides (Max 5MB each)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Account Security Section -->
+        <div class="form-section">
+          <h3>🔐 Account Security</h3>
+          <div class="form-row">
+            <div class="form-col">
+              <label for="password" class="required">Create Password *</label>
+              <input type="password" id="password" name="password" placeholder="Create a strong password" required />
+            </div>
+            <div class="form-col">
+              <label for="confirm_password" class="required">Re-enter Password *</label>
+              <input type="password" id="confirm_password" name="confirm_password" placeholder="Re-enter your password" required />
+              <div id="passwordMatchMessage" class="password-mismatch"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TERMS & CONDITIONS SECTION -->
+        <div class="form-section">
+          <h3>📜 Terms & Conditions Agreement</h3>
+          
+          <div class="terms-container">
+            <div class="terms-content" id="termsContent">
+              <h4>Marshal Core of Nigeria - Terms of Service</h4>
+              <p><strong>Effective Date:</strong> March 19, 2025</p>
+              
+              <h4>1. Acceptance of Terms</h4>
+              <p>By registering as an officer of Marshal Core of Nigeria, you agree to be bound by these Terms of Service and all applicable laws and regulations.</p>
+              
+              <h4>2. Officer Responsibilities</h4>
+              <ul>
+                <li>Maintain the highest standards of discipline and professionalism</li>
+                <li>Protect lives and property in accordance with Nigerian laws</li>
+                <li>Uphold the integrity and reputation of Marshal Core at all times</li>
+                <li>Participate in training and development programs as required</li>
+                <li>Report any misconduct or security breaches immediately</li>
+              </ul>
+              
+              <h4>3. Code of Conduct</h4>
+              <ul>
+                <li>Zero tolerance for corruption, bribery, or unethical behavior</li>
+                <li>Strict adherence to chain of command and organizational hierarchy</li>
+                <li>Professional appearance and conduct at all times</li>
+                <li>Confidentiality of sensitive information</li>
+                <li>Respect for human rights and dignity</li>
+              </ul>
+              
+              <h4>4. Consequences of Misconduct</h4>
+              <p>Violation of these terms may result in:</p>
+              <ul>
+                <li>Immediate suspension or dismissal</li>
+                <li>Legal prosecution under Nigerian law</li>
+                <li>Forfeiture of benefits and privileges</li>
+                <li>Disciplinary action including demotion or retraining</li>
+              </ul>
+              
+              <h4>5. Property Return Agreement</h4>
+              <p>Upon termination of service, all Marshal Core property including identification cards, uniforms, equipment, and documents must be returned within 7 days.</p>
+              
+              <p><em>By checking the box below, you acknowledge that you have read, understood, and agree to be bound by these Terms & Conditions.</em></p>
+            </div>
+          </div>
+          
+          <div class="terms-checkbox">
+            <input type="checkbox" id="agreeTerms" name="agreeTerms" required />
+            <label for="agreeTerms">
+              I have read and agree to the Terms & Conditions of Marshal Core of Nigeria. 
+              I understand the consequences of misconduct including dismissal and legal prosecution. 
+              <button type="button" class="read-more-btn" onclick="openFullTerms()">Read Full Terms</button>
+            </label>
+          </div>
+        </div>
+
+        <!-- Hidden fields -->
+        <input type="hidden" id="verified_officer_id" name="verified_officer_id" />
+        <input type="hidden" id="verified_officer_email" name="verified_officer_email" />
+        <input type="hidden" name="user_type" value="existing_officer" />
+
+        <!-- Submit Button -->
+        <div class="form-section" style="text-align: center; background-color: #f9f9f9;">
+          <button type="submit" id="submitBtn" style="width: auto; padding: 15px 50px;">
+            Submit Officer Registration
+          </button>
+          <p style="margin-top: 15px; color: #666; font-size: 14px;">
+            By submitting, you confirm that all information provided is accurate and complete.
+          </p>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Terms Modal -->
+<div id="termsModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>📜 Marshal Core of Nigeria - Full Terms & Conditions</h3>
+      <button class="close-modal" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <h4>Complete Terms of Service Agreement</h4>
+      
+      <h4>Article 1: Definitions</h4>
+      <p><strong>1.1</strong> "Marshal Core" refers to Marshal Core of Nigeria, a registered security organization.</p>
+      <p><strong>1.2</strong> "Officer" refers to any registered member of Marshal Core of Nigeria.</p>
+      <p><strong>1.3</strong> "Service" refers to duties performed under Marshal Core authority.</p>
+      
+      <h4>Article 2: Officer Obligations</h4>
+      <p><strong>2.1</strong> All officers must maintain valid identification and certification.</p>
+      <p><strong>2.2</strong> Officers shall undergo regular training and assessment.</p>
+      <p><strong>2.3</strong> Compliance with all Nigerian laws and regulations is mandatory.</p>
+      
+      <h4>Article 3: Disciplinary Procedures</h4>
+      <p><strong>3.1</strong> Minor infractions: Written warning and retraining.</p>
+      <p><strong>3.2</strong> Major violations: Suspension without pay pending investigation.</p>
+      <p><strong>3.3</strong> Criminal activities: Immediate dismissal and legal prosecution.</p>
+      
+      <h4>Article 4: Confidentiality</h4>
+      <p><strong>4.1</strong> All operational information is classified.</p>
+      <p><strong>4.2</strong> Unauthorized disclosure may result in prosecution.</p>
+      <p><strong>4.3</strong> Social media posting about operations is prohibited.</p>
+      
+      <h4>Article 5: Benefits and Entitlements</h4>
+      <p><strong>5.1</strong> Benefits are contingent on satisfactory service.</p>
+      <p><strong>5.2</strong> Pension and gratuity governed by organizational policy.</p>
+      <p><strong>5.3</strong> Medical coverage requires active service status.</p>
+      
+      <h4>Article 6: Termination</h4>
+      <p><strong>6.1</strong> Voluntary resignation requires 30 days notice.</p>
+      <p><strong>6.2</strong> Dismissal for cause is immediate.</p>
+      <p><strong>6.3</strong> All organizational property must be returned.</p>
+      
+      <h4>Article 7: Legal Jurisdiction</h4>
+      <p><strong>7.1</strong> These terms are governed by Nigerian law.</p>
+      <p><strong>7.2</strong> Disputes shall be settled in Edo State courts.</p>
+      <p><strong>7.3</strong> Officer agrees to submit to Nigerian legal jurisdiction.</p>
+      
+      <div class="terms-checkbox" style="margin-top: 30px;">
+        <input type="checkbox" id="modalAgree" name="modalAgree" />
+        <label for="modalAgree">I have read and understand the full Terms & Conditions</label>
+      </div>
+      
+      <div style="text-align: center; margin-top: 20px;">
+        <button onclick="closeModal()" style="background: #d32f2f; color: white; border: none; padding: 10px 30px; border-radius: 5px; cursor: pointer;">
+          Close and Return to Form
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer_section">
+  <div class="container">
+    <p>&copy; 2025 Marshal Core Of Nigeria Limited. <br>All rights reserved.</p>
+  </div>
+</footer>
+
+<div class="page-loader" id="pageLoader">Loading...</div>
+
+<script>
+window.onload = () => {
+  const verificationForm = document.getElementById("verificationForm");
+  const applicationForm = document.getElementById("applicationForm");
+  const pageLoader = document.getElementById("pageLoader");
+  const statusMessage = document.getElementById("statusMessage");
+  const verificationMessage = document.getElementById("verificationMessage");
+  const passwordInput = document.getElementById("password");
+  const confirmPasswordInput = document.getElementById("confirm_password");
+  const passwordMatchMessage = document.getElementById("passwordMatchMessage");
+  const submitBtn = document.getElementById("submitBtn");
+  const agreeTermsCheckbox = document.getElementById("agreeTerms");
+
+  // Your backend URL
+  const API_BASE_URL = 'https://backend-mcn-ltd.onrender.com';
+  
+  // Endpoints for existing officers
+  const OFFICER_VERIFY_ENDPOINT = `${API_BASE_URL}/api/existing-officers/verify`;
+  const OFFICER_REGISTER_ENDPOINT = `${API_BASE_URL}/api/existing-officers/register`;
+
+  let verifiedOfficerId = "";
+  let verifiedOfficerEmail = "";
+
+  // Modal functions
+  function openFullTerms() {
+    document.getElementById('termsModal').style.display = 'block';
+  }
+
+  function closeModal() {
+    document.getElementById('termsModal').style.display = 'none';
+  }
+
+  // Close modal when clicking outside
+  window.onclick = function(event) {
+    const modal = document.getElementById('termsModal');
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  // Password match validation
+  function validatePasswordMatch() {
+    const password = passwordInput.value;
+    const confirmPassword = confirmPasswordInput.value;
+    
+    if (password === "" && confirmPassword === "") {
+      passwordMatchMessage.textContent = "";
+      passwordMatchMessage.className = "";
+      return false;
+    }
+    
+    if (password === confirmPassword) {
+      passwordMatchMessage.textContent = "✓ Passwords match";
+      passwordMatchMessage.className = "password-match";
+      return true;
+    } else {
+      passwordMatchMessage.textContent = "✗ Passwords do not match";
+      passwordMatchMessage.className = "password-mismatch";
+      return false;
+    }
+  }
+
+  // Add event listeners for password validation
+  passwordInput.addEventListener('input', validatePasswordMatch);
+  confirmPasswordInput.addEventListener('input', validatePasswordMatch);
+
+  // Utility functions
+  function showLoader() {
+    pageLoader.style.display = "flex";
+  }
+
+  function hideLoader() {
+    pageLoader.style.display = "none";
+  }
+
+  function showSection(sectionId) {
+    document.querySelectorAll('.section-container').forEach(section => {
+      section.classList.remove('active-section');
+    });
+    document.getElementById(sectionId).classList.add('active-section');
+    window.scrollTo(0, 0);
+  }
+
+  function showStatusMessage(message, isError = false) {
+    statusMessage.textContent = message;
+    statusMessage.style.display = 'block';
+    statusMessage.style.color = isError ? 'red' : 'green';
+    statusMessage.style.borderLeftColor = isError ? 'red' : 'green';
+  }
+
+  function hideStatusMessage() {
+    statusMessage.style.display = 'none';
+  }
+
+  function showVerificationMessage(message, isError = false) {
+    verificationMessage.textContent = message;
+    verificationMessage.style.color = isError ? 'red' : 'green';
+  }
+
+  // Parse response
+  async function parseResponse(res) {
+    const text = await res.text();
+    try {
+      return JSON.parse(text);
+    } catch (e) {
+      console.warn("Non-JSON response received:", text);
+      return { error: text };
+    }
+  }
+
+  // Handle officer verification
+  verificationForm.addEventListener("submit", async function(e) {
+    e.preventDefault();
+    
+    const officerId = document.getElementById("officerId").value.trim();
+    const officerEmail = document.getElementById("officerEmail").value.trim();
+    
+    hideStatusMessage();
+    showVerificationMessage("");
+
+    if (!officerId || !officerEmail) {
+      showVerificationMessage("⚠️ Both Officer ID and Email are required.", true);
+      return;
+    }
+
+    try {
+      showLoader();
+      
+      // Verify officer with backend
+      const verifyRes = await fetch(OFFICER_VERIFY_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ 
+          officer_id: officerId, 
+          email: officerEmail
+        })
+      });
+      
+      const verifyData = await parseResponse(verifyRes);
+      
+      if (!verifyRes.ok) {
+        hideLoader();
+        showVerificationMessage(verifyData?.detail || verifyData?.error || "❌ Officer verification failed. Please check your credentials.", true);
+        return;
+      }
+
+      // Officer verified successfully
+      verifiedOfficerId = officerId;
+      verifiedOfficerEmail = officerEmail;
+      
+      // Store in hidden fields
+      document.getElementById("verified_officer_id").value = officerId;
+      document.getElementById("verified_officer_email").value = officerEmail;
+      
+      // Pre-fill email in form if email field is empty
+      const emailField = document.getElementById("email_address");
+      if (!emailField.value) {
+        emailField.value = officerEmail;
+      }
+      
+      hideLoader();
+      showVerificationMessage("✅ Officer verified successfully! Loading registration form...", false);
+      
+      // Show registration form after delay
+      setTimeout(() => {
+        showSection("applicationFormSection");
+      }, 1500);
+
+    } catch (err) {
+      hideLoader();
+      console.error("Officer verification error:", err);
+      showVerificationMessage("❌ Network error. Please check your connection and try again.", true);
+    }
+  });
+
+  // Handle officer registration
+  applicationForm.addEventListener("submit", async function(e) {
+    e.preventDefault();
+    
+    // Validate Terms & Conditions
+    if (!agreeTermsCheckbox.checked) {
+      alert("❌ You must agree to the Terms & Conditions to proceed.");
+      agreeTermsCheckbox.focus();
+      return;
+    }
+
+    // Validate passwords match
+    if (!validatePasswordMatch()) {
+      alert("❌ Passwords do not match. Please check and try again.");
+      return;
+    }
+
+    // Check if officer was verified
+    if (!verifiedOfficerId || !verifiedOfficerEmail) {
+      alert("❌ Please complete officer verification first.");
+      showSection("verificationSection");
+      return;
+    }
+
+    // Validate required fields
+    const requiredFields = [
+      'surname', 'first_name', 'date_of_birth', 'residential_address',
+      'id_card_number', 'rank', 'mobile_number', 'password', 'confirm_password'
+    ];
+    
+    for (const fieldId of requiredFields) {
+      const field = document.getElementById(fieldId);
+      if (!field.value.trim()) {
+        alert(`❌ Please fill in the required field: ${field.previousElementSibling?.textContent || fieldId}`);
+        field.focus();
+        return;
+      }
+    }
+
+    // Validate required file uploads
+    const requiredFiles = ['nin_slip', 'affidavit', 'bio_data_form', 'gmail_forms'];
+    for (const fileId of requiredFiles) {
+      const fileInput = document.getElementById(fileId);
+      if (!fileInput.files || fileInput.files.length === 0) {
+        alert(`❌ Please upload the required file: ${fileInput.previousElementSibling?.textContent || fileId}`);
+        return;
+      }
+    }
+
+    // Check file sizes (max 5MB)
+    const allFileInputs = applicationForm.querySelectorAll('input[type="file"]');
+    for (const fileInput of allFileInputs) {
+      if (fileInput.files && fileInput.files.length > 0) {
+        for (const file of fileInput.files) {
+          if (file.size > 5 * 1024 * 1024) { // 5MB
+            alert(`❌ File "${file.name}" is too large. Maximum size is 5MB.`);
+            return;
+          }
+        }
+      }
+    }
+
+    // Disable submit button and show loader
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = 'Submitting...';
+    submitBtn.classList.add('btn-disabled');
+    showLoader();
+
+    try {
+      // Create FormData object
+      const formData = new FormData(applicationForm);
+      
+      // Add verification data
+      formData.append('officer_id', verifiedOfficerId);
+      formData.append('verified_email', verifiedOfficerEmail);
+      formData.append('registration_date', new Date().toISOString());
+      formData.append('agree_terms', 'true');
+      
+      // Submit to backend
+      const registerRes = await fetch(OFFICER_REGISTER_ENDPOINT, {
+        method: "POST",
+        body: formData
+      });
+      
+      const registerData = await parseResponse(registerRes);
+      
+      if (!registerRes.ok) {
+        hideLoader();
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Submit Officer Registration';
+        submitBtn.classList.remove('btn-disabled');
+        alert(registerData?.detail || registerData?.error || "❌ Registration failed. Please try again.");
+        return;
+      }
+
+      // Success!
+      hideLoader();
+      
+      // Show success message
+      alert(`🎉 Officer Registration Successful!\n\nYour information has been saved to the database.\n\nRegistration ID: ${registerData.registration_id || verifiedOfficerId}\n\nThank you for agreeing to our Terms & Conditions.`);
+      
+      // Reset forms and go back to verification
+      verificationForm.reset();
+      applicationForm.reset();
+      verifiedOfficerId = "";
+      verifiedOfficerEmail = "";
+      passwordMatchMessage.textContent = "";
+      agreeTermsCheckbox.checked = false;
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Submit Officer Registration';
+      submitBtn.classList.remove('btn-disabled');
+      showSection("verificationSection");
+
+    } catch (err) {
+      hideLoader();
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Submit Officer Registration';
+      submitBtn.classList.remove('btn-disabled');
+      console.error("Registration error:", err);
+      alert("❌ Network error during registration. Please check your connection and try again.");
+    }
+  });
+
+  // Fallback verification for development/testing
+  async function handleOfficerVerificationFallback(e) {
+    e.preventDefault();
+    
+    const officerId = document.getElementById("officerId").value.trim();
+    const officerEmail = document.getElementById("officerEmail").value.trim();
+    
+    hideStatusMessage();
+    showVerificationMessage("");
+
+    if (!officerId || !officerEmail) {
+      showVerificationMessage("⚠️ Both Officer ID and Email are required.", true);
+      return;
+    }
+
+    showLoader();
+    
+    // Simulate API call delay
+    setTimeout(() => {
+      // For demo purposes, accept any officer ID that contains "MCN" and valid email
+      if (officerId && officerEmail.includes("@")) {
+        verifiedOfficerId = officerId;
+        verifiedOfficerEmail = officerEmail;
+        
+        // Store in hidden fields
+        document.getElementById("verified_officer_id").value = officerId;
+        document.getElementById("verified_officer_email").value = officerEmail;
+        
+        // Pre-fill email in form
+        const emailField = document.getElementById("email_address");
+        if (!emailField.value) {
+          emailField.value = officerEmail;
+        }
+        
+        hideLoader();
+        showVerificationMessage("✅ Officer verified successfully! Loading registration form...", false);
+        
+        // Show registration form after delay
+        setTimeout(() => {
+          showSection("applicationFormSection");
+        }, 1500);
+      } else {
+        hideLoader();
+        showVerificationMessage("❌ Invalid Officer ID or Email format. Please check your credentials.", true);
+      }
+    }, 1000);
+  }
+
+  // If backend is not ready, uncomment the line below to use fallback verification
+  // verificationForm.addEventListener("submit", handleOfficerVerificationFallback);
+};
+</script>
+
+</body>
+</html>

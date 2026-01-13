@@ -360,25 +360,6 @@ carousel-item {
   background-size: cover;
 }
 
-.service_img-container .service_img-box.i-box-1 {
-  width: 60%;
-  background-image: url(../images/bank.jpeg);
-}
-
-.service_img-container .service_img-box.i-box-2 {
-  width: 40%;
-  background-image: url(../images/society.jpeg);
-}
-
-.service_img-container .service_img-box.i-box-3 {
-  width: 40%;
-  background-image: url(../images/hotel.jpg);
-}
-
-.service_img-container .service_img-box.i-box-4 {
-  width: 60%;
-  background-image: url(../images/house.jpg);
-}
 
 .service_section .service_img-container a,
 .service_section .service_img-container a:hover {
@@ -457,29 +438,7 @@ carousel-item {
   z-index: 999;
 }
 
-.security_section .security_img-box.i-box-1 {
-  background-image: url(../images/s01.jpg);
-}
 
-.security_section .security_img-box.i-box-2 {
-  background-image: url(../images/esct.jpg);
-}
-
-.security_section .security_img-box.i-box-3 {
-  background-image: url(../images/security-3.jpg);
-}
-
-.security_section .security_img-box.i-box-4 {
-  background-image: url(../images/security-4.jpg);
-}
-
-.security_section .security_img-box.i-box-5 {
-  background-image: url(../images/security-5.jpg);
-}
-
-.security_section .security_img-box.i-box-6 {
-  background-image: url(../images/security-6.jpg);
-}
 
 
 .security_section .security_img-box a {
@@ -1110,4 +1069,52 @@ carousel-item {
 
 }
 
+/* FULL WIDTH CONTACT FIX */
+.contact_fullwidth {
+  background: #f5f5f5;
+  padding: 80px 0 100px;
+}
+
+.contact_box_full {
+  width: 100%;
+  padding: 50px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.contact_box_full h3 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.contact_box_full .form-control {
+  height: 55px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  padding: 12px 15px;
+}
+
+.contact_box_full textarea {
+  height: auto;
+}
+
+.contact_btn {
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  color: #fff;
+  padding: 14px 50px;
+  border-radius: 50px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(106,142,251,0.4);
+  transition: 0.3s ease;
+}
+
+.contact_btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(106,142,251,0.6);
+}
 

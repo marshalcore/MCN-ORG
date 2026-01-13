@@ -8,11 +8,11 @@
   <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <!-- Site Metas -->
-  <meta name="keywords" content="MARSHAL CORE OF NIGERIA LIMITED" />
-  <meta name="description" content="MARSHAL CORE OF NIGERIA LIMITED" />
-  <meta name="author" content="MARSHAL CORE OF NIGERIA LIMITED" />
+  <meta name="keywords" content="MARSHAL CORE OF NIGERIA" />
+  <meta name="description" content="MARSHAL CORE OF NIGERIA" />
+  <meta name="author" content="MARSHAL CORE OF NIGERIA" />
 
-  <title>MCN-LTD</title>
+  <title>MCN-ORG | About Us</title>
 
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css"
@@ -24,10 +24,433 @@
   <!-- fonts style -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto:400,500&display=swap"
     rel="stylesheet" />
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
+  
+  <style>
+    /* Founder Section Styles - COMPLETELY REVISED for better layout */
+    .founder-section {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 40px 20px;
+      margin: 40px auto;
+      border-radius: 15px;
+      max-width: 1200px;
+      width: 95%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    
+    .founder-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    
+    .founder-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .founder-header h2 {
+      color: #d32f2f;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .founder-header h2:after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 4px;
+      background: #254a93;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+    
+    .founder-header p {
+      color: #666;
+      font-size: 1rem;
+      max-width: 700px;
+      margin: 20px auto 0;
+      line-height: 1.6;
+    }
+    
+    /* NEW: Main content grid with 3 columns */
+    .founder-content {
+      display: grid;
+      grid-template-columns: 350px 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+    
+    /* Founder Image Column */
+    .founder-image-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .founder-img-container {
+      text-align: center;
+      background: white;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    
+    .founder-img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 10px;
+      border: 5px solid white;
+    }
+    
+    /* Personal Details Card */
+    .personal-card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      border-top: 4px solid #254a93;
+    }
+    
+    .personal-card h4 {
+      color: #254a93;
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .personal-card p {
+      margin-bottom: 8px;
+      color: #333;
+      line-height: 1.5;
+    }
+    
+    .personal-card strong {
+      color: #d32f2f;
+      font-weight: 600;
+      min-width: 120px;
+      display: inline-block;
+    }
+    
+    /* Founder Details Column */
+    .founder-details-col {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+    
+    .founder-header-info {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      border-left: 4px solid #d32f2f;
+    }
+    
+    .founder-name {
+      color: #d32f2f;
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+      font-weight: 700;
+    }
+    
+    .founder-title {
+      color: #254a93;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    
+    .founder-bio {
+      line-height: 1.7;
+      color: #444;
+    }
+    
+    .founder-bio p {
+      margin-bottom: 12px;
+    }
+    
+    /* Para-Military Card */
+    .paramilitary-card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      border-top: 4px solid #254a93;
+    }
+    
+    .paramilitary-card h4 {
+      color: #254a93;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .paramilitary-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    
+    .paramilitary-item {
+      margin-bottom: 12px;
+    }
+    
+    .paramilitary-item strong {
+      color: #d32f2f;
+      font-weight: 600;
+      min-width: 140px;
+      display: inline-block;
+    }
+    
+    /* UPDATED: Service Record - Now Horizontal Rectangle */
+    .service-record {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      border-top: 4px solid #d32f2f;
+      grid-column: 1 / -1; /* Spans full width */
+      margin-top: 10px;
+    }
+    
+    .service-record h3 {
+      color: #d32f2f;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #eee;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    
+    .service-column {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .service-item {
+      padding: 15px;
+      background: #f9f9f9;
+      border-radius: 8px;
+      border-left: 4px solid #4CAF50;
+    }
+    
+    .service-item strong {
+      color: #254a93;
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+    
+    .service-item ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+    
+    .service-item li {
+      margin-bottom: 5px;
+      position: relative;
+      padding-left: 15px;
+      color: #555;
+    }
+    
+    .service-item li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #254a93;
+      font-weight: bold;
+    }
+    
+    /* Social Links */
+    .social-links {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      margin-top: 10px;
+    }
+    
+    .social-links > p {
+      color: #666;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+    }
+    
+    .social-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #333;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+    }
+    
+    .social-link:hover {
+      transform: translateY(-5px) scale(1.1);
+      text-decoration: none;
+    }
+    
+    .social-link.facebook { background: #3b5998; }
+    .social-link.twitter { background: #000000; }
+    .social-link.instagram { background: linear-gradient(45deg, #405DE6, #833AB4, #C13584, #E1306C, #FD1D1D); }
+    .social-link.whatsapp { background: #25D366; }
+    .social-link.linkedin { background: #0077B5; }
+    
+    /* Read More Button Styles */
+    .read-more-container {
+      text-align: center;
+      margin: 30px 0;
+    }
+    
+    .btn-read-more {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #6e8efb 0%, #a777e3 100%);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 17px;
+      box-shadow: 0 4px 15px rgba(106, 142, 251, 0.3);
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn-read-more:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(106, 142, 251, 0.4);
+      text-decoration: none;
+      color: white;
+    }
+    
+    .btn-read-more:active {
+      transform: translateY(-1px);
+    }
+    
+    .btn-read-more span {
+      margin-right: 10px;
+    }
+    
+    .btn-read-more img {
+      transition: transform 0.3s ease;
+    }
+    
+    .btn-read-more:hover img {
+      transform: translateX(4px);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .founder-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+      
+      .founder-image-col {
+        order: 1;
+      }
+      
+      .founder-details-col {
+        order: 2;
+      }
+      
+      .founder-img {
+        max-width: 300px;
+      }
+      
+      .paramilitary-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .founder-section {
+        padding: 30px 15px;
+        margin: 30px auto;
+        width: 100%;
+        border-radius: 10px;
+      }
+      
+      .founder-header h2 {
+        font-size: 1.8rem;
+      }
+      
+      .founder-name {
+        font-size: 1.6rem;
+      }
+      
+      .founder-title {
+        font-size: 1.1rem;
+      }
+      
+      .personal-card, .paramilitary-card, .service-record, .social-links {
+        padding: 20px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .founder-section {
+        padding: 25px 12px;
+        margin: 25px auto;
+      }
+      
+      .founder-header h2 {
+        font-size: 1.6rem;
+      }
+      
+      .btn-read-more {
+        padding: 12px 24px;
+        font-size: 16px;
+      }
+      
+      .paramilitary-item strong {
+        min-width: 120px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -36,7 +459,7 @@
     <div class="container">
       <nav class="navbar navbar-expand-lg custom_nav-container ">
         <a class="navbar-brand" href="#">
-          <span class="rc-number">RC: 8405988</span>
+          <span class="rc-number">Certificate No: YA/CLB/10100</span>
           <div class="logo_box">
             <img src="images/logo.png" alt="" />
           </div>
@@ -48,11 +471,11 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mr-2">
-            <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-            </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us </a>
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="about.html">About Us <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="service.html">Services</a>
@@ -84,130 +507,260 @@
       <div class="row">
         <div class=" col-md-6">
           <div>
-            <img class="img-fluid" src="images/Dg.jpg" alt="" />
+            <img class="img-fluid" src="images/sob-1.jpg" alt="" />
           </div>
-          </div>
+        </div>
         <div class=" col-md-6">
           <div class="welcome_detail">
             <h3>About</h3>
-          <h2>The Marshal Core of Nigeria Limited</h2>
-        <p>The <strong>Marshal Core of Nigeria Limited</strong> was founded on <strong>March 19, 2025</strong>, by <strong>Director General Oseoboh Joshua Eromonsele</strong> of the <strong>Nigeria Police Force (NPF)</strong>. The organization is structured into three key divisions:</p>
-        <ul>
-          <li><strong>Marshal Board Committee (MBC)</strong></li>
-          <li><strong>Marshal Board of Trustees (MBT)</strong></li>
-          <li><strong>Marshal Core of Nigeria (MCN)</strong></li>
-        </ul>
-        <p>The <strong>MBC</strong> and <strong>MBT</strong> are responsible for overseeing and directing the affairs of the organization.</p>
-        <h4>Aims and Objectives</h4>
-        <ul>
-          <li><strong>(a)</strong> To promote social and economic development by engaging members and volunteers in collaborative initiatives with government agencies, schools, non-profit organizations, and NGOs—aimed at productively engaging Nigerian youth.</li>
-          <li><strong>(b)</strong> To empower Nigerian youths by creating job opportunities and providing alternative employment pathways.</li>
-          <li><strong>(c)</strong> To instill strong moral values, patriotism, volunteerism, and a commitment to community service and nation-building among young Nigerians.</li>
-          <li><strong>(d)</strong> To train and equip youths with skills in education, conflict resolution, reconciliation, and confidence-building.</li>
-          <li><strong>(e)</strong> To offer youth-focused orientation and engage them in essential community services, including:
-      </div>
-    </div>
-    <!-- Continue content after image row -->
-    <div class="row mt-4">
-      <div class="col-12">
-        <ul>
-              <li><strong>(i)</strong> Participation in public health initiatives such as immunization drives, census activities, and sanitation campaigns, especially in urban centers and local government capitals.</li>
-              <li><strong>(ii)</strong> Distribution of refuse bins, wastebaskets, and portable waste bags in public facilities, buses, and schools to reduce environmental pollution.</li>
-              <li><strong>(iii)</strong> Assisting in planting economic trees and engaging in environmental conservation programs.</li>
-              <li><strong>(iv)</strong> Supporting crowd control during public events and contributing to neighborhood watch efforts to help improve community security.</li>
+            <h2>The Marshal Core of Nigeria</h2>
+            <p>The <strong>Marshal Core of Nigeria </strong> was founded on <strong>March 19, 2025</strong>, by <strong>Director General Oseoboh Joshua Eromonsele</strong> of the <strong>Nigeria Police Force (NPF)</strong>. The organization is structured into three key divisions:</p>
+            <ul>
+              <li><strong>Marshal Board Committee (MBC)</strong></li>
+              <li><strong>Marshal Board of Trustees (MBT)</strong></li>
+              <li><strong>Marshal Core of Nigeria (MCN)</strong></li>
             </ul>
-          </li>
-          <li><strong>(f)</strong> To establish a centralized database of trained, qualified professionals and non-professional youths, providing accessible manpower for national development.</li>
-        </ul>
-        <h4>Duties and Responsibilities of Marshal Core Officers</h4>
-        <ul>
-          <li>Maintaining law and order</li>
-          <li>Protecting lives and property</li>
-          <li>Providing private security services</li>
-          <li>Creating job opportunities for citizens</li>
-          <li>Supporting federal government security efforts in enforcing peace and order within society</li>
-        </ul>
-
-        <h4>History and Symbols</h4>
-        <ul>
-          <li><strong>Logo:</strong> Designed by Director General Oseoboh Joshua Eromonsele (NPF/MBC)</li>
-          <li><strong>Flag:</strong> Designed by Director General Oseoboh Joshua Eromonsele (NPF/MBC)</li>
-          <li><strong>Motto:</strong> "Always Ready" — by Director General Oseoboh Joshua Eromonsele (NPF/MBC)</li>
-          <li><strong>Constitution:</strong> Established on <strong>April 23, 2025,</strong> by <strong>Director General Oseoboh Joshua Eromonsele (NPF/MBC)</strong> </li>
-        </ul>
-        <strong><h4>Marshal Day</h4></strong> 
-        <p><strong>March 19</strong> is officially celebrated every year as <strong>Marshal Day</strong>.</p>
-
-        <h4>Flag Description and Identity</h4>
-        <p>The Marshal Core flag features a bold red and deep navy blue bisection, sharply divided diagonally, housing the organization’s insignia at its heart.
-<br>
-<strong>Color Meanings:</strong> 
-<br>
-<strong>🔴 Red –</strong>  Symbolizes courage, valor, and sacrifice. It reflects the bravery of every officer and the burning passion to uphold justice and national peace.
-<br>
-
-<strong>🔵 Navy Blue –</strong>  Represents discipline, loyalty, and authority. It speaks to the structured system of command, honor, and service that guides every Marshal.
-<br>
-<strong>Core Emblem:</strong> 
-<br>
-<strong>🛡️ Shield & Scales –</strong> Justice, protection, and moral authority.
-<br>
-
-<strong> 🕊️ Eagle atop –</strong> National sovereignty and readiness to rise above challenges.
-<br>
-
-<strong>🌿 Laurel Wreath –</strong> Honor and victory earned through service.
-</p>
-
-<!-- Image only, centered, no visible container lines -->
-  <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="images/flag.jpg" alt="Senior Officer Badge" style="display: block; max-width: 100%; height: auto;" />
-  </div>
-
-  <!-- Label below image -->
-  <p style="font-weight: bold; color: #254a93; margin-top: 10px;">
-    The Marshal Core Flag
-
-        
-
-        
+            <p>The <strong>MBC</strong> and <strong>MBT</strong> are responsible for overseeing and directing the affairs of the organization.</p>
+            <h4>Aims and Objectives</h4>
+            <ul>
+              <li><strong>(a)</strong> To promote social and economic development by engaging members and volunteers in collaborative initiatives with government agencies, schools, non-profit organizations, and NGOs—aimed at productively engaging Nigerian youth.</li>
+              <li><strong>(b)</strong> To empower Nigerian youths by creating job opportunities and providing alternative employment pathways.</li>
+              <li><strong>(c)</strong> To instill strong moral values, patriotism, volunteerism, and a commitment to community service and nation-building among young Nigerians.</li>
+              <li><strong>(d)</strong> To train and equip youths with skills in education, conflict resolution, reconciliation, and confidence-building.</li>
+              <li><strong>(e)</strong> To offer youth-focused orientation and engage them in essential community services, including:</li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+      
+      <!-- Continue content after image row -->
+      <div class="row mt-4">
+        <div class="col-12">
+          <ul>
+            <li><strong>(i)</strong> Participation in public health initiatives such as immunization drives, census activities, and sanitation campaigns, especially in urban centers and local government capitals.</li>
+            <li><strong>(ii)</strong> Distribution of refuse bins, wastebaskets, and portable waste bags in public facilities, buses, and schools to reduce environmental pollution.</li>
+            <li><strong>(iii)</strong> Assisting in planting economic trees and engaging in environmental conservation programs.</li>
+            <li><strong>(iv)</strong> Supporting crowd control during public events and contributing to neighborhood watch efforts to help improve community security.</li>
+          </ul>
+          
+          <ul>
+            <li><strong>(f)</strong> To establish a centralized database of trained, qualified professionals and non-professional youths, providing accessible manpower for national development.</li>
+          </ul>
+          
+          <h4>Duties and Responsibilities of Marshal Core Officers</h4>
+          <ul>
+            <li>Maintaining law and order</li>
+            <li>Protecting lives and property</li>
+            <li>Providing private security services</li>
+            <li>Creating job opportunities for citizens</li>
+            <li>Supporting federal government security efforts in enforcing peace and order within society</li>
+          </ul>
 
-  </p>
-  <div class="welcome_detail-btn">
-              <a href="mcnlbc.html" style="
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                background: linear-gradient(135deg, #6e8efb 0%, #a777e3 100%);
-                color: white;
-                padding: 12px 24px;
-                border-radius: 50px;
-                text-decoration: none;
-                font-weight: 600;
-                font-size: 16px;
-                box-shadow: 0 4px 15px rgba(106, 142, 251, 0.3);
-                transition: all 0.3s ease;
-                border: none;
-                cursor: pointer;
-                position: relative;
-                overflow: hidden;
-              " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(106, 142, 251, 0.4)'" 
-              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(106, 142, 251, 0.3)'" 
-              onmousedown="this.style.transform='translateY(1px)'" 
-              onmouseup="this.style.transform='translateY(-2px)'">
-                <span style="margin-right: 8px;">Read More</span>
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNNSAxMmgxNE0xMiA1bDcgNy03IDciPjwvcGF0aD48L3N2Zz4=" alt="Arrow" style="transition: transform 0.3s ease;" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='translateX(0)'" />
-              </a>
-            </div>
+          <h4>History and Symbols</h4>
+          <ul>
+            <li><strong>Logo:</strong> Designed by Director General Oseoboh Joshua Eromonsele (NPF/MBC)</li>
+            <li><strong>Flag:</strong> Designed by Director General Oseoboh Joshua Eromonsele (NPF/MBC)</li>
+            <li><strong>Motto:</strong> "Always Ready" — by Director General Oseoboh Joshua Eromonsele (NPF/MBC)</li>
+            <li><strong>Constitution:</strong> Established on <strong>April 23, 2025,</strong> by <strong>Director General Oseoboh Joshua Eromonsele (NPF/MBC)</strong> </li>
+          </ul>
+          
+          <strong><h4>Marshal Day</h4></strong> 
+          <p><strong>March 19</strong> is officially celebrated every year as <strong>Marshal Day</strong>.</p>
+
+          <h4>Flag Description and Identity</h4>
+          <p>The Marshal Core flag features a bold red and deep navy blue bisection, sharply divided diagonally, housing the organization's insignia at its heart.
+          <br>
+          <strong>Color Meanings:</strong> 
+          <br>
+          <strong>🔴 Red –</strong>  Symbolizes courage, valor, and sacrifice. It reflects the bravery of every officer and the burning passion to uphold justice and national peace.
+          <br>
+          <strong>🔵 Navy Blue –</strong>  Represents discipline, loyalty, and authority. It speaks to the structured system of command, honor, and service that guides every Marshal.
+          <br>
+          <strong>Core Emblem:</strong> 
+          <br>
+          <strong>🛡️ Shield & Scales –</strong> Justice, protection, and moral authority.
+          <br>
+          <strong> 🕊️ Eagle atop –</strong> National sovereignty and readiness to rise above challenges.
+          <br>
+          <strong>🌿 Laurel Wreath –</strong> Honor and victory earned through service.
+          </p>
+
+          <!-- Image only, centered, no visible container lines -->
+          <div style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
+            <img src="images/flag.jpg" alt="Senior Officer Badge" style="display: block; max-width: 100%; height: auto;" />
+          </div>
+
+          <!-- Label below image -->
+          <p style="font-weight: bold; color: #254a93; margin-top: 10px; text-align: center;">
+            The Marshal Core Flag
+          </p>
+          
+          <!-- ADDED: Read More Button (from bottom code) -->
+          <div class="read-more-container">
+            <a href="mcnlbc.html" class="btn-read-more">
+              <span style="margin-right: 8px;">Read More</span>
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNNSAxMmgxNE0xMiA1bDcgNy03IDciPjwvcGF0aD48L3N2Zz4=" alt="Arrow" />
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Founder Section Button -->
+      <div class="row mt-4">
+        <div class="col-12 text-center">
+          <div class="welcome_detail-btn">
+            <a href="#founderSection" class="btn-founder" style="
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+              color: white;
+              padding: 15px 30px;
+              border-radius: 50px;
+              text-decoration: none;
+              font-weight: 600;
+              font-size: 18px;
+              box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+              transition: all 0.3s ease;
+              border: none;
+              cursor: pointer;
+              position: relative;
+              overflow: hidden;
+              margin: 20px auto;
+            " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(211, 47, 47, 0.4)'" 
+            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(211, 47, 47, 0.3)'" 
+            onmousedown="this.style.transform='translateY(1px)'" 
+            onmouseup="this.style.transform='translateY(-2px)'">
+              <span style="margin-right: 10px;"><i class="fas fa-user-tie"></i> Meet Our Founder</span>
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNNSAxMmgxNE0xMiA1bDcgNy03IDciPjwvcGF0aD48L3N2Zz4=" alt="Arrow" style="transition: transform 0.3s ease;" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='translateX(0)'" />
+            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
   <!-- end welcome section -->
+
+  <!-- REVISED Founder Section - Better structured with no unnecessary spaces -->
+  <section id="founderSection" class="founder-section">
+    <div class="founder-container">
+      <div class="founder-header">
+        <h2>About The Founder</h2>
+        <p>Meet the visionary leader behind Marshal Core of Nigeria</p>
+      </div>
+      
+      <!-- Main content grid -->
+      <div class="founder-content">
+        <!-- Left Column: Image and Personal Details -->
+        <div class="founder-image-col">
+          <div class="founder-img-container">
+            <img src="images/Dg.jpg" alt="Director General Oseoboh Joshua Eromonsele" class="founder-img" />
+          </div>
+          
+          <div class="personal-card">
+            <h4><i class="fas fa-user-circle"></i> Personal Details</h4>
+            <p><strong>Born:</strong> 1996</p>
+            <p><strong>State of Origin:</strong> Edo State</p>
+            <p><strong>LGA Origin:</strong> Esan North East</p>
+            <p><strong>Marital Status:</strong> Married</p>
+            <p><strong>Education:</strong> WAEC</p>
+          </div>
+        </div>
+        
+        <!-- Right Column: Main Details -->
+        <div class="founder-details-col">
+          <div class="founder-header-info">
+            <h3 class="founder-name">DG Oseoboh Joshua Eromonsele</h3>
+            <p class="founder-title">Director General, Marshal Core of Nigeria</p>
+            <div class="founder-bio">
+              <p><strong>Born:</strong> 1996 (Age 30-31)</p>
+              <p><strong>DG Oseoboh Joshua Eromonsele</strong> is a distinguished Nigerian Police Officer who serves as the <strong>Director General of the Marshal Core of Nigeria</strong>. With a passion for national service and youth development, he has dedicated his career to building a more secure and disciplined Nigeria.</p>
+            </div>
+          </div>
+          
+          <div class="paramilitary-card">
+            <h4><i class="fas fa-shield-alt"></i> Para-Military Service</h4>
+            <div class="paramilitary-grid">
+              <div class="paramilitary-item">
+                <strong>Allegiance:</strong> Nigeria
+              </div>
+              <div class="paramilitary-item">
+                <strong>Branch/Service:</strong> Nigeria Police Force
+              </div>
+              <div class="paramilitary-item">
+                <strong>Years of Service:</strong> 2020 - Present
+              </div>
+              <div class="paramilitary-item">
+                <strong>Rank:</strong> Police Constable
+              </div>
+              <div class="paramilitary-item">
+                <strong>Department:</strong> EOD CBRN
+              </div>
+              <div class="paramilitary-item">
+                <strong>Role:</strong> Bomb Technician
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- UPDATED: Service Record - Now Horizontal Rectangle spanning full width -->
+        <div class="service-record">
+          <h3><i class="fas fa-history"></i> Service History & Experience</h3>
+          <div class="service-grid">
+            <div class="service-column">
+              <div class="service-item">
+                <strong>2020 - Present</strong>
+                <p>Nigeria Police Force - EOD CBRN Department</p>
+              </div>
+              <div class="service-item">
+                <strong>2025</strong>
+                <p>Founded Marshal Core of Nigeria (March 19, 2025)</p>
+              </div>
+            </div>
+            <div class="service-column">
+              <div class="service-item">
+                <strong>2008 - 2020</strong>
+                <p>Voluntary Officer in various security organizations including:</p>
+                <ul>
+                  <li>Man O' War Nigeria</li>
+                  <li>Peace Marshal</li>
+                  <li>Peace Guard</li>
+                  <li>Nigeria Intelligent Defence Force</li>
+                  <li>Marine Guard of Nigeria</li>
+                </ul>
+              </div>
+              <div class="service-item">
+                <strong>Leadership</strong>
+                <p>Established the organizational structure, constitution, and operational framework of MCN</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Social Links -->
+        <div class="social-links">
+          <p>Connect with DG Eromonsele:</p>
+          <div class="social-icons">
+            <a href="https://facebook.com" class="social-link facebook" title="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com" class="social-link twitter" title="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://instagram.com" class="social-link instagram" title="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://whatsapp.com" class="social-link whatsapp" title="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://linkedin.com" class="social-link linkedin" title="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- info section -->
   <section class="info_section layout_padding">
@@ -216,33 +769,26 @@
         <div class=" col-md-4 info_detail">
           <div>
             <p>
-              Marshal Core of Nigeria Limited is committed to discipline, service, and national development. We inspire purpose-driven citizens to lead with honor and integrity, building a safer and more united Nigeria through excellence and professional conduct.<br>
+              Marshal Core of Nigeria is committed to discipline, service, and national development. We inspire purpose-driven citizens to lead with honor and integrity, building a safer and more united Nigeria through excellence and professional conduct.<br>
               Motto: Always Ready!
-
             </p>
           </div>
         </div>
         <div class=" col-md-4 address_container">
           <div>
-            <h3>
-              Address:
-            </h3>
+            <h3>Address:</h3>
             <div class="address_link-container">
               <a href="">
                 <img src="images/location.png" alt="">
-                <span> Address: Km. 3, Marshal Core Of Nigeria, National Headquarters, Abumwenrenre Community, Ekiadolor/Agekponu Road, Benin City, Edo State, Nigeria.
-                </span>
+                <span> Address: Km. 3, Marshal Core Of Nigeria, National Headquarters, Abumwenrenre Community, Ekiadolor/Agekponu Road, Benin City, Edo State, Nigeria.</span>
               </a>
               <a href="">
                 <img src="images/phone.png" alt="">
-                <span> Tel: +234 9137 428 031
-                </span>
+                <span> Tel: +234 9137 428 031</span>
               </a>
               <a href="">
                 <img src="images/mail.png" alt="">
-                <span>
-                  MARSHALCOREOFNIGERIALIMITED@GMAIL.COM
-                </span>
+                <span>MARSHALCOREOFNIGERIA@GMAIL.COM</span>
               </a>
             </div>
           </div>
@@ -250,358 +796,43 @@
         <div class=" col-md-4 news_container">
           <div>
             <div>
-              <h3>
-                newsletter
-
-              </h3>
+              <h3>Newsletter</h3>
               <form action="">
                 <input type="email" placeholder="ENTER YOUR EMAIL">
                 <div>
-                  <button type="submit">
-                    Subscribe
-                  </button>
+                  <button type="submit">Subscribe</button>
                 </div>
               </form>
             </div>
-            <div class="social_container" style="
-  background-color: #000000;
-  padding: 30px 20px;
-  margin-top: 20px;
-  text-align: center;
-">
-  <ul style="
-    list-style: none;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-  ">
-    <!-- Facebook -->
-    <li style="display: inline-block;">
-      <a href="https://www.facebook.com/share/193pU1bn3Z/" title="Follow us on Facebook" target="_blank" rel="noopener noreferrer" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#3b5998'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-facebook.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-    
-    <!-- Twitter (X) -->
-    <li style="display: inline-block;">
-      <a href="https://twitter.com/yourprofile" title="Follow us on Twitter" target="_blank" rel="noopener noreferrer" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#000000'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-twitter.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-    
-    <!-- Instagram -->
-    <li style="display: inline-block;">
-      <a href="https://instagram.com/yourprofile" title="Follow us on Instagram" target="_blank" rel="noopener noreferrer" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#E1306C'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-instagram.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-    
-    <!-- TikTok -->
-    <li style="display: inline-block;">
-      <a href="https://www.tiktok.com/@marshalcoreofnigeria?_t=ZM-8ympBVpKsMS&_r=1" title="Follow us on TikTok" target="_blank" rel="noopener noreferrer" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#000000'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-tiktok.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-    
-    <!-- WhatsApp -->
-    <li style="display: inline-block;">
-      <a href="https://whatsapp.com/channel/0029Va73CEQEgGfDxFSFpU0d" title="Message us on WhatsApp" target="_blank" rel="noopener noreferrer" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#25D366'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-whatsapp.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-    
-    <!-- LinkedIn -->
-    <li style="display: inline-block;">
-      <a href="https://linkedin.com/company/yourcompany" title="Follow us on LinkedIn" target="_blank" rel="noopener noreferrer" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#0077B5'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-linkedin.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-    
-    <!-- YouTube -->
-    <li style="display: inline-block;">
-      <a href="https://youtube.com/shorts/IplFLfqOnSY?si=7X-imxb99EWeWbel" title="Subscribe to our YouTube" target="_blank" rel="noopener noreferrer" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#FF0000'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-youtube.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-    
-    <!-- Telegram -->
-    <li style="display: inline-block;">
-      <a href="https://t.me/yourchannel" title="Join us on Telegram" target="_blank" rel="noopener noreferrer" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#0088cc'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-telegram.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-    
-    <!-- Email -->
-    <li style="display: inline-block;">
-      <a href="mailto:MARSHALCOREOFNIGERIALIMITED@GMAIL.COM" title="Email us" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#EA4335'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-email.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-  </ul>
-</div>
-<!-- End of Updated Social Media Container -->
           </div>
         </div>
       </div>
     </div>
   </section>
-
   <!-- end info section -->
-
 
   <!-- footer section -->
   <section class="container-fluid footer_section">
     <p>
       Copyright &copy; 2025 All Rights Reserved By <br>
-      <a href="">Marshal Core Of Nigeria Limited</a>
+      <a href="">Marshal Core Of Nigeria</a>
     </p>
   </section>
   <!-- footer section -->
 
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js">
-  </script>
-  <script type="text/javascript">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
+  
+  <script>
+    // Smooth scroll to founder section
+    document.querySelector('.btn-founder').addEventListener('click', function(e) {
+      e.preventDefault();
+      const founderSection = document.getElementById('founderSection');
+      founderSection.scrollIntoView({ behavior: 'smooth' });
+    });
+    
+    // Owl Carousel initialization
     $(".owl-carousel").owlCarousel({
       loop: true,
       margin: 20,
@@ -610,46 +841,25 @@
       autoplay: true,
       autoplayHoverPause: true,
       responsive: {
-        0: {
-          items: 1
-        },
-        600: {
-          items: 2
-        },
-        1000: {
-          items: 3
-        }
+        0: { items: 1 },
+        600: { items: 2 },
+        1000: { items: 3 }
       }
     });
-  </script>
 
-  <script>
+    // Search functionality
     $(".nav_search-btn").click(function () {
       if ($(".nav_search-input").hasClass("d-none")) {
         event.preventDefault();
         $(".nav_search-input")
-          .animate({
-              left: "-1000px"
-            },
-            "1000000"
-          )
+          .animate({ left: "-1000px" }, "1000000")
           .removeClass("d-none");
       } else {
         $(".nav_search-input")
-          .animate({
-              left: "0px"
-            },
-            "1000000"
-          )
+          .animate({ left: "0px" }, "1000000")
           .addClass("d-none");
       }
     });
   </script>
-
-
-
-
-
 </body>
-
 </html>

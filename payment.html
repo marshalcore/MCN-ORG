@@ -165,6 +165,226 @@
       margin: 15px 0;
       border-radius: 4px;
     }
+    
+    /* PDF Success Section */
+    .pdf-success-section {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    
+    .success-icon {
+      font-size: 60px;
+      color: #4CAF50;
+      margin-bottom: 20px;
+    }
+    
+    .instructions-box {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 25px;
+      margin-top: 30px;
+      text-align: left;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Terms & Conditions Styling */
+    .terms-container {
+      background-color: #f8f9fa;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .terms-content {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .terms-content h4 {
+      color: #d32f2f;
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
+
+    .terms-content ul {
+      padding-left: 20px;
+      margin: 10px 0;
+    }
+
+    .terms-content li {
+      margin-bottom: 8px;
+    }
+
+    .terms-checkbox {
+      display: flex;
+      align-items: flex-start;
+      margin: 20px 0;
+      padding: 15px;
+      background-color: #f0f8ff;
+      border-radius: 8px;
+      border: 1px solid #cce7ff;
+    }
+
+    .terms-checkbox input[type="checkbox"] {
+      margin-right: 12px;
+      margin-top: 4px;
+      transform: scale(1.2);
+    }
+
+    .terms-checkbox label {
+      font-weight: normal;
+      cursor: pointer;
+      line-height: 1.5;
+    }
+
+    .terms-checkbox label a {
+      color: #254a93;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    .terms-checkbox label a:hover {
+      color: #d32f2f;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: 5% auto;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 800px;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #d32f2f;
+    }
+
+    .modal-header h3 {
+      color: #d32f2f;
+      margin: 0;
+    }
+
+    .close-modal {
+      background: #d32f2f;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .close-modal:hover {
+      background: #b71c1c;
+    }
+
+    .modal-body {
+      line-height: 1.6;
+    }
+
+    .modal-body h4 {
+      color: #254a93;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    .modal-body ul {
+      padding-left: 20px;
+      margin: 10px 0;
+    }
+
+    .modal-body li {
+      margin-bottom: 8px;
+    }
+
+    .read-more-btn {
+      background: none;
+      border: none;
+      color: #254a93;
+      text-decoration: underline;
+      cursor: pointer;
+      font-weight: bold;
+      padding: 0;
+      margin-left: 5px;
+    }
+
+    .read-more-btn:hover {
+      color: #d32f2f;
+    }
+
+    .btn-disabled {
+      background-color: #cccccc !important;
+      cursor: not-allowed !important;
+    }
+
+    /* Application form specific styling */
+    .form-section {
+      background-color: white;
+      border-radius: 8px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .form-section h3 {
+      color: #d32f2f;
+      margin-top: 0;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #eee;
+    }
+
+    .instructions {
+      background-color: #e8f4fd;
+      border-left: 4px solid #254a93;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+    }
+
+    .instructions h4 {
+      margin-top: 0;
+      color: #254a93;
+    }
+
+    .instructions ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+
+    .instructions li {
+      margin-bottom: 5px;
+    }
   </style>
 </head>
 <body>
@@ -174,7 +394,7 @@
     <img src="images/logo.png" alt="Marshal Core Logo">
   </div>
   <div class="header-rc">
-    RC: 8405988
+    Certificate No: YA/CLB/10100
   </div>
   <div class="header-title">
     Marshal Core Application Portal
@@ -209,295 +429,317 @@
 
 <!-- APPLICATION FORM SECTION -->
 <section class="layout_padding section-container" id="applicationFormSection">
-  <div class="container contact_form-container">
-    <div class="contact_box">
+  <div class="container">
+    <div class="form-section">
       <h2>Application Form</h2>
-      <form id="applicationForm" enctype="multipart/form-data">
+      <div class="instructions">
+        <h4>📋 Instructions:</h4>
+        <ul>
+          <li>Fill in all required fields marked with *</li>
+          <li>Upload clear scans/photos of all documents</li>
+          <li>Ensure file sizes are under 5MB each</li>
+          <li>Accepted formats: PDF, JPG, PNG</li>
+        </ul>
+      </div>
+      
+      <form id="applicationForm" enctype="multipart/form-data" class="contact_form-container">
 
-        <label>category</label>
-        <select name="category" required>
-          <option value="">Select category</option>
-          <option value="General">General</option>
-          <option value="Work-men/Work-women">Work-men/Work-women</option>
-          <option value="Regular Marshal Officer">Regular Marshal Officer</option>
-        </select>
+        <!-- HIDDEN FIELD FOR PASSWORD -->
+        <input type="hidden" id="applicationPasswordField" name="application_password" />
 
-        <label>marital_status</label>
-        <select name="marital_status" required>
-          <option value="">Select marital_status</option>
-          <option value="Single">Single</option>
-          <option value="Married">Married</option>
-          <option value="Divorced">Divorced</option>
-          <option value="Widowed">Widowed</option>
-          <option value="Separated">Separated</option>
-        </select>
+        <div class="form-section">
+          <h3>📝 Personal Information</h3>
+          
+          <label>Category *</label>
+          <select name="category" required>
+            <option value="">Select category</option>
+            <option value="General">General</option>
+            <option value="Work-men/Work-women">Work-men/Work-women</option>
+            <option value="Regular Marshal Officer">Regular Marshal Officer</option>
+          </select>
 
-        <input type="text" name="nin_number" placeholder="NIN Number" required />
-        <input type="text" name="full_name" placeholder="Full Name" required />
-        <input type="text" name="bank_name" placeholder="Bank Name" required />
-        <input type="text" name="account_number" placeholder="Account Number" required />
-        <input type="text" name="first_name" placeholder="First Name" required />
-        <input type="text" name="surname" placeholder="Surname" required />
-        <input type="text" name="other_name" placeholder="Other Name" required />
-        <input type="email" name="email" placeholder="Email" required />
-        <input type="text" name="mobile_number" placeholder="Mobile Number" required />
-        <input type="text" name="phone_number" placeholder="Phone Number" required />
+          <label>Marital Status *</label>
+          <select name="marital_status" required>
+            <option value="">Select marital status</option>
+            <option value="Single">Single</option>
+            <option value="Married">Married</option>
+            <option value="Divorced">Divorced</option>
+            <option value="Widowed">Widowed</option>
+            <option value="Separated">Separated</option>
+          </select>
 
-        <label>gender</label>
-        <select name="gender" required>
-          <option value="">Select gender</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-        </select>
+          <input type="text" name="nin_number" placeholder="NIN Number *" required />
+          <input type="text" name="full_name" placeholder="Full Name *" required />
+          <input type="text" name="bank_name" placeholder="Bank Name *" required />
+          <input type="text" name="account_number" placeholder="Account Number *" required />
+          <input type="text" name="first_name" placeholder="First Name *" required />
+          <input type="text" name="surname" placeholder="Surname *" required />
+          <input type="text" name="other_name" placeholder="Other Name" />
+          <input type="email" name="email" placeholder="Email *" required />
+          <input type="text" name="mobile_number" placeholder="Mobile Number *" required />
+          <input type="text" name="phone_number" placeholder="Phone Number" />
 
-        <input type="text" name="nationality" placeholder="Nationality" required />
-        
-        <label>Country of Residence</label>
-        <select name="country_of_residence" required>
-          <option value="">Select Country</option>
-          <option value="Afghanistan">Afghanistan</option>
-          <option value="Albania">Albania</option>
-          <option value="Algeria">Algeria</option>
-          <option value="Andorra">Andorra</option>
-          <option value="Angola">Angola</option>
-          <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-          <option value="Argentina">Argentina</option>
-          <option value="Armenia">Armenia</option>
-          <option value="Australia">Australia</option>
-          <option value="Austria">Austria</option>
-          <option value="Azerbaijan">Azerbaijan</option>
-          <option value="Bahamas">Bahamas</option>
-          <option value="Bahrain">Bahrain</option>
-          <option value="Bangladesh">Bangladesh</option>
-          <option value="Barbados">Barbados</option>
-          <option value="Belarus">Belarus</option>
-          <option value="Belgium">Belgium</option>
-          <option value="Belize">Belize</option>
-          <option value="Benin">Benin</option>
-          <option value="Bhutan">Bhutan</option>
-          <option value="Bolivia">Bolivia</option>
-          <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
-          <option value="Botswana">Botswana</option>
-          <option value="Brazil">Brazil</option>
-          <option value="Brunei">Brunei</option>
-          <option value="Bulgaria">Bulgaria</option>
-          <option value="Burkina Faso">Burkina Faso</option>
-          <option value="Burundi">Burundi</option>
-          <option value="Côte d'Ivoire">Côte d'Ivoire</option>
-          <option value="Cabo Verde">Cabo Verde</option>
-          <option value="Cambodia">Cambodia</option>
-          <option value="Cameroon">Cameroon</option>
-          <option value="Canada">Canada</option>
-          <option value="Central African Republic">Central African Republic</option>
-          <option value="Chad">Chad</option>
-          <option value="Chile">Chile</option>
-          <option value="China">China</option>
-          <option value="Colombia">Colombia</option>
-          <option value="Comoros">Comoros</option>
-          <option value="Congo (Congo-Brazzaville)">Congo (Congo-Brazzaville)</option>
-          <option value="Costa Rica">Costa Rica</option>
-          <option value="Croatia">Croatia</option>
-          <option value="Cuba">Cuba</option>
-          <option value="Cyprus">Cyprus</option>
-          <option value="Czechia (Czech Republic)">Czechia (Czech Republic)</option>
-          <option value="Democratic Republic of the Congo">Democratic Republic of the Congo</option>
-          <option value="Denmark">Denmark</option>
-          <option value="Djibouti">Djijibouti</option>
-          <option value="Dominica">Dominica</option>
-          <option value="Dominican Republic">Dominican Republic</option>
-          <option value="Ecuador">Ecuador</option>
-          <option value="Egypt">Egypt</option>
-          <option value="El Salvador">El Salvador</option>
-          <option value="Equatorial Guinea">Equatorial Guinea</option>
-          <option value="Eritrea">Eritrea</option>
-          <option value="Estonia">Estonia</option>
-          <option value="Eswatini (fmr. Swaziland)">Eswatini (fmr. Swaziland)</option>
-          <option value="Ethiopia">Ethiopia</option>
-          <option value="Fiji">Fiji</option>
-          <option value="Finland">Finland</option>
-          <option value="France">France</option>
-          <option value="Gabon">Gabon</option>
-          <option value="Gambia">Gambia</option>
-          <option value="Georgia">Georgia</option>
-          <option value="Germany">Germany</option>
-          <option value="Ghana">Ghana</option>
-          <option value="Greece">Greece</option>
-          <option value="Grenada">Grenada</option>
-          <option value="Guatemala">Guatemala</option>
-          <option value="Guinea">Guinea</option>
-          <option value="Guinea-Bissau">Guinea-Bissau</option>
-          <option value="Guyana">Guyana</option>
-          <option value="Haiti">Haiti</option>
-          <option value="Holy See">Holy See</option>
-          <option value="Honduras">Honduras</option>
-          <option value="Hungary">Hungary</option>
-          <option value="Iceland">Iceland</option>
-          <option value="India">India</option>
-          <option value="Indonesia">Indonesia</option>
-          <option value="Iran">Iran</option>
-          <option value="Iraq">Iraq</option>
-          <option value="Ireland">Ireland</option>
-          <option value="Israel">Israel</option>
-          <option value="Italy">Italy</option>
-          <option value="Jamaica">Jamaica</option>
-          <option value="Japan">Japan</option>
-          <option value="Jordan">Jordan</option>
-          <option value="Kazakhstan">Kazakhstan</option>
-          <option value="Kenya">Kenya</option>
-          <option value="Kiribati">Kiribati</option>
-          <option value="Kuwait">Kuwait</option>
-          <option value="Kyrgyzstan">Kyrgyzstan</option>
-          <option value="Laos">Laos</option>
-          <option value="Latvia">Latvia</option>
-          <option value="Lebanon">Lebanon</option>
-          <option value="Lesotho">Lesotho</option>
-          <option value="Liberia">Liberia</option>
-          <option value="Libya">Libya</option>
-          <option value="Liechtenstein">Liechtenstein</option>
-          <option value="Lithuania">Lithuania</option>
-          <option value="Luxembourg">Luxembourg</option>
-          <option value="Madagascar">Madagascar</option>
-          <option value="Malawi">Malawi</option>
-          <option value="Malaysia">Malaysia</option>
-          <option value="Maldives">Maldives</option>
-          <option value="Mali">Mali</option>
-          <option value="Malta">Malta</option>
-          <option value="Marshall Islands">Marshall Islands</option>
-          <option value="Mauritania">Mauritania</option>
-          <option value="Mauritius">Mauritius</option>
-          <option value="Mexico">Mexico</option>
-          <option value="Micronesia">Micronesia</option>
-          <option value="Moldova">Moldova</option>
-          <option value="Monaco">Monaco</option>
-          <option value="Mongolia">Mongolia</option>
-          <option value="Montenegro">Montenegro</option>
-          <option value="Morocco">Morocco</option>
-          <option value="Mozambique">Mozambique</option>
-          <option value="Myanmar (formerly Burma)">Myanmar (formerly Burma)</option>
-          <option value="Namibia">Namibia</option>
-          <option value="Nauru">Nauru</option>
-          <option value="Nepal">Nepal</option>
-          <option value="Netherlands">Netherlands</option>
-          <option value="New Zealand">New Zealand</option>
-          <option value="Nicaragua">Nicaragua</option>
-          <option value="Niger">Niger</option>
-          <option value="Nigeria" selected>Nigeria</option>
-          <option value="North Korea">North Korea</option>
-          <option value="North Macedonia">North Macedonia</option>
-          <option value="Norway">Norway</option>
-          <option value="Oman">Oman</option>
-          <option value="Pakistan">Pakistan</option>
-          <option value="Palau">Palau</option>
-          <option value="Palestine State">Palestine State</option>
-          <option value="Panama">Panama</option>
-          <option value="Papua New Guinea">Papua New Guinea</option>
-          <option value="Paraguay">Paraguay</option>
-          <option value="Peru">Peru</option>
-          <option value="Philippines">Philippines</option>
-          <option value="Poland">Poland</option>
-          <option value="Portugal">Portugal</option>
-          <option value="Qatar">Qatar</option>
-          <option value="Romania">Romania</option>
-          <option value="Russia">Russia</option>
-          <option value="Rwanda">Rwanda</option>
-          <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
-          <option value="Saint Lucia">Saint Lucia</option>
-          <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
-          <option value="Samoa">Samoa</option>
-          <option value="San Marino">San Marino</option>
-          <option value="Sao Tome and Principe">Sao Tome and Principe</option>
-          <option value="Saudi Arabia">Saudi Arabia</option>
-          <option value="Senegal">Senegal</option>
-          <option value="Serbia">Serbia</option>
-          <option value="Seychelles">Seychelles</option>
-          <option value="Sierra Leone">Sierra Leone</option>
-          <option value="Singapore">Singapore</option>
-          <option value="Slovakia">Slovakia</option>
-          <option value="Slovenia">Slovenia</option>
-          <option value="Solomon Islands">Solomon Islands</option>
-          <option value="Somalia">Somalia</option>
-          <option value="South Africa">South Africa</option>
-          <option value="South Korea">South Korea</option>
-          <option value="South Sudan">South Sudan</option>
-          <option value="Spain">Spain</option>
-          <option value="Sri Lanka">Sri Lanka</option>
-          <option value="Sudan">Sudan</option>
-          <option value="Suriname">Suriname</option>
-          <option value="Sweden">Sweden</option>
-          <option value="Switzerland">Switzerland</option>
-          <option value="Syria">Syria</option>
-          <option value="Tajikistan">Tajikistan</option>
-          <option value="Tazania">Tazania</option>
-          <option value="Thailand">Thailand</option>
-          <option value="Timor-Leste">Timor-Leste</option>
-          <option value="Togo">Togo</option>
-          <option value="Tonga">Tonga</option>
-          <option value="Trinidad and Tobago">Trinidad and Tobago</option>
-          <option value="Tunisia">Tunisia</option>
-          <option value="Turkey">Turkey</option>
-          <option value="Turkmenistan">Turkmenistan</option>
-          <option value="Tuvalu">Tuvalu</option>
-          <option value="Uganda">Uganda</option>
-          <option value="Ukraine">Ukraine</option>
-          <option value="United Arab Emirates">United Arab Emirates</option>
-          <option value="United Kingdom">United Kingdom</option>
-          <option value="United States of America">United States of America</option>
-          <option value="Uruguay">Uruguay</option>
-          <option value="Uzbekistan">Uzbekistan</option>
-          <option value="Vanuatu">Vanuatu</option>
-          <option value="Venezuela">Venezuela</option>
-          <option value="Vietnam">Vietnam</option>
-          <option value="Yemen">Yemen</option>
-          <option value="Zambia">Zambia</option>
-          <option value="Zimbabwe">Zimbabwe</option>
-        </select>
+          <label>Gender *</label>
+          <select name="gender" required>
+            <option value="">Select gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
 
-        <input type="text" name="state_of_origin" placeholder="State of Origin" required />
-        <input type="text" name="state_of_residence" placeholder="State of Residence" required />
-        <input type="text" name="residential_address" placeholder="Residential Address" required />
-        <input type="text" name="local_government_residence" placeholder="LGA of Residence" required />
-        <input type="text" name="local_government_origin" placeholder="LGA of Origin" required />
-        <input type="date" name="date_of_birth" placeholder="Date of Birth" required />
-        <input type="text" name="religion" placeholder="Religion" required />
-        <input type="text" name="place_of_birth" placeholder="Place of Birth" required />
+          <input type="text" name="nationality" placeholder="Nationality *" required />
+          
+          <label>Country of Residence *</label>
+          <select name="country_of_residence" required>
+            <option value="">Select Country</option>
+            <option value="Nigeria" selected>Nigeria</option>
+            <option value="Ghana">Ghana</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="United States">United States</option>
+            <option value="Canada">Canada</option>
+            <!-- Add more countries as needed -->
+          </select>
 
-        <label>Do You Smoke?</label>
-        <select name="do_you_smoke" required>
-          <option value="true">Yes</option>
-          <option value="false">No</option>
-        </select>
+          <input type="text" name="state_of_origin" placeholder="State of Origin *" required />
+          <input type="text" name="state_of_residence" placeholder="State of Residence *" required />
+          <input type="text" name="residential_address" placeholder="Residential Address *" required />
+          <input type="text" name="local_government_residence" placeholder="LGA of Residence *" required />
+          <input type="text" name="local_government_origin" placeholder="LGA of Origin *" required />
+          <input type="date" name="date_of_birth" placeholder="Date of Birth *" required />
+          <input type="text" name="religion" placeholder="Religion *" required />
+          <input type="text" name="place_of_birth" placeholder="Place of Birth *" required />
+        </div>
 
-        <label>Agree to Join?</label>
-        <select name="agree_to_join" required>
-          <option value="true">Yes</option>
-          <option value="false">No</option>
-        </select>
+        <div class="form-section">
+          <h3>📋 Additional Information</h3>
+          
+          <label>Do You Smoke? *</label>
+          <select name="do_you_smoke" required>
+            <option value="">Select</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
 
-        <label>Agree to Abide by Rules?</label>
-        <select name="agree_to_abide_rules" required>
-          <option value="true">Yes</option>
-          <option value="false">No</option>
-        </select>
+          <label>Agree to Join? *</label>
+          <select name="agree_to_join" required>
+            <option value="">Select</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
 
-        <label>Agree to Return Properties?</label>
-        <select name="agree_to_return_properties" required>
-          <option value="true">Yes</option>
-          <option value="false">No</option>
-        </select>
+          <label>Agree to Abide by Rules? *</label>
+          <select name="agree_to_abide_rules" required>
+            <option value="">Select</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
 
-        <textarea name="additional_skills" placeholder="Additional Skills" required></textarea>
-        <input type="number" name="design_rating" min="1" max="10" placeholder="Design Rating (1-10)" required />
+          <label>Agree to Return Properties? *</label>
+          <select name="agree_to_return_properties" required>
+            <option value="">Select</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
 
-        <label>Passport Photo <input type="file" name="passport_photo" accept="image/*" required /></label>
-        <label>NIN Slip <input type="file" name="nin_slip" accept="image/*,.pdf" required /></label>
-        <label>SSCE Certificate <input type="file" name="ssce_certificate" accept="image/*,.pdf" required /></label>
-        <label>Higher Education Degree <input type="file" name="higher_education_degree" accept="image/*,.pdf" required /></label>
+          <textarea name="additional_skills" placeholder="Additional Skills" rows="3"></textarea>
+          <input type="number" name="design_rating" min="1" max="10" placeholder="Design Rating (1-10) *" required />
+        </div>
 
-        <button type="submit">Submit Application</button>
+        <div class="form-section">
+          <h3>📄 Document Uploads</h3>
+          
+          <div class="instructions">
+            <h4>Required Documents:</h4>
+          </div>
+          
+          <label>Passport Photo (Required) *</label>
+          <input type="file" name="passport_photo" accept="image/*" required />
+          
+          <label>NIN Slip (Required) *</label>
+          <input type="file" name="nin_slip" accept="image/*,.pdf" required />
+          
+          <label>SSCE Certificate (Required) *</label>
+          <input type="file" name="ssce_certificate" accept="image/*,.pdf" required />
+          
+          <label>Higher Education Degree (Optional)</label>
+          <input type="file" name="higher_education_degree" accept="image/*,.pdf" />
+        </div>
+
+        <!-- TERMS & CONDITIONS SECTION -->
+        <div class="form-section">
+          <h3>📜 Terms & Conditions Agreement</h3>
+          
+          <div class="terms-container">
+            <div class="terms-content" id="termsContent">
+              <h4>Marshal Core of Nigeria - Terms of Service</h4>
+              <p><strong>Effective Date:</strong> March 19, 2025</p>
+              
+              <h4>1. Acceptance of Terms</h4>
+              <p>By applying to become a member of Marshal Core of Nigeria, you agree to be bound by these Terms of Service and all applicable laws and regulations.</p>
+              
+              <h4>2. Membership Responsibilities</h4>
+              <ul>
+                <li>Maintain the highest standards of discipline and professionalism</li>
+                <li>Protect lives and property in accordance with Nigerian laws</li>
+                <li>Uphold the integrity and reputation of Marshal Core at all times</li>
+                <li>Participate in training and development programs as required</li>
+                <li>Report any misconduct or security breaches immediately</li>
+              </ul>
+              
+              <h4>3. Code of Conduct</h4>
+              <ul>
+                <li>Zero tolerance for corruption, bribery, or unethical behavior</li>
+                <li>Strict adherence to chain of command and organizational hierarchy</li>
+                <li>Professional appearance and conduct at all times</li>
+                <li>Confidentiality of sensitive information</li>
+                <li>Respect for human rights and dignity</li>
+              </ul>
+              
+              <h4>4. Consequences of Misconduct</h4>
+              <p>Violation of these terms may result in:</p>
+              <ul>
+                <li>Immediate suspension or dismissal</li>
+                <li>Legal prosecution under Nigerian law</li>
+                <li>Forfeiture of benefits and privileges</li>
+                <li>Disciplinary action including demotion or retraining</li>
+              </ul>
+              
+              <h4>5. Property Return Agreement</h4>
+              <p>Upon termination of membership, all Marshal Core property including identification cards, uniforms, equipment, and documents must be returned within 7 days.</p>
+              
+              <h4>6. Payment Terms</h4>
+              <ul>
+                <li>Application fee of ₦5,000 is non-refundable</li>
+                <li>Payment confirms intent to join Marshal Core</li>
+                <li>Membership is subject to approval after application review</li>
+              </ul>
+              
+              <p><em>By checking the box below, you acknowledge that you have read, understood, and agree to be bound by these Terms & Conditions.</em></p>
+            </div>
+          </div>
+          
+          <div class="terms-checkbox">
+            <input type="checkbox" id="agreeTerms" name="agreeTerms" required />
+            <label for="agreeTerms">
+              I have read and agree to the Terms & Conditions of Marshal Core of Nigeria. 
+              I understand the consequences of misconduct including dismissal and legal prosecution. 
+              I acknowledge that the ₦5,000 application fee is non-refundable.
+              <button type="button" class="read-more-btn" onclick="openFullTerms()">Read Full Terms</button>
+            </label>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-section" style="text-align: center; background-color: #f9f9f9;">
+          <button type="submit" id="submitApplicationBtn" style="width: auto; padding: 15px 50px;">
+            Submit Application
+          </button>
+          <p style="margin-top: 15px; color: #666; font-size: 14px;">
+            By submitting, you confirm that all information provided is accurate and complete.
+          </p>
+        </div>
+
       </form>
     </div>
   </div>
 </section>
+
+<!-- PDF SUCCESS SECTION -->
+<section class="layout_padding section-container" id="pdfSuccessSection">
+  <div class="container pdf-success-section">
+    <div class="success-icon">✓</div>
+    <h2>Application Submitted Successfully!</h2>
+    <p>Your application has been processed and PDF documents have been generated.</p>
+    
+    <div id="emailConfirmation" style="margin: 20px 0;">
+      <p>PDFs have been sent to: <strong id="userEmail"></strong></p>
+    </div>
+    
+    <div class="instructions-box">
+      <h4>📋 Next Steps:</h4>
+      <ol>
+        <li>Check your email for PDF attachments</li>
+        <li>Download and print both documents</li>
+        <li>Sign the Terms & Conditions document</li>
+        <li>Keep copies for your records</li>
+        <li>Submit printed documents to Marshal Core office</li>
+      </ol>
+    </div>
+    
+    <div style="margin-top: 30px;">
+      <button onclick="location.reload()" class="contact_form-container button">Submit Another Application</button>
+    </div>
+  </div>
+</section>
+
+<!-- Terms Modal -->
+<div id="termsModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>📜 Marshal Core of Nigeria - Full Terms & Conditions</h3>
+      <button class="close-modal" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <h4>Complete Terms of Service Agreement</h4>
+      
+      <h4>Article 1: Definitions</h4>
+      <p><strong>1.1</strong> "Marshal Core" refers to Marshal Core of Nigeria, a registered security organization.</p>
+      <p><strong>1.2</strong> "Member" refers to any registered member of Marshal Core of Nigeria.</p>
+      <p><strong>1.3</strong> "Service" refers to duties performed under Marshal Core authority.</p>
+      
+      <h4>Article 2: Membership Obligations</h4>
+      <p><strong>2.1</strong> All members must maintain valid identification and certification.</p>
+      <p><strong>2.2</strong> Members shall undergo regular training and assessment.</p>
+      <p><strong>2.3</strong> Compliance with all Nigerian laws and regulations is mandatory.</p>
+      <p><strong>2.4</strong> Payment of required fees and dues as determined by the organization.</p>
+      
+      <h4>Article 3: Disciplinary Procedures</h4>
+      <p><strong>3.1</strong> Minor infractions: Written warning and retraining.</p>
+      <p><strong>3.2</strong> Major violations: Suspension without pay pending investigation.</p>
+      <p><strong>3.3</strong> Criminal activities: Immediate dismissal and legal prosecution.</p>
+      
+      <h4>Article 4: Confidentiality</h4>
+      <p><strong>4.1</strong> All operational information is classified.</p>
+      <p><strong>4.2</strong> Unauthorized disclosure may result in prosecution.</p>
+      <p><strong>4.3</strong> Social media posting about operations is prohibited.</p>
+      
+      <h4>Article 5: Benefits and Entitlements</h4>
+      <p><strong>5.1</strong> Benefits are contingent on satisfactory service.</p>
+      <p><strong>5.2</strong> Access to training programs requires active membership.</p>
+      <p><strong>5.3</strong> Career advancement opportunities based on performance.</p>
+      
+      <h4>Article 6: Financial Obligations</h4>
+      <p><strong>6.1</strong> Application fee of ₦5,000 is non-refundable.</p>
+      <p><strong>6.2</strong> Membership dues may apply as determined by the organization.</p>
+      <p><strong>6.3</strong> Failure to pay required fees may result in suspension.</p>
+      
+      <h4>Article 7: Training Requirements</h4>
+      <p><strong>7.1</strong> Completion of basic training is mandatory.</p>
+      <p><strong>7.2</strong> Regular refresher courses are required.</p>
+      <p><strong>7.3</strong> Specialized training for specific roles.</p>
+      
+      <h4>Article 8: Termination</h4>
+      <p><strong>8.1</strong> Voluntary resignation requires 30 days notice.</p>
+      <p><strong>8.2</strong> Dismissal for cause is immediate.</p>
+      <p><strong>8.3</strong> All organizational property must be returned.</p>
+      
+      <h4>Article 9: Legal Jurisdiction</h4>
+      <p><strong>9.1</strong> These terms are governed by Nigerian law.</p>
+      <p><strong>9.2</strong> Disputes shall be settled in Edo State courts.</p>
+      <p><strong>9.3</strong> Member agrees to submit to Nigerian legal jurisdiction.</p>
+      
+      <div class="terms-checkbox" style="margin-top: 30px;">
+        <input type="checkbox" id="modalAgree" name="modalAgree" />
+        <label for="modalAgree">I have read and understand the full Terms & Conditions</label>
+      </div>
+      
+      <div style="text-align: center; margin-top: 20px;">
+        <button onclick="closeModal()" style="background: #d32f2f; color: white; border: none; padding: 10px 30px; border-radius: 5px; cursor: pointer;">
+          Close and Return to Form
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <footer class="footer_section">
   <div class="container">
@@ -509,6 +751,42 @@
 
 <script>
 window.onload = () => {
+  // CONFIGURATION: PROPER LOCALHOST DETECTION
+  // Get current URL information
+  const currentUrl = window.location.href;
+  const isLocalDevelopment = 
+    currentUrl.includes('localhost') || 
+    currentUrl.includes('127.0.0.1') ||
+    currentUrl.includes('0.0.0.0') ||
+    currentUrl.includes(':5500') ||
+    currentUrl.includes(':5501') ||
+    currentUrl.includes(':5502') ||
+    currentUrl.includes(':3000');
+
+  // DEBUG LOGGING
+  console.log('🌐 Current URL:', currentUrl);
+  console.log('🔍 Is Local Development?', isLocalDevelopment);
+  console.log('📍 Hostname:', window.location.hostname);
+  console.log('🚪 Port:', window.location.port);
+
+  // SET API BASE URL
+  const API_BASE_URL = isLocalDevelopment 
+    ? 'http://localhost:8000'  // Local backend
+    : 'https://backend-marshal-core.onrender.com';  // Production backend
+
+  console.log('🎯 Using API Base URL:', API_BASE_URL);
+
+  // Test API connection immediately
+  console.log('🔗 Testing API connection to:', `${API_BASE_URL}/health`);
+  fetch(`${API_BASE_URL}/health`)
+    .then(response => {
+      console.log('✅ API Connection Status:', response.status, response.statusText);
+      return response.json();
+    })
+    .then(data => console.log('📊 API Health Data:', data))
+    .catch(error => console.error('❌ API Connection Error:', error));
+
+  // DOM Elements
   const paymentForm = document.getElementById("paymentForm");
   const applicationForm = document.getElementById("applicationForm");
   const passwordForm = document.getElementById("passwordForm");
@@ -518,9 +796,27 @@ window.onload = () => {
   const passwordError = document.getElementById("passwordError");
   const pageLoader = document.getElementById("pageLoader");
   const statusMessage = document.getElementById("statusMessage");
+  const userEmail = document.getElementById("userEmail");
+  const applicationPasswordField = document.getElementById("applicationPasswordField");
+  const agreeTermsCheckbox = document.getElementById("agreeTerms");
+  const submitApplicationBtn = document.getElementById("submitApplicationBtn");
 
-  // CORRECTED: Use your actual backend URL
-  const API_BASE_URL = 'https://backend-mcn-ltd.onrender.com';
+  // Modal functions
+  function openFullTerms() {
+    document.getElementById('termsModal').style.display = 'block';
+  }
+
+  function closeModal() {
+    document.getElementById('termsModal').style.display = 'none';
+  }
+
+  // Close modal when clicking outside
+  window.onclick = function(event) {
+    const modal = document.getElementById('termsModal');
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
 
   function showLoader() {
     pageLoader.style.display = "flex";
@@ -542,6 +838,7 @@ window.onload = () => {
     paymentForm.reset();
     passwordForm.reset();
     applicationForm.reset();
+    agreeTermsCheckbox.checked = false;
   }
 
   function showStatusMessage(message, isError = false) {
@@ -555,9 +852,16 @@ window.onload = () => {
     statusMessage.style.display = 'none';
   }
 
+  function showPDFSuccess(email) {
+    userEmail.textContent = email;
+    showSection('pdfSuccessSection');
+  }
+
   let tempEmail = "";
   let tempFullName = "";
+  let tempPassword = "";
 
+  // Event Listeners
   paymentForm.addEventListener("submit", handlePaymentFlow);
   applicationForm.addEventListener("submit", handleApplicationSubmit);
   submitPasswordBtn.addEventListener("click", handlePasswordVerification);
@@ -567,140 +871,380 @@ window.onload = () => {
     try {
       return JSON.parse(text);
     } catch (e) {
-      console.warn("❗ Non-JSON response received:", text);
+      console.warn("Non-JSON response received:", text);
       return { error: text };
     }
   }
 
-  async function verifyAndGenerate(email, reference, fullName) {
+  // Enhanced fetch function with better error handling
+  async function makeRequest(url, options = {}) {
+    const defaultHeaders = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    };
+    
+    const fetchOptions = {
+      ...options,
+      headers: {
+        ...defaultHeaders,
+        ...options.headers,
+      },
+      mode: 'cors',
+      credentials: 'include'
+    };
+    
+    console.log('📤 Making request to:', url);
+    console.log('📝 Request options:', fetchOptions);
+    
+    try {
+      const response = await fetch(url, fetchOptions);
+      console.log('📥 Response status:', response.status, response.statusText);
+      
+      // Check for CORS errors
+      if (response.status === 0) {
+        throw new Error('CORS error or network failure. Check if server is running and CORS is configured.');
+      }
+      
+      return response;
+    } catch (error) {
+      console.error('❌ Fetch error:', error);
+      throw error;
+    }
+  }
+
+  // STEP 1: Payment Flow
+  async function handlePaymentFlow(e) {
+    e.preventDefault();
+    const fullName = document.getElementById("fullName").value.trim();
+    const email = document.getElementById("email").value.trim();
+    
+    if (!fullName || !email) {
+      showStatusMessage("Please fill in all fields", true);
+      return;
+    }
+    
+    hideStatusMessage();
+
     try {
       showLoader();
-      const verifyRes = await fetch(`${API_BASE_URL}/payment/paystack/verify`, {
+      console.log('💰 Starting payment flow for:', email);
+      
+      // STEP 1A: Pre-register the applicant
+      const regRes = await makeRequest(`${API_BASE_URL}/pre-applicant/register`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, reference })
+        body: JSON.stringify({ 
+          full_name: fullName, 
+          email: email 
+        })
       });
-      const verifyData = await parseResponse(verifyRes);
-      if (!verifyRes.ok || !verifyData) throw new Error(verifyData?.detail || "Payment verification failed.");
+      
+      const regData = await parseResponse(regRes);
+      console.log('📋 Pre-registration response:', regData);
+      
+      if (!regRes.ok) {
+        // Handle different statuses
+        if (regData.status) {
+          handleExistingUser(regData, email, fullName);
+          hideLoader();
+          return;
+        }
+        throw new Error(regData?.detail || "Pre-registration failed");
+      }
 
-      const genRes = await fetch(`${API_BASE_URL}/access/generate-password?email=${encodeURIComponent(email)}`, {
-        method: "POST"
+      // STEP 1B: New user - proceed with payment
+      if (typeof PaystackPop === "undefined") {
+        hideLoader();
+        throw new Error("Paystack script not loaded.");
+      }
+
+      const handler = PaystackPop.setup({
+        key: "pk_test_c6ff4f4622c7e35eb557e9e3be0c7424b5d0a3d4", // Your test key
+        email,
+        amount: 500000, // 5000 Naira in kobo
+        currency: "NGN",
+        ref: 'MCN-' + Date.now(),
+        callback: function (response) {
+          console.log('✅ Payment callback received:', response);
+          // STEP 1C: Verify payment
+          verifyPaymentAndGeneratePassword(email, response.reference, fullName);
+        },
+        onClose: () => {
+          hideLoader();
+          console.log('⚠️ Payment window closed');
+          showStatusMessage("Payment window closed. You can try again.", false);
+        }
       });
-      const genData = await parseResponse(genRes);
-      if (!genRes.ok || !genData) throw new Error(genData?.detail || "Password generation failed.");
 
-      tempEmail = email;
-      tempFullName = fullName;
-      verifyEmailInput.value = email;
-      showSection("passwordSection");
+      handler.openIframe();
       hideLoader();
 
     } catch (err) {
       hideLoader();
-      console.error("❌ Verification error:", err);
-      alert(err.message);
+      console.error("❌ Payment flow error:", err);
+      showStatusMessage("Error: " + err.message, true);
     }
   }
 
+  // STEP 2: Verify payment and generate password
+  async function verifyPaymentAndGeneratePassword(email, reference, fullName) {
+    try {
+      showLoader();
+      console.log('🔍 Verifying payment for:', email);
+      
+      // Verify payment with backend
+      const verifyRes = await makeRequest(`${API_BASE_URL}/payment/paystack/verify`, {
+        method: "POST",
+        body: JSON.stringify({ email, reference })
+      });
+      
+      const verifyData = await parseResponse(verifyRes);
+      console.log('✅ Payment verification response:', verifyData);
+      
+      if (!verifyRes.ok || !verifyData) {
+        throw new Error(verifyData?.detail || "Payment verification failed.");
+      }
+
+      // Generate password
+      console.log('🔑 Generating password for:', email);
+      const genRes = await makeRequest(`${API_BASE_URL}/access/generate-password?email=${encodeURIComponent(email)}`, {
+        method: "POST"
+      });
+      
+      const genData = await parseResponse(genRes);
+      console.log('🔑 Password generation response:', genData);
+      
+      if (!genRes.ok || !genData) {
+        throw new Error(genData?.detail || "Password generation failed.");
+      }
+
+      tempEmail = email;
+      tempFullName = fullName;
+      verifyEmailInput.value = email;
+      
+      hideLoader();
+      showStatusMessage("Payment successful! Check your email for password.", false);
+      showSection("passwordSection");
+
+    } catch (err) {
+      hideLoader();
+      console.error("❌ Verification error:", err);
+      showStatusMessage("Error: " + err.message, true);
+    }
+  }
+
+  // STEP 3: Password Verification
   async function handlePasswordVerification() {
     const password = passwordInput.value.trim();
     const email = verifyEmailInput.value.trim();
     passwordError.textContent = "";
 
     if (!email || !password) {
-      passwordError.textContent = "⚠️ Both email and password are required.";
+      passwordError.textContent = "Both email and password are required.";
       return;
     }
 
     try {
       showLoader();
-      const verifyPassRes = await fetch(`${API_BASE_URL}/access/verify`, {
+      console.log('🔐 Verifying password for:', email);
+      
+      // Using /access/verify endpoint
+      const verifyPassRes = await makeRequest(`${API_BASE_URL}/access/verify`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password })
       });
 
       const verifyPassData = await parseResponse(verifyPassRes);
+      console.log('🔐 Password verification response:', verifyPassData);
+      
       if (!verifyPassRes.ok || !verifyPassData) {
         hideLoader();
-        passwordError.textContent = verifyPassData?.detail || JSON.stringify(verifyPassData);
+        passwordError.textContent = verifyPassData?.detail || "Password verification failed";
         return;
       }
 
-      alert(verifyPassData?.message || "✅ Password verified.");
+      hideLoader();
+      tempPassword = password; // Store password for form submission
+      applicationPasswordField.value = password; // Set hidden field
+      
+      showStatusMessage("Password verified!", false);
       showSection("applicationFormSection");
+      
+      // Pre-fill form fields
       applicationForm.elements["full_name"].value = tempFullName;
       applicationForm.elements["email"].value = tempEmail;
-      hideLoader();
 
     } catch (err) {
       hideLoader();
-      passwordError.textContent = "❌ Unexpected error verifying password.";
+      passwordError.textContent = "Error verifying password. Please check your connection.";
       console.error("❌ Password verify error:", err);
     }
   }
 
- async function handlePaymentFlow(e) {
-  e.preventDefault();
-  const fullName = document.getElementById("fullName").value.trim();
-  const email = document.getElementById("email").value.trim();
-  
-  hideStatusMessage();
-
-  try {
-    showLoader();
-    const regRes = await fetch(`${API_BASE_URL}/pre-applicant/register`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ full_name: fullName, email })
-    });
+  // STEP 4: Application Form Submission
+  async function handleApplicationSubmit(e) {
+    e.preventDefault();
     
-    const regData = await parseResponse(regRes);
-    
-    // ✅ CHECK FOR STATUS FIELD IN BOTH SUCCESS AND ERROR RESPONSES
-    if (regData.status) {
-      hideLoader();
-      handleExistingUser(regData, email, fullName);
+    // Validate Terms & Conditions
+    if (!agreeTermsCheckbox.checked) {
+      alert("❌ You must agree to the Terms & Conditions to proceed.");
+      agreeTermsCheckbox.focus();
       return;
     }
+
+    const formData = new FormData(applicationForm);
     
-    if (!regRes.ok) {
-      throw new Error(regData?.detail || "Pre-registration failed");
+    // Validate required files
+    const passportPhoto = applicationForm.elements["passport_photo"].files[0];
+    const ninSlip = applicationForm.elements["nin_slip"].files[0];
+    const ssceCertificate = applicationForm.elements["ssce_certificate"].files[0];
+    
+    if (!passportPhoto || !ninSlip || !ssceCertificate) {
+      alert("Please upload all required documents: Passport Photo, NIN Slip, and SSCE Certificate");
+      return;
     }
 
-    // New user - proceed with payment
-    if (typeof PaystackPop === "undefined") throw new Error("❌ Paystack script not loaded.");
+    try {
+      showLoader();
+      submitApplicationBtn.disabled = true;
+      submitApplicationBtn.innerHTML = 'Submitting...';
+      submitApplicationBtn.classList.add('btn-disabled');
+      
+      console.log('📄 Submitting application for:', tempEmail);
+      
+      // STEP 4A: Submit application form data using /apply endpoint
+      const res = await fetch(`${API_BASE_URL}/apply`, {
+        method: "POST",
+        body: formData
+      });
 
-    const handler = PaystackPop.setup({
-      key: "pk_test_c6ff4f4622c7e35eb557e9e3be0c7424b5d0a3d4",
-      email,
-      amount: 500000,
-      currency: "NGN",
-      callback: function (response) {
-        verifyAndGenerate(email, response.reference, fullName);
-      },
-      onClose: () => alert("Payment window closed.")
-    });
+      const data = await parseResponse(res);
+      console.log('📄 Application submission response:', data);
+      
+      if (!res.ok || !data) {
+        hideLoader();
+        submitApplicationBtn.disabled = false;
+        submitApplicationBtn.innerHTML = 'Submit Application';
+        submitApplicationBtn.classList.remove('btn-disabled');
+        alert(data?.detail || "Application submission failed.");
+        return;
+      }
 
-    handler.openIframe();
-    hideLoader();
+      // STEP 4B: Final submission with PDF generation
+      console.log('📊 Finalizing submission for:', data.email || tempEmail);
+      const submitRes = await makeRequest(`${API_BASE_URL}/submit`, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({ 
+          email: data.email || tempEmail, 
+          full_name: data.full_name || tempFullName 
+        })
+      });
 
-  } catch (err) {
-    hideLoader();
-    console.error("🔥 Payment flow error:", err);
-    alert("❌ Unexpected error during payment.\n\n" + err.message);
+      const submitData = await parseResponse(submitRes);
+      console.log('📊 Final submission response:', submitData);
+      
+      if (!submitRes.ok || !submitData) {
+        hideLoader();
+        submitApplicationBtn.disabled = false;
+        submitApplicationBtn.innerHTML = 'Submit Application';
+        submitApplicationBtn.classList.remove('btn-disabled');
+        alert(submitData?.detail || "Final submission failed.");
+        return;
+      }
+
+      hideLoader();
+      submitApplicationBtn.disabled = false;
+      submitApplicationBtn.innerHTML = 'Submit Application';
+      submitApplicationBtn.classList.remove('btn-disabled');
+      
+      // STEP 4C: Show success with PDF download links
+      showPDFSuccess(data.email || tempEmail);
+      
+      // Reset forms for next application
+      resetForms();
+
+    } catch (err) {
+      hideLoader();
+      submitApplicationBtn.disabled = false;
+      submitApplicationBtn.innerHTML = 'Submit Application';
+      submitApplicationBtn.classList.remove('btn-disabled');
+      console.error("❌ Form submit error:", err);
+      alert("Error submitting application. Please try again.\n\n" + err.message);
+    }
   }
-}
+
+  // Helper function to handle existing user statuses
+  function handleExistingUser(regData, email, fullName) {
+    console.log('👤 Handling existing user:', regData.status);
+    
+    switch(regData.status) {
+      case "exists_not_paid":
+        // User exists but hasn't paid
+        showStatusMessage("User found. Proceeding to payment...", false);
+        
+        if (typeof PaystackPop === "undefined") {
+          alert("Paystack script not loaded.");
+          return;
+        }
+
+        const handler = PaystackPop.setup({
+          key: "pk_test_c6ff4f4622c7e35eb557e9e3be0c7424b5d0a3d4",
+          email,
+          amount: 500000,
+          currency: "NGN",
+          callback: function (response) {
+            verifyPaymentAndGeneratePassword(email, response.reference, fullName);
+          },
+          onClose: () => {
+            alert("Payment window closed.");
+            hideLoader();
+          }
+        });
+
+        handler.openIframe();
+        break;
+
+      case "password_sent":
+        // Password already sent
+        showStatusMessage("Password already sent to your email. Please check your inbox.", false);
+        tempEmail = email;
+        tempFullName = fullName;
+        verifyEmailInput.value = email;
+        showSection("passwordSection");
+        break;
+
+      case "payment_completed":
+        // Payment completed
+        showStatusMessage("Payment already completed. Generating password...", false);
+        setTimeout(() => {
+          generatePasswordForExistingUser(email, fullName);
+        }, 1000);
+        break;
+
+      case "already_completed":
+        showStatusMessage("Application already submitted. Please contact support.", true);
+        break;
+
+      default:
+        showStatusMessage("Unexpected status. Please contact support.", true);
+    }
+  }
 
   async function generatePasswordForExistingUser(email, fullName) {
     try {
       showLoader();
-      const genRes = await fetch(`${API_BASE_URL}/access/generate-password?email=${encodeURIComponent(email)}`, {
+      console.log('🔑 Generating password for existing user:', email);
+      
+      const genRes = await makeRequest(`${API_BASE_URL}/access/generate-password?email=${encodeURIComponent(email)}`, {
         method: "POST"
       });
       
       const genData = await parseResponse(genRes);
-      if (!genRes.ok || !genData) throw new Error(genData?.detail || "Password generation failed.");
+      console.log('🔑 Password generation response:', genData);
+      
+      if (!genRes.ok || !genData) {
+        throw new Error(genData?.detail || "Password generation failed.");
+      }
 
       tempEmail = email;
       tempFullName = fullName;
@@ -710,54 +1254,44 @@ window.onload = () => {
 
     } catch (err) {
       hideLoader();
-      alert("Error generating password: " + err.message);
+      showStatusMessage("Error generating password: " + err.message, true);
     }
   }
-
-  async function handleApplicationSubmit(e) {
-    e.preventDefault();
-    const formData = new FormData(applicationForm);
-
+  
+  // Add a button to test API connection manually
+  const testApiBtn = document.createElement('button');
+  testApiBtn.textContent = '🔧 Test API Connection';
+  testApiBtn.style.cssText = `
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+    font-size: 12px;
+  `;
+  testApiBtn.onclick = async () => {
     try {
       showLoader();
-      const res = await fetch(`${API_BASE_URL}/apply`, {
-        method: "POST",
-        body: formData
-      });
-
-      const data = await parseResponse(res);
-      if (!res.ok || !data) {
-        hideLoader();
-        alert(data?.detail || "❌ Application submission failed.");
-        return;
-      }
-
-      const submitRes = await fetch(`${API_BASE_URL}/submit`, {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({ email: data.email, full_name: data.full_name })
-      });
-
-      const submitData = await parseResponse(submitRes);
-      if (!submitRes.ok || !submitData) {
-        hideLoader();
-        alert(submitData?.detail || "❌ Final form submission failed.");
-        return;
-      }
-
+      const response = await fetch(`${API_BASE_URL}/health`);
+      const data = await response.json();
       hideLoader();
-      alert("🎉 Application submitted successfully!");
-      resetForms();
-      showSection("paymentSection");
-
-    } catch (err) {
+      alert(`API Status: ${data.status}\nService: ${data.service}\nURL: ${API_BASE_URL}`);
+    } catch (error) {
       hideLoader();
-      alert("❌ Unexpected error during application.");
-      console.error("❌ Form submit error:", err);
+      alert(`API Connection Failed!\nURL: ${API_BASE_URL}\nError: ${error.message}`);
     }
+  };
+  
+  // Only show in development
+  if (isLocalDevelopment) {
+    document.body.appendChild(testApiBtn);
   }
 };
 </script>
-
 </body>
 </html>

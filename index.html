@@ -294,6 +294,148 @@
         font-size: 16px;
       }
     }
+    
+    /* FLAG COLOR BANNER STYLING - REPLACING IMAGES */
+    .flag-banner {
+      position: relative;
+      width: 100%;
+      height: 80vh; /* Same height as the carousel images */
+      min-height: 600px;
+      overflow: hidden;
+      background: linear-gradient(to bottom, #d32f2f 50%, #1a237e 50%); /* Red top, Navy blue bottom */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Diagonal split version for a more dynamic look */
+    .flag-banner.diagonal {
+      background: linear-gradient(to bottom right, #d32f2f 50%, #1a237e 50%);
+    }
+    
+    /* Clean vertical split version */
+    .flag-banner.vertical {
+      background: linear-gradient(to right, #d32f2f 50%, #1a237e 50%);
+    }
+    
+    /* Gradient version */
+    .flag-banner.gradient {
+      background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 50%, #1a237e 50%, #0d1b3e 100%);
+    }
+    
+    /* Simple horizontal split (your requested style) */
+    .flag-banner.horizontal {
+      background: linear-gradient(to bottom, #d32f2f 50%, #1a237e 50%);
+    }
+    
+    /* Flag content styling */
+    .flag-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 40px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
+      max-width: 800px;
+      margin: 0 auto;
+      backdrop-filter: blur(5px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .flag-content h2 {
+      color: white;
+      font-size: 24px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    .flag-content h1 {
+      color: white;
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+    
+    .flag-content p {
+      color: #f0f0f0;
+      font-size: 18px;
+      font-style: italic;
+      margin: 0;
+    }
+    
+    /* Responsive adjustments for flag banner */
+    @media (max-width: 992px) {
+      .flag-banner {
+        height: 60vh;
+        min-height: 500px;
+      }
+      
+      .flag-content h1 {
+        font-size: 30px;
+      }
+      
+      .flag-content h2 {
+        font-size: 20px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .flag-banner {
+        height: 50vh;
+        min-height: 400px;
+      }
+      
+      .flag-content {
+        padding: 30px 20px;
+        margin: 0 20px;
+      }
+      
+      .flag-content h1 {
+        font-size: 24px;
+      }
+      
+      .flag-content h2 {
+        font-size: 18px;
+      }
+      
+      .flag-content p {
+        font-size: 16px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .flag-banner {
+        height: 40vh;
+        min-height: 300px;
+      }
+      
+      .flag-content h1 {
+        font-size: 20px;
+      }
+      
+      .flag-content h2 {
+        font-size: 16px;
+      }
+      
+      .flag-content p {
+        font-size: 14px;
+      }
+    }
+    
+    /* SLIDER SECTION OVERRIDES */
+    .slider_section {
+      height: auto;
+    }
+    
+    .carousel-inner {
+      height: auto;
+    }
+    
+    .carousel-item {
+      height: auto;
+    }
   </style>
 </head>
 
@@ -345,70 +487,48 @@
   </header>
   <!-- end header section -->
 
-  <!-- slider section -->
-  <section class=" slider_section">
+  <!-- REPLACED SLIDER SECTION WITH FLAG COLOR BANNER -->
+  <section class="slider_section">
     <div id="carouselExampleIndicators" class="carousel slide vert" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        
       </ol>
       <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="images/banner.jpg" alt="First slide">
-        <div class="slider_box">
-            <div class="fixed_company-detail">
-              <p>
-                
-              </p>
-            </div>
-            <div class="slider-detail">
-              <div class="slider_detail-heading">
-                <h2>
-                  
-                </h2>
-                <h1>
-                  
-                </h1>
-              </div>
-              <div class="slider_detail-text">
-                <p>
-                  
-                </p>
-              </div>
-              
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item">
-        <img src="images/banner2.jpg" alt="Second slide">
-        <div class="slider_box">
-            <div class="fixed_company-detail">
-              <p>
-                
-              </p>
-            </div>
-            <div class="slider-detail">
-              <div class="slider_detail-heading">
-                <h2>
-                 
-                </h2>
-                <h1>
-                  
-                </h1>
-              </div>
-              <div class="slider_detail-text">
-                <p>
-                  
-                </p>
-              </div>
-              
+        <!-- First Slide - Red top, Navy Blue bottom -->
+        <div class="carousel-item active">
+          <div class="flag-banner horizontal">
+            <div class="flag-content">
+              <h2>Marshal Core of Nigeria</h2>
+              <h1>Voluntary Service Organization</h1>
+              <p>Motto: Always Ready!</p>
             </div>
           </div>
         </div>
         
+        <!-- Second Slide - Same flag colors, different text -->
+        <div class="carousel-item">
+          <div class="flag-banner horizontal">
+            <div class="flag-content">
+              <h2>Serving Our Nation</h2>
+              <h1>Volunteer With Purpose</h1>
+              <p>Motto: Always Ready!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Carousel Controls (optional - can remove if you don't want arrows) -->
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
   </section>
-
   <!-- end slider section -->
 
   <!-- welcome section -->
@@ -417,7 +537,7 @@
       <div class="row">
         <div class=" col-md-6">
           <div>
-            <img class="img-fluid" src="images/job-01.jpg" alt="" />
+            <img class="img-fluid" src="images/sob-1.jpg" alt="" />
           </div>
         </div>
         <div class=" col-md-6">
@@ -426,19 +546,17 @@
               Welcome To
             </h3>
             <h2>
-              Marshal Core Of Nigeria 
+              Marshal Core of Nigeria 
             </h2>
             <p>
               <strong>
-              We are a registered and government-recognized organization, committed to empowering Nigerian youths, promoting discipline, and supporting national development through security, community service, and patriotic engagement.
-              Our mission is built on integrity, dedication, and service to the nation.
-              Join us as we shape a safer, stronger, and more responsible society together.
-               <br>
-               <br>
-               At Marshal Core of Nigeria, we proudly offer a range of essential services, including special escort operations, private security support, community surveillance,  and youth development programs.
-               Each service is delivered with professionalism, discipline, and a strong sense of national responsibility.
-               </strong>
-             </p>
+              We are a registered and government-recognized voluntary organization, committed to empowering Nigerian youths through volunteerism, promoting discipline, and supporting national development through community service and patriotic engagement.
+              <br><br>
+              As a voluntary service organization under the National Youth Council of Nigeria, our mission is built on integrity, dedication, and selfless service to the nation. We believe in the power of volunteerism to transform communities and build a stronger Nigeria.
+              <br><br>
+              Join us as we shape a more responsible and engaged society through voluntary service, youth empowerment, and community development initiatives.
+              </strong>
+            </p>
             <div class="welcome_detail-btn">
               <a href="about.html" style="
                 display: inline-flex;
@@ -524,12 +642,12 @@
         The Marshal Board Committee shall comprise of: <br></strong>
 
        <h3><strong>Federal government officers:</strong> <br></h3>
-       <strong>- Representatives from the Nigeria Police </stong> <br>
-       <strong>- Representatives from the Nigeria Army/Air Force/Navy</stong> <br>
-       <strong>- Representatives from the Nigeria Security and Civil Defense Corps </stong><br>
-       <strong>- Representatives from EFCC (Economic and Financial Crimes Commission) </stong><br>
-       <strong>- Representatives from DSS (Department of State Services) </stong><br>
-       <strong>- Representatives from Correctional Service/fire/immigration service </stong><br>
+       <strong>- Representatives from the Nigeria Police </strong> <br>
+       <strong>- Representatives from the Nigeria Army/Air Force/Navy</strong> <br>
+       <strong>- Representatives from the Nigeria Security and Civil Defense Corps </strong><br>
+       <strong>- Representatives from EFCC (Economic and Financial Crimes Commission) </strong><br>
+       <strong>- Representatives from DSS (Department of State Services) </strong><br>
+       <strong>- Representatives from Correctional Service/fire/immigration service </strong><br>
         <br>
 
        <h3><strong>State government officers</strong><br></h3>
@@ -599,7 +717,7 @@ This establishment is aimed at ensuring the smooth operation and management of t
 
               As a member, you enjoy <strong>competitive salary packages, comprehensive health coverage, and long-term benefits including pension and gratuity.</strong>  These are more than perks—they're our commitment to your future.
 
-              Join the Marshal Core Of Nigeria today and secure a better future for yourself.<br>
+              Join the Marshal Core of Nigeria today and secure a better future for yourself.<br>
               <strong>Click the button below to become a member or a partner to this great vision.</strong> 
             </p>
              
@@ -729,7 +847,7 @@ This establishment is aimed at ensuring the smooth operation and management of t
               <h3>Contact Information</h3>
               <div class="contact-item">
                 <i class="fas fa-map-marker-alt"></i>
-                <span>Address: Km. 3, Marshal Core Of Nigeria, National Headquarters, Abumwenrenre Community, Ekiadolor/Agekponu Road, Benin City, Edo State, Nigeria.</span>
+                <span>Address: Km. 3, Marshal Core of Nigeria, National Headquarters, Abumwenrenre Community, Ekiadolor/Agekponu Road, Benin City, Edo State, Nigeria.</span>
               </div>
               <div class="contact-item">
                 <i class="fas fa-phone"></i>
@@ -737,7 +855,19 @@ This establishment is aimed at ensuring the smooth operation and management of t
               </div>
               <div class="contact-item">
                 <i class="fas fa-envelope"></i>
-                <span>MARSHALCOREOFNIGERIA@GMAIL.COM</span>
+                <span>info@marshalcoreofnigeria.ng</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-user-tie"></i>
+                <span>oseoboh@marshalcoreofnigeria.ng</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-briefcase"></i>
+                <span>recruitment@marshalcoreofnigeria.ng</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-headset"></i>
+                <span>support@marshalcoreofnigeria.ng</span>
               </div>
             </div>
           </div>
@@ -821,7 +951,7 @@ This establishment is aimed at ensuring the smooth operation and management of t
             
             <!-- Email -->
             <li class="social-icon-item">
-              <a href="mailto:MARSHALCOREOFNIGERIALIMITED@GMAIL.COM" title="Email us" class="social-icon-link email">
+              <a href="mailto:info@marshalcoreofnigeria.ng" title="Email us" class="social-icon-link email">
                 <i class="fas fa-envelope"></i>
               </a>
             </li>
@@ -861,7 +991,7 @@ This establishment is aimed at ensuring the smooth operation and management of t
   <section class="container-fluid footer_section">
     <p>
       Copyright &copy; 2025 All Rights Reserved By <br>
-      <a href="">Marshal Core Of Nigeria</a>
+      <a href="">Marshal Core of Nigeria</a>
     </p>
   </section>
   <!-- footer section -->
@@ -913,6 +1043,31 @@ This establishment is aimed at ensuring the smooth operation and management of t
           .addClass("d-none");
       }
     });
+    
+    // Remove "Limited" from all text on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      // Function to remove "Limited" text from all elements
+      function removeLimitedText(node) {
+        if (node.nodeType === 3) { // Text node
+          node.textContent = node.textContent.replace(/\s*Limited\s*/gi, '');
+          node.textContent = node.textContent.replace(/Marshal Core Of Nigeria Limited/gi, 'Marshal Core of Nigeria');
+        } else if (node.nodeType === 1) { // Element node
+          // Check and update placeholder text if it exists
+          if (node.placeholder) {
+            node.placeholder = node.placeholder.replace(/\s*Limited\s*/gi, '');
+          }
+          // Check and update value if it exists
+          if (node.value) {
+            node.value = node.value.replace(/\s*Limited\s*/gi, '');
+          }
+          // Process all child nodes
+          node.childNodes.forEach(removeLimitedText);
+        }
+      }
+      
+      // Remove "Limited" from the entire document
+      removeLimitedText(document.body);
+    });
   </script>
 
   <script>
@@ -948,5 +1103,4 @@ This establishment is aimed at ensuring the smooth operation and management of t
   <!-- end google map js -->
 
 </body>
-
 </html>

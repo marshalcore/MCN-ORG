@@ -32,7 +32,160 @@
   <link href="css/responsive.css" rel="stylesheet" />
   
   <style>
-    /* Founder Section Styles - COMPLETELY REVISED for better layout */
+    /* IMPROVED STYLING FOR CONSISTENCY WITH INDEX.HTML */
+    
+    /* 1. Welcome Section Improvements */
+    .welcome_section {
+      padding: 60px 0;
+    }
+    
+    .welcome_detail h3 {
+      color: #1a237e;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .welcome_detail h3::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background: #d32f2f;
+      bottom: -5px;
+      left: 0;
+    }
+    
+    .welcome_detail h2 {
+      color: #1a237e;
+      font-size: 2.2rem;
+      font-weight: bold;
+      margin: 15px 0 20px 0;
+    }
+    
+    .welcome_detail h4 {
+      color: #1a237e;
+      font-size: 1.3rem;
+      margin: 25px 0 15px 0;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #eee;
+    }
+    
+    .welcome_detail p {
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+    
+    .welcome_detail ul {
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .welcome_detail ul li {
+      margin-bottom: 10px;
+      color: #555;
+      line-height: 1.6;
+    }
+    
+    .welcome_detail strong {
+      color: #333;
+    }
+    
+    /* 2. Flag Image Container */
+    .flag-container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      margin: 30px 0;
+      text-align: center;
+      border: 1px solid #e0e0e0;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .flag-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    
+    .flag-label {
+      color: #1a237e;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+    
+    /* 3. Read More Button */
+    .read-more-container {
+      text-align: center;
+      margin: 30px 0 20px 0;
+    }
+    
+    .btn-read-more {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #6e8efb 0%, #a777e3 100%);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      box-shadow: 0 4px 15px rgba(106, 142, 251, 0.3);
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn-read-more:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(106, 142, 251, 0.4);
+      text-decoration: none;
+      color: white;
+    }
+    
+    .btn-read-more span {
+      margin-right: 8px;
+    }
+    
+    /* 4. Meet Founder Button */
+    .welcome_detail-btn .btn-founder {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+      color: white;
+      padding: 15px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      margin: 10px auto;
+    }
+    
+    .welcome_detail-btn .btn-founder:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(211, 47, 47, 0.4);
+      text-decoration: none;
+      color: white;
+    }
+    
+    /* 5. Founder Section Improvements */
     .founder-section {
       background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
       padding: 40px 20px;
@@ -55,7 +208,7 @@
     
     .founder-header h2 {
       color: #d32f2f;
-      font-size: 2.2rem;
+      font-size: 2rem;
       margin-bottom: 10px;
       position: relative;
       display: inline-block;
@@ -66,7 +219,7 @@
       position: absolute;
       width: 80px;
       height: 4px;
-      background: #254a93;
+      background: #1a237e;
       bottom: -10px;
       left: 50%;
       transform: translateX(-50%);
@@ -81,7 +234,6 @@
       line-height: 1.6;
     }
     
-    /* NEW: Main content grid with 3 columns */
     .founder-content {
       display: grid;
       grid-template-columns: 350px 1fr;
@@ -89,7 +241,6 @@
       align-items: start;
     }
     
-    /* Founder Image Column */
     .founder-image-col {
       display: flex;
       flex-direction: column;
@@ -111,17 +262,16 @@
       border: 5px solid white;
     }
     
-    /* Personal Details Card */
     .personal-card {
       background: white;
       padding: 20px;
       border-radius: 12px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      border-top: 4px solid #254a93;
+      border-top: 4px solid #1a237e;
     }
     
     .personal-card h4 {
-      color: #254a93;
+      color: #1a237e;
       margin-bottom: 15px;
       font-size: 1.2rem;
       display: flex;
@@ -142,7 +292,6 @@
       display: inline-block;
     }
     
-    /* Founder Details Column */
     .founder-details-col {
       display: flex;
       flex-direction: column;
@@ -165,7 +314,7 @@
     }
     
     .founder-title {
-      color: #254a93;
+      color: #1a237e;
       font-size: 1.2rem;
       margin-bottom: 15px;
       font-weight: 600;
@@ -180,17 +329,16 @@
       margin-bottom: 12px;
     }
     
-    /* Para-Military Card */
     .paramilitary-card {
       background: white;
       padding: 25px;
       border-radius: 12px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      border-top: 4px solid #254a93;
+      border-top: 4px solid #1a237e;
     }
     
     .paramilitary-card h4 {
-      color: #254a93;
+      color: #1a237e;
       margin-bottom: 20px;
       font-size: 1.2rem;
       display: flex;
@@ -215,14 +363,13 @@
       display: inline-block;
     }
     
-    /* UPDATED: Service Record - Now Horizontal Rectangle */
     .service-record {
       background: white;
       padding: 25px;
       border-radius: 12px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       border-top: 4px solid #d32f2f;
-      grid-column: 1 / -1; /* Spans full width */
+      grid-column: 1 / -1;
       margin-top: 10px;
     }
     
@@ -257,7 +404,7 @@
     }
     
     .service-item strong {
-      color: #254a93;
+      color: #1a237e;
       display: block;
       margin-bottom: 8px;
       font-size: 1.05rem;
@@ -279,11 +426,10 @@
       content: "•";
       position: absolute;
       left: 0;
-      color: #254a93;
+      color: #1a237e;
       font-weight: bold;
     }
     
-    /* Social Links */
     .social-links {
       background: white;
       padding: 20px;
@@ -330,55 +476,7 @@
     .social-link.whatsapp { background: #25D366; }
     .social-link.linkedin { background: #0077B5; }
     
-    /* Read More Button Styles */
-    .read-more-container {
-      text-align: center;
-      margin: 30px 0;
-    }
-    
-    .btn-read-more {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #6e8efb 0%, #a777e3 100%);
-      color: white;
-      padding: 14px 28px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 17px;
-      box-shadow: 0 4px 15px rgba(106, 142, 251, 0.3);
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .btn-read-more:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(106, 142, 251, 0.4);
-      text-decoration: none;
-      color: white;
-    }
-    
-    .btn-read-more:active {
-      transform: translateY(-1px);
-    }
-    
-    .btn-read-more span {
-      margin-right: 10px;
-    }
-    
-    .btn-read-more img {
-      transition: transform 0.3s ease;
-    }
-    
-    .btn-read-more:hover img {
-      transform: translateX(4px);
-    }
-    
-    /* Responsive Design */
+    /* 6. Responsive Design */
     @media (max-width: 992px) {
       .founder-content {
         grid-template-columns: 1fr;
@@ -407,6 +505,14 @@
     }
     
     @media (max-width: 768px) {
+      .welcome_section {
+        padding: 40px 0;
+      }
+      
+      .welcome_detail h2 {
+        font-size: 1.8rem;
+      }
+      
       .founder-section {
         padding: 30px 15px;
         margin: 30px auto;
@@ -429,9 +535,22 @@
       .personal-card, .paramilitary-card, .service-record, .social-links {
         padding: 20px;
       }
+      
+      .flag-container {
+        margin: 20px 10px;
+        padding: 15px;
+      }
     }
     
     @media (max-width: 576px) {
+      .welcome_detail h2 {
+        font-size: 1.6rem;
+      }
+      
+      .welcome_detail h4 {
+        font-size: 1.1rem;
+      }
+      
       .founder-section {
         padding: 25px 12px;
         margin: 25px auto;
@@ -441,9 +560,9 @@
         font-size: 1.6rem;
       }
       
-      .btn-read-more {
+      .btn-read-more, .welcome_detail-btn .btn-founder {
         padding: 12px 24px;
-        font-size: 16px;
+        font-size: 15px;
       }
       
       .paramilitary-item strong {
@@ -505,30 +624,22 @@
   <section class="welcome_section layout_padding">
     <div class="container-fluid">
       <div class="row">
-        <div class=" col-md-6">
+        <div class="col-md-6">
           <div>
-            <img class="img-fluid" src="images/sob-1.jpg" alt="" />
+            <img class="img-fluid" src="images/jol-1.jpg" alt="Marshal Core of Nigeria" style="border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);" />
           </div>
         </div>
-        <div class=" col-md-6">
+        <div class="col-md-6">
           <div class="welcome_detail">
             <h3>About</h3>
             <h2>The Marshal Core of Nigeria</h2>
-            <p>The <strong>Marshal Core of Nigeria </strong> was founded on <strong>March 19, 2025</strong>, by <strong>Director General Oseoboh Joshua Eromonsele</strong> of the <strong>Nigeria Police Force (NPF)</strong>. The organization is structured into three key divisions:</p>
+            <p>The <strong>Marshal Core of Nigeria</strong> was founded on <strong>March 19, 2025</strong>, by <strong>Director General Oseoboh Joshua Eromonsele</strong> of the <strong>Nigeria Police Force (NPF)</strong>. The organization is structured into three key divisions:</p>
             <ul>
               <li><strong>Marshal Board Committee (MBC)</strong></li>
               <li><strong>Marshal Board of Trustees (MBT)</strong></li>
               <li><strong>Marshal Core of Nigeria (MCN)</strong></li>
             </ul>
             <p>The <strong>MBC</strong> and <strong>MBT</strong> are responsible for overseeing and directing the affairs of the organization.</p>
-            <h4>Aims and Objectives</h4>
-            <ul>
-              <li><strong>(a)</strong> To promote social and economic development by engaging members and volunteers in collaborative initiatives with government agencies, schools, non-profit organizations, and NGOs—aimed at productively engaging Nigerian youth.</li>
-              <li><strong>(b)</strong> To empower Nigerian youths by creating job opportunities and providing alternative employment pathways.</li>
-              <li><strong>(c)</strong> To instill strong moral values, patriotism, volunteerism, and a commitment to community service and nation-building among young Nigerians.</li>
-              <li><strong>(d)</strong> To train and equip youths with skills in education, conflict resolution, reconciliation, and confidence-building.</li>
-              <li><strong>(e)</strong> To offer youth-focused orientation and engage them in essential community services, including:</li>
-            </ul>
           </div>
         </div>
       </div>
@@ -536,6 +647,15 @@
       <!-- Continue content after image row -->
       <div class="row mt-4">
         <div class="col-12">
+          <h4>Aims and Objectives</h4>
+          <ul>
+            <li><strong>(a)</strong> To promote social and economic development by engaging members and volunteers in collaborative initiatives with government agencies, schools, non-profit organizations, and NGOs—aimed at productively engaging Nigerian youth.</li>
+            <li><strong>(b)</strong> To empower Nigerian youths by creating job opportunities and providing alternative employment pathways.</li>
+            <li><strong>(c)</strong> To instill strong moral values, patriotism, volunteerism, and a commitment to community service and nation-building among young Nigerians.</li>
+            <li><strong>(d)</strong> To train and equip youths with skills in education, conflict resolution, reconciliation, and confidence-building.</li>
+            <li><strong>(e)</strong> To offer youth-focused orientation and engage them in essential community services, including:</li>
+          </ul>
+          
           <ul>
             <li><strong>(i)</strong> Participation in public health initiatives such as immunization drives, census activities, and sanitation campaigns, especially in urban centers and local government capitals.</li>
             <li><strong>(ii)</strong> Distribution of refuse bins, wastebaskets, and portable waste bags in public facilities, buses, and schools to reduce environmental pollution.</li>
@@ -561,78 +681,45 @@
             <li><strong>Logo:</strong> Designed by Director General Oseoboh Joshua Eromonsele (NPF/MBC)</li>
             <li><strong>Flag:</strong> Designed by Director General Oseoboh Joshua Eromonsele (NPF/MBC)</li>
             <li><strong>Motto:</strong> "Always Ready" — by Director General Oseoboh Joshua Eromonsele (NPF/MBC)</li>
-            <li><strong>Constitution:</strong> Established on <strong>April 23, 2025,</strong> by <strong>Director General Oseoboh Joshua Eromonsele (NPF/MBC)</strong> </li>
+            <li><strong>Constitution:</strong> Established on <strong>April 23, 2025</strong>, by <strong>Director General Oseoboh Joshua Eromonsele (NPF/MBC)</strong></li>
           </ul>
           
-          <strong><h4>Marshal Day</h4></strong> 
+          <h4>Marshal Day</h4>
           <p><strong>March 19</strong> is officially celebrated every year as <strong>Marshal Day</strong>.</p>
 
           <h4>Flag Description and Identity</h4>
-          <p>The Marshal Core flag features a bold red and deep navy blue bisection, sharply divided diagonally, housing the organization's insignia at its heart.
-          <br>
-          <strong>Color Meanings:</strong> 
-          <br>
-          <strong>🔴 Red –</strong>  Symbolizes courage, valor, and sacrifice. It reflects the bravery of every officer and the burning passion to uphold justice and national peace.
-          <br>
-          <strong>🔵 Navy Blue –</strong>  Represents discipline, loyalty, and authority. It speaks to the structured system of command, honor, and service that guides every Marshal.
-          <br>
-          <strong>Core Emblem:</strong> 
-          <br>
-          <strong>🛡️ Shield & Scales –</strong> Justice, protection, and moral authority.
-          <br>
-          <strong> 🕊️ Eagle atop –</strong> National sovereignty and readiness to rise above challenges.
-          <br>
-          <strong>🌿 Laurel Wreath –</strong> Honor and victory earned through service.
-          </p>
+          <p>The Marshal Core flag features a bold red and deep navy blue bisection, sharply divided diagonally, housing the organization's insignia at its heart.</p>
+          <p><strong>Color Meanings:</strong></p>
+          <p><strong>🔴 Red –</strong> Symbolizes courage, valor, and sacrifice. It reflects the bravery of every officer and the burning passion to uphold justice and national peace.</p>
+          <p><strong>🔵 Navy Blue –</strong> Represents discipline, loyalty, and authority. It speaks to the structured system of command, honor, and service that guides every Marshal.</p>
+          <p><strong>Core Emblem:</strong></p>
+          <p><strong>🛡️ Shield & Scales –</strong> Justice, protection, and moral authority.</p>
+          <p><strong>🕊️ Eagle atop –</strong> National sovereignty and readiness to rise above challenges.</p>
+          <p><strong>🌿 Laurel Wreath –</strong> Honor and victory earned through service.</p>
 
-          <!-- Image only, centered, no visible container lines -->
-          <div style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
-            <img src="images/flag.jpg" alt="Senior Officer Badge" style="display: block; max-width: 100%; height: auto;" />
+          <!-- Flag Image in Container -->
+          <div class="flag-container">
+            <img src="images/flag.jpg" alt="Marshal Core Flag" />
+            <p class="flag-label">The Marshal Core Flag</p>
           </div>
-
-          <!-- Label below image -->
-          <p style="font-weight: bold; color: #254a93; margin-top: 10px; text-align: center;">
-            The Marshal Core Flag
-          </p>
           
-          <!-- ADDED: Read More Button (from bottom code) -->
+          <!-- Read More Button -->
           <div class="read-more-container">
             <a href="mcnlbc.html" class="btn-read-more">
-              <span style="margin-right: 8px;">Read More</span>
-              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNNSAxMmgxNE0xMiA1bDcgNy03IDciPjwvcGF0aD48L3N2Zz4=" alt="Arrow" />
+              <span>Read More</span>
+              <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
             </a>
           </div>
         </div>
       </div>
       
       <!-- Founder Section Button -->
-      <div class="row mt-4">
+      <div class="row mt-2">
         <div class="col-12 text-center">
           <div class="welcome_detail-btn">
-            <a href="#founderSection" class="btn-founder" style="
-              display: inline-flex;
-              align-items: center;
-              justify-content: center;
-              background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
-              color: white;
-              padding: 15px 30px;
-              border-radius: 50px;
-              text-decoration: none;
-              font-weight: 600;
-              font-size: 18px;
-              box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
-              transition: all 0.3s ease;
-              border: none;
-              cursor: pointer;
-              position: relative;
-              overflow: hidden;
-              margin: 20px auto;
-            " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(211, 47, 47, 0.4)'" 
-            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(211, 47, 47, 0.3)'" 
-            onmousedown="this.style.transform='translateY(1px)'" 
-            onmouseup="this.style.transform='translateY(-2px)'">
-              <span style="margin-right: 10px;"><i class="fas fa-user-tie"></i> Meet Our Founder</span>
-              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNNSAxMmgxNE0xMiA1bDcgNy03IDciPjwvcGF0aD48L3N2Zz4=" alt="Arrow" style="transition: transform 0.3s ease;" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='translateX(0)'" />
+            <a href="#founderSection" class="btn-founder">
+              <i class="fas fa-user-tie" style="margin-right: 10px;"></i> Meet Our Founder
+              <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
             </a>
           </div>
         </div>
@@ -641,7 +728,7 @@
   </section>
   <!-- end welcome section -->
 
-  <!-- REVISED Founder Section - Better structured with no unnecessary spaces -->
+  <!-- Founder Section -->
   <section id="founderSection" class="founder-section">
     <div class="founder-container">
       <div class="founder-header">
@@ -673,7 +760,6 @@
             <h3 class="founder-name">DG Oseoboh Joshua Eromonsele</h3>
             <p class="founder-title">Director General, Marshal Core of Nigeria</p>
             <div class="founder-bio">
-              <p><strong>Born:</strong> 1996 (Age 30-31)</p>
               <p><strong>DG Oseoboh Joshua Eromonsele</strong> is a distinguished Nigerian Police Officer who serves as the <strong>Director General of the Marshal Core of Nigeria</strong>. With a passion for national service and youth development, he has dedicated his career to building a more secure and disciplined Nigeria.</p>
             </div>
           </div>
@@ -703,7 +789,7 @@
           </div>
         </div>
         
-        <!-- UPDATED: Service Record - Now Horizontal Rectangle spanning full width -->
+        <!-- Service Record -->
         <div class="service-record">
           <h3><i class="fas fa-history"></i> Service History & Experience</h3>
           <div class="service-grid">
@@ -766,7 +852,7 @@
   <section class="info_section layout_padding">
     <div class="container">
       <div class="row">
-        <div class=" col-md-4 info_detail">
+        <div class="col-md-4 info_detail">
           <div>
             <p>
               Marshal Core of Nigeria is committed to discipline, service, and national development. We inspire purpose-driven citizens to lead with honor and integrity, building a safer and more united Nigeria through excellence and professional conduct.<br>
@@ -774,13 +860,13 @@
             </p>
           </div>
         </div>
-        <div class=" col-md-4 address_container">
+        <div class="col-md-4 address_container">
           <div>
             <h3>Address:</h3>
             <div class="address_link-container">
               <a href="">
                 <img src="images/location.png" alt="">
-                <span> Address: Km. 3, Marshal Core Of Nigeria, National Headquarters, Abumwenrenre Community, Ekiadolor/Agekponu Road, Benin City, Edo State, Nigeria.</span>
+                <span> Address: Km. 3, Marshal Core of Nigeria, National Headquarters, Abumwenrenre Community, Ekiadolor/Agekponu Road, Benin City, Edo State, Nigeria.</span>
               </a>
               <a href="">
                 <img src="images/phone.png" alt="">
@@ -788,12 +874,12 @@
               </a>
               <a href="">
                 <img src="images/mail.png" alt="">
-                <span>MARSHALCOREOFNIGERIA@GMAIL.COM</span>
+                <span>info@marshalcoreofnigeria.ng</span>
               </a>
             </div>
           </div>
         </div>
-        <div class=" col-md-4 news_container">
+        <div class="col-md-4 news_container">
           <div>
             <div>
               <h3>Newsletter</h3>
@@ -815,7 +901,7 @@
   <section class="container-fluid footer_section">
     <p>
       Copyright &copy; 2025 All Rights Reserved By <br>
-      <a href="">Marshal Core Of Nigeria</a>
+      <a href="">Marshal Core of Nigeria</a>
     </p>
   </section>
   <!-- footer section -->

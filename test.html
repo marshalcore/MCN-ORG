@@ -3,123 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Application Form - Marshal Core Nigeria</title>
+    <title>Terms & Conditions - Marshal Core of Nigeria</title>
     <style>
         @page {
             size: A4;
-            margin: 1.5cm;
+            margin: 2cm;
         }
         
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.5;
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.6;
             color: #333;
-            font-size: 11pt;
+            font-size: 12pt;
+            position: relative;
         }
         
         .watermark {
-            position: fixed;
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background-image: url('https://marshalcoreofnigeria.ng/images/logo.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            opacity: 0.1;
+            z-index: -1;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) rotate(-45deg);
-            font-size: 80px;
-            color: rgba(0, 0, 0, 0.1);
-            z-index: -1;
-            font-weight: bold;
         }
         
         .header {
             text-align: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 3px double #000;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 20px;
         }
         
-        .company-name {
-            font-size: 22px;
-            font-weight: bold;
-            color: #2c3e50;
-            text-transform: uppercase;
-        }
-        
-        .form-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin: 15px 0;
-            text-decoration: underline;
-        }
-        
-        .section {
-            margin-bottom: 25px;
-            page-break-inside: avoid;
-        }
-        
-        .section-title {
-            background-color: #2c3e50;
-            color: white;
-            padding: 8px 15px;
-            font-weight: bold;
-            font-size: 14px;
-            margin-bottom: 15px;
-            border-radius: 3px;
-        }
-        
-        .form-row {
-            display: flex;
-            margin-bottom: 8px;
-            page-break-inside: avoid;
-        }
-        
-        .form-label {
-            font-weight: bold;
-            width: 200px;
-            flex-shrink: 0;
-        }
-        
-        .form-value {
-            flex: 1;
-            border-bottom: 1px dotted #ccc;
-            padding-bottom: 2px;
-        }
-        
-        .photo-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-        
-        .photo-placeholder {
-            width: 150px;
-            height: 180px;
-            border: 2px solid #ccc;
-            display: inline-block;
-            background-color: #f5f5f5;
-            line-height: 180px;
-            color: #999;
-        }
-        
-        .qr-section {
-            text-align: center;
-            margin: 30px 0;
-            padding: 20px;
-            border: 1px dashed #ccc;
-            background-color: #f9f9f9;
-        }
-        
-        .qr-placeholder {
-            width: 120px;
-            height: 120px;
-            background-color: #eee;
-            border: 1px solid #ddd;
-            display: inline-block;
+        .company-logo {
+            max-height: 80px;
             margin-bottom: 10px;
         }
         
-        .barcode {
-            font-family: 'Libre Barcode 39', monospace;
-            font-size: 36px;
-            text-align: center;
-            letter-spacing: 2px;
+        .company-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .company-rc {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+        
+        .document-title {
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: underline;
+            margin: 30px 0 20px 0;
+        }
+        
+        .section {
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .clause {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .clause-number {
+            font-weight: bold;
+            display: inline;
+        }
+        
+        .warning-box {
+            border: 2px solid #e74c3c;
+            background-color: #ffebee;
+            padding: 15px;
             margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .warning-title {
+            color: #c62828;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .signature-section {
+            margin-top: 50px;
+        }
+        
+        .signature-line {
+            width: 300px;
+            border-bottom: 1px solid #000;
+            margin: 40px 0 10px 0;
+        }
+        
+        .signature-label {
+            font-size: 12px;
+            color: #7f8c8d;
         }
         
         .footer {
@@ -127,283 +119,197 @@
             bottom: 0;
             width: 100%;
             text-align: center;
-            font-size: 9px;
-            color: #666;
+            font-size: 10px;
+            color: #7f8c8d;
             border-top: 1px solid #eee;
-            padding-top: 5px;
+            padding-top: 10px;
             background-color: white;
         }
         
-        .signature-area {
-            margin-top: 40px;
-            margin-bottom: 60px;
-        }
-        
-        .signature-line {
-            width: 300px;
-            border-bottom: 1px solid #000;
-            margin: 30px 0 5px 0;
-        }
-        
-        .signature-label {
-            font-size: 10px;
-            color: #666;
-        }
-        
-        .declaration {
+        .officer-info {
             background-color: #f8f9fa;
             padding: 15px;
-            border: 1px solid #dee2e6;
             border-left: 4px solid #3498db;
             margin: 20px 0;
-            font-size: 10pt;
         }
         
-        .checkbox-item {
+        .info-item {
             margin-bottom: 5px;
         }
         
-        .checkbox-checked::before {
-            content: "✓ ";
-            color: green;
+        .info-label {
             font-weight: bold;
+            display: inline-block;
+            width: 150px;
         }
         
-        .checkbox-unchecked::before {
-            content: "✗ ";
-            color: red;
-            font-weight: bold;
-        }
-        
-        .for-official-use {
-            border: 2px solid red;
-            padding: 15px;
-            margin: 20px 0;
-            background-color: #fff5f5;
-        }
-        
-        .for-official-title {
-            color: red;
-            font-weight: bold;
+        .stamp-area {
+            border: 2px dashed #ccc;
+            padding: 20px;
             text-align: center;
-            margin-bottom: 10px;
+            margin: 30px 0;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .document-id {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 9px;
+            color: #777;
         }
     </style>
 </head>
 <body>
-    <div class="watermark">OFFICIAL APPLICATION</div>
+    <div class="watermark"></div>
+    
+    <div class="document-id">ID: {{ document_id }}</div>
     
     <div class="header">
-        <div class="company-name">MARSHAL CORE NIGERIA LIMITED</div>
-        <div>RC: 1234567 | Official Security Services Provider</div>
-        <div>Lagos, Nigeria</div>
-        <div class="form-title">OFFICER APPLICATION FORM</div>
+        <img src="https://marshalcoreofnigeria.ng/images/logo.png" alt="Marshal Core Logo" class="company-logo">
+        <div class="company-name">MARSHAL CORE OF NIGERIA</div>
+        <div class="company-rc">Certificate No: YA/CLB/10100</div>
+        <div>Official Security Services Provider</div>
+        <div>Benin City, Edo State, Nigeria</div>
     </div>
     
-    <div class="barcode">*{{ application_id }}*</div>
+    <div class="document-title">TERMS AND CONDITIONS OF SERVICE</div>
     
     <div class="section">
-        <div class="section-title">A. PERSONAL INFORMATION</div>
-        
-        <div class="photo-container">
-            <div class="photo-placeholder">PASSPORT PHOTO</div>
-            <div style="font-size: 10px; color: #666;">(Photo will be attached separately)</div>
-        </div>
-        
-        <div class="form-row">
-            <div class="form-label">Application ID:</div>
-            <div class="form-value">{{ application_id }}</div>
-        </div>
-        <div class="form-row">
-            <div class="form-label">Full Name:</div>
-            <div class="form-value">{{ full_name }}</div>
-        </div>
-        <div class="form-row">
-            <div class="form-label">Date of Birth:</div>
-            <div class="form-value">{{ date_of_birth }}</div>
-        </div>
-        <div class="form-row">
-            <div class="form-label">Gender:</div>
-            <div class="form-value">{{ gender }}</div>
-        </div>
-        <div class="form-row">
-            <div class="form-label">Marital Status:</div>
-            <div class="form-value">{{ marital_status }}</div>
-        </div>
-        <div class="form-row">
-            <div class="form-label">Nationality:</div>
-            <div class="form-value">{{ nationality }}</div>
-        </div>
-        <div class="form-row">
-            <div class="form-label">NIN Number:</div>
-            <div class="form-value">{{ nin_number }}</div>
-        </div>
-        <div class="form-row">
-            <div class="form-label">Place of Birth:</div>
-            <div class="form-value">{{ place_of_birth }}</div>
-        </div>
-        <div class="form-row">
-            <div class="form-label">Religion:</div>
-            <div class="form-value">{{ religion }}</div>
-        </div>
-        <div class="form-row">
-            <div class="form-label">Category:</div>
-            <div class="form-value">{{ category }}</div>
-        </div>
-    </div>
-    
-    <div class="section">
-        <div class="section-title">B. CONTACT INFORMATION</div>
-        
-        <div class="form-row">
-            <div class="form-label">Email Address:</div>
-            <div class="form-value">{{ email }}</div>
-        </div>
-        <div class="form-row">
-            <div class="form-label">Mobile Number:</div>
-            <div class="form-value">{{ mobile_number }}</div>
-        </div>
-        <div class="form-row">
-            <div class="form-label">Phone Number:</div>
-            <div class="form-value">{{ phone_number }}</div>
-        </div>
-        <div class="form-row">
-            <div class="form-label">Residential Address:</div>
-            <div class="form-value">{{ residential_address }}</div>
-        </div>
-        <div class="form-row">
-            <div class="form-label">State of Residence:</div>
-            <div class="form-value">{{ state_of_residence }}</div>
-        </div>
-        <div class="form-row">
-            <div class="form-label">LGA of Residence:</div>
-            <div class="form-value">{{ local_government_residence }}</div>
-        </div>
-        <div class="form-row">
-            <div class="form-label">Country of Residence:</div>
-            <div class="form-value">{{ country_of_residence }}</div>
-        </div>
-        <div class="form-row">
-            <div class="form-label">State of Origin:</div>
-            <div class="form-value">{{ state_of_origin }}</div>
-        </div>
-        <div class="form-row">
-            <div class="form-label">LGA of Origin:</div>
-            <div class="form-value">{{ local_government_origin }}</div>
-        </div>
-    </div>
-    
-    <div class="section">
-        <div class="section-title">C. PROFESSIONAL INFORMATION</div>
-        
-        <div class="form-row">
-            <div class="form-label">Position Applied For:</div>
-            <div class="form-value">{{ position }}</div>
-        </div>
-        <div class="form-row">
-            <div class="form-label">Rank:</div>
-            <div class="form-value">{{ rank }}</div>
-        </div>
-        <div class="form-row">
-            <div class="form-label">Additional Skills:</div>
-            <div class="form-value">{{ additional_skills }}</div>
-        </div>
-        <div class="form-row">
-            <div class="form-label">Design Rating:</div>
-            <div class="form-value">{{ design_rating }}</div>
-        </div>
-    </div>
-    
-    <div class="section">
-        <div class="section-title">D. FINANCIAL INFORMATION</div>
-        
-        <div class="form-row">
-            <div class="form-label">Bank Name:</div>
-            <div class="form-value">{{ bank_name }}</div>
-        </div>
-        <div class="form-row">
-            <div class="form-label">Account Number:</div>
-            <div class="form-value">{{ account_number }}</div>
-        </div>
-    </div>
-    
-    <div class="section">
-        <div class="section-title">E. DOCUMENTS SUBMITTED</div>
-        
-        <div class="form-row">
-            <div class="form-label">Passport Photo:</div>
-            <div class="form-value">{{ passport_photo }}</div>
-        </div>
-        <div class="form-row">
-            <div class="form-label">NIN Slip:</div>
-            <div class="form-value">{{ nin_slip }}</div>
-        </div>
-        <div class="form-row">
-            <div class="form-label">SSCE Certificate:</div>
-            <div class="form-value">{{ ssce_certificate }}</div>
-        </div>
-        <div class="form-row">
-            <div class="form-label">Higher Education:</div>
-            <div class="form-value">{{ higher_education_degree }}</div>
-        </div>
-    </div>
-    
-    <div class="declaration">
-        <div style="font-weight: bold; margin-bottom: 10px;">DECLARATION BY APPLICANT</div>
-        
-        <div class="checkbox-item">
-            <span class="{{ 'checkbox-checked' if agree_to_join else 'checkbox-unchecked' }}"></span>
-            I agree to join Marshal Core Nigeria Limited if my application is successful
-        </div>
-        <div class="checkbox-item">
-            <span class="{{ 'checkbox-checked' if agree_to_abide_rules else 'checkbox-unchecked' }}"></span>
-            I agree to abide by all rules and regulations of the company
-        </div>
-        <div class="checkbox-item">
-            <span class="{{ 'checkbox-checked' if agree_to_return_properties else 'checkbox-unchecked' }}"></span>
-            I agree to return all company properties upon termination
-        </div>
-        <div class="checkbox-item">
-            <span class="{{ 'checkbox-checked' if do_you_smoke else 'checkbox-unchecked' }}"></span>
-            Do you smoke? {{ "Yes" if do_you_smoke else "No" }}
-        </div>
-        
-        <div style="margin-top: 20px;">
-            <div>I hereby declare that all information provided in this application is true and correct to the best of my knowledge.</div>
-            
-            <div class="signature-area">
-                <div class="signature-line"></div>
-                <div class="signature-label">Signature of Applicant</div>
-                
-                <div style="margin-top: 20px;">
-                    <div>Date: ________________________</div>
-                </div>
+        <div class="section-title">OFFICER INFORMATION</div>
+        <div class="officer-info">
+            <div class="info-item">
+                <span class="info-label">Full Name:</span>
+                <span>{{ officer_full_name }}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Officer ID:</span>
+                <span>{{ officer_id }}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">NIN Number:</span>
+                <span>{{ nin_number }}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Position:</span>
+                <span>{{ position }}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Date of Agreement:</span>
+                <span>{{ agreement_date }}</span>
             </div>
         </div>
     </div>
     
-    <div class="qr-section">
-        <div class="qr-placeholder"></div>
-        <div style="font-size: 10px; color: #666;">Scan QR Code to verify application</div>
-        <div style="font-size: 9px; margin-top: 5px;">Application ID: {{ application_id }}</div>
+    <div class="section">
+        <div class="section-title">1. SERVICE AGREEMENT</div>
+        <div class="clause">
+            <span class="clause-number">1.1.</span> This agreement constitutes a legally binding contract between Marshal Core of Nigeria (hereinafter referred to as "the Organization") and the officer named above (hereinafter referred to as "the Officer").
+        </div>
+        <div class="clause">
+            <span class="clause-number">1.2.</span> The Officer agrees to abide by all rules, regulations, and policies of the Organization as outlined in the Officer Handbook and subsequent communications.
+        </div>
     </div>
     
-    <div class="for-official-use">
-        <div class="for-official-title">FOR OFFICIAL USE ONLY</div>
+    <div class="section">
+        <div class="section-title">2. CODE OF CONDUCT</div>
+        <div class="clause">
+            <span class="clause-number">2.1.</span> The Officer shall maintain the highest standards of professionalism, integrity, and ethical conduct at all times.
+        </div>
+        <div class="clause">
+            <span class="clause-number">2.2.</span> The Officer shall treat all clients, colleagues, and members of the public with respect and dignity.
+        </div>
+        <div class="clause">
+            <span class="clause-number">2.3.</span> The Officer shall not engage in any activity that may bring disrepute to the Organization or the security profession.
+        </div>
+    </div>
+    
+    <div class="warning-box">
+        <div class="warning-title">⚠️ SERIOUS CONSEQUENCES FOR MISCONDUCT</div>
+        <div class="clause">
+            <strong>2.4. Immediate Termination:</strong> The Organization reserves the right to immediately terminate the Officer's engagement without notice for serious misconduct including but not limited to: theft, fraud, assault, negligence endangering life or property, substance abuse on duty, or violation of client confidentiality.
+        </div>
+        <div class="clause">
+            <strong>2.5. Legal Prosecution:</strong> Criminal activities or serious breaches of the law will be reported to appropriate law enforcement agencies, and the Organization will fully cooperate with legal proceedings.
+        </div>
+        <div class="clause">
+            <strong>2.6. Court Proceedings:</strong> For violations resulting in financial loss, damage to property, or harm to persons, the Organization may initiate civil proceedings to recover damages.
+        </div>
+        <div class="clause">
+            <strong>2.7. Financial Penalties:</strong> The Officer may be held financially liable for damages caused by negligence or willful misconduct, including but not limited to: replacement costs for damaged equipment, compensation for lost client contracts, and legal fees incurred by the Organization.
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-title">3. CONFIDENTIALITY</div>
+        <div class="clause">
+            <span class="clause-number">3.1.</span> The Officer shall not disclose any confidential information about the Organization, its clients, or operations to any third party during or after engagement.
+        </div>
+        <div class="clause">
+            <span class="clause-number">3.2.</span> Breach of confidentiality may result in immediate termination and potential legal action.
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-title">4. EQUIPMENT AND PROPERTY</div>
+        <div class="clause">
+            <span class="clause-number">4.1.</span> All equipment issued by the Organization remains the property of the Organization and must be returned upon termination of engagement.
+        </div>
+        <div class="clause">
+            <span class="clause-number">4.2.</span> The Officer is responsible for the proper care and maintenance of all assigned equipment.
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-title">5. TERMINATION</div>
+        <div class="clause">
+            <span class="clause-number">5.1.</span> Either party may terminate this agreement with appropriate notice as specified in the engagement contract.
+        </div>
+        <div class="clause">
+            <span class="clause-number">5.2.</span> Immediate termination may occur for cause as outlined in Section 2.
+        </div>
+    </div>
+    
+    <div class="signature-section">
+        <div class="section-title">ACCEPTANCE AND AGREEMENT</div>
         
-        <div style="font-size: 10px;">
-            <div>Application Status: _________________________________</div>
-            <div>Verification Officer: _______________________________</div>
-            <div>Verification Date: _________________________________</div>
-            <div>Remarks: ___________________________________________</div>
-            <div>___________________________________________________</div>
+        <div style="margin: 30px 0;">
+            <div>I, <strong>{{ officer_full_name }}</strong>, hereby acknowledge that I have read, understood, and agree to abide by all the terms and conditions outlined in this document.</div>
+            
+            <div class="signature-line"></div>
+            <div class="signature-label">Signature of Officer</div>
+            
+            <div style="margin-top: 20px;">
+                <div>Date: ________________________</div>
+            </div>
+        </div>
+        
+        <div class="stamp-area">
+            <div>
+                <div style="font-weight: bold; margin-bottom: 10px;">FOR MARSHAL CORE OF NIGERIA</div>
+                <div>Authorized Signature & Organization Stamp</div>
+            </div>
+        </div>
+        
+        <div style="margin-top: 20px;">
+            <div class="signature-line"></div>
+            <div class="signature-label">Signature of Authorized Representative</div>
+            
+            <div style="margin-top: 10px;">
+                <div>Name: ________________________</div>
+                <div>Position: _____________________</div>
+                <div>Date: ________________________</div>
+            </div>
         </div>
     </div>
     
     <div class="footer">
-        <div>Application Form ID: {{ application_id }}</div>
+        <div>Document ID: {{ document_id }}</div>
         <div>Generated on: {{ generation_date }}</div>
-        <div>Marshal Core Nigeria  | This document is electronically generated and valid without signature</div>
+        <div>This is an official document of Marshal Core of Nigeria. Unauthorized duplication is prohibited.</div>
     </div>
 </body>
 </html>

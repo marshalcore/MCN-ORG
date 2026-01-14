@@ -12,7 +12,7 @@
   <meta name="description" content="MARSHAL CORE OF NIGERIA" />
   <meta name="author" content="MARSHAL CORE OF NIGERIA" />
 
-  <title>MCN-LTD</title>
+  <title>MCN-ORG | Services</title>
 
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css"
@@ -24,10 +24,418 @@
   <!-- fonts style -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto:400,500&display=swap"
     rel="stylesheet" />
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
+  
+  <style>
+    /* Service Section Styling - Volunteer Focus */
+    .service_section {
+      padding: 60px 0;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+    
+    .service_detail {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 50px;
+    }
+    
+    .service_detail h3 {
+      color: #1a237e;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .service_detail h3::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background: #d32f2f;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .service_detail h2 {
+      color: #1a237e;
+      font-size: 2.2rem;
+      font-weight: bold;
+      margin: 15px 0 30px 0;
+    }
+    
+    .service_detail p {
+      color: #555;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+    
+    /* Volunteer Service Cards */
+    .volunteer-services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin: 40px 0 60px;
+    }
+    
+    .service-card {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      border-top: 4px solid #1a237e;
+      text-align: center;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+    }
+    
+    .service-card.red {
+      border-top: 4px solid #d32f2f;
+    }
+    
+    .service-card.blue {
+      border-top: 4px solid #1a237e;
+    }
+    
+    .service-card.green {
+      border-top: 4px solid #2E7D32;
+    }
+    
+    .service-icon {
+      font-size: 2.5rem;
+      color: #1a237e;
+      margin-bottom: 20px;
+      height: 70px;
+      width: 70px;
+      background: rgba(26, 35, 126, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    
+    .service-card.red .service-icon {
+      color: #d32f2f;
+      background: rgba(211, 47, 47, 0.1);
+    }
+    
+    .service-card.blue .service-icon {
+      color: #1a237e;
+      background: rgba(26, 35, 126, 0.1);
+    }
+    
+    .service-card.green .service-icon {
+      color: #2E7D32;
+      background: rgba(46, 125, 50, 0.1);
+    }
+    
+    .service-card h4 {
+      color: #1a237e;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    
+    .service-card p {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    
+    .service-card ul {
+      text-align: left;
+      margin-top: 15px;
+      padding-left: 20px;
+    }
+    
+    .service-card ul li {
+      margin-bottom: 8px;
+      color: #555;
+    }
+    
+    /* Service Button */
+    .service_btn {
+      text-align: center;
+      margin: 40px 0 60px;
+    }
+    
+    /* Contact Section Styling (Same as index.html) */
+    .contact_fullwidth {
+      background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+      padding: 80px 0;
+    }
+    
+    .contact_box_full {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 50px;
+      border-radius: 15px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .contact_box_full h3 {
+      color: #d32f2f;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    
+    .form-control {
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 15px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      margin-bottom: 20px;
+    }
+    
+    .form-control:focus {
+      border-color: #d32f2f;
+      box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
+    }
+    
+    .contact_btn {
+      background: #d32f2f;
+      border: 2px solid white;
+      color: white;
+      padding: 14px 40px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      margin-top: 20px;
+    }
+    
+    .contact_btn:hover {
+      background: white;
+      color: #d32f2f;
+      border-color: #d32f2f;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Info Section Styling (Same as index.html) */
+    .info_section {
+      background: #0f172a;
+      padding: 60px 0 30px;
+    }
+    
+    .contact_location_container {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 40px;
+    }
+    
+    .contact-map-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: stretch;
+    }
+    
+    .contact-info-column {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .contact-details-box {
+      background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+      padding: 25px;
+      border-radius: 10px;
+      height: 100%;
+      color: white;
+    }
+    
+    .contact-details-box h3 {
+      color: #fff;
+      margin-bottom: 20px;
+      font-size: 22px;
+      border-bottom: 2px solid #fff;
+      padding-bottom: 10px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    
+    .contact-item i {
+      width: 24px;
+      margin-right: 15px;
+      margin-top: 3px;
+      font-size: 18px;
+      text-align: center;
+    }
+    
+    .map-container {
+      flex: 1;
+      min-width: 300px;
+      height: 300px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      background: #f5f5f5;
+    }
+    
+    #footerMap {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    .social-media-section {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      border-radius: 10px;
+      margin-top: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .social-media-section h3 {
+      color: #fff;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+    
+    .social-icons-horizontal {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    
+    .social-icon-item {
+      display: inline-block;
+    }
+    
+    .social-icon-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      position: relative;
+      transition: all 0.3s ease;
+      background-color: #333;
+      color: white;
+      font-size: 20px;
+      text-decoration: none;
+    }
+    
+    .social-icon-link:hover {
+      transform: translateY(-5px) scale(1.1);
+      color: white;
+      text-decoration: none;
+    }
+    
+    .social-icon-link.facebook { background-color: #3b5998; border-color: #3b5998; }
+    .social-icon-link.twitter { background-color: #000000; border-color: #000000; }
+    .social-icon-link.instagram { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); border-color: transparent; }
+    .social-icon-link.tiktok { background-color: #000000; border-color: #000000; }
+    .social-icon-link.whatsapp { background-color: #25D366; border-color: #25D366; }
+    .social-icon-link.linkedin { background-color: #0077B5; border-color: #0077B5; }
+    .social-icon-link.youtube { background-color: #FF0000; border-color: #FF0000; }
+    .social-icon-link.telegram { background-color: #0088cc; border-color: #0088cc; }
+    .social-icon-link.email { background-color: #EA4335; border-color: #EA4335; }
+    
+    /* Footer */
+    .footer_section {
+      background: #0a0e1c;
+      padding: 30px 0;
+      border-top: 1px solid rgba(211, 47, 47, 0.2);
+    }
+    
+    .footer_section p {
+      color: #94a3b8;
+      margin: 0;
+      text-align: center;
+      font-size: 14px;
+    }
+    
+    .footer_section a {
+      color: #4fc3f7;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer_section a:hover {
+      color: white;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .volunteer-services {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .volunteer-services {
+        grid-template-columns: 1fr;
+      }
+      
+      .service_detail h2 {
+        font-size: 1.8rem;
+      }
+      
+      .contact_box_full {
+        padding: 30px;
+      }
+      
+      .contact-map-wrapper {
+        flex-direction: column;
+      }
+      
+      .map-container,
+      .contact-info-column {
+        width: 100%;
+        min-width: auto;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .service_detail h2 {
+        font-size: 1.6rem;
+      }
+      
+      .service-card {
+        padding: 20px;
+      }
+      
+      .contact_box_full {
+        padding: 20px;
+      }
+      
+      .contact_btn {
+        padding: 12px 30px;
+        font-size: 15px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -48,14 +456,14 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mr-2">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About Us</a>
+            </li>
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="service.html">Services</a>
+              <a class="nav-link" href="service.html">Services <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="blog.html">Blog</a>
@@ -64,13 +472,13 @@
               <a class="nav-link" href="contact.html">Contact us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://marshalcoreofficer.netlify.app/">Login </a>
+              <a class="nav-link" href="https://marshalcoreofficer.netlify.app/">Login</a>
             </li>
           </ul>
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control nav_search-input mr-sm-2 d-none" type="search" placeholder="Search"
               aria-label="Search" value="" />
-            <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+            <button class="btn my-2 my-sm-0 nav_search-btn" type="submit"></button>
           </form>
         </div>
       </nav>
@@ -78,525 +486,329 @@
   </header>
   <!-- end header section -->
 
-
-
-
-
   <!-- service section -->
   <section class="service_section layout_padding-top">
     <div class="container">
       <div class="service_detail">
-        <h3>
-          We Are
-        </h3>
-        <h2>
-          Dedicated To Providing Leading Edge Security Services
-        </h2>
+        <h3>Volunteer Services</h3>
+        <h2>Join Us in Making a Difference</h2>
+        <p>
+          At Marshal Core of Nigeria, we believe in the power of volunteerism to transform communities. 
+          As a voluntary service organization, we offer diverse opportunities for citizens to contribute 
+          to national development through meaningful engagement and community service.
+        </p>
       </div>
-      <div class="service_img-container">
-        <div class="service_img-box i-box-1">
-          <a href=""> Bank security</a>
-        </div>
-        <div class="service_img-box i-box-2">
-          <a href="">society Guard </a>
-        </div>
-        <div class="service_img-box i-box-3">
-          <a href="">Hotel Security </a>
-        </div>
-        <div class="service_img-box i-box-4">
-          <a href=""> Home security</a>
-        </div>
-      </div>
-      </p>
-            <div class="service_btn">
-              <a href="about.html" style="
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                background: linear-gradient(135deg, #6e8efb 0%, #a777e3 100%);
-                color: white;
-                padding: 12px 24px;
-                border-radius: 50px;
-                text-decoration: none;
-                font-weight: 600;
-                font-size: 16px;
-                box-shadow: 0 4px 15px rgba(106, 142, 251, 0.3);
-                transition: all 0.3s ease;
-                border: none;
-                cursor: pointer;
-                position: relative;
-                overflow: hidden;
-              " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(106, 142, 251, 0.4)'" 
-              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(106, 142, 251, 0.3)'" 
-              onmousedown="this.style.transform='translateY(1px)'" 
-              onmouseup="this.style.transform='translateY(-2px)'">
-                <span style="margin-right: 8px;">Book our services</span>
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNNSAxMmgxNE0xMiA1bDcgNy03IDciPjwvcGF0aD48L3N2Zz4=" alt="Arrow" style="transition: transform 0.3s ease;" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='translateX(0)'" />
-              </a>
-            </div>
+
+      <!-- Volunteer Services Cards -->
+      <div class="volunteer-services">
+        <!-- Card 1: Community Engagement -->
+        <div class="service-card red">
+          <div class="service-icon">
+            <i class="fas fa-hands-helping"></i>
           </div>
+          <h4>Community Engagement & Outreach</h4>
+          <p>Participate in community development programs that make a real difference:</p>
+          <ul>
+            <li>Public health awareness campaigns</li>
+            <li>Environmental sanitation projects</li>
+            <li>Educational support programs</li>
+            <li>Community sensitization initiatives</li>
+          </ul>
         </div>
+
+        <!-- Card 2: Youth Development -->
+        <div class="service-card blue">
+          <div class="service-icon">
+            <i class="fas fa-user-graduate"></i>
+          </div>
+          <h4>Youth Development & Mentorship</h4>
+          <p>Help shape the next generation of Nigerian leaders:</p>
+          <ul>
+            <li>Leadership training workshops</li>
+            <li>Skills acquisition programs</li>
+            <li>Career guidance sessions</li>
+            <li>Moral and value-based education</li>
+          </ul>
+        </div>
+
+        <!-- Card 3: Event Support -->
+        <div class="service-card green">
+          <div class="service-icon">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <h4>Event Support & Crowd Management</h4>
+          <p>Assist in maintaining order and safety during public events:</p>
+          <ul>
+            <li>Public gathering assistance</li>
+            <li>Traffic control support</li>
+            <li>Event security volunteering</li>
+            <li>Crowd coordination services</li>
+          </ul>
+        </div>
+
+        <!-- Card 4: Emergency Response -->
+        <div class="service-card red">
+          <div class="service-icon">
+            <i class="fas fa-first-aid"></i>
+          </div>
+          <h4>Emergency Response Support</h4>
+          <p>Be part of our emergency preparedness team:</p>
+          <ul>
+            <li>Disaster response volunteering</li>
+            <li>First aid and emergency care</li>
+            <li>Relief distribution assistance</li>
+            <li>Crisis management support</li>
+          </ul>
+        </div>
+
+        <!-- Card 5: Public Awareness -->
+        <div class="service-card blue">
+          <div class="service-icon">
+            <i class="fas fa-bullhorn"></i>
+          </div>
+          <h4>Public Awareness & Education</h4>
+          <p>Help spread important messages to the community:</p>
+          <ul>
+            <li>Civic education programs</li>
+            <li>Patriotism campaigns</li>
+            <li>Security awareness initiatives</li>
+            <li>National unity advocacy</li>
+          </ul>
+        </div>
+
+        <!-- Card 6: Administrative Support -->
+        <div class="service-card green">
+          <div class="service-icon">
+            <i class="fas fa-tasks"></i>
+          </div>
+          <h4>Administrative & Office Support</h4>
+          <p>Contribute your skills to our organizational operations:</p>
+          <ul>
+            <li>Office administration assistance</li>
+            <li>Data entry and management</li>
+            <li>Communication support</li>
+            <li>Program coordination help</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="service_btn">
+        <a href="payment.html" class="btn-service" style="
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          background: linear-gradient(135deg, #6e8efb 0%, #a777e3 100%);
+          color: white;
+          padding: 14px 32px;
+          border-radius: 50px;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 16px;
+          box-shadow: 0 4px 15px rgba(106, 142, 251, 0.3);
+          transition: all 0.3s ease;
+          border: none;
+          cursor: pointer;
+          position: relative;
+          overflow: hidden;
+        " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(106, 142, 251, 0.4)'" 
+        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(106, 142, 251, 0.3)'" 
+        onmousedown="this.style.transform='translateY(1px)'" 
+        onmouseup="this.style.transform='translateY(-2px)'">
+          <span style="margin-right: 8px;">Become a Volunteer</span>
+          <i class="fas fa-hands-helping"></i>
+        </a>
       </div>
     </div>
   </section>
   <!-- end service section -->
 
-  <!-- security section -->
-
-  <section class="security_section layout_padding">
-    <h3>
-      Security
-
-
-    </h3>
-    <h2>
-      Our Guard
-    </h2>
-    <div class="security_container">
-      <div class="carousel-wrap">
-        <div class="owl-carousel">
-          <div class="item">
-            <div class="security_img-box i-box-1">
-              
-            </div>
-          </div>
-          <div class="item">
-            <div class="security_img-box i-box-2">
-              
-            </div>
-          </div>
-          <div class="item">
-            <div class="security_img-box i-box-3">
-              
-            </div>
-          </div>
-
-        </div>
+  <!-- contact section (Same as index.html) -->
+  <section class="contact_section contact_fullwidth">
+    <div class="container">
+      <div class="heading_container text-center mb-5">
+        <h2 style="color: white;">Contact Us</h2>
+        <p style="color: rgba(255,255,255,0.8);">Interested in volunteering? Get in touch with us</p>
       </div>
-    </div>
-    </p>
-            <div class="security_btn">
-              <a href="#" style="
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                background: linear-gradient(135deg, #6e8efb 0%, #a777e3 100%);
-                color: white;
-                padding: 12px 24px;
-                border-radius: 50px;
-                text-decoration: none;
-                font-weight: 600;
-                font-size: 16px;
-                box-shadow: 0 4px 15px rgba(106, 142, 251, 0.3);
-                transition: all 0.3s ease;
-                border: none;
-                cursor: pointer;
-                position: relative;
-                overflow: hidden;
-              " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(106, 142, 251, 0.4)'" 
-              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(106, 142, 251, 0.3)'" 
-              onmousedown="this.style.transform='translateY(1px)'" 
-              onmouseup="this.style.transform='translateY(-2px)'">
-                <span style="margin-right: 8px;">Book our services</span>
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNNSAxMmgxNE0xMiA1bDcgNy03IDciPjwvcGF0aD48L3N2Zz4=" alt="Arrow" style="transition: transform 0.3s ease;" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='translateX(0)'" />
-              </a>
-            </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+          <div class="contact_box contact_box_full">
+            <h3>Volunteer Application Form</h3>
+
+            <form>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Full Name" required>
+              </div>
+
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Email Address" required>
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Phone Number" required>
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Location/State" required>
+              </div>
+
+              <div class="form-group">
+                <select class="form-control" required>
+                  <option value="" disabled selected>Select Area of Interest</option>
+                  <option>Community Engagement</option>
+                  <option>Youth Development</option>
+                  <option>Event Support</option>
+                  <option>Emergency Response</option>
+                  <option>Public Awareness</option>
+                  <option>Administrative Support</option>
+                  <option>All Areas</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <textarea class="form-control" placeholder="Tell us about your background and why you want to volunteer..." rows="5" required></textarea>
+              </div>
+
+              <div class="text-center">
+                <button type="submit" class="btn contact_btn">
+                  Submit Volunteer Application
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- end security section -->
+  <!-- end contact section -->
 
-
-
-
-
-
-  <!-- info section -->
+  <!-- info section (Same as index.html) -->
   <section class="info_section layout_padding">
     <div class="container">
-      <div class="row">
-        <div class=" col-md-4 info_detail">
+      <div class="contact_location_container">
+        <!-- Contact Info and Map -->
+        <div class="contact-map-wrapper">
+          <!-- Contact Information Column -->
+          <div class="contact-info-column">
+            <div class="contact-details-box">
+              <h3>Contact Information</h3>
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Address: Km. 3, Marshal Core of Nigeria, National Headquarters, Abumwenrenre Community, Ekiadolor/Agekponu Road, Benin City, Edo State, Nigeria.</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>Tel: +234 9137 428 031</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>support@marshalcoreofnigeria.ng</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Map Column -->
+          <div class="contact-info-column">
+            <div class="map-container">
+              <iframe 
+                id="footerMap"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.148218802958!2d5.5870417!3d6.2193962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1040d39f063a9c9f%3A0x9f5b5b5b5b5b5b5b!2sBenin%20City%2C%20Edo%20State%2C%20Nigeria!5e0!3m2!1sen!2sng!4v1647456789012!5m2!1sen!2sng"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Social Media Section -->
+        <div class="social-media-section">
+          <h3>Follow Us</h3>
+          <ul class="social-icons-horizontal">
+            <li class="social-icon-item">
+              <a href="https://www.facebook.com/share/193pU1bn3Z/" target="_blank" rel="noopener noreferrer" class="social-icon-link facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li class="social-icon-item">
+              <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer" class="social-icon-link twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li class="social-icon-item">
+              <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" class="social-icon-link instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+            <li class="social-icon-item">
+              <a href="https://www.tiktok.com/@marshalcoreofnigeria?_t=ZM-8ympBVpKsMS&_r=1" target="_blank" rel="noopener noreferrer" class="social-icon-link tiktok">
+                <i class="fab fa-tiktok"></i>
+              </a>
+            </li>
+            <li class="social-icon-item">
+              <a href="https://whatsapp.com/channel/0029Va73CEQEgGfDxFSFpU0d" target="_blank" rel="noopener noreferrer" class="social-icon-link whatsapp">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+            </li>
+            <li class="social-icon-item">
+              <a href="https://linkedin.com/company/yourcompany" target="_blank" rel="noopener noreferrer" class="social-icon-link linkedin">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </li>
+            <li class="social-icon-item">
+              <a href="https://youtube.com/shorts/IplFLfqOnSY?si=7X-imxb99EWeWbel" target="_blank" rel="noopener noreferrer" class="social-icon-link youtube">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </li>
+            <li class="social-icon-item">
+              <a href="https://t.me/yourchannel" target="_blank" rel="noopener noreferrer" class="social-icon-link telegram">
+                <i class="fab fa-telegram-plane"></i>
+              </a>
+            </li>
+            <li class="social-icon-item">
+              <a href="mailto:MARSHALCOREOFNIGERIA@GMAIL.COM" class="social-icon-link email">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="row mt-4">
+        <div class="col-md-6 info_detail">
           <div>
-            <p>
+            <p style="color: #94a3b8;">
               Marshal Core of Nigeria is committed to discipline, service, and national development. We inspire purpose-driven citizens to lead with honor and integrity, building a safer and more united Nigeria through excellence and professional conduct.<br>
               Motto: Always Ready!
-
             </p>
           </div>
         </div>
-        <div class=" col-md-4 address_container">
+        <div class="col-md-6 news_container">
           <div>
-            <h3>
-              Address:
-            </h3>
-            <div class="address_link-container">
-              <a href="">
-                <img src="images/location.png" alt="">
-                <span> Address: Km. 3, Marshal Core Of Nigeria, National Headquarters, Abumwenrenre Community, Ekiadolor/Agekponu Road, Benin City, Edo State, Nigeria.
-                </span>
-              </a>
-              <a href="">
-                <img src="images/phone.png" alt="">
-                <span> Tel: +234 9137 428 031
-                </span>
-              </a>
-              <a href="">
-                <img src="images/mail.png" alt="">
-                <span>
-                  MARSHALCOREOFNIGERIALIMITED@GMAIL.COM
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class=" col-md-4 news_container">
-          <div>
-            <div>
-              <h3>
-                newsletter
-
-              </h3>
-              <form action="">
-                <input type="email" placeholder="ENTER YOUR EMAIL">
-                <div>
-                  <button type="submit">
-                    Subscribe
-                  </button>
-                </div>
-              </form>
-            </div>
-<div class="social_container" style="
-  background-color: #000000;
-  padding: 30px 20px;
-  margin-top: 20px;
-  text-align: center;
-">
-  <ul style="
-    list-style: none;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-  ">
-    <!-- Facebook -->
-    <li style="display: inline-block;">
-      <a href="https://www.facebook.com/share/193pU1bn3Z/" title="Follow us on Facebook" target="_blank" rel="noopener noreferrer" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#3b5998'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-facebook.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-    
-    <!-- Twitter (X) -->
-    <li style="display: inline-block;">
-      <a href="https://twitter.com/yourprofile" title="Follow us on Twitter" target="_blank" rel="noopener noreferrer" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#000000'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-twitter.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-    
-    <!-- Instagram -->
-    <li style="display: inline-block;">
-      <a href="https://instagram.com/yourprofile" title="Follow us on Instagram" target="_blank" rel="noopener noreferrer" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#E1306C'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-instagram.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-    
-    <!-- TikTok -->
-    <li style="display: inline-block;">
-      <a href="https://www.tiktok.com/@marshalcoreofnigeria?_t=ZM-8ympBVpKsMS&_r=1" title="Follow us on TikTok" target="_blank" rel="noopener noreferrer" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#000000'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-tiktok.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-    
-    <!-- WhatsApp -->
-    <li style="display: inline-block;">
-      <a href="https://whatsapp.com/channel/0029Va73CEQEgGfDxFSFpU0d" title="Message us on WhatsApp" target="_blank" rel="noopener noreferrer" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#25D366'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-whatsapp.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-    
-    <!-- LinkedIn -->
-    <li style="display: inline-block;">
-      <a href="https://linkedin.com/company/yourcompany" title="Follow us on LinkedIn" target="_blank" rel="noopener noreferrer" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#0077B5'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-linkedin.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-    
-    <!-- YouTube -->
-    <li style="display: inline-block;">
-      <a href="https://youtube.com/shorts/IplFLfqOnSY?si=7X-imxb99EWeWbel" title="Subscribe to our YouTube" target="_blank" rel="noopener noreferrer" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#FF0000'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-youtube.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-    
-    <!-- Telegram -->
-    <li style="display: inline-block;">
-      <a href="https://t.me/yourchannel" title="Join us on Telegram" target="_blank" rel="noopener noreferrer" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#0088cc'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-telegram.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-    
-    <!-- Email -->
-    <li style="display: inline-block;">
-      <a href="mailto:MARSHALCOREOFNIGERIALIMITED@GMAIL.COM" title="Email us" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#EA4335'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-email.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-  </ul>
-</div>
-<!-- End of Updated Social Media Container -->
+            <h3 style="color: white;">Newsletter</h3>
+            <form action="">
+              <input type="email" placeholder="ENTER YOUR EMAIL" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white;">
+              <div>
+                <button type="submit" style="background: #d32f2f; color: white; border: none; padding: 10px 25px; border-radius: 6px; margin-top: 15px;">
+                  Subscribe
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
   </section>
-
   <!-- end info section -->
-
 
   <!-- footer section -->
   <section class="container-fluid footer_section">
     <p>
       Copyright &copy; 2025 All Rights Reserved By <br>
-      <a href="">Marshal Core Of Nigeria Limited</a>
+      <a href="">Marshal Core of Nigeria</a>
     </p>
   </section>
   <!-- footer section -->
@@ -605,6 +817,7 @@
   <script type="text/javascript" src="js/bootstrap.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js">
   </script>
+  
   <script type="text/javascript">
     $(".owl-carousel").owlCarousel({
       loop: true,
@@ -625,9 +838,7 @@
         }
       }
     });
-  </script>
 
-  <script>
     $(".nav_search-btn").click(function () {
       if ($(".nav_search-input").hasClass("d-none")) {
         event.preventDefault();
@@ -648,10 +859,25 @@
           .addClass("d-none");
       }
     });
+    
+    // Remove "Limited" from all text on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      function removeLimitedText(node) {
+        if (node.nodeType === 3) {
+          node.textContent = node.textContent.replace(/\s*Limited\s*/gi, '');
+          node.textContent = node.textContent.replace(/Marshal Core Of Nigeria Limited/gi, 'Marshal Core of Nigeria');
+        } else if (node.nodeType === 1) {
+          if (node.placeholder) {
+            node.placeholder = node.placeholder.replace(/\s*Limited\s*/gi, '');
+          }
+          if (node.value) {
+            node.value = node.value.replace(/\s*Limited\s*/gi, '');
+          }
+          node.childNodes.forEach(removeLimitedText);
+        }
+      }
+      removeLimitedText(document.body);
+    });
   </script>
-
-
-
 </body>
-
 </html>

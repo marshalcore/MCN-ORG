@@ -234,67 +234,6 @@
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
     
-    /* Mobile responsive */
-    @media (max-width: 768px) {
-      .contact-map-wrapper {
-        flex-direction: column;
-      }
-      
-      .map-container,
-      .contact-info-column {
-        width: 100%;
-        min-width: auto;
-      }
-      
-      .social-icons-horizontal {
-        gap: 10px;
-      }
-      
-      .social-icon-link {
-        width: 44px;
-        height: 44px;
-        font-size: 18px;
-      }
-      
-      .contact_section.contact_fullwidth .contact_box.contact_box_full {
-        padding: 25px;
-        margin-top: 0;
-      }
-      
-      .contact_section.contact_fullwidth {
-        padding: 40px 0;
-      }
-    }
-    
-    @media (max-width: 576px) {
-      .social-icons-horizontal {
-        justify-content: space-around;
-      }
-      
-      .social-icon-link {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-      }
-      
-      .contact-details-box {
-        padding: 20px;
-      }
-      
-      .social-media-section {
-        padding: 20px 15px;
-      }
-      
-      .contact_section.contact_fullwidth .contact_box.contact_box_full {
-        padding: 20px;
-      }
-      
-      .contact_section.contact_fullwidth .contact_btn {
-        padding: 10px 30px;
-        font-size: 16px;
-      }
-    }
-    
     /* FLAG COLOR BANNER STYLING - REPLACING IMAGES */
     .flag-banner {
       position: relative;
@@ -306,21 +245,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-    
-    /* Diagonal split version for a more dynamic look */
-    .flag-banner.diagonal {
-      background: linear-gradient(to bottom right, #d32f2f 50%, #1a237e 50%);
-    }
-    
-    /* Clean vertical split version */
-    .flag-banner.vertical {
-      background: linear-gradient(to right, #d32f2f 50%, #1a237e 50%);
-    }
-    
-    /* Gradient version */
-    .flag-banner.gradient {
-      background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 50%, #1a237e 50%, #0d1b3e 100%);
     }
     
     /* Simple horizontal split (your requested style) */
@@ -365,6 +289,89 @@
       margin: 0;
     }
     
+    /* SLIDER SECTION OVERRIDES */
+    .slider_section {
+      height: auto;
+    }
+    
+    .carousel-inner {
+      height: auto;
+    }
+    
+    .carousel-item {
+      height: auto;
+    }
+    
+    /* FIXED FOOTER RESPONSIVENESS - WIDER CONTAINERS ON MOBILE */
+    /* Override container padding for info section on mobile */
+    .info_section .container {
+      padding-left: 15px;
+      padding-right: 15px;
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    /* Make the contact_location_container wider on mobile */
+    .info_section .contact_location_container {
+      padding: 20px 15px;
+      margin-left: -15px;
+      margin-right: -15px;
+      border-radius: 0;
+      width: calc(100% + 30px);
+    }
+    
+    /* Adjust contact-map-wrapper for better mobile display */
+    .contact-map-wrapper {
+      gap: 20px;
+    }
+    
+    /* Make columns full width on mobile */
+    .contact-info-column {
+      min-width: 100%;
+    }
+    
+    /* Adjust map container for mobile */
+    .map-container {
+      min-width: 100%;
+      height: 250px;
+    }
+    
+    /* Adjust social media section for mobile */
+    .social-media-section {
+      padding: 20px 15px;
+      margin-left: -15px;
+      margin-right: -15px;
+      width: calc(100% + 30px);
+      border-radius: 0;
+    }
+    
+    /* Make info section rows full width on mobile */
+    .info_section .row {
+      margin-left: -15px;
+      margin-right: -15px;
+      width: calc(100% + 30px);
+    }
+    
+    /* Adjust info_detail and news_container padding */
+    .info_section .info_detail,
+    .info_section .news_container {
+      padding: 20px 15px;
+    }
+    
+    /* Make newsletter form wider */
+    .news_container form input[type="email"] {
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    /* Footer section adjustments */
+    .footer_section {
+      padding: 20px 15px !important;
+      margin-left: -15px;
+      margin-right: -15px;
+      width: calc(100% + 30px);
+    }
+    
     /* Responsive adjustments for flag banner */
     @media (max-width: 992px) {
       .flag-banner {
@@ -378,6 +385,23 @@
       
       .flag-content h2 {
         font-size: 20px;
+      }
+      
+      .info_section .container {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      
+      .info_section .contact_location_container {
+        margin-left: -20px;
+        margin-right: -20px;
+        width: calc(100% + 40px);
+      }
+      
+      .social-media-section {
+        margin-left: -20px;
+        margin-right: -20px;
+        width: calc(100% + 40px);
       }
     }
     
@@ -403,6 +427,79 @@
       .flag-content p {
         font-size: 16px;
       }
+      
+      /* MOBILE-SPECIFIC FIXES FOR FOOTER */
+      .info_section .container {
+        padding-left: 10px;
+        padding-right: 10px;
+        max-width: 100%;
+      }
+      
+      .info_section .contact_location_container {
+        padding: 20px 10px;
+        margin-left: -10px;
+        margin-right: -10px;
+        width: calc(100% + 20px);
+      }
+      
+      .contact-details-box {
+        padding: 20px;
+      }
+      
+      .map-container {
+        height: 220px;
+      }
+      
+      .social-media-section {
+        padding: 20px 10px;
+        margin-left: -10px;
+        margin-right: -10px;
+        width: calc(100% + 20px);
+      }
+      
+      .social-icons-horizontal {
+        gap: 12px;
+      }
+      
+      .social-icon-link {
+        width: 46px;
+        height: 46px;
+        font-size: 18px;
+      }
+      
+      .info_section .row {
+        margin-left: -10px;
+        margin-right: -10px;
+        width: calc(100% + 20px);
+      }
+      
+      .info_section .info_detail,
+      .info_section .news_container {
+        padding: 15px 10px;
+      }
+      
+      .footer_section {
+        padding: 15px 10px !important;
+        margin-left: -10px;
+        margin-right: -10px;
+        width: calc(100% + 20px);
+      }
+      
+      /* Contact form adjustments */
+      .contact_section.contact_fullwidth .contact_box.contact_box_full {
+        padding: 25px 20px;
+        margin-top: 0;
+        border-radius: 10px;
+      }
+      
+      .contact_section.contact_fullwidth {
+        padding: 40px 10px;
+      }
+      
+      .contact_section.contact_fullwidth .container {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
     }
     
     @media (max-width: 576px) {
@@ -422,19 +519,135 @@
       .flag-content p {
         font-size: 14px;
       }
+      
+      /* EXTRA SMALL DEVICES FIXES */
+      .info_section .container {
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+      
+      .info_section .contact_location_container {
+        padding: 15px 5px;
+        margin-left: -5px;
+        margin-right: -5px;
+        width: calc(100% + 10px);
+      }
+      
+      .contact-details-box {
+        padding: 15px;
+      }
+      
+      .contact-details-box h3 {
+        font-size: 18px;
+      }
+      
+      .contact-item {
+        font-size: 14px;
+        margin-bottom: 15px;
+      }
+      
+      .contact-item i {
+        font-size: 16px;
+        margin-right: 10px;
+      }
+      
+      .map-container {
+        height: 200px;
+      }
+      
+      .social-media-section {
+        padding: 15px 5px;
+        margin-left: -5px;
+        margin-right: -5px;
+        width: calc(100% + 10px);
+      }
+      
+      .social-media-section h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+      }
+      
+      .social-icons-horizontal {
+        gap: 10px;
+        justify-content: space-around;
+      }
+      
+      .social-icon-link {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+      }
+      
+      .info_section .row {
+        margin-left: -5px;
+        margin-right: -5px;
+        width: calc(100% + 10px);
+      }
+      
+      .info_section .info_detail,
+      .info_section .news_container {
+        padding: 15px 5px;
+      }
+      
+      .info_section .info_detail p {
+        font-size: 14px;
+      }
+      
+      .news_container h3 {
+        font-size: 18px;
+      }
+      
+      .footer_section {
+        padding: 10px 5px !important;
+        margin-left: -5px;
+        margin-right: -5px;
+        width: calc(100% + 10px);
+      }
+      
+      .footer_section p {
+        font-size: 14px;
+        text-align: center;
+      }
+      
+      /* Contact form adjustments for small screens */
+      .contact_section.contact_fullwidth .contact_box.contact_box_full {
+        padding: 20px 15px;
+        border-radius: 8px;
+      }
+      
+      .contact_section.contact_fullwidth .contact_box h3 {
+        font-size: 22px;
+      }
+      
+      .contact_section.contact_fullwidth .contact_btn {
+        padding: 10px 30px;
+        font-size: 16px;
+      }
+      
+      .contact_section.contact_fullwidth {
+        padding: 30px 5px;
+      }
     }
     
-    /* SLIDER SECTION OVERRIDES */
-    .slider_section {
-      height: auto;
-    }
-    
-    .carousel-inner {
-      height: auto;
-    }
-    
-    .carousel-item {
-      height: auto;
+    /* For very small screens (under 400px) */
+    @media (max-width: 400px) {
+      .social-icons-horizontal {
+        gap: 8px;
+      }
+      
+      .social-icon-link {
+        width: 40px;
+        height: 40px;
+        font-size: 15px;
+      }
+      
+      .contact-item {
+        font-size: 13px;
+      }
+      
+      .contact-details-box {
+        padding: 12px;
+      }
     }
   </style>
 </head>
@@ -473,7 +686,7 @@
               <a class="nav-link" href="contact.html">Contact us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://marshalcoreofficer.netlify.app/">Login </a>
+              <a class="nav-link" href="officer-portal/login.html">Login </a>
             </li>
           </ul>
           <form class="form-inline my-2 my-lg-0">
@@ -723,7 +936,7 @@ This establishment is aimed at ensuring the smooth operation and management of t
              
             <div class="story_detail-btn d-flex flex-column flex-md-row align-items-center justify-content-center" style="gap: 15px;">
               <!-- Existing "Join the Marshal Core" button -->
-              <a href="payment.html" style="
+              <a href="apply.html" style="
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;

@@ -435,6 +435,280 @@
         font-size: 15px;
       }
     }
+    
+    /* FIXED FOOTER RESPONSIVENESS - WIDER CONTAINERS ON MOBILE */
+    /* Override container padding for info section on mobile */
+    .info_section .container {
+      padding-left: 15px;
+      padding-right: 15px;
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    /* Make the contact_location_container wider on mobile */
+    .info_section .contact_location_container {
+      padding: 20px 15px;
+      margin-left: -15px;
+      margin-right: -15px;
+      border-radius: 0;
+      width: calc(100% + 30px);
+    }
+    
+    /* Adjust contact-map-wrapper for better mobile display */
+    .contact-map-wrapper {
+      gap: 20px;
+    }
+    
+    /* Make columns full width on mobile */
+    .contact-info-column {
+      min-width: 100%;
+    }
+    
+    /* Adjust map container for mobile */
+    .map-container {
+      min-width: 100%;
+      height: 250px;
+    }
+    
+    /* Adjust social media section for mobile */
+    .social-media-section {
+      padding: 20px 15px;
+      margin-left: -15px;
+      margin-right: -15px;
+      width: calc(100% + 30px);
+      border-radius: 0;
+    }
+    
+    /* Make info section rows full width on mobile */
+    .info_section .row {
+      margin-left: -15px;
+      margin-right: -15px;
+      width: calc(100% + 30px);
+    }
+    
+    /* Adjust info_detail and news_container padding */
+    .info_section .info_detail,
+    .info_section .news_container {
+      padding: 20px 15px;
+    }
+    
+    /* Make newsletter form wider */
+    .news_container form input[type="email"] {
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    /* Footer section adjustments */
+    .footer_section {
+      padding: 20px 15px !important;
+      margin-left: -15px;
+      margin-right: -15px;
+      width: calc(100% + 30px);
+    }
+    
+    /* Responsive adjustments for contact section */
+    @media (max-width: 768px) {
+      .info_section .container {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      
+      .info_section .contact_location_container {
+        padding: 20px 10px;
+        margin-left: -10px;
+        margin-right: -10px;
+        width: calc(100% + 20px);
+      }
+      
+      .contact-details-box {
+        padding: 20px;
+      }
+      
+      .map-container {
+        height: 220px;
+      }
+      
+      .social-media-section {
+        padding: 20px 10px;
+        margin-left: -10px;
+        margin-right: -10px;
+        width: calc(100% + 20px);
+      }
+      
+      .social-icons-horizontal {
+        gap: 12px;
+      }
+      
+      .social-icon-link {
+        width: 46px;
+        height: 46px;
+        font-size: 18px;
+      }
+      
+      .info_section .row {
+        margin-left: -10px;
+        margin-right: -10px;
+        width: calc(100% + 20px);
+      }
+      
+      .info_section .info_detail,
+      .info_section .news_container {
+        padding: 15px 10px;
+      }
+      
+      .footer_section {
+        padding: 15px 10px !important;
+        margin-left: -10px;
+        margin-right: -10px;
+        width: calc(100% + 20px);
+      }
+      
+      /* Contact form adjustments */
+      .contact_box_full {
+        padding: 25px 20px;
+        border-radius: 10px;
+      }
+      
+      .contact_fullwidth {
+        padding: 40px 10px;
+      }
+      
+      .contact_fullwidth .container {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      /* EXTRA SMALL DEVICES FIXES */
+      .info_section .container {
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+      
+      .info_section .contact_location_container {
+        padding: 15px 5px;
+        margin-left: -5px;
+        margin-right: -5px;
+        width: calc(100% + 10px);
+      }
+      
+      .contact-details-box {
+        padding: 15px;
+      }
+      
+      .contact-details-box h3 {
+        font-size: 18px;
+      }
+      
+      .contact-item {
+        font-size: 14px;
+        margin-bottom: 15px;
+      }
+      
+      .contact-item i {
+        font-size: 16px;
+        margin-right: 10px;
+      }
+      
+      .map-container {
+        height: 200px;
+      }
+      
+      .social-media-section {
+        padding: 15px 5px;
+        margin-left: -5px;
+        margin-right: -5px;
+        width: calc(100% + 10px);
+      }
+      
+      .social-media-section h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+      }
+      
+      .social-icons-horizontal {
+        gap: 10px;
+        justify-content: space-around;
+      }
+      
+      .social-icon-link {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+      }
+      
+      .info_section .row {
+        margin-left: -5px;
+        margin-right: -5px;
+        width: calc(100% + 10px);
+      }
+      
+      .info_section .info_detail,
+      .info_section .news_container {
+        padding: 15px 5px;
+      }
+      
+      .info_section .info_detail p {
+        font-size: 14px;
+      }
+      
+      .news_container h3 {
+        font-size: 18px;
+      }
+      
+      .footer_section {
+        padding: 10px 5px !important;
+        margin-left: -5px;
+        margin-right: -5px;
+        width: calc(100% + 10px);
+      }
+      
+      .footer_section p {
+        font-size: 14px;
+        text-align: center;
+      }
+      
+      /* Contact form adjustments for small screens */
+      .contact_box_full {
+        padding: 20px 15px;
+        border-radius: 8px;
+      }
+      
+      .contact_box_full h3 {
+        font-size: 22px;
+      }
+      
+      .contact_btn {
+        padding: 10px 30px;
+        font-size: 16px;
+      }
+      
+      .contact_fullwidth {
+        padding: 30px 5px;
+      }
+    }
+    
+    /* For very small screens (under 400px) */
+    @media (max-width: 400px) {
+      .social-icons-horizontal {
+        gap: 8px;
+      }
+      
+      .social-icon-link {
+        width: 40px;
+        height: 40px;
+        font-size: 15px;
+      }
+      
+      .contact-item {
+        font-size: 13px;
+      }
+      
+      .contact-details-box {
+        padding: 12px;
+      }
+    }
   </style>
 </head>
 
@@ -472,7 +746,7 @@
               <a class="nav-link" href="contact.html">Contact us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://marshalcoreofficer.netlify.app/">Login</a>
+              <a class="nav-link" href="officer-portal/login.html">Login</a>
             </li>
           </ul>
           <form class="form-inline my-2 my-lg-0">
@@ -593,7 +867,7 @@
       </div>
 
       <div class="service_btn">
-        <a href="payment.html" class="btn-service" style="
+        <a href="apply.html" class="btn-service" style="
           display: inline-flex;
           align-items: center;
           justify-content: center;

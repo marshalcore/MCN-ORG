@@ -457,6 +457,61 @@
       background-color: #cccccc !important;
       cursor: not-allowed !important;
     }
+    
+    .error-field {
+      border-color: #d32f2f !important;
+      background-color: #fff5f5;
+    }
+    
+    .error-message-small {
+      color: #d32f2f;
+      font-size: 12px;
+      margin-top: 5px;
+      display: block;
+    }
+    
+    .id-format-hint {
+      font-size: 12px;
+      color: #666;
+      margin-top: 5px;
+      display: block;
+    }
+    
+    .id-prefix-badge {
+      display: inline-block;
+      background-color: #e8f4fd;
+      border: 1px solid #254a93;
+      border-radius: 4px;
+      padding: 2px 6px;
+      margin: 0 2px;
+      font-size: 11px;
+      font-weight: bold;
+      color: #254a93;
+    }
+    
+    .prefix-info {
+      background-color: #f0f8ff;
+      border-left: 4px solid #254a93;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    
+    .prefix-info h4 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      color: #254a93;
+    }
+    
+    .prefix-info ul {
+      margin: 5px 0;
+      padding-left: 20px;
+    }
+    
+    .prefix-info li {
+      margin-bottom: 3px;
+    }
   </style>
 </head>
 <body>
@@ -486,19 +541,36 @@
     
     <div class="form-section">
       <h2>Step 1: Officer Verification</h2>
+      
+      <div class="prefix-info">
+        <h4>📋 Valid Officer ID Formats:</h4>
+        <ul>
+          <li><span class="id-prefix-badge">MCN</span> - Marshal Core Nigeria (e.g., MCN/001/2024)</li>
+          <li><span class="id-prefix-badge">MBT</span> - Marshal Board of Trustees (e.g., MBT/005/2023)</li>
+          <li><span class="id-prefix-badge">MBC</span> - Marshal Board Committee (e.g., MBC/003/2022)</li>
+        </ul>
+        <p><strong>Format:</strong> PREFIX/NUMBER/YEAR (slashes will be auto-inserted)</p>
+      </div>
+      
       <div id="statusMessage" class="status-message" style="display: none;"></div>
       <form id="verificationForm" class="contact_form-container">
         <div class="form-row">
           <div class="form-col">
             <label for="officerId" class="required">Officer ID / Service Number</label>
-            <input type="text" id="officerId" placeholder="Enter your Officer ID / Service Number" required />
+            <input type="text" id="officerId" placeholder="MCN/001/2024" required 
+                   pattern="^(MCN|MBT|MBC)/\d{1,4}/\d{4}$"
+                   title="Format: MCN/001/2024, MBT/005/2023, or MBC/003/2022" />
+            <span id="officerIdError" class="error-message-small"></span>
+            <span class="id-format-hint">Type MCN, MBT, or MBC followed by numbers - slashes will auto-insert</span>
           </div>
           <div class="form-col">
             <label for="officerEmail" class="required">Official Email Address</label>
             <input type="email" id="officerEmail" placeholder="Enter your official email" required />
+            <span id="officerEmailError" class="error-message-small"></span>
+            <span class="id-format-hint">Use a professional email address (Gmail, Yahoo, etc.)</span>
           </div>
         </div>
-        <button type="submit">Verify Officer Identity</button>
+        <button type="submit" id="verifyBtn">Verify Officer Identity</button>
       </form>
       <p id="verificationMessage"></p>
     </div>
@@ -510,7 +582,7 @@
   <div class="container">
     <div class="verification-banner" style="background-color: #4CAF50;">
       <h3>✅ Officer Verified Successfully!</h3>
-      <p>Please complete your registration form below. Fields marked with * are required.</p>
+      <p id="verifiedCategoryMessage">Please complete your registration form below. Fields marked with * are required.</p>
     </div>
 
     <div class="form-section">
@@ -519,13 +591,13 @@
         <h4>📋 Instructions:</h4>
         <ul>
           <li>Fill in all required fields marked with *</li>
-          <li>Upload clear scans/photos of all documents</li>
-          <li>Ensure file sizes are under 5MB each</li>
-          <li>Accepted formats: PDF, JPG, PNG</li>
+          <li>Use strong password (minimum 8 characters)</li>
+          <li>Ensure all information is accurate</li>
+          <li>Your Officer ID: <strong id="displayOfficerId"></strong></li>
         </ul>
       </div>
 
-      <form id="applicationForm" enctype="multipart/form-data">
+      <form id="applicationForm">
 
         <!-- Personal Information Section -->
         <div class="form-section">
@@ -534,10 +606,12 @@
             <div class="form-col">
               <label for="surname" class="required">Surname *</label>
               <input type="text" id="surname" name="surname" placeholder="Enter your surname" required />
+              <span id="surnameError" class="error-message-small"></span>
             </div>
             <div class="form-col">
               <label for="first_name" class="required">First Name *</label>
               <input type="text" id="first_name" name="first_name" placeholder="Enter your first name" required />
+              <span id="firstNameError" class="error-message-small"></span>
             </div>
           </div>
           
@@ -549,6 +623,7 @@
             <div class="form-col">
               <label for="date_of_birth" class="required">Date of Birth *</label>
               <input type="date" id="date_of_birth" name="date_of_birth" required />
+              <span id="dobError" class="error-message-small"></span>
             </div>
           </div>
 
@@ -556,10 +631,31 @@
             <div class="form-col">
               <label for="residential_address" class="required">Residential Address *</label>
               <textarea id="residential_address" name="residential_address" rows="3" placeholder="Enter your full residential address" required></textarea>
+              <span id="addressError" class="error-message-small"></span>
             </div>
             <div class="form-col">
-              <label for="id_card_number" class="required">ID Card Number *</label>
-              <input type="text" id="id_card_number" name="id_card_number" placeholder="Enter your ID card number" required />
+              <label for="id_card_number" class="required">NIN Number *</label>
+              <input type="text" id="id_card_number" name="id_card_number" placeholder="Enter your NIN number" required 
+                     pattern="^\d{11}$" title="NIN must be 11 digits" />
+              <span id="ninError" class="error-message-small"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Information Section -->
+        <div class="form-section">
+          <h3>📞 Contact Information</h3>
+          <div class="form-row">
+            <div class="form-col">
+              <label for="email_address">Email Address</label>
+              <input type="email" id="email_address" name="email_address" placeholder="Enter your email address" readonly />
+            </div>
+            <div class="form-col">
+              <label for="mobile_number" class="required">Phone Number *</label>
+              <input type="tel" id="mobile_number" name="mobile_number" placeholder="Enter your phone number" required 
+                     pattern="^(\+234|0)\d{10}$" title="Format: +2348012345678 or 08012345678" />
+              <span id="phoneError" class="error-message-small"></span>
+              <span class="id-format-hint">Format: +2348012345678 or 08012345678</span>
             </div>
           </div>
         </div>
@@ -587,132 +683,11 @@
                 <option value="Marshal Lance Corporal">Marshal Lance Corporal</option>
                 <option value="Marshal Private">Marshal Private</option>
               </select>
+              <span id="rankError" class="error-message-small"></span>
             </div>
             <div class="form-col">
               <label for="appointment">Appointment (If Applicable)</label>
               <input type="text" id="appointment" name="appointment" placeholder="Enter your appointment" />
-            </div>
-          </div>
-        </div>
-
-        <!-- Contact Information Section -->
-        <div class="form-section">
-          <h3>📞 Contact Information</h3>
-          <div class="form-row">
-            <div class="form-col">
-              <label for="email_address">Email Address</label>
-              <input type="email" id="email_address" name="email_address" placeholder="Enter your email address" />
-            </div>
-            <div class="form-col">
-              <label for="whatsapp_number">WhatsApp Number</label>
-              <input type="tel" id="whatsapp_number" name="whatsapp_number" placeholder="Enter your WhatsApp number" />
-            </div>
-          </div>
-          
-          <div class="form-row">
-            <div class="form-col">
-              <label for="mobile_number" class="required">Mobile Number *</label>
-              <input type="tel" id="mobile_number" name="mobile_number" placeholder="Enter your mobile number" required />
-            </div>
-          </div>
-        </div>
-
-        <!-- Document Uploads Section -->
-        <div class="form-section">
-          <h3>📄 Document Uploads</h3>
-          
-          <!-- Required Documents -->
-          <div class="instructions">
-            <h4>Required Documents (Must Upload):</h4>
-          </div>
-
-          <div class="form-row">
-            <div class="form-col">
-              <div class="file-upload-container">
-                <label for="nin_slip" class="required">Upload NIN Slip *</label>
-                <input type="file" id="nin_slip" name="nin_slip" accept=".pdf,.jpg,.jpeg,.png" required />
-                <div class="file-info">PDF, JPG, PNG (Max 5MB)</div>
-              </div>
-            </div>
-            <div class="form-col">
-              <div class="file-upload-container">
-                <label for="affidavit" class="required">Affidavit of Non-Membership of Secret Cult *</label>
-                <input type="file" id="affidavit" name="affidavit" accept=".pdf,.jpg,.jpeg,.png" required />
-                <div class="file-info">PDF, JPG, PNG (Max 5MB)</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-col">
-              <div class="file-upload-container">
-                <label for="bio_data_form" class="required">Bio-Data Capturing Form *</label>
-                <input type="file" id="bio_data_form" name="bio_data_form" accept=".pdf,.jpg,.jpeg,.png" required />
-                <div class="file-info">PDF, JPG, PNG (Max 5MB)</div>
-              </div>
-            </div>
-            <div class="form-col">
-              <div class="file-upload-container">
-                <label for="gmail_forms" class="required">Gmail Forms (All Pages) *</label>
-                <input type="file" id="gmail_forms" name="gmail_forms" accept=".pdf,.jpg,.jpeg,.png" required />
-                <div class="file-info">PDF, JPG, PNG (Max 5MB)</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Optional Documents -->
-          <div class="instructions" style="background-color: #f0f0f0; border-left-color: #666;">
-            <h4>Additional Documents (Optional but Recommended):</h4>
-          </div>
-
-          <div class="form-row">
-            <div class="form-col">
-              <div class="file-upload-container">
-                <label for="application_form">Application Form</label>
-                <input type="file" id="application_form" name="application_form" accept=".pdf,.jpg,.jpeg,.png" />
-                <div class="file-info">PDF, JPG, PNG (Max 5MB)</div>
-              </div>
-            </div>
-            <div class="form-col">
-              <div class="file-upload-container">
-                <label for="educational_certificates">Educational Certificates</label>
-                <input type="file" id="educational_certificates" name="educational_certificates" accept=".pdf,.jpg,.jpeg,.png" multiple />
-                <div class="file-info">WAEC, NECO, Primary Six, LGA Certificate, Higher Education (PDF, JPG, PNG)</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-col">
-              <div class="file-upload-container">
-                <label for="appointment_letter">Appointment Letter</label>
-                <input type="file" id="appointment_letter" name="appointment_letter" accept=".pdf,.jpg,.jpeg,.png" />
-                <div class="file-info">PDF, JPG, PNG (Max 5MB)</div>
-              </div>
-            </div>
-            <div class="form-col">
-              <div class="file-upload-container">
-                <label for="certificate_participation">Certificate of Participation</label>
-                <input type="file" id="certificate_participation" name="certificate_participation" accept=".pdf,.jpg,.jpeg,.png" />
-                <div class="file-info">PDF, JPG, PNG (Max 5MB)</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-col">
-              <div class="file-upload-container">
-                <label for="certificate_course">Certificate of Course Attendance</label>
-                <input type="file" id="certificate_course" name="certificate_course" accept=".pdf,.jpg,.jpeg,.png" />
-                <div class="file-info">PDF, JPG, PNG (Max 5MB)</div>
-              </div>
-            </div>
-            <div class="form-col">
-              <div class="file-upload-container">
-                <label for="marshal_id_card">Marshal Identity Card (Front & Back)</label>
-                <input type="file" id="marshal_id_card" name="marshal_id_card" accept=".pdf,.jpg,.jpeg,.png" multiple />
-                <div class="file-info">Upload both front and back sides (Max 5MB each)</div>
-              </div>
             </div>
           </div>
         </div>
@@ -723,7 +698,9 @@
           <div class="form-row">
             <div class="form-col">
               <label for="password" class="required">Create Password *</label>
-              <input type="password" id="password" name="password" placeholder="Create a strong password" required />
+              <input type="password" id="password" name="password" placeholder="Create a strong password (min. 8 characters)" required 
+                     minlength="8" />
+              <span id="passwordError" class="error-message-small"></span>
             </div>
             <div class="form-col">
               <label for="confirm_password" class="required">Re-enter Password *</label>
@@ -731,6 +708,24 @@
               <div id="passwordMatchMessage" class="password-mismatch"></div>
             </div>
           </div>
+        </div>
+
+        <!-- Additional Fields (for Pydantic model) -->
+        <div style="display: none;">
+          <input type="hidden" id="gender" name="gender" value="Male">
+          <input type="hidden" id="place_of_birth" name="place_of_birth" value="">
+          <input type="hidden" id="nationality" name="nationality" value="Nigerian">
+          <input type="hidden" id="marital_status" name="marital_status" value="">
+          <input type="hidden" id="state_of_residence" name="state_of_residence" value="">
+          <input type="hidden" id="local_government_residence" name="local_government_residence" value="">
+          <input type="hidden" id="country_of_residence" name="country_of_residence" value="Nigeria">
+          <input type="hidden" id="state_of_origin" name="state_of_origin" value="">
+          <input type="hidden" id="local_government_origin" name="local_government_origin" value="">
+          <input type="hidden" id="years_of_service" name="years_of_service" value="">
+          <input type="hidden" id="religion" name="religion" value="">
+          <input type="hidden" id="additional_skills" name="additional_skills" value="">
+          <input type="hidden" id="bank_name" name="bank_name" value="">
+          <input type="hidden" id="account_number" name="account_number" value="">
         </div>
 
         <!-- TERMS & CONDITIONS SECTION -->
@@ -792,7 +787,7 @@
         <!-- Hidden fields -->
         <input type="hidden" id="verified_officer_id" name="verified_officer_id" />
         <input type="hidden" id="verified_officer_email" name="verified_officer_email" />
-        <input type="hidden" name="user_type" value="existing_officer" />
+        <input type="hidden" id="service_number" name="service_number" />
 
         <!-- Submit Button -->
         <div class="form-section" style="text-align: center; background-color: #f9f9f9;">
@@ -883,11 +878,12 @@ window.onload = () => {
   const pageLoader = document.getElementById("pageLoader");
   const statusMessage = document.getElementById("statusMessage");
   const verificationMessage = document.getElementById("verificationMessage");
-  const passwordInput = document.getElementById("password");
-  const confirmPasswordInput = document.getElementById("confirm_password");
-  const passwordMatchMessage = document.getElementById("passwordMatchMessage");
+  const verifyBtn = document.getElementById("verifyBtn");
   const submitBtn = document.getElementById("submitBtn");
   const agreeTermsCheckbox = document.getElementById("agreeTerms");
+  const passwordMatchMessage = document.getElementById("passwordMatchMessage");
+  const displayOfficerId = document.getElementById("displayOfficerId");
+  const verifiedCategoryMessage = document.getElementById("verifiedCategoryMessage");
 
   // Your backend URL
   const API_BASE_URL = 'https://backend-mcn-ltd.onrender.com';
@@ -898,6 +894,7 @@ window.onload = () => {
 
   let verifiedOfficerId = "";
   let verifiedOfficerEmail = "";
+  let officerCategory = "";
 
   // Modal functions
   function openFullTerms() {
@@ -916,10 +913,74 @@ window.onload = () => {
     }
   }
 
+  // Utility functions
+  function showLoader() {
+    pageLoader.style.display = "flex";
+  }
+
+  function hideLoader() {
+    pageLoader.style.display = "none";
+  }
+
+  function showSection(sectionId) {
+    document.querySelectorAll('.section-container').forEach(section => {
+      section.classList.remove('active-section');
+    });
+    document.getElementById(sectionId).classList.add('active-section');
+    window.scrollTo(0, 0);
+  }
+
+  function showError(fieldId, message) {
+    const field = document.getElementById(fieldId);
+    const errorSpan = document.getElementById(`${fieldId}Error`);
+    
+    if (field) {
+      field.classList.add('error-field');
+    }
+    
+    if (errorSpan) {
+      errorSpan.textContent = message;
+      errorSpan.style.display = 'block';
+    }
+  }
+
+  function clearError(fieldId) {
+    const field = document.getElementById(fieldId);
+    const errorSpan = document.getElementById(`${fieldId}Error`);
+    
+    if (field) {
+      field.classList.remove('error-field');
+    }
+    
+    if (errorSpan) {
+      errorSpan.textContent = '';
+      errorSpan.style.display = 'none';
+    }
+  }
+
+  function clearAllErrors() {
+    const errorSpans = document.querySelectorAll('.error-message-small');
+    errorSpans.forEach(span => {
+      span.textContent = '';
+      span.style.display = 'none';
+    });
+    
+    const errorFields = document.querySelectorAll('.error-field');
+    errorFields.forEach(field => {
+      field.classList.remove('error-field');
+    });
+  }
+
+  function showVerificationMessage(message, isError = false) {
+    verificationMessage.textContent = message;
+    verificationMessage.style.color = isError ? 'red' : 'green';
+    verificationMessage.className = isError ? 'error-message' : 'success-message';
+  }
+
   // Password match validation
   function validatePasswordMatch() {
-    const password = passwordInput.value;
-    const confirmPassword = confirmPasswordInput.value;
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirm_password").value;
     
     if (password === "" && confirmPassword === "") {
       passwordMatchMessage.textContent = "";
@@ -939,121 +1000,322 @@ window.onload = () => {
   }
 
   // Add event listeners for password validation
-  passwordInput.addEventListener('input', validatePasswordMatch);
-  confirmPasswordInput.addEventListener('input', validatePasswordMatch);
+  document.getElementById("password").addEventListener('input', validatePasswordMatch);
+  document.getElementById("confirm_password").addEventListener('input', validatePasswordMatch);
 
-  // Utility functions
-  function showLoader() {
-    pageLoader.style.display = "flex";
-  }
+  // Enhanced fetch with better error handling
+  async function makeRequest(url, options = {}) {
+    const defaultOptions = {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      credentials: 'include',
+    };
 
-  function hideLoader() {
-    pageLoader.style.display = "none";
-  }
+    const mergedOptions = {
+      ...defaultOptions,
+      ...options,
+      headers: {
+        ...defaultOptions.headers,
+        ...options.headers,
+      },
+    };
 
-  function showSection(sectionId) {
-    document.querySelectorAll('.section-container').forEach(section => {
-      section.classList.remove('active-section');
-    });
-    document.getElementById(sectionId).classList.add('active-section');
-    window.scrollTo(0, 0);
-  }
-
-  function showStatusMessage(message, isError = false) {
-    statusMessage.textContent = message;
-    statusMessage.style.display = 'block';
-    statusMessage.style.color = isError ? 'red' : 'green';
-    statusMessage.style.borderLeftColor = isError ? 'red' : 'green';
-  }
-
-  function hideStatusMessage() {
-    statusMessage.style.display = 'none';
-  }
-
-  function showVerificationMessage(message, isError = false) {
-    verificationMessage.textContent = message;
-    verificationMessage.style.color = isError ? 'red' : 'green';
-  }
-
-  // Parse response
-  async function parseResponse(res) {
-    const text = await res.text();
     try {
-      return JSON.parse(text);
-    } catch (e) {
-      console.warn("Non-JSON response received:", text);
-      return { error: text };
+      const response = await fetch(url, mergedOptions);
+      
+      // Parse response
+      let data;
+      const contentType = response.headers.get('content-type');
+      if (contentType && contentType.includes('application/json')) {
+        data = await response.json();
+      } else {
+        const text = await response.text();
+        data = { text: text, status: response.status };
+      }
+
+      return {
+        ok: response.ok,
+        status: response.status,
+        data: data
+      };
+      
+    } catch (error) {
+      console.error('Request failed:', error);
+      return {
+        ok: false,
+        status: 0,
+        data: { detail: 'Network error. Please check your internet connection.' }
+      };
     }
+  }
+
+  // Validate email format
+  function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  // Validate required fields
+  function validateForm(formId) {
+    const form = document.getElementById(formId);
+    const requiredFields = form.querySelectorAll('[required]');
+    let isValid = true;
+
+    requiredFields.forEach(field => {
+      if (!field.value.trim()) {
+        showError(field.id, 'This field is required');
+        isValid = false;
+      } else {
+        clearError(field.id);
+        
+        // Additional validation for specific fields
+        if (field.type === 'email' && !isValidEmail(field.value)) {
+          showError(field.id, 'Please enter a valid email address');
+          isValid = false;
+        }
+        
+        if (field.id === 'password' && field.value.length < 8) {
+          showError(field.id, 'Password must be at least 8 characters long');
+          isValid = false;
+        }
+        
+        // Validate officer ID format
+        if (field.id === 'officerId') {
+          const isValidId = validateOfficerIdFormat(field.value);
+          if (!isValidId.isValid) {
+            showError(field.id, isValidId.message);
+            isValid = false;
+          }
+        }
+      }
+    });
+
+    return isValid;
+  }
+
+  // Validate officer ID format
+  function validateOfficerIdFormat(id) {
+    id = id.trim().toUpperCase();
+    
+    // Remove any extra slashes the user might have typed
+    id = id.replace(/\/+/g, '/');
+    
+    const pattern = /^(MCN|MBT|MBC)\/(\d{1,4})\/(\d{4})$/;
+    
+    if (!pattern.test(id)) {
+      return {
+        isValid: false,
+        message: 'Format: MCN/001/2024, MBT/005/2023, or MBC/003/2022'
+      };
+    }
+    
+    // Validate year
+    const parts = id.split('/');
+    const year = parseInt(parts[2]);
+    const currentYear = new Date().getFullYear();
+    
+    if (year < 2000 || year > currentYear) {
+      return {
+        isValid: false,
+        message: `Year must be between 2000 and ${currentYear}`
+      };
+    }
+    
+    return { isValid: true, message: 'Valid ID format' };
+  }
+
+  // Auto-format officer ID with slashes
+  function autoFormatOfficerId(input) {
+    let value = input.value.toUpperCase();
+    let cursorPos = input.selectionStart;
+    
+    // Remove all non-alphanumeric characters except slashes
+    value = value.replace(/[^A-Z0-9\/]/g, '');
+    
+    // If it starts with MCN, MBT, or MBC
+    if (value.match(/^(MCN|MBT|MBC)/i)) {
+      // Remove extra slashes
+      value = value.replace(/\/+/g, '/');
+      
+      // If user typed prefix without slash, add it
+      if (value.length >= 3 && value.charAt(3) !== '/') {
+        value = value.substring(0, 3) + '/' + value.substring(3);
+        cursorPos++;
+      }
+      
+      // Find the first slash position
+      const firstSlashPos = value.indexOf('/');
+      
+      if (firstSlashPos !== -1) {
+        // Get everything after first slash
+        let afterFirstSlash = value.substring(firstSlashPos + 1);
+        
+        // Remove any slashes from the number part
+        afterFirstSlash = afterFirstSlash.replace(/\//g, '');
+        
+        // If we have numbers, check if we need second slash
+        if (afterFirstSlash.length > 0) {
+          // Extract just the numbers (up to 4 digits)
+          const numberMatch = afterFirstSlash.match(/^(\d{1,4})/);
+          if (numberMatch) {
+            const numbers = numberMatch[1];
+            const rest = afterFirstSlash.substring(numbers.length);
+            
+            // If we have a year after numbers
+            if (rest.length >= 4) {
+              const yearMatch = rest.match(/^(\d{4})/);
+              if (yearMatch) {
+                const year = yearMatch[1];
+                value = value.substring(0, firstSlashPos + 1) + numbers + '/' + year;
+              } else {
+                value = value.substring(0, firstSlashPos + 1) + numbers;
+              }
+            } else {
+              value = value.substring(0, firstSlashPos + 1) + numbers;
+            }
+          }
+        }
+      }
+    }
+    
+    // Update the input value
+    input.value = value;
+    
+    // Restore cursor position
+    input.setSelectionRange(cursorPos, cursorPos);
+    
+    // Clear any error
+    clearError('officerId');
+  }
+
+  // Handle officer ID input for auto-formatting
+  const officerIdInput = document.getElementById('officerId');
+  if (officerIdInput) {
+    officerIdInput.addEventListener('input', function(e) {
+      autoFormatOfficerId(this);
+    });
+    
+    officerIdInput.addEventListener('keydown', function(e) {
+      // Allow: backspace, delete, tab, escape, enter, arrows
+      if ([46, 8, 9, 27, 13, 37, 38, 39, 40].indexOf(e.keyCode) !== -1 ||
+         // Allow: Ctrl+A, Ctrl+C, Ctrl+V, Ctrl+X
+         (e.keyCode === 65 && e.ctrlKey === true) || 
+         (e.keyCode === 67 && e.ctrlKey === true) ||
+         (e.keyCode === 86 && e.ctrlKey === true) ||
+         (e.keyCode === 88 && e.ctrlKey === true) ||
+         // Allow: home, end
+         (e.keyCode >= 35 && e.keyCode <= 39)) {
+        return;
+      }
+      
+      // Ensure it's a number or letter
+      if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 65 || e.keyCode > 90) && e.keyCode !== 191) {
+        e.preventDefault();
+      }
+    });
   }
 
   // Handle officer verification
   verificationForm.addEventListener("submit", async function(e) {
     e.preventDefault();
     
-    const officerId = document.getElementById("officerId").value.trim();
-    const officerEmail = document.getElementById("officerEmail").value.trim();
-    
-    hideStatusMessage();
+    clearAllErrors();
     showVerificationMessage("");
-
-    if (!officerId || !officerEmail) {
-      showVerificationMessage("⚠️ Both Officer ID and Email are required.", true);
+    
+    if (!validateForm('verificationForm')) {
       return;
     }
 
+    const officerId = document.getElementById("officerId").value.trim().toUpperCase();
+    const officerEmail = document.getElementById("officerEmail").value.trim().toLowerCase();
+
     try {
+      verifyBtn.disabled = true;
+      verifyBtn.innerHTML = 'Verifying...';
       showLoader();
       
-      // Verify officer with backend
-      const verifyRes = await fetch(OFFICER_VERIFY_ENDPOINT, {
+      const response = await makeRequest(OFFICER_VERIFY_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
           officer_id: officerId, 
-          email: officerEmail
+          email: officerEmail 
         })
       });
-      
-      const verifyData = await parseResponse(verifyRes);
-      
-      if (!verifyRes.ok) {
-        hideLoader();
-        showVerificationMessage(verifyData?.detail || verifyData?.error || "❌ Officer verification failed. Please check your credentials.", true);
-        return;
-      }
 
-      // Officer verified successfully
-      verifiedOfficerId = officerId;
-      verifiedOfficerEmail = officerEmail;
-      
-      // Store in hidden fields
-      document.getElementById("verified_officer_id").value = officerId;
-      document.getElementById("verified_officer_email").value = officerEmail;
-      
-      // Pre-fill email in form if email field is empty
-      const emailField = document.getElementById("email_address");
-      if (!emailField.value) {
-        emailField.value = officerEmail;
+      if (response.ok) {
+        verifiedOfficerId = officerId;
+        verifiedOfficerEmail = officerEmail;
+        officerCategory = response.data.category || '';
+        
+        // Store in hidden fields
+        document.getElementById("verified_officer_id").value = officerId;
+        document.getElementById("verified_officer_email").value = officerEmail;
+        document.getElementById("service_number").value = officerId;
+        
+        // Display officer ID in the form
+        if (displayOfficerId) {
+          displayOfficerId.textContent = officerId;
+        }
+        
+        // Update category message
+        if (verifiedCategoryMessage && officerCategory) {
+          verifiedCategoryMessage.innerHTML = `✅ <strong>${officerCategory}</strong> Officer Verified Successfully!<br>Please complete your registration form below. Fields marked with * are required.`;
+        }
+        
+        // Pre-fill email in form
+        const emailField = document.getElementById("email_address");
+        if (emailField) {
+          emailField.value = officerEmail;
+        }
+        
+        showVerificationMessage(`✅ ${officerCategory || 'Officer'} verified successfully! Loading registration form...`, false);
+        
+        // Show registration form after delay
+        setTimeout(() => {
+          showSection("applicationFormSection");
+          showVerificationMessage(""); // Clear message
+        }, 1500);
+        
+      } else {
+        let errorMessage = "❌ Officer verification failed. ";
+        
+        if (response.status === 409) {
+          errorMessage += "Officer already registered in the system.";
+        } else if (response.status === 404) {
+          errorMessage += "Officer credentials not found in legacy system.";
+        } else if (response.status === 400) {
+          if (response.data && response.data.detail) {
+            errorMessage += response.data.detail;
+          } else {
+            errorMessage += "Invalid input format.";
+          }
+        } else if (response.data && response.data.detail) {
+          errorMessage += response.data.detail;
+        } else {
+          errorMessage += "Please check your credentials and try again.";
+        }
+        
+        showVerificationMessage(errorMessage, true);
       }
       
-      hideLoader();
-      showVerificationMessage("✅ Officer verified successfully! Loading registration form...", false);
-      
-      // Show registration form after delay
-      setTimeout(() => {
-        showSection("applicationFormSection");
-      }, 1500);
-
-    } catch (err) {
-      hideLoader();
-      console.error("Officer verification error:", err);
+    } catch (error) {
+      console.error("Officer verification error:", error);
       showVerificationMessage("❌ Network error. Please check your connection and try again.", true);
+      
+    } finally {
+      verifyBtn.disabled = false;
+      verifyBtn.innerHTML = 'Verify Officer Identity';
+      hideLoader();
     }
   });
 
   // Handle officer registration
   applicationForm.addEventListener("submit", async function(e) {
     e.preventDefault();
+    
+    clearAllErrors();
     
     // Validate Terms & Conditions
     if (!agreeTermsCheckbox.checked) {
@@ -1075,43 +1337,72 @@ window.onload = () => {
       return;
     }
 
-    // Validate required fields
-    const requiredFields = [
-      'surname', 'first_name', 'date_of_birth', 'residential_address',
-      'id_card_number', 'rank', 'mobile_number', 'password', 'confirm_password'
-    ];
+    // Get current date for date of birth validation
+    const today = new Date();
+    const dobInput = document.getElementById("date_of_birth").value;
+    const dobDate = new Date(dobInput);
+    const minDate = new Date(today.getFullYear() - 70, today.getMonth(), today.getDate());
+    const maxDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
+
+    if (dobDate > maxDate) {
+      showError("date_of_birth", "You must be at least 18 years old.");
+      return;
+    }
     
-    for (const fieldId of requiredFields) {
-      const field = document.getElementById(fieldId);
-      if (!field.value.trim()) {
-        alert(`❌ Please fill in the required field: ${field.previousElementSibling?.textContent || fieldId}`);
-        field.focus();
-        return;
-      }
+    if (dobDate < minDate) {
+      showError("date_of_birth", "Please enter a valid date of birth.");
+      return;
     }
 
-    // Validate required file uploads
-    const requiredFiles = ['nin_slip', 'affidavit', 'bio_data_form', 'gmail_forms'];
-    for (const fileId of requiredFiles) {
-      const fileInput = document.getElementById(fileId);
-      if (!fileInput.files || fileInput.files.length === 0) {
-        alert(`❌ Please upload the required file: ${fileInput.previousElementSibling?.textContent || fileId}`);
-        return;
-      }
+    // Validate all required fields
+    if (!validateForm('applicationForm')) {
+      return;
     }
 
-    // Check file sizes (max 5MB)
-    const allFileInputs = applicationForm.querySelectorAll('input[type="file"]');
-    for (const fileInput of allFileInputs) {
-      if (fileInput.files && fileInput.files.length > 0) {
-        for (const file of fileInput.files) {
-          if (file.size > 5 * 1024 * 1024) { // 5MB
-            alert(`❌ File "${file.name}" is too large. Maximum size is 5MB.`);
-            return;
-          }
-        }
-      }
+    // Validate phone number format
+    const phoneInput = document.getElementById("mobile_number").value;
+    const phoneRegex = /^(\+234|0)\d{10}$/;
+    if (!phoneRegex.test(phoneInput.replace(/\s/g, ''))) {
+      showError("mobile_number", "Please enter a valid Nigerian phone number (+2348012345678 or 08012345678)");
+      return;
     }
+
+    // Validate NIN number (11 digits for Nigeria)
+    const ninInput = document.getElementById("id_card_number").value;
+    const ninRegex = /^\d{11}$/;
+    if (!ninRegex.test(ninInput)) {
+      showError("id_card_number", "NIN number must be exactly 11 digits");
+      return;
+    }
+
+    // Collect form data for Pydantic model
+    const formData = {
+      officer_id: verifiedOfficerId,
+      email: verifiedOfficerEmail,
+      phone: phoneInput.replace(/\s/g, ''),
+      password: document.getElementById("password").value,
+      full_name: `${document.getElementById("surname").value.trim()} ${document.getElementById("first_name").value.trim()}`,
+      nin_number: ninInput,
+      gender: document.getElementById("gender").value,
+      date_of_birth: document.getElementById("date_of_birth").value,
+      place_of_birth: document.getElementById("place_of_birth").value || "Not specified",
+      nationality: document.getElementById("nationality").value,
+      marital_status: document.getElementById("marital_status").value || "Not specified",
+      residential_address: document.getElementById("residential_address").value.trim(),
+      state_of_residence: document.getElementById("state_of_residence").value || "Not specified",
+      local_government_residence: document.getElementById("local_government_residence").value || "Not specified",
+      country_of_residence: document.getElementById("country_of_residence").value,
+      state_of_origin: document.getElementById("state_of_origin").value || "Not specified",
+      local_government_origin: document.getElementById("local_government_origin").value || "Not specified",
+      rank: document.getElementById("rank").value,
+      position: document.getElementById("appointment").value.trim() || "Not specified",
+      years_of_service: parseInt(document.getElementById("years_of_service").value) || 0,
+      service_number: verifiedOfficerId,
+      religion: document.getElementById("religion").value || "Not specified",
+      additional_skills: document.getElementById("additional_skills").value || "None",
+      bank_name: document.getElementById("bank_name").value || "Not specified",
+      account_number: document.getElementById("account_number").value || "Not specified"
+    };
 
     // Disable submit button and show loader
     submitBtn.disabled = true;
@@ -1120,110 +1411,65 @@ window.onload = () => {
     showLoader();
 
     try {
-      // Create FormData object
-      const formData = new FormData(applicationForm);
-      
-      // Add verification data
-      formData.append('officer_id', verifiedOfficerId);
-      formData.append('verified_email', verifiedOfficerEmail);
-      formData.append('registration_date', new Date().toISOString());
-      formData.append('agree_terms', 'true');
-      
-      // Submit to backend
-      const registerRes = await fetch(OFFICER_REGISTER_ENDPOINT, {
+      const response = await makeRequest(OFFICER_REGISTER_ENDPOINT, {
         method: "POST",
-        body: formData
+        body: JSON.stringify(formData)
       });
-      
-      const registerData = await parseResponse(registerRes);
-      
-      if (!registerRes.ok) {
-        hideLoader();
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = 'Submit Officer Registration';
-        submitBtn.classList.remove('btn-disabled');
-        alert(registerData?.detail || registerData?.error || "❌ Registration failed. Please try again.");
-        return;
+
+      if (response.ok) {
+        // Success!
+        const regId = response.data.registration_id || verifiedOfficerId;
+        alert(`🎉 ${officerCategory || 'Officer'} Registration Successful!\n\nYour information has been saved to the database.\n\nRegistration ID: ${regId}\n\nYou can now login with your credentials.`);
+        
+        // Reset forms and go back to verification
+        verificationForm.reset();
+        applicationForm.reset();
+        verifiedOfficerId = "";
+        verifiedOfficerEmail = "";
+        officerCategory = "";
+        passwordMatchMessage.textContent = "";
+        agreeTermsCheckbox.checked = false;
+        if (displayOfficerId) displayOfficerId.textContent = "";
+        showSection("verificationSection");
+        
+      } else {
+        let errorMessage = "❌ Registration failed. ";
+        
+        if (response.status === 409) {
+          errorMessage += "Officer with these credentials already exists.";
+        } else if (response.data && response.data.detail) {
+          errorMessage += response.data.detail;
+        } else {
+          errorMessage += "Please check your information and try again.";
+        }
+        
+        alert(errorMessage);
       }
-
-      // Success!
-      hideLoader();
       
-      // Show success message
-      alert(`🎉 Officer Registration Successful!\n\nYour information has been saved to the database.\n\nRegistration ID: ${registerData.registration_id || verifiedOfficerId}\n\nThank you for agreeing to our Terms & Conditions.`);
-      
-      // Reset forms and go back to verification
-      verificationForm.reset();
-      applicationForm.reset();
-      verifiedOfficerId = "";
-      verifiedOfficerEmail = "";
-      passwordMatchMessage.textContent = "";
-      agreeTermsCheckbox.checked = false;
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = 'Submit Officer Registration';
-      submitBtn.classList.remove('btn-disabled');
-      showSection("verificationSection");
-
-    } catch (err) {
-      hideLoader();
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = 'Submit Officer Registration';
-      submitBtn.classList.remove('btn-disabled');
-      console.error("Registration error:", err);
+    } catch (error) {
+      console.error("Registration error:", error);
       alert("❌ Network error during registration. Please check your connection and try again.");
+      
+    } finally {
+      // Re-enable submit button
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Submit Officer Registration';
+      submitBtn.classList.remove('btn-disabled');
+      hideLoader();
     }
   });
 
-  // Fallback verification for development/testing
-  async function handleOfficerVerificationFallback(e) {
-    e.preventDefault();
-    
-    const officerId = document.getElementById("officerId").value.trim();
-    const officerEmail = document.getElementById("officerEmail").value.trim();
-    
-    hideStatusMessage();
-    showVerificationMessage("");
+  // Add input event listeners to clear errors when user types
+  const inputs = document.querySelectorAll('input, textarea, select');
+  inputs.forEach(input => {
+    input.addEventListener('input', () => {
+      clearError(input.id);
+    });
+  });
 
-    if (!officerId || !officerEmail) {
-      showVerificationMessage("⚠️ Both Officer ID and Email are required.", true);
-      return;
-    }
-
-    showLoader();
-    
-    // Simulate API call delay
-    setTimeout(() => {
-      // For demo purposes, accept any officer ID that contains "MCN" and valid email
-      if (officerId && officerEmail.includes("@")) {
-        verifiedOfficerId = officerId;
-        verifiedOfficerEmail = officerEmail;
-        
-        // Store in hidden fields
-        document.getElementById("verified_officer_id").value = officerId;
-        document.getElementById("verified_officer_email").value = officerEmail;
-        
-        // Pre-fill email in form
-        const emailField = document.getElementById("email_address");
-        if (!emailField.value) {
-          emailField.value = officerEmail;
-        }
-        
-        hideLoader();
-        showVerificationMessage("✅ Officer verified successfully! Loading registration form...", false);
-        
-        // Show registration form after delay
-        setTimeout(() => {
-          showSection("applicationFormSection");
-        }, 1500);
-      } else {
-        hideLoader();
-        showVerificationMessage("❌ Invalid Officer ID or Email format. Please check your credentials.", true);
-      }
-    }, 1000);
-  }
-
-  // If backend is not ready, uncomment the line below to use fallback verification
-  // verificationForm.addEventListener("submit", handleOfficerVerificationFallback);
+  // Initialize
+  console.log("Officer verification portal loaded successfully");
+  console.log("Backend URL:", API_BASE_URL);
 };
 </script>
 

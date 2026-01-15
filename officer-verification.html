@@ -884,6 +884,7 @@ window.onload = () => {
   const passwordMatchMessage = document.getElementById("passwordMatchMessage");
   const displayOfficerId = document.getElementById("displayOfficerId");
   const verifiedCategoryMessage = document.getElementById("verifiedCategoryMessage");
+  const officerIdInput = document.getElementById("officerId");
 
   // Your backend URL
   const API_BASE_URL = 'https://backend-mcn-ltd.onrender.com';
@@ -1095,25 +1096,74 @@ window.onload = () => {
     return isValid;
   }
 
-  // Validate officer ID format
+  // **FIXED: Validate officer ID format - SIMPLIFIED VERSION**
   function validateOfficerIdFormat(id) {
-    id = id.trim().toUpperCase();
-    
-    // Remove any extra slashes the user might have typed
-    id = id.replace(/\/+/g, '/');
-    
-    const pattern = /^(MCN|MBT|MBC)\/(\d{1,4})\/(\d{4})$/;
-    
-    if (!pattern.test(id)) {
+    if (!id || id.trim() === '') {
       return {
         isValid: false,
-        message: 'Format: MCN/001/2024, MBT/005/2023, or MBC/003/2022'
+        message: 'Officer ID is required'
       };
     }
     
-    // Validate year
+    id = id.trim().toUpperCase();
+    
+    // Check if it starts with valid prefix
+    const validPrefixes = ['MCN', 'MBT', 'MBC'];
+    const prefix = id.substring(0, 3);
+    
+    if (!validPrefixes.includes(prefix)) {
+      return {
+        isValid: false,
+        message: 'Invalid prefix. Must start with MCN, MBT, or MBC'
+      };
+    }
+    
+    // Check if it contains at least one slash
+    if (!id.includes('/')) {
+      return {
+        isValid: false,
+        message: 'Format: PREFIX/NUMBER/YEAR (e.g., MCN/001/2024)'
+      };
+    }
+    
+    // Split by slashes
     const parts = id.split('/');
-    const year = parseInt(parts[2]);
+    
+    if (parts.length < 3) {
+      return {
+        isValid: false,
+        message: 'Format: PREFIX/NUMBER/YEAR (e.g., MCN/001/2024)'
+      };
+    }
+    
+    // Check prefix
+    if (parts[0] !== prefix) {
+      return {
+        isValid: false,
+        message: 'Invalid prefix format'
+      };
+    }
+    
+    // Check number (1-4 digits)
+    const numberPart = parts[1];
+    if (!numberPart || !/^\d{1,4}$/.test(numberPart)) {
+      return {
+        isValid: false,
+        message: 'Number must be 1-4 digits (e.g., 001 or 1234)'
+      };
+    }
+    
+    // Check year (4 digits)
+    const yearPart = parts[2];
+    if (!yearPart || !/^\d{4}$/.test(yearPart)) {
+      return {
+        isValid: false,
+        message: 'Year must be 4 digits (e.g., 2024)'
+      };
+    }
+    
+    // Validate year range
+    const year = parseInt(yearPart);
     const currentYear = new Date().getFullYear();
     
     if (year < 2000 || year > currentYear) {
@@ -1123,97 +1173,129 @@ window.onload = () => {
       };
     }
     
-    return { isValid: true, message: 'Valid ID format' };
+    return { 
+      isValid: true, 
+      message: 'Valid ID format',
+      formattedId: `${parts[0]}/${numberPart}/${yearPart}`
+    };
   }
 
-  // Auto-format officer ID with slashes
+  // **FIXED: SIMPLE auto-formatting that doesn't restrict input**
   function autoFormatOfficerId(input) {
     let value = input.value.toUpperCase();
     let cursorPos = input.selectionStart;
     
-    // Remove all non-alphanumeric characters except slashes
+    // Save original cursor position
+    const originalCursorPos = cursorPos;
+    
+    // Only allow letters, numbers, and slashes
     value = value.replace(/[^A-Z0-9\/]/g, '');
     
-    // If it starts with MCN, MBT, or MBC
-    if (value.match(/^(MCN|MBT|MBC)/i)) {
-      // Remove extra slashes
-      value = value.replace(/\/+/g, '/');
-      
-      // If user typed prefix without slash, add it
-      if (value.length >= 3 && value.charAt(3) !== '/') {
-        value = value.substring(0, 3) + '/' + value.substring(3);
-        cursorPos++;
-      }
-      
-      // Find the first slash position
-      const firstSlashPos = value.indexOf('/');
-      
-      if (firstSlashPos !== -1) {
-        // Get everything after first slash
-        let afterFirstSlash = value.substring(firstSlashPos + 1);
-        
-        // Remove any slashes from the number part
-        afterFirstSlash = afterFirstSlash.replace(/\//g, '');
-        
-        // If we have numbers, check if we need second slash
-        if (afterFirstSlash.length > 0) {
-          // Extract just the numbers (up to 4 digits)
-          const numberMatch = afterFirstSlash.match(/^(\d{1,4})/);
-          if (numberMatch) {
-            const numbers = numberMatch[1];
-            const rest = afterFirstSlash.substring(numbers.length);
-            
-            // If we have a year after numbers
-            if (rest.length >= 4) {
-              const yearMatch = rest.match(/^(\d{4})/);
-              if (yearMatch) {
-                const year = yearMatch[1];
-                value = value.substring(0, firstSlashPos + 1) + numbers + '/' + year;
-              } else {
-                value = value.substring(0, firstSlashPos + 1) + numbers;
-              }
-            } else {
-              value = value.substring(0, firstSlashPos + 1) + numbers;
-            }
-          }
-        }
+    // If user types a valid prefix without slash, auto-add it
+    if (value.length === 3 && ['MCN', 'MBT', 'MBC'].includes(value)) {
+      // Don't auto-add slash if user just typed the prefix
+      // Let them type the slash themselves
+    }
+    
+    // If we have a prefix and at least 4 characters, check for slash after prefix
+    if (value.length >= 4 && ['MCN', 'MBT', 'MBC'].includes(value.substring(0, 3))) {
+      // If no slash after prefix and user typed something after prefix, suggest format
+      if (value[3] !== '/') {
+        // Show format hint but don't auto-insert
+        // This is just visual feedback
       }
     }
     
     // Update the input value
     input.value = value;
     
-    // Restore cursor position
-    input.setSelectionRange(cursorPos, cursorPos);
+    // Try to restore cursor position
+    setTimeout(() => {
+      input.setSelectionRange(cursorPos, cursorPos);
+    }, 0);
     
     // Clear any error
     clearError('officerId');
+    
+    // Show format hint
+    updateFormatHint(value);
   }
 
-  // Handle officer ID input for auto-formatting
-  const officerIdInput = document.getElementById('officerId');
+  // Update format hint based on current input
+  function updateFormatHint(value) {
+    const hintElement = document.querySelector('.id-format-hint');
+    if (!hintElement) return;
+    
+    value = value.toUpperCase();
+    
+    if (value.length === 0) {
+      hintElement.textContent = 'Type MCN, MBT, or MBC followed by numbers - slashes will auto-insert';
+      hintElement.style.color = '#666';
+    } else if (value.length >= 1 && value.length <= 3) {
+      const currentText = value.substring(0, 3);
+      if (['M', 'MC', 'MCN', 'MB', 'MBT', 'MBC'].includes(currentText)) {
+        hintElement.textContent = `Continue with ${currentText}/number/year format`;
+        hintElement.style.color = '#4CAF50';
+      } else {
+        hintElement.textContent = 'Must start with MCN, MBT, or MBC';
+        hintElement.style.color = '#d32f2f';
+      }
+    } else if (value.length > 3) {
+      if (value.includes('/')) {
+        const parts = value.split('/');
+        if (parts.length === 1) {
+          hintElement.textContent = 'Add /number/year (e.g., /001/2024)';
+          hintElement.style.color = '#4CAF50';
+        } else if (parts.length === 2) {
+          hintElement.textContent = 'Add /year (e.g., /2024)';
+          hintElement.style.color = '#4CAF50';
+        } else if (parts.length >= 3) {
+          hintElement.textContent = 'Format looks good!';
+          hintElement.style.color = '#4CAF50';
+        }
+      } else {
+        hintElement.textContent = 'Add slash after prefix (e.g., MCN/)';
+        hintElement.style.color = '#FF9800';
+      }
+    }
+  }
+
+  // **FIXED: Handle officer ID input - SIMPLIFIED**
   if (officerIdInput) {
+    // Remove restrictive keydown handler - let users type freely
+    officerIdInput.removeEventListener('keydown', handleKeyDown);
+    
+    // Keep input handler for formatting hints
     officerIdInput.addEventListener('input', function(e) {
       autoFormatOfficerId(this);
     });
     
-    officerIdInput.addEventListener('keydown', function(e) {
-      // Allow: backspace, delete, tab, escape, enter, arrows
-      if ([46, 8, 9, 27, 13, 37, 38, 39, 40].indexOf(e.keyCode) !== -1 ||
-         // Allow: Ctrl+A, Ctrl+C, Ctrl+V, Ctrl+X
-         (e.keyCode === 65 && e.ctrlKey === true) || 
-         (e.keyCode === 67 && e.ctrlKey === true) ||
-         (e.keyCode === 86 && e.ctrlKey === true) ||
-         (e.keyCode === 88 && e.ctrlKey === true) ||
-         // Allow: home, end
-         (e.keyCode >= 35 && e.keyCode <= 39)) {
-        return;
-      }
+    // Add focus/blur for better UX
+    officerIdInput.addEventListener('focus', function() {
+      this.style.borderColor = '#254a93';
+      this.style.boxShadow = '0 0 0 2px rgba(37, 74, 147, 0.1)';
+    });
+    
+    officerIdInput.addEventListener('blur', function() {
+      this.style.borderColor = '#ddd';
+      this.style.boxShadow = 'none';
       
-      // Ensure it's a number or letter
-      if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 65 || e.keyCode > 90) && e.keyCode !== 191) {
-        e.preventDefault();
+      // Validate format on blur
+      const value = this.value.trim();
+      if (value) {
+        const validation = validateOfficerIdFormat(value);
+        if (!validation.isValid) {
+          showError('officerId', validation.message);
+        }
       }
+    });
+    
+    // Add paste handler
+    officerIdInput.addEventListener('paste', function(e) {
+      // Allow paste, then format
+      setTimeout(() => {
+        autoFormatOfficerId(this);
+      }, 10);
     });
   }
 
@@ -1231,6 +1313,16 @@ window.onload = () => {
     const officerId = document.getElementById("officerId").value.trim().toUpperCase();
     const officerEmail = document.getElementById("officerEmail").value.trim().toLowerCase();
 
+    // Format officer ID before sending
+    const validation = validateOfficerIdFormat(officerId);
+    if (!validation.isValid) {
+      showError('officerId', validation.message);
+      return;
+    }
+    
+    // Use formatted ID if available
+    const formattedOfficerId = validation.formattedId || officerId;
+
     try {
       verifyBtn.disabled = true;
       verifyBtn.innerHTML = 'Verifying...';
@@ -1239,24 +1331,24 @@ window.onload = () => {
       const response = await makeRequest(OFFICER_VERIFY_ENDPOINT, {
         method: "POST",
         body: JSON.stringify({ 
-          officer_id: officerId, 
+          officer_id: formattedOfficerId, 
           email: officerEmail 
         })
       });
 
       if (response.ok) {
-        verifiedOfficerId = officerId;
+        verifiedOfficerId = formattedOfficerId;
         verifiedOfficerEmail = officerEmail;
         officerCategory = response.data.category || '';
         
         // Store in hidden fields
-        document.getElementById("verified_officer_id").value = officerId;
+        document.getElementById("verified_officer_id").value = formattedOfficerId;
         document.getElementById("verified_officer_email").value = officerEmail;
-        document.getElementById("service_number").value = officerId;
+        document.getElementById("service_number").value = formattedOfficerId;
         
         // Display officer ID in the form
         if (displayOfficerId) {
-          displayOfficerId.textContent = officerId;
+          displayOfficerId.textContent = formattedOfficerId;
         }
         
         // Update category message
@@ -1470,6 +1562,11 @@ window.onload = () => {
   // Initialize
   console.log("Officer verification portal loaded successfully");
   console.log("Backend URL:", API_BASE_URL);
+  
+  // Initialize format hint
+  if (officerIdInput) {
+    updateFormatHint(officerIdInput.value);
+  }
 };
 </script>
 

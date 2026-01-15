@@ -1260,11 +1260,8 @@ window.onload = () => {
     }
   }
 
-  // **FIXED: Handle officer ID input - SIMPLIFIED**
+     // **FIXED: Handle officer ID input - SIMPLIFIED**
   if (officerIdInput) {
-    // Remove restrictive keydown handler - let users type freely
-    officerIdInput.removeEventListener('keydown', handleKeyDown);
-    
     // Keep input handler for formatting hints
     officerIdInput.addEventListener('input', function(e) {
       autoFormatOfficerId(this);

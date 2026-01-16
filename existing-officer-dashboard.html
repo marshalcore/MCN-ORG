@@ -1255,6 +1255,60 @@
         
         console.log('Existing Officer Dashboard loaded with FIXED document status');
     });
+
+    // FIX: Update the validation to include new fields
+function validateOfficerForm() {
+    console.log('🔍 Validating officer form...');
+    
+    let isValid = true;
+    const errors = [];
+    
+    // 1. Check all required fields
+    const requiredFields = document.querySelectorAll('[required]');
+    requiredFields.forEach(field => {
+        if (!field.value || !field.value.trim()) {
+            const fieldName = field.name || field.id || field.placeholder;
+            errors.push(`${fieldName} is required`);
+            field.style.border = '2px solid red';
+            isValid = false;
+        } else {
+            field.style.border = '';
+        }
+    });
+    
+    // 2. Special check for date_of_enlistment (NEW FIELD)
+    const enlistmentDate = document.querySelector('[name*="enlistment"], [id*="enlistment"]');
+    if (enlistmentDate && !enlistmentDate.value) {
+        errors.push('Date of enlistment is required');
+        enlistmentDate.style.border = '2px solid red';
+        isValid = false;
+    }
+    
+    // 3. Special check for officer ID format (NEW FORMAT)
+    const officerId = document.querySelector('[name*="officer"], [id*="officer"]');
+    if (officerId && officerId.value) {
+        const idPattern = /^(MCN|MBT|MBC)\/[A-Z0-9]{3,4}\/\d{3}$/i;
+        if (!idPattern.test(officerId.value.trim())) {
+            errors.push('Invalid Officer ID format. Use: PREFIX/ALPHANUMERIC/INTAKE (e.g., MCN/001B/031)');
+            officerId.style.border = '2px solid red';
+            isValid = false;
+        }
+    }
+    
+    // Log results
+    if (errors.length > 0) {
+        console.error('❌ Validation errors:', errors);
+        // Show errors to user
+        alert('Please fix the following errors:\n\n' + errors.join('\n'));
+        return false;
+    }
+    
+    console.log('✅ All validations passed');
+    return true;
+}
+
+// Replace your existing validation function
+// Or modify line 1675 to use this function
 </script>
 </body>
 </html>

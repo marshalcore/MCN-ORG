@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Marshal Core | Officer Verification</title>
+  <title>Marshal Core | Existing Officer Verification</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    /* Keep all your existing CSS styles */
     body {
       font-family: "Open Sans", sans-serif;
       background-color: #fffcf4;
@@ -512,6 +513,70 @@
     .prefix-info li {
       margin-bottom: 3px;
     }
+
+    /* NEW STYLES FOR EXISTING OFFICERS */
+    .date-of-enlistment-info {
+      background-color: #f0f8ff;
+      border-left: 4px solid #4CAF50;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+
+    .date-of-enlistment-info h4 {
+      color: #4CAF50;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .required-badge {
+      background-color: #ffebee;
+      color: #d32f2f;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-left: 5px;
+    }
+
+    .optional-badge {
+      background-color: #e8f5e9;
+      color: #4CAF50;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-left: 5px;
+    }
+
+    /* Document upload section */
+    .document-section {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .document-requirements {
+      background-color: #fff8e1;
+      border-left: 4px solid #ff9800;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+    }
+
+    .document-requirements h4 {
+      color: #ff9800;
+      margin-top: 0;
+    }
+
+    .file-size-info {
+      font-size: 12px;
+      color: #666;
+      font-style: italic;
+      margin-top: 5px;
+    }
   </style>
 </head>
 <body>
@@ -524,10 +589,10 @@
     YA/CLB/10100
   </div>
   <div class="header-title">
-    Marshal Core Officer Verification Portal
+    Marshal Core Existing Officer Verification
   </div>
   <div class="header-subtitle">
-    For Existing Officers Only - No Payment Required
+    Legacy Officers (MCN, MBT, MBC) - No Payment Required
   </div>
 </header>
 
@@ -536,32 +601,33 @@
   <div class="container">
     <div class="verification-banner">
       <h3>🔍 Officer Verification Required</h3>
-      <p>As an existing officer, please verify your identity before proceeding with registration.</p>
+      <p>As an existing officer, verify your identity before proceeding with registration.</p>
     </div>
     
     <div class="form-section">
       <h2>Step 1: Officer Verification</h2>
       
       <div class="prefix-info">
-        <h4>📋 Valid Officer ID Formats:</h4>
+        <h4>📋 NEW Officer ID Format:</h4>
         <ul>
-          <li><span class="id-prefix-badge">MCN</span> - Marshal Core Nigeria (e.g., MCN/001/2024)</li>
-          <li><span class="id-prefix-badge">MBT</span> - Marshal Board of Trustees (e.g., MBT/005/2023)</li>
-          <li><span class="id-prefix-badge">MBC</span> - Marshal Board Committee (e.g., MBC/003/2022)</li>
+          <li><strong>Format:</strong> <span class="id-prefix-badge">PREFIX</span>/<span class="id-prefix-badge">ALPHANUMERIC</span>/<span class="id-prefix-badge">INTAKE</span></li>
+          <li><span class="id-prefix-badge">MCN</span> - Marshal Core Nigeria (e.g., MCN/001B/031)</li>
+          <li><span class="id-prefix-badge">MBT</span> - Marshal Board of Trustees (e.g., MBT/A01/123)</li>
+          <li><span class="id-prefix-badge">MBC</span> - Marshal Board Committee (e.g., MBC/1234/001)</li>
         </ul>
-        <p><strong>Format:</strong> PREFIX/NUMBER/YEAR (slashes will be auto-inserted)</p>
+        <p><strong>Note:</strong> Alphanumeric can be 3-4 characters (letters/numbers), Intake is 3 digits</p>
       </div>
       
       <div id="statusMessage" class="status-message" style="display: none;"></div>
       <form id="verificationForm" class="contact_form-container">
         <div class="form-row">
           <div class="form-col">
-            <label for="officerId" class="required">Officer ID / Service Number</label>
-            <input type="text" id="officerId" placeholder="MCN/001/2024" required 
-                   pattern="^(MCN|MBT|MBC)/\d{1,4}/\d{4}$"
-                   title="Format: MCN/001/2024, MBT/005/2023, or MBC/003/2022" />
+            <label for="officerId" class="required">Officer ID (Format)</label>
+            <input type="text" id="officerId" placeholder="MCN/001B/031" required 
+                   pattern="^(MCN|MBT|MBC)/[A-Z0-9]{3,4}/\d{3}$"
+                   title="Format: PREFIX/ALPHANUMERIC/INTAKE (e.g., MCN/001B/031)" />
             <span id="officerIdError" class="error-message-small"></span>
-            <span class="id-format-hint">Type MCN, MBT, or MBC followed by numbers - slashes will auto-insert</span>
+            <span class="id-format-hint">Format: PREFIX/ALPHANUMERIC/INTAKE (e.g., MCN/001B/031)</span>
           </div>
           <div class="form-col">
             <label for="officerEmail" class="required">Official Email Address</label>
@@ -591,9 +657,10 @@
         <h4>📋 Instructions:</h4>
         <ul>
           <li>Fill in all required fields marked with *</li>
-          <li>Use strong password (minimum 8 characters)</li>
+          <li>Use strong password (minimum 8 characters) - This will be your login password</li>
           <li>Ensure all information is accurate</li>
           <li>Your Officer ID: <strong id="displayOfficerId"></strong></li>
+          <li>Category: <strong id="displayCategory"></strong></li>
         </ul>
       </div>
 
@@ -638,6 +705,104 @@
               <input type="text" id="id_card_number" name="id_card_number" placeholder="Enter your NIN number" required 
                      pattern="^\d{11}$" title="NIN must be 11 digits" />
               <span id="ninError" class="error-message-small"></span>
+            </div>
+          </div>
+          
+          <!-- Add Gender field -->
+          <div class="form-row">
+            <div class="form-col">
+              <label for="gender" class="required">Gender *</label>
+              <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+              <span id="genderError" class="error-message-small"></span>
+            </div>
+            <div class="form-col">
+              <label for="marital_status">Marital Status (Optional)</label>
+              <select id="marital_status" name="marital_status">
+                <option value="">Select Marital Status</option>
+                <option value="Single">Single</option>
+                <option value="Married">Married</option>
+                <option value="Divorced">Divorced</option>
+                <option value="Widowed">Widowed</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- NEW: Date of Enlistment & Promotion Section -->
+        <div class="form-section">
+          <h3>🎖️ Service Dates (NEW REQUIRED FIELDS)</h3>
+          <div class="date-of-enlistment-info">
+            <h4>📅 Important: Date of Enlistment is now REQUIRED</h4>
+            <p>This information is required for all existing officers. Please provide accurate dates.</p>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-col">
+              <label for="date_of_enlistment" class="required">Date of Enlistment * <span class="required-badge">REQUIRED</span></label>
+              <input type="date" id="date_of_enlistment" name="date_of_enlistment" required />
+              <span id="enlistmentError" class="error-message-small"></span>
+              <span class="id-format-hint">When you first enlisted as an officer</span>
+            </div>
+            <div class="form-col">
+              <label for="date_of_promotion">Date of Last Promotion <span class="optional-badge">OPTIONAL</span></label>
+              <input type="date" id="date_of_promotion" name="date_of_promotion" />
+              <span id="promotionError" class="error-message-small"></span>
+              <span class="id-format-hint">Date of your last promotion (if applicable)</span>
+            </div>
+          </div>
+          
+          <!-- Add optional fields for place of birth, nationality, etc. -->
+          <div class="form-row">
+            <div class="form-col">
+              <label for="place_of_birth">Place of Birth (Optional)</label>
+              <input type="text" id="place_of_birth" name="place_of_birth" placeholder="Enter your place of birth" />
+            </div>
+            <div class="form-col">
+              <label for="nationality">Nationality</label>
+              <input type="text" id="nationality" name="nationality" placeholder="e.g., Nigerian" value="Nigerian" />
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-col">
+              <label for="state_of_residence">State of Residence (Optional)</label>
+              <input type="text" id="state_of_residence" name="state_of_residence" placeholder="e.g., Lagos State" />
+            </div>
+            <div class="form-col">
+              <label for="local_government_residence">Local Government of Residence (Optional)</label>
+              <input type="text" id="local_government_residence" name="local_government_residence" placeholder="e.g., Ikeja" />
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-col">
+              <label for="country_of_residence">Country of Residence</label>
+              <input type="text" id="country_of_residence" name="country_of_residence" placeholder="e.g., Nigeria" value="Nigeria" />
+            </div>
+            <div class="form-col">
+              <label for="state_of_origin">State of Origin (Optional)</label>
+              <input type="text" id="state_of_origin" name="state_of_origin" placeholder="e.g., Edo State" />
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-col">
+              <label for="local_government_origin">Local Government of Origin (Optional)</label>
+              <input type="text" id="local_government_origin" name="local_government_origin" placeholder="e.g., Oredo" />
+            </div>
+            <div class="form-col">
+              <label for="religion">Religion (Optional)</label>
+              <select id="religion" name="religion">
+                <option value="">Select Religion</option>
+                <option value="Christianity">Christianity</option>
+                <option value="Islam">Islam</option>
+                <option value="Traditional">Traditional</option>
+                <option value="Other">Other</option>
+              </select>
             </div>
           </div>
         </div>
@@ -690,17 +855,124 @@
               <input type="text" id="appointment" name="appointment" placeholder="Enter your appointment" />
             </div>
           </div>
+          
+          <div class="form-row">
+            <div class="form-col">
+              <label for="years_of_service">Years of Service (Optional)</label>
+              <input type="number" id="years_of_service" name="years_of_service" placeholder="e.g., 5" min="0" max="50" />
+            </div>
+            <div class="form-col">
+              <label for="additional_skills">Additional Skills (Optional)</label>
+              <textarea id="additional_skills" name="additional_skills" rows="2" placeholder="e.g., Computer skills, Leadership, etc."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bank Information Section -->
+        <div class="form-section">
+          <h3>🏦 Bank Information (Optional)</h3>
+          <div class="instructions">
+            <h4>Note:</h4>
+            <p>Bank information is optional but recommended for payment processing if applicable.</p>
+          </div>
+          <div class="form-row">
+            <div class="form-col">
+              <label for="bank_name">Bank Name (Optional)</label>
+              <input type="text" id="bank_name" name="bank_name" placeholder="e.g., First Bank, Zenith Bank" />
+            </div>
+            <div class="form-col">
+              <label for="account_number">Account Number (Optional)</label>
+              <input type="text" id="account_number" name="account_number" placeholder="10-digit account number" pattern="\d{10}" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Document Upload Section -->
+        <div class="form-section">
+          <h3>📎 Required Documents</h3>
+          
+          <div class="document-requirements">
+            <h4>📋 Document Requirements:</h4>
+            <ul>
+              <li><strong>Required:</strong> Passport Photo, NIN Slip, SSCE Certificate</li>
+              <li><strong>Optional:</strong> Birth Certificate, Appointment Letter, Promotion Letters</li>
+              <li><strong>Max File Size:</strong> 10MB per file</li>
+              <li><strong>Allowed Formats:</strong> PDF, JPG, JPEG, PNG</li>
+            </ul>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-col">
+              <label for="passport_photo" class="required">Passport Photo <span class="required-badge">REQUIRED</span></label>
+              <div class="file-upload-container">
+                <input type="file" id="passport_photo" name="passport_photo" accept=".jpg,.jpeg,.png" />
+                <div class="file-info">Max 10MB. JPG, JPEG, or PNG format</div>
+              </div>
+              <span id="passportError" class="error-message-small"></span>
+            </div>
+            
+            <div class="form-col">
+              <label for="nin_slip" class="required">NIN Slip <span class="required-badge">REQUIRED</span></label>
+              <div class="file-upload-container">
+                <input type="file" id="nin_slip" name="nin_slip" accept=".pdf,.jpg,.jpeg,.png" />
+                <div class="file-info">Max 10MB. PDF, JPG, JPEG, or PNG format</div>
+              </div>
+              <span id="ninSlipError" class="error-message-small"></span>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-col">
+              <label for="ssce_certificate" class="required">SSCE Certificate <span class="required-badge">REQUIRED</span></label>
+              <div class="file-upload-container">
+                <input type="file" id="ssce_certificate" name="ssce_certificate" accept=".pdf,.jpg,.jpeg,.png" />
+                <div class="file-info">Max 10MB. PDF, JPG, JPEG, or PNG format</div>
+              </div>
+              <span id="ssceError" class="error-message-small"></span>
+            </div>
+            
+            <div class="form-col">
+              <label for="birth_certificate">Birth Certificate <span class="optional-badge">OPTIONAL</span></label>
+              <div class="file-upload-container">
+                <input type="file" id="birth_certificate" name="birth_certificate" accept=".pdf,.jpg,.jpeg,.png" />
+                <div class="file-info">Optional. Max 10MB. PDF, JPG, JPEG, or PNG format</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-col">
+              <label for="appointment_letter">Appointment Letter <span class="optional-badge">OPTIONAL</span></label>
+              <div class="file-upload-container">
+                <input type="file" id="appointment_letter" name="appointment_letter" accept=".pdf,.jpg,.jpeg,.png" />
+                <div class="file-info">Optional. Max 10MB. PDF, JPG, JPEG, or PNG format</div>
+              </div>
+            </div>
+            
+            <div class="form-col">
+              <label for="promotion_letters">Promotion Letters <span class="optional-badge">OPTIONAL</span></label>
+              <div class="file-upload-container">
+                <input type="file" id="promotion_letters" name="promotion_letters" accept=".pdf,.jpg,.jpeg,.png" />
+                <div class="file-info">Optional. Max 10MB. PDF, JPG, JPEG, or PNG format</div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Account Security Section -->
         <div class="form-section">
           <h3>🔐 Account Security</h3>
+          <div class="instructions">
+            <h4>Important:</h4>
+            <p>This password will be used to login to your <strong>Existing Officer Dashboard</strong> using your Officer ID only.</p>
+          </div>
           <div class="form-row">
             <div class="form-col">
               <label for="password" class="required">Create Password *</label>
               <input type="password" id="password" name="password" placeholder="Create a strong password (min. 8 characters)" required 
                      minlength="8" />
               <span id="passwordError" class="error-message-small"></span>
+              <span class="id-format-hint">This password will be used for dashboard login</span>
             </div>
             <div class="form-col">
               <label for="confirm_password" class="required">Re-enter Password *</label>
@@ -710,65 +982,38 @@
           </div>
         </div>
 
-        <!-- Additional Fields (for Pydantic model) -->
-        <div style="display: none;">
-          <input type="hidden" id="gender" name="gender" value="Male">
-          <input type="hidden" id="place_of_birth" name="place_of_birth" value="">
-          <input type="hidden" id="nationality" name="nationality" value="Nigerian">
-          <input type="hidden" id="marital_status" name="marital_status" value="">
-          <input type="hidden" id="state_of_residence" name="state_of_residence" value="">
-          <input type="hidden" id="local_government_residence" name="local_government_residence" value="">
-          <input type="hidden" id="country_of_residence" name="country_of_residence" value="Nigeria">
-          <input type="hidden" id="state_of_origin" name="state_of_origin" value="">
-          <input type="hidden" id="local_government_origin" name="local_government_origin" value="">
-          <input type="hidden" id="years_of_service" name="years_of_service" value="">
-          <input type="hidden" id="religion" name="religion" value="">
-          <input type="hidden" id="additional_skills" name="additional_skills" value="">
-          <input type="hidden" id="bank_name" name="bank_name" value="">
-          <input type="hidden" id="account_number" name="account_number" value="">
-        </div>
-
         <!-- TERMS & CONDITIONS SECTION -->
         <div class="form-section">
           <h3>📜 Terms & Conditions Agreement</h3>
           
           <div class="terms-container">
             <div class="terms-content" id="termsContent">
-              <h4>Marshal Core of Nigeria - Terms of Service</h4>
+              <h4>Marshal Core Existing Officer Registration - Terms of Service</h4>
               <p><strong>Effective Date:</strong> March 19, 2025</p>
               
-              <h4>1. Acceptance of Terms</h4>
-              <p>By registering as an officer of Marshal Core of Nigeria, you agree to be bound by these Terms of Service and all applicable laws and regulations.</p>
+              <h4>1. Existing Officer Registration</h4>
+              <p>By registering as an existing officer, you confirm that you were previously registered in the Marshal Core system without payment.</p>
               
-              <h4>2. Officer Responsibilities</h4>
+              <h4>2. Dashboard Access</h4>
               <ul>
-                <li>Maintain the highest standards of discipline and professionalism</li>
-                <li>Protect lives and property in accordance with Nigerian laws</li>
-                <li>Uphold the integrity and reputation of Marshal Core at all times</li>
-                <li>Participate in training and development programs as required</li>
-                <li>Report any misconduct or security breaches immediately</li>
+                <li>You will access your dashboard using Officer ID and the password created during registration</li>
+                <li>Email login is not available for existing officers</li>
+                <li>Keep your password secure and do not share it</li>
               </ul>
               
-              <h4>3. Code of Conduct</h4>
+              <h4>3. Document Requirements</h4>
               <ul>
-                <li>Zero tolerance for corruption, bribery, or unethical behavior</li>
-                <li>Strict adherence to chain of command and organizational hierarchy</li>
-                <li>Professional appearance and conduct at all times</li>
-                <li>Confidentiality of sensitive information</li>
-                <li>Respect for human rights and dignity</li>
+                <li>Passport Photo, NIN Slip, and SSCE Certificate are mandatory</li>
+                <li>Optional documents can be uploaded for comprehensive records</li>
+                <li>All documents must be clear and legible</li>
               </ul>
               
-              <h4>4. Consequences of Misconduct</h4>
-              <p>Violation of these terms may result in:</p>
+              <h4>4. PDF Generation</h4>
+              <p>Upon successful registration, two PDFs will be generated:</p>
               <ul>
-                <li>Immediate suspension or dismissal</li>
-                <li>Legal prosecution under Nigerian law</li>
-                <li>Forfeiture of benefits and privileges</li>
-                <li>Disciplinary action including demotion or retraining</li>
+                <li>Terms & Conditions PDF</li>
+                <li>Existing Officer Registration Form PDF (with new officer ID format)</li>
               </ul>
-              
-              <h4>5. Property Return Agreement</h4>
-              <p>Upon termination of service, all Marshal Core property including identification cards, uniforms, equipment, and documents must be returned within 7 days.</p>
               
               <p><em>By checking the box below, you acknowledge that you have read, understood, and agree to be bound by these Terms & Conditions.</em></p>
             </div>
@@ -777,8 +1022,8 @@
           <div class="terms-checkbox">
             <input type="checkbox" id="agreeTerms" name="agreeTerms" required />
             <label for="agreeTerms">
-              I have read and agree to the Terms & Conditions of Marshal Core of Nigeria. 
-              I understand the consequences of misconduct including dismissal and legal prosecution. 
+              I have read and agree to the Terms & Conditions of Marshal Core Existing Officer Registration. 
+              I understand that I will login to the dashboard using my Officer ID only.
               <button type="button" class="read-more-btn" onclick="openFullTerms()">Read Full Terms</button>
             </label>
           </div>
@@ -796,6 +1041,7 @@
           </button>
           <p style="margin-top: 15px; color: #666; font-size: 14px;">
             By submitting, you confirm that all information provided is accurate and complete.
+            You will receive PDFs via email and can login to your dashboard using your Officer ID.
           </p>
         </div>
 
@@ -804,7 +1050,7 @@
   </div>
 </section>
 
-<!-- Terms Modal -->
+<!-- Terms Modal (keep your existing modal HTML) -->
 <div id="termsModal" class="modal">
   <div class="modal-content">
     <div class="modal-header">
@@ -812,48 +1058,7 @@
       <button class="close-modal" onclick="closeModal()">&times;</button>
     </div>
     <div class="modal-body">
-      <h4>Complete Terms of Service Agreement</h4>
-      
-      <h4>Article 1: Definitions</h4>
-      <p><strong>1.1</strong> "Marshal Core" refers to Marshal Core of Nigeria, a registered security organization.</p>
-      <p><strong>1.2</strong> "Officer" refers to any registered member of Marshal Core of Nigeria.</p>
-      <p><strong>1.3</strong> "Service" refers to duties performed under Marshal Core authority.</p>
-      
-      <h4>Article 2: Officer Obligations</h4>
-      <p><strong>2.1</strong> All officers must maintain valid identification and certification.</p>
-      <p><strong>2.2</strong> Officers shall undergo regular training and assessment.</p>
-      <p><strong>2.3</strong> Compliance with all Nigerian laws and regulations is mandatory.</p>
-      
-      <h4>Article 3: Disciplinary Procedures</h4>
-      <p><strong>3.1</strong> Minor infractions: Written warning and retraining.</p>
-      <p><strong>3.2</strong> Major violations: Suspension without pay pending investigation.</p>
-      <p><strong>3.3</strong> Criminal activities: Immediate dismissal and legal prosecution.</p>
-      
-      <h4>Article 4: Confidentiality</h4>
-      <p><strong>4.1</strong> All operational information is classified.</p>
-      <p><strong>4.2</strong> Unauthorized disclosure may result in prosecution.</p>
-      <p><strong>4.3</strong> Social media posting about operations is prohibited.</p>
-      
-      <h4>Article 5: Benefits and Entitlements</h4>
-      <p><strong>5.1</strong> Benefits are contingent on satisfactory service.</p>
-      <p><strong>5.2</strong> Pension and gratuity governed by organizational policy.</p>
-      <p><strong>5.3</strong> Medical coverage requires active service status.</p>
-      
-      <h4>Article 6: Termination</h4>
-      <p><strong>6.1</strong> Voluntary resignation requires 30 days notice.</p>
-      <p><strong>6.2</strong> Dismissal for cause is immediate.</p>
-      <p><strong>6.3</strong> All organizational property must be returned.</p>
-      
-      <h4>Article 7: Legal Jurisdiction</h4>
-      <p><strong>7.1</strong> These terms are governed by Nigerian law.</p>
-      <p><strong>7.2</strong> Disputes shall be settled in Edo State courts.</p>
-      <p><strong>7.3</strong> Officer agrees to submit to Nigerian legal jurisdiction.</p>
-      
-      <div class="terms-checkbox" style="margin-top: 30px;">
-        <input type="checkbox" id="modalAgree" name="modalAgree" />
-        <label for="modalAgree">I have read and understand the full Terms & Conditions</label>
-      </div>
-      
+      <!-- Keep your existing modal content -->
       <div style="text-align: center; margin-top: 20px;">
         <button onclick="closeModal()" style="background: #d32f2f; color: white; border: none; padding: 10px 30px; border-radius: 5px; cursor: pointer;">
           Close and Return to Form
@@ -865,7 +1070,7 @@
 
 <footer class="footer_section">
   <div class="container">
-    <p>&copy; 2025 Marshal Core Of Nigeria Limited. <br>All rights reserved.</p>
+    <p>&copy; 2025 Marshal Core Of Nigeria. <br>All rights reserved.</p>
   </div>
 </footer>
 
@@ -883,6 +1088,7 @@ window.onload = () => {
   const agreeTermsCheckbox = document.getElementById("agreeTerms");
   const passwordMatchMessage = document.getElementById("passwordMatchMessage");
   const displayOfficerId = document.getElementById("displayOfficerId");
+  const displayCategory = document.getElementById("displayCategory");
   const verifiedCategoryMessage = document.getElementById("verifiedCategoryMessage");
   const officerIdInput = document.getElementById("officerId");
 
@@ -892,6 +1098,7 @@ window.onload = () => {
   // Endpoints for existing officers
   const OFFICER_VERIFY_ENDPOINT = `${API_BASE_URL}/api/existing-officers/verify`;
   const OFFICER_REGISTER_ENDPOINT = `${API_BASE_URL}/api/existing-officers/register`;
+  const OFFICER_UPLOAD_ENDPOINT = `${API_BASE_URL}/api/existing-officers/upload-document`;
 
   let verifiedOfficerId = "";
   let verifiedOfficerEmail = "";
@@ -976,6 +1183,11 @@ window.onload = () => {
     verificationMessage.textContent = message;
     verificationMessage.style.color = isError ? 'red' : 'green';
     verificationMessage.className = isError ? 'error-message' : 'success-message';
+  }
+
+  // Helper function to convert empty strings to null
+  function toNullIfEmpty(value) {
+    return value === "" || value === undefined || value === null ? null : value;
   }
 
   // Password match validation
@@ -1090,13 +1302,39 @@ window.onload = () => {
             isValid = false;
           }
         }
+        
+        // Validate date of enlistment is not in future
+        if (field.id === 'date_of_enlistment') {
+          const enlistmentDate = new Date(field.value);
+          const today = new Date();
+          if (enlistmentDate > today) {
+            showError(field.id, 'Date of enlistment cannot be in the future');
+            isValid = false;
+          }
+        }
+        
+        // Validate promotion date is after enlistment if both provided
+        const enlistmentDate = document.getElementById('date_of_enlistment').value;
+        const promotionDate = document.getElementById('date_of_promotion').value;
+        if (enlistmentDate && promotionDate) {
+          const enlistment = new Date(enlistmentDate);
+          const promotion = new Date(promotionDate);
+          if (promotion < enlistment) {
+            showError('date_of_promotion', 'Promotion date must be after enlistment date');
+            isValid = false;
+          }
+          if (promotion > new Date()) {
+            showError('date_of_promotion', 'Promotion date cannot be in the future');
+            isValid = false;
+          }
+        }
       }
     });
 
     return isValid;
   }
 
-  // **FIXED: Validate officer ID format - SIMPLIFIED VERSION**
+  // Validate officer ID format for NEW system
   function validateOfficerIdFormat(id) {
     if (!id || id.trim() === '') {
       return {
@@ -1107,109 +1345,79 @@ window.onload = () => {
     
     id = id.trim().toUpperCase();
     
-    // Check if it starts with valid prefix
-    const validPrefixes = ['MCN', 'MBT', 'MBC'];
-    const prefix = id.substring(0, 3);
+    // NEW Pattern: MCN|MBT|MBC / 3-4 alphanumeric / 3 digits
+    const pattern = /^(MCN|MBT|MBC)\/[A-Z0-9]{3,4}\/\d{3}$/;
     
-    if (!validPrefixes.includes(prefix)) {
+    if (!pattern.test(id)) {
       return {
         isValid: false,
-        message: 'Invalid prefix. Must start with MCN, MBT, or MBC'
+        message: 'Invalid format. Use: PREFIX/ALPHANUMERIC/INTAKE (e.g., MCN/001B/031)'
       };
     }
     
-    // Check if it contains at least one slash
-    if (!id.includes('/')) {
-      return {
-        isValid: false,
-        message: 'Format: PREFIX/NUMBER/YEAR (e.g., MCN/001/2024)'
-      };
-    }
-    
-    // Split by slashes
+    // Split and validate parts
     const parts = id.split('/');
+    const prefix = parts[0];
+    const alphanumeric = parts[1];
+    const intake = parts[2];
     
-    if (parts.length < 3) {
+    // Validate alphanumeric part (3-4 characters)
+    if (!/^[A-Z0-9]{3,4}$/.test(alphanumeric)) {
       return {
         isValid: false,
-        message: 'Format: PREFIX/NUMBER/YEAR (e.g., MCN/001/2024)'
+        message: 'Alphanumeric part must be 3-4 characters (letters/numbers)'
       };
     }
     
-    // Check prefix
-    if (parts[0] !== prefix) {
+    // Validate intake (3 digits, 001-999)
+    const intakeNum = parseInt(intake);
+    if (intakeNum < 1 || intakeNum > 999) {
       return {
         isValid: false,
-        message: 'Invalid prefix format'
-      };
-    }
-    
-    // Check number (1-4 digits)
-    const numberPart = parts[1];
-    if (!numberPart || !/^\d{1,4}$/.test(numberPart)) {
-      return {
-        isValid: false,
-        message: 'Number must be 1-4 digits (e.g., 001 or 1234)'
-      };
-    }
-    
-    // Check year (4 digits)
-    const yearPart = parts[2];
-    if (!yearPart || !/^\d{4}$/.test(yearPart)) {
-      return {
-        isValid: false,
-        message: 'Year must be 4 digits (e.g., 2024)'
-      };
-    }
-    
-    // Validate year range
-    const year = parseInt(yearPart);
-    const currentYear = new Date().getFullYear();
-    
-    if (year < 2000 || year > currentYear) {
-      return {
-        isValid: false,
-        message: `Year must be between 2000 and ${currentYear}`
+        message: 'Intake must be between 001 and 999'
       };
     }
     
     return { 
       isValid: true, 
       message: 'Valid ID format',
-      formattedId: `${parts[0]}/${numberPart}/${yearPart}`
+      formattedId: id,
+      prefix: prefix,
+      alphanumeric: alphanumeric,
+      intake: intake
     };
   }
 
-  // **FIXED: SIMPLE auto-formatting that doesn't restrict input**
+  // Auto-format officer ID input
   function autoFormatOfficerId(input) {
     let value = input.value.toUpperCase();
     let cursorPos = input.selectionStart;
     
-    // Save original cursor position
-    const originalCursorPos = cursorPos;
-    
     // Only allow letters, numbers, and slashes
     value = value.replace(/[^A-Z0-9\/]/g, '');
     
-    // If user types a valid prefix without slash, auto-add it
+    // Auto-add slash after prefix if user types 3 characters and it's a valid prefix
     if (value.length === 3 && ['MCN', 'MBT', 'MBC'].includes(value)) {
-      // Don't auto-add slash if user just typed the prefix
-      // Let them type the slash themselves
+      value = value + '/';
+      cursorPos = 4;
     }
     
-    // If we have a prefix and at least 4 characters, check for slash after prefix
-    if (value.length >= 4 && ['MCN', 'MBT', 'MBC'].includes(value.substring(0, 3))) {
-      // If no slash after prefix and user typed something after prefix, suggest format
-      if (value[3] !== '/') {
-        // Show format hint but don't auto-insert
-        // This is just visual feedback
+    // Auto-add slash after alphanumeric part if user types prefix + alphanumeric
+    if (value.includes('/') && value.split('/').length === 2) {
+      const parts = value.split('/');
+      const alphanumeric = parts[1];
+      if (alphanumeric.length >= 3 && alphanumeric.length <= 4) {
+        if (!value.endsWith('/')) {
+          value = value + '/';
+          cursorPos = value.length;
+        }
       }
     }
     
     // Update the input value
     input.value = value;
     
-    // Try to restore cursor position
+    // Restore cursor position
     setTimeout(() => {
       input.setSelectionRange(cursorPos, cursorPos);
     }, 0);
@@ -1217,11 +1425,11 @@ window.onload = () => {
     // Clear any error
     clearError('officerId');
     
-    // Show format hint
+    // Update format hint
     updateFormatHint(value);
   }
 
-  // Update format hint based on current input
+  // Update format hint function
   function updateFormatHint(value) {
     const hintElement = document.querySelector('.id-format-hint');
     if (!hintElement) return;
@@ -1229,12 +1437,12 @@ window.onload = () => {
     value = value.toUpperCase();
     
     if (value.length === 0) {
-      hintElement.textContent = 'Type MCN, MBT, or MBC followed by numbers - slashes will auto-insert';
+      hintElement.textContent = 'Format: PREFIX/ALPHANUMERIC/INTAKE (e.g., MCN/001B/031)';
       hintElement.style.color = '#666';
     } else if (value.length >= 1 && value.length <= 3) {
       const currentText = value.substring(0, 3);
       if (['M', 'MC', 'MCN', 'MB', 'MBT', 'MBC'].includes(currentText)) {
-        hintElement.textContent = `Continue with ${currentText}/number/year format`;
+        hintElement.textContent = `Continue with ${currentText}/alphanumeric/intake format`;
         hintElement.style.color = '#4CAF50';
       } else {
         hintElement.textContent = 'Must start with MCN, MBT, or MBC';
@@ -1244,14 +1452,32 @@ window.onload = () => {
       if (value.includes('/')) {
         const parts = value.split('/');
         if (parts.length === 1) {
-          hintElement.textContent = 'Add /number/year (e.g., /001/2024)';
+          hintElement.textContent = 'Add /alphanumeric/intake (e.g., /001B/031)';
           hintElement.style.color = '#4CAF50';
         } else if (parts.length === 2) {
-          hintElement.textContent = 'Add /year (e.g., /2024)';
-          hintElement.style.color = '#4CAF50';
+          const alphanumeric = parts[1];
+          if (alphanumeric.length < 3) {
+            hintElement.textContent = `Alphanumeric part needs ${3 - alphanumeric.length} more characters`;
+            hintElement.style.color = '#FF9800';
+          } else if (alphanumeric.length >= 3 && alphanumeric.length <= 4) {
+            hintElement.textContent = 'Add /intake (e.g., /031)';
+            hintElement.style.color = '#4CAF50';
+          } else {
+            hintElement.textContent = 'Alphanumeric part too long (max 4 characters)';
+            hintElement.style.color = '#d32f2f';
+          }
         } else if (parts.length >= 3) {
-          hintElement.textContent = 'Format looks good!';
-          hintElement.style.color = '#4CAF50';
+          const intake = parts[2];
+          if (intake.length < 3) {
+            hintElement.textContent = `Intake needs ${3 - intake.length} more digits`;
+            hintElement.style.color = '#FF9800';
+          } else if (intake.length === 3) {
+            hintElement.textContent = 'Format looks good!';
+            hintElement.style.color = '#4CAF50';
+          } else {
+            hintElement.textContent = 'Intake should be exactly 3 digits';
+            hintElement.style.color = '#d32f2f';
+          }
         }
       } else {
         hintElement.textContent = 'Add slash after prefix (e.g., MCN/)';
@@ -1260,40 +1486,49 @@ window.onload = () => {
     }
   }
 
-     // **FIXED: Handle officer ID input - SIMPLIFIED**
-  if (officerIdInput) {
-    // Keep input handler for formatting hints
-    officerIdInput.addEventListener('input', function(e) {
-      autoFormatOfficerId(this);
-    });
+  // Handle file uploads
+  async function uploadDocument(officerId, file, documentType) {
+    const formData = new FormData();
+    formData.append('officer_id', officerId);
+    formData.append('document_type', documentType);
+    formData.append('file', file);
     
-    // Add focus/blur for better UX
-    officerIdInput.addEventListener('focus', function() {
-      this.style.borderColor = '#254a93';
-      this.style.boxShadow = '0 0 0 2px rgba(37, 74, 147, 0.1)';
-    });
-    
-    officerIdInput.addEventListener('blur', function() {
-      this.style.borderColor = '#ddd';
-      this.style.boxShadow = 'none';
+    try {
+      const response = await fetch(OFFICER_UPLOAD_ENDPOINT, {
+        method: 'POST',
+        body: formData,
+        credentials: 'include'
+      });
       
-      // Validate format on blur
-      const value = this.value.trim();
-      if (value) {
-        const validation = validateOfficerIdFormat(value);
-        if (!validation.isValid) {
-          showError('officerId', validation.message);
-        }
+      if (response.ok) {
+        return await response.json();
+      } else {
+        const errorData = await response.json();
+        throw new Error(errorData.detail || 'Upload failed');
       }
-    });
+    } catch (error) {
+      console.error('Upload error:', error);
+      throw error;
+    }
+  }
+
+  // Validate file size and type
+  function validateFile(file, fieldId) {
+    const maxSize = 10 * 1024 * 1024; // 10MB
+    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'application/pdf'];
     
-    // Add paste handler
-    officerIdInput.addEventListener('paste', function(e) {
-      // Allow paste, then format
-      setTimeout(() => {
-        autoFormatOfficerId(this);
-      }, 10);
-    });
+    if (file.size > maxSize) {
+      showError(fieldId, 'File size exceeds 10MB limit');
+      return false;
+    }
+    
+    if (!allowedTypes.includes(file.type)) {
+      showError(fieldId, 'Invalid file type. Allowed: JPG, JPEG, PNG, PDF');
+      return false;
+    }
+    
+    clearError(fieldId);
+    return true;
   }
 
   // Handle officer verification
@@ -1343,9 +1578,12 @@ window.onload = () => {
         document.getElementById("verified_officer_email").value = officerEmail;
         document.getElementById("service_number").value = formattedOfficerId;
         
-        // Display officer ID in the form
+        // Display officer ID and category in the form
         if (displayOfficerId) {
           displayOfficerId.textContent = formattedOfficerId;
+        }
+        if (displayCategory) {
+          displayCategory.textContent = officerCategory || 'N/A';
         }
         
         // Update category message
@@ -1358,6 +1596,9 @@ window.onload = () => {
         if (emailField) {
           emailField.value = officerEmail;
         }
+        
+        // Pre-fill officer ID in hidden fields
+        document.getElementById('service_number').value = formattedOfficerId;
         
         showVerificationMessage(`✅ ${officerCategory || 'Officer'} verified successfully! Loading registration form...`, false);
         
@@ -1400,144 +1641,209 @@ window.onload = () => {
     }
   });
 
-  // Handle officer registration
+  // Handle officer registration - FIXED VERSION
   applicationForm.addEventListener("submit", async function(e) {
     e.preventDefault();
+    console.log("✅ Submit button clicked! Starting registration process...");
     
     clearAllErrors();
     
-    // Validate Terms & Conditions
+    // 1. Validate Terms & Conditions
     if (!agreeTermsCheckbox.checked) {
       alert("❌ You must agree to the Terms & Conditions to proceed.");
       agreeTermsCheckbox.focus();
       return;
     }
 
-    // Validate passwords match
+    // 2. Validate passwords match
     if (!validatePasswordMatch()) {
       alert("❌ Passwords do not match. Please check and try again.");
       return;
     }
 
-    // Check if officer was verified
+    // 3. Check if officer was verified
     if (!verifiedOfficerId || !verifiedOfficerEmail) {
       alert("❌ Please complete officer verification first.");
       showSection("verificationSection");
       return;
     }
 
-    // Get current date for date of birth validation
-    const today = new Date();
-    const dobInput = document.getElementById("date_of_birth").value;
-    const dobDate = new Date(dobInput);
-    const minDate = new Date(today.getFullYear() - 70, today.getMonth(), today.getDate());
-    const maxDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
-
-    if (dobDate > maxDate) {
-      showError("date_of_birth", "You must be at least 18 years old.");
+    console.log("✅ Basic validations passed");
+    
+    // 4. Validate all required form fields
+    if (!validateForm('applicationForm')) {
+      console.log("❌ Form validation failed");
       return;
     }
     
-    if (dobDate < minDate) {
-      showError("date_of_birth", "Please enter a valid date of birth.");
+    console.log("✅ Form validation passed");
+
+    // 5. Validate required documents
+    const passportFile = document.getElementById('passport_photo').files[0];
+    const ninFile = document.getElementById('nin_slip').files[0];
+    const ssceFile = document.getElementById('ssce_certificate').files[0];
+    
+    if (!passportFile) {
+      showError('passport_photo', 'Passport photo is required');
       return;
     }
-
-    // Validate all required fields
-    if (!validateForm('applicationForm')) {
+    
+    if (!ninFile) {
+      showError('nin_slip', 'NIN slip is required');
       return;
     }
-
-    // Validate phone number format
-    const phoneInput = document.getElementById("mobile_number").value;
-    const phoneRegex = /^(\+234|0)\d{10}$/;
-    if (!phoneRegex.test(phoneInput.replace(/\s/g, ''))) {
-      showError("mobile_number", "Please enter a valid Nigerian phone number (+2348012345678 or 08012345678)");
+    
+    if (!ssceFile) {
+      showError('ssce_certificate', 'SSCE certificate is required');
       return;
     }
+    
+    // Validate file sizes and types
+    if (!validateFile(passportFile, 'passport_photo')) return;
+    if (!validateFile(ninFile, 'nin_slip')) return;
+    if (!validateFile(ssceFile, 'ssce_certificate')) return;
+    
+    console.log("✅ Document validation passed");
 
-    // Validate NIN number (11 digits for Nigeria)
-    const ninInput = document.getElementById("id_card_number").value;
-    const ninRegex = /^\d{11}$/;
-    if (!ninRegex.test(ninInput)) {
-      showError("id_card_number", "NIN number must be exactly 11 digits");
-      return;
-    }
-
-    // Collect form data for Pydantic model
+    // 6. Collect form data
     const formData = {
       officer_id: verifiedOfficerId,
       email: verifiedOfficerEmail,
-      phone: phoneInput.replace(/\s/g, ''),
+      phone: document.getElementById("mobile_number").value.replace(/\s/g, ''),
       password: document.getElementById("password").value,
+      // NEW FIELDS
+      date_of_enlistment: document.getElementById("date_of_enlistment").value,
+      date_of_promotion: document.getElementById("date_of_promotion").value || null,
+      // Personal Information
       full_name: `${document.getElementById("surname").value.trim()} ${document.getElementById("first_name").value.trim()}`,
-      nin_number: ninInput,
+      nin_number: document.getElementById("id_card_number").value,
       gender: document.getElementById("gender").value,
       date_of_birth: document.getElementById("date_of_birth").value,
-      place_of_birth: document.getElementById("place_of_birth").value || "Not specified",
-      nationality: document.getElementById("nationality").value,
-      marital_status: document.getElementById("marital_status").value || "Not specified",
+      place_of_birth: document.getElementById("place_of_birth").value || null,
+      nationality: "Nigerian",
+      marital_status: document.getElementById("marital_status").value || null,
       residential_address: document.getElementById("residential_address").value.trim(),
-      state_of_residence: document.getElementById("state_of_residence").value || "Not specified",
-      local_government_residence: document.getElementById("local_government_residence").value || "Not specified",
-      country_of_residence: document.getElementById("country_of_residence").value,
-      state_of_origin: document.getElementById("state_of_origin").value || "Not specified",
-      local_government_origin: document.getElementById("local_government_origin").value || "Not specified",
+      state_of_residence: document.getElementById("state_of_residence").value || null,
+      local_government_residence: document.getElementById("local_government_residence").value || null,
+      country_of_residence: "Nigeria",
+      state_of_origin: document.getElementById("state_of_origin").value || null,
+      local_government_origin: document.getElementById("local_government_origin").value || null,
       rank: document.getElementById("rank").value,
-      position: document.getElementById("appointment").value.trim() || "Not specified",
-      years_of_service: parseInt(document.getElementById("years_of_service").value) || 0,
+      position: document.getElementById("appointment").value.trim() || null,
+      years_of_service: document.getElementById("years_of_service").value || null,
       service_number: verifiedOfficerId,
-      religion: document.getElementById("religion").value || "Not specified",
-      additional_skills: document.getElementById("additional_skills").value || "None",
-      bank_name: document.getElementById("bank_name").value || "Not specified",
-      account_number: document.getElementById("account_number").value || "Not specified"
+      religion: document.getElementById("religion").value || null,
+      additional_skills: document.getElementById("additional_skills").value || null,
+      bank_name: document.getElementById("bank_name").value || null,
+      account_number: document.getElementById("account_number").value || null
     };
 
-    // Disable submit button and show loader
+    console.log("📤 Sending registration data:", JSON.stringify(formData, null, 2));
+
+    // 7. Disable submit button and show loader
     submitBtn.disabled = true;
-    submitBtn.innerHTML = 'Submitting...';
+    submitBtn.innerHTML = 'Submitting Registration...';
     submitBtn.classList.add('btn-disabled');
     showLoader();
 
     try {
-      const response = await makeRequest(OFFICER_REGISTER_ENDPOINT, {
+      console.log("📡 Step 1: Registering officer...");
+      
+      // Send registration request
+      const response = await fetch(OFFICER_REGISTER_ENDPOINT, {
         method: "POST",
-        body: JSON.stringify(formData)
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(formData),
+        credentials: 'include'
       });
 
-      if (response.ok) {
-        // Success!
-        const regId = response.data.registration_id || verifiedOfficerId;
-        alert(`🎉 ${officerCategory || 'Officer'} Registration Successful!\n\nYour information has been saved to the database.\n\nRegistration ID: ${regId}\n\nYou can now login with your credentials.`);
-        
-        // Reset forms and go back to verification
-        verificationForm.reset();
-        applicationForm.reset();
-        verifiedOfficerId = "";
-        verifiedOfficerEmail = "";
-        officerCategory = "";
-        passwordMatchMessage.textContent = "";
-        agreeTermsCheckbox.checked = false;
-        if (displayOfficerId) displayOfficerId.textContent = "";
-        showSection("verificationSection");
-        
-      } else {
+      console.log("📥 Registration response status:", response.status);
+      
+      let responseData;
+      try {
+        responseData = await response.json();
+        console.log("📥 Registration response data:", responseData);
+      } catch (jsonError) {
+        console.log("⚠️ Could not parse JSON response");
+        responseData = { detail: 'Invalid server response' };
+      }
+
+      if (!response.ok) {
         let errorMessage = "❌ Registration failed. ";
         
         if (response.status === 409) {
-          errorMessage += "Officer with these credentials already exists.";
-        } else if (response.data && response.data.detail) {
-          errorMessage += response.data.detail;
+          errorMessage += "Officer already registered.";
+        } else if (response.status === 422) {
+          if (responseData && responseData.detail) {
+            if (Array.isArray(responseData.detail)) {
+              const errors = responseData.detail.map(err => {
+                const field = err.loc && err.loc[1] ? err.loc[1] : 'field';
+                return `${field}: ${err.msg}`;
+              }).join(', ');
+              errorMessage += `Validation errors: ${errors}`;
+            } else {
+              errorMessage += responseData.detail;
+            }
+          } else {
+            errorMessage += "Please check your information.";
+          }
+        } else if (responseData && responseData.detail) {
+          errorMessage += responseData.detail;
         } else {
-          errorMessage += "Please check your information and try again.";
+          errorMessage += "Please try again.";
         }
         
         alert(errorMessage);
+        return;
       }
+
+      console.log("✅ Step 1: Officer registered successfully");
+      console.log("📡 Step 2: Uploading documents...");
+      
+      // 8. Upload documents
+      try {
+        // Upload required documents
+        await uploadDocument(verifiedOfficerId, passportFile, 'passport');
+        await uploadDocument(verifiedOfficerId, ninFile, 'nin_slip');
+        await uploadDocument(verifiedOfficerId, ssceFile, 'ssce');
+        
+        // Upload optional documents if provided
+        const birthCertFile = document.getElementById('birth_certificate').files[0];
+        const appointmentFile = document.getElementById('appointment_letter').files[0];
+        const promotionFile = document.getElementById('promotion_letters').files[0];
+        
+        if (birthCertFile) await uploadDocument(verifiedOfficerId, birthCertFile, 'birth_certificate');
+        if (appointmentFile) await uploadDocument(verifiedOfficerId, appointmentFile, 'appointment_letter');
+        if (promotionFile) await uploadDocument(verifiedOfficerId, promotionFile, 'promotion_letter');
+        
+        console.log("✅ Step 2: All documents uploaded");
+      } catch (uploadError) {
+        console.warn("⚠️ Some documents failed to upload:", uploadError);
+        // Continue even if upload fails - officer is already registered
+      }
+
+      // 9. Success!
+      const regId = responseData.registration_id || verifiedOfficerId;
+      alert(`🎉 Registration Successful!\n\nOfficer ID: ${verifiedOfficerId}\nRegistration ID: ${regId}\n\nYou can now login to the dashboard.`);
+      
+      // 10. Reset and go back to verification
+      verificationForm.reset();
+      applicationForm.reset();
+      verifiedOfficerId = "";
+      verifiedOfficerEmail = "";
+      officerCategory = "";
+      passwordMatchMessage.textContent = "";
+      agreeTermsCheckbox.checked = false;
+      if (displayOfficerId) displayOfficerId.textContent = "";
+      if (displayCategory) displayCategory.textContent = "";
+      showSection("verificationSection");
       
     } catch (error) {
-      console.error("Registration error:", error);
-      alert("❌ Network error during registration. Please check your connection and try again.");
+      console.error("❌ Registration error:", error);
+      alert(`❌ Error: ${error.message || 'Network error'}`);
       
     } finally {
       // Re-enable submit button
@@ -1556,16 +1862,91 @@ window.onload = () => {
     });
   });
 
-  // Initialize
-  console.log("Officer verification portal loaded successfully");
-  console.log("Backend URL:", API_BASE_URL);
-  
-  // Initialize format hint
+  // Add event listener for officer ID input
   if (officerIdInput) {
+    officerIdInput.addEventListener('input', function(e) {
+      autoFormatOfficerId(this);
+    });
+    
+    officerIdInput.addEventListener('focus', function() {
+      this.style.borderColor = '#254a93';
+      this.style.boxShadow = '0 0 0 2px rgba(37, 74, 147, 0.1)';
+    });
+    
+    officerIdInput.addEventListener('blur', function() {
+      this.style.borderColor = '#ddd';
+      this.style.boxShadow = 'none';
+      
+      // Validate format on blur
+      const value = this.value.trim();
+      if (value) {
+        const validation = validateOfficerIdFormat(value);
+        if (!validation.isValid) {
+          showError('officerId', validation.message);
+        }
+      }
+    });
+    
+    // Add paste handler
+    officerIdInput.addEventListener('paste', function(e) {
+      // Allow paste, then format
+      setTimeout(() => {
+        autoFormatOfficerId(this);
+      }, 10);
+    });
+    
+    // Initialize format hint
     updateFormatHint(officerIdInput.value);
   }
+
+  // Add date validation for enlistment and promotion
+  const enlistmentDateInput = document.getElementById('date_of_enlistment');
+  const promotionDateInput = document.getElementById('date_of_promotion');
+  
+  if (enlistmentDateInput) {
+    enlistmentDateInput.addEventListener('change', function() {
+      const today = new Date().toISOString().split('T')[0];
+      if (this.value > today) {
+        showError('date_of_enlistment', 'Date of enlistment cannot be in the future');
+      } else {
+        clearError('date_of_enlistment');
+      }
+      
+      // Validate promotion date if both are set
+      if (promotionDateInput && promotionDateInput.value) {
+        if (promotionDateInput.value < this.value) {
+          showError('date_of_promotion', 'Promotion date must be after enlistment date');
+        } else {
+          clearError('date_of_promotion');
+        }
+      }
+    });
+  }
+  
+  if (promotionDateInput) {
+    promotionDateInput.addEventListener('change', function() {
+      const today = new Date().toISOString().split('T')[0];
+      if (this.value > today) {
+        showError('date_of_promotion', 'Promotion date cannot be in the future');
+        return;
+      }
+      
+      // Validate against enlistment date
+      if (enlistmentDateInput && enlistmentDateInput.value) {
+        if (this.value < enlistmentDateInput.value) {
+          showError('date_of_promotion', 'Promotion date must be after enlistment date');
+        } else {
+          clearError('date_of_promotion');
+        }
+      }
+    });
+  }
+
+  // Initialize
+  console.log("Existing Officer Verification portal loaded successfully");
+  console.log("Backend URL:", API_BASE_URL);
+  console.log("New Officer ID Format: PREFIX/ALPHANUMERIC/INTAKE");
 };
 </script>
-
 </body>
 </html>

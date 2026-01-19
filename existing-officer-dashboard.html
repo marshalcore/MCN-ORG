@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marshal Core - Existing Officer Dashboard</title>
+    <title>MCN-NG | Existing Officer Dashboard</title>
     <style>
+        /* Keep all existing styles, add new ones for upload functionality */
+        
         * {
             margin: 0;
             padding: 0;
@@ -191,6 +193,21 @@
         .status-approved {
             background: #d1ecf1;
             color: #0c5460;
+        }
+
+        .status-complete {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-partial {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-incomplete {
+            background: #f8d7da;
+            color: #721c24;
         }
 
         /* Info Item Styles */
@@ -412,6 +429,180 @@
             font-size: 14px;
         }
 
+        /* NEW: Upload Section Styles */
+        .upload-section {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .upload-header {
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .upload-instructions {
+            background: #fff8e1;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .upload-instructions h4 {
+            color: #ff9800;
+            margin-bottom: 10px;
+        }
+
+        .upload-instructions ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        .upload-instructions li {
+            margin-bottom: 5px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .upload-input {
+            margin-bottom: 15px;
+        }
+
+        .upload-input label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .file-input {
+            width: 100%;
+            padding: 10px;
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .file-input:hover {
+            border-color: #254a93;
+        }
+
+        .upload-btn {
+            background: #254a93;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .upload-btn:hover:not(:disabled) {
+            background: #1a3570;
+            transform: translateY(-1px);
+        }
+
+        .upload-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+
+        .document-checklist {
+            background-color: #e8f5e9;
+            border: 1px solid #4CAF50;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+        
+        .document-checklist h5 {
+            color: #2e7d32;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .document-checklist ol {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        
+        .document-checklist li {
+            margin-bottom: 5px;
+            font-size: 12px;
+        }
+
+        .upload-progress {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+            display: none;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background-color: #4CAF50;
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        /* Button Styles */
+        .action-btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #254a93;
+            color: white;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background: #1a3570;
+            transform: translateY(-1px);
+        }
+
+        .btn-success {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .btn-success:hover:not(:disabled) {
+            background: #388e3c;
+            transform: translateY(-1px);
+        }
+
+        .btn-disabled {
+            background: #cccccc;
+            color: #666;
+            cursor: not-allowed;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .dashboard-header {
@@ -480,9 +671,9 @@
             <button id="loginBtn" class="login-btn">Login to Dashboard</button>
 
             <div class="login-footer">
-                <p>Need help? Contact support@marshalcore.com</p>
+                <p>Need help? Contact support@marshalcoreofnigeria.ng</p>
                 <p style="margin-top: 10px;">
-                    <a href="/existing-officer-verification.html" style="color: #254a93; text-decoration: none;">
+                    <a href="/officer-verification.html" style="color: #254a93; text-decoration: none;">
                         ← Back to Officer Verification
                     </a>
                 </p>
@@ -495,10 +686,10 @@
         <!-- Header -->
         <header class="dashboard-header">
             <div class="header-left">
-                <img src="images/logo.png" alt="Marshal Core Logo" class="logo">
+                <img src="images/logo.png" alt="Marshal Core of Nigeria Logo" class="logo">
                 <div class="header-title">
                     <h1>Existing Officer Dashboard</h1>
-                    <p>Legacy Officer Management System</p>
+                    <p>Marshal Core of Nigeria - Legacy Officer Management System</p>
                 </div>
             </div>
             <div class="header-right">
@@ -518,7 +709,83 @@
             <!-- Welcome Banner -->
             <div class="welcome-banner">
                 <h2>Welcome, <span id="welcomeName">Officer</span>!</h2>
-                <p>This is your dedicated dashboard for existing officers. Here you can view your profile, check document status, download PDFs, and track your verification progress.</p>
+                <p>This is your dedicated dashboard for existing officers. Here you can upload documents, view your profile, check document status, and track your verification progress.</p>
+            </div>
+
+            <!-- Document Upload Section (NEW - Upload 2 files only) -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <div class="card-icon">📤</div>
+                        <span>Document Upload</span>
+                    </div>
+                    <div class="card-status status-pending" id="uploadStatus">Pending</div>
+                </div>
+                
+                <div class="upload-instructions">
+                    <h4>📋 IMPORTANT UPLOAD INSTRUCTIONS:</h4>
+                    <ul>
+                        <li><strong>Passport Photo:</strong> Upload separate passport photo (JPG/PNG format, max 2MB)</li>
+                        <li><strong>Consolidated PDF:</strong> Scan ALL other documents into ONE PDF file containing:</li>
+                    </ul>
+                    
+                    <div class="document-checklist">
+                        <h5>📄 Consolidated PDF MUST Include These 10 Documents:</h5>
+                        <ol>
+                            <li>NIN slip</li>
+                            <li>All school results</li>
+                            <li>Birth certificates</li>
+                            <li>Back and front ID card</li>
+                            <li>All Gmail forms</li>
+                            <li>All marshal certificates</li>
+                            <li>Bio data enrollment/ appointment letter</li>
+                            <li>Promotion letter</li>
+                            <li>Application form</li>
+                            <li>Both affidavits of non membership of cult groups</li>
+                        </ol>
+                    </div>
+                    
+                    <p><strong>Note:</strong> PDF must be less than 10MB. All documents must be clear and legible.</p>
+                </div>
+                
+                <!-- Passport Photo Upload -->
+                <div class="upload-section">
+                    <div class="upload-header">Passport Photo (Required)</div>
+                    <div class="upload-input">
+                        <label for="passportUpload">Upload Passport Photo (JPG/PNG):</label>
+                        <input type="file" id="passportUpload" class="file-input" accept=".jpg,.jpeg,.png" data-type="passport">
+                        <small style="color: #666; font-size: 12px; margin-top: 5px; display: block;">
+                            Max size: 2MB | Accepted formats: JPG, JPEG, PNG
+                        </small>
+                    </div>
+                    <button id="uploadPassportBtn" class="upload-btn">Upload Passport</button>
+                </div>
+                
+                <!-- Consolidated PDF Upload -->
+                <div class="upload-section">
+                    <div class="upload-header">Consolidated Documents (Required)</div>
+                    <div class="upload-input">
+                        <label for="documentsPdfUpload">Upload Consolidated PDF:</label>
+                        <input type="file" id="documentsPdfUpload" class="file-input" accept=".pdf" data-type="consolidated_pdf">
+                        <small style="color: #666; font-size: 12px; margin-top: 5px; display: block;">
+                            Max size: 10MB | Must be a single PDF containing all 10 listed documents
+                        </small>
+                    </div>
+                    <button id="uploadPdfBtn" class="upload-btn">Upload Consolidated PDF</button>
+                </div>
+                
+                <!-- Upload Progress -->
+                <div class="upload-progress" id="uploadProgress">
+                    <div id="uploadStatusText">Uploading...</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+                
+                <div class="info-item" style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #f0f2f5;">
+                    <span class="info-label">Upload Progress:</span>
+                    <span class="info-value" id="uploadProgressText">0/2 files</span>
+                </div>
             </div>
 
             <!-- Dashboard Grid -->
@@ -567,7 +834,7 @@
                     </div>
                 </div>
 
-                <!-- Document Status Card -->
+                <!-- Document Status Card (UPDATED - Now shows only 2 documents) -->
                 <div class="dashboard-card">
                     <div class="card-header">
                         <div class="card-title">
@@ -578,7 +845,7 @@
                     </div>
                     
                     <ul class="document-list" id="documentList">
-                        <!-- Documents will be loaded here -->
+                        <!-- Documents will be loaded here - NOW ONLY 2 DOCUMENTS -->
                     </ul>
                     
                     <div class="info-item" style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #f0f2f5;">
@@ -619,13 +886,14 @@
                         <ul style="padding-left: 20px; font-size: 14px; color: #555;">
                             <li>Use your Officer ID to login</li>
                             <li>Password created during registration</li>
-                            <li>Contact support for password reset</li>
-                            <li>Keep your documents updated</li>
+                            <li>Upload passport photo separately (JPG/PNG)</li>
+                            <li>Upload consolidated PDF for all other documents</li>
+                            <li>Contact support@marshalcoreofnigeria.ng for password reset</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- PDF Status Card -->
+                <!-- PDF Status Card (UPDATED - PDFs are auto-generated and emailed) -->
                 <div class="dashboard-card">
                     <div class="card-header">
                         <div class="card-title">
@@ -645,25 +913,30 @@
                     </div>
                     
                     <div style="margin-top: 20px; display: flex; gap: 10px;">
-                        <button id="downloadTermsBtn" style="flex: 1; padding: 10px; background: #254a93; color: white; border: none; border-radius: 5px; cursor: pointer;" disabled>
+                        <button id="downloadTermsBtn" class="action-btn btn-primary" style="flex: 1;" disabled>
                             Download Terms
                         </button>
-                        <button id="downloadRegistrationBtn" style="flex: 1; padding: 10px; background: #254a93; color: white; border: none; border-radius: 5px; cursor: pointer;" disabled>
+                        <button id="downloadRegistrationBtn" class="action-btn btn-primary" style="flex: 1;" disabled>
                             Download Registration
                         </button>
                     </div>
                     
-                    <button id="generatePdfsBtn" style="width: 100%; margin-top: 15px; padding: 12px; background: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: 600;">
-                        Generate PDFs
+                    <button id="generatePdfsBtn" class="action-btn btn-success" style="width: 100%; margin-top: 15px;">
+                        Regenerate PDFs & Send Email
                     </button>
+                    
+                    <div style="margin-top: 15px; padding: 10px; background: #fff3cd; border-radius: 5px; font-size: 12px; color: #856404;">
+                        <strong>Note:</strong> PDFs are automatically generated and sent to your email after registration. 
+                        You can regenerate them here if needed.
+                    </div>
                 </div>
             </div>
 
             <!-- Footer -->
             <footer class="dashboard-footer">
-                <p>© 2025 Marshal Core Of Nigeria - Existing Officer System</p>
+                <p>© 2025 Marshal Core of Nigeria - Existing Officer System</p>
                 <p style="margin-top: 5px; font-size: 12px; color: #999;">
-                    This system is for legacy officers (MCN, MBT, MBC) only. For issues, contact support@marshalcore.com
+                    This system is for legacy officers (MCN, MBT, MBC) only. For issues, contact support@marshalcoreofnigeria.ng
                 </p>
             </footer>
         </div>
@@ -682,6 +955,17 @@
         const loginOfficerId = document.getElementById('loginOfficerId');
         const loginPassword = document.getElementById('loginPassword');
         const loginBtn = document.getElementById('loginBtn');
+        
+        // Upload Elements
+        const passportUpload = document.getElementById('passportUpload');
+        const documentsPdfUpload = document.getElementById('documentsPdfUpload');
+        const uploadPassportBtn = document.getElementById('uploadPassportBtn');
+        const uploadPdfBtn = document.getElementById('uploadPdfBtn');
+        const uploadProgress = document.getElementById('uploadProgress');
+        const progressFill = document.getElementById('progressFill');
+        const uploadStatusText = document.getElementById('uploadStatusText');
+        const uploadProgressText = document.getElementById('uploadProgressText');
+        const uploadStatus = document.getElementById('uploadStatus');
         
         // Dashboard Elements
         const logoutBtn = document.getElementById('logoutBtn');
@@ -716,13 +1000,13 @@
         const DASHBOARD_ENDPOINT = `${API_BASE_URL}/api/existing-officers/dashboard`;
         const LOGIN_ENDPOINT = `${API_BASE_URL}/api/existing-officers/login`;
         const GENERATE_PDFS_ENDPOINT = `${API_BASE_URL}/api/existing-officers/generate-pdfs`;
+        const UPLOAD_ENDPOINT = `${API_BASE_URL}/api/existing-officers/upload-document`;
         
-        // Check if already logged in (from session storage)
+        // Check if already logged in
         const sessionOfficerId = sessionStorage.getItem('existing_officer_id');
         const sessionToken = sessionStorage.getItem('existing_officer_token');
         
         if (sessionOfficerId && sessionToken) {
-            // Show dashboard and fetch fresh data
             showDashboard();
             fetchDashboardData(sessionOfficerId, sessionToken);
         }
@@ -892,7 +1176,7 @@
         function getMockDashboardData(officerId) {
             const prefix = officerId.split('/')[0];
             const categories = {
-                'MCN': 'Marshal Core Nigeria',
+                'MCN': 'Marshal Core of Nigeria',
                 'MBT': 'Marshal Board of Trustees',
                 'MBC': 'Marshal Board Committee'
             };
@@ -902,7 +1186,7 @@
                 full_name: sessionStorage.getItem('existing_officer_name') || officerId.replace('/', ' ').replace('/', ' '),
                 category: categories[prefix] || 'Marshal Officer',
                 rank: 'Officer',
-                email: sessionStorage.getItem('existing_officer_email') || 'officer@marshalcore.com',
+                email: sessionStorage.getItem('existing_officer_email') || 'officer@marshalcoreofnigeria.ng',
                 phone: '+2348012345678',
                 date_of_enlistment: '2020-01-15',
                 date_of_promotion: '2023-06-20',
@@ -911,19 +1195,14 @@
                 status: 'verified',
                 is_verified: true,
                 is_active: true,
-                passport_uploaded: true,
-                nin_uploaded: true,
-                ssce_uploaded: true,
-                birth_certificate_uploaded: false,
-                appointment_letter_uploaded: false,
-                promotion_letters_uploaded: false,
+                passport_uploaded: false,
+                consolidated_pdf_uploaded: false,
                 has_terms_pdf: false,
                 has_registration_pdf: false,
                 dashboard_access_count: 1,
                 document_paths: {
-                    passport: '/uploads/passport.jpg',
-                    nin: '/uploads/nin.pdf',
-                    ssce: '/uploads/ssce.pdf'
+                    passport: null,
+                    consolidated_pdf: null
                 },
                 pdf_paths: {
                     terms: null,
@@ -932,7 +1211,7 @@
             };
         }
         
-        // Update dashboard with data - FIXED VERSION
+        // Update dashboard with data
         function updateDashboard(data) {
             console.log("Dashboard data received:", data);
             
@@ -951,8 +1230,11 @@
             profileEnlistment.textContent = formatDate(data.date_of_enlistment);
             profilePromotion.textContent = formatDate(data.date_of_promotion) || 'N/A';
             
-            // Update document status - USING FIXED FUNCTION
+            // Update document status (NEW - Only 2 documents)
             updateDocumentStatus(data);
+            
+            // Update upload status
+            updateUploadStatus(data);
             
             // Update account status
             updateAccountStatus(data);
@@ -961,54 +1243,22 @@
             updatePdfStatus(data);
         }
         
-        // FIXED: Update document status - FROM YOUR SOLUTION
+        // Update document status (NEW - Only 2 documents: passport + consolidated PDF)
         function updateDocumentStatus(data) {
             console.log("📊 Updating document status with data:", data);
             
-            // Make sure we're getting the right data structure
-            const document_paths = data.document_paths || {};
             const documents = [
                 { 
                     name: 'Passport Photo', 
-                    key: 'passport_uploaded', 
-                    field: 'passport_photo',
+                    key: 'passport_uploaded',
                     required: true,
-                    uploaded: data.passport_uploaded || document_paths.passport_photo || document_paths.passport || false
+                    uploaded: data.passport_uploaded || false
                 },
                 { 
-                    name: 'NIN Slip', 
-                    key: 'nin_uploaded', 
-                    field: 'nin_slip',
+                    name: 'Consolidated PDF (All Documents)', 
+                    key: 'consolidated_pdf_uploaded',
                     required: true,
-                    uploaded: data.nin_uploaded || document_paths.nin_slip || document_paths.nin || false
-                },
-                { 
-                    name: 'SSCE Certificate', 
-                    key: 'ssce_uploaded', 
-                    field: 'ssce_certificate',
-                    required: true,
-                    uploaded: data.ssce_uploaded || document_paths.ssce_certificate || document_paths.ssce || false
-                },
-                { 
-                    name: 'Birth Certificate', 
-                    key: 'birth_certificate_uploaded', 
-                    field: 'birth_certificate',
-                    required: false,
-                    uploaded: data.birth_certificate_uploaded || document_paths.birth_certificate || false
-                },
-                { 
-                    name: 'Appointment Letter', 
-                    key: 'appointment_letter_uploaded', 
-                    field: 'letter_of_first_appointment',
-                    required: false,
-                    uploaded: data.appointment_letter_uploaded || document_paths.letter_of_first_appointment || document_paths.appointment_letter || false
-                },
-                { 
-                    name: 'Promotion Letters', 
-                    key: 'promotion_letters_uploaded', 
-                    field: 'promotion_letters',
-                    required: false,
-                    uploaded: data.promotion_letters_uploaded || document_paths.promotion_letters || false
+                    uploaded: data.consolidated_pdf_uploaded || false
                 }
             ];
             
@@ -1022,9 +1272,6 @@
             documents.forEach(doc => {
                 const li = document.createElement('li');
                 li.className = 'document-item';
-                
-                // Log each document status
-                console.log(`${doc.name}: uploaded=${doc.uploaded}`);
                 
                 const nameSpan = document.createElement('span');
                 nameSpan.className = 'document-name';
@@ -1072,6 +1319,155 @@
             }
             
             console.log(`📊 Document summary: ${requiredUploaded}/${requiredCount} required uploaded (${completionPercent}%)`);
+        }
+        
+        // Update upload status
+        function updateUploadStatus(data) {
+            const passportUploaded = data.passport_uploaded || false;
+            const pdfUploaded = data.consolidated_pdf_uploaded || false;
+            
+            const totalUploaded = (passportUploaded ? 1 : 0) + (pdfUploaded ? 1 : 0);
+            uploadProgressText.textContent = `${totalUploaded}/2 files`;
+            
+            // Update upload status badge
+            if (totalUploaded === 2) {
+                uploadStatus.textContent = 'Complete';
+                uploadStatus.className = 'card-status status-approved';
+            } else if (totalUploaded === 1) {
+                uploadStatus.textContent = 'Partial';
+                uploadStatus.className = 'card-status status-pending';
+            } else {
+                uploadStatus.textContent = 'Pending';
+                uploadStatus.className = 'card-status status-pending';
+            }
+            
+            // Update file input placeholders
+            if (passportUploaded) {
+                passportUpload.placeholder = "Passport already uploaded";
+            }
+            if (pdfUploaded) {
+                documentsPdfUpload.placeholder = "Consolidated PDF already uploaded";
+            }
+        }
+        
+        // Handle passport upload
+        uploadPassportBtn.addEventListener('click', async function() {
+            const file = passportUpload.files[0];
+            if (!file) {
+                showAlert(dashboardAlert, 'Please select a passport photo file', 'error');
+                return;
+            }
+            
+            // Validate file type
+            const validTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+            if (!validTypes.includes(file.type)) {
+                showAlert(dashboardAlert, 'Only JPG and PNG files are allowed for passport', 'error');
+                return;
+            }
+            
+            // Validate file size (2MB)
+            if (file.size > 2 * 1024 * 1024) {
+                showAlert(dashboardAlert, 'Passport photo must be less than 2MB', 'error');
+                return;
+            }
+            
+            await uploadFile(file, 'passport');
+        });
+        
+        // Handle PDF upload
+        uploadPdfBtn.addEventListener('click', async function() {
+            const file = documentsPdfUpload.files[0];
+            if (!file) {
+                showAlert(dashboardAlert, 'Please select a PDF file', 'error');
+                return;
+            }
+            
+            // Validate file type
+            if (file.type !== 'application/pdf') {
+                showAlert(dashboardAlert, 'Only PDF files are allowed', 'error');
+                return;
+            }
+            
+            // Validate file size (10MB)
+            if (file.size > 10 * 1024 * 1024) {
+                showAlert(dashboardAlert, 'PDF must be less than 10MB', 'error');
+                return;
+            }
+            
+            await uploadFile(file, 'consolidated_pdf');
+        });
+        
+        // Upload file function
+        async function uploadFile(file, documentType) {
+            const token = sessionStorage.getItem('existing_officer_token');
+            if (!token) {
+                showAlert(dashboardAlert, 'Please login first', 'error');
+                return;
+            }
+            
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('document_type', documentType);
+            formData.append('officer_id', sessionStorage.getItem('existing_officer_id'));
+            
+            try {
+                // Show upload progress
+                uploadProgress.style.display = 'block';
+                uploadStatusText.textContent = `Uploading ${documentType === 'passport' ? 'Passport Photo' : 'Consolidated PDF'}...`;
+                progressFill.style.width = '0%';
+                
+                const uploadBtn = documentType === 'passport' ? uploadPassportBtn : uploadPdfBtn;
+                uploadBtn.disabled = true;
+                uploadBtn.textContent = 'Uploading...';
+                
+                // Simulate progress
+                const progressInterval = setInterval(() => {
+                    const currentWidth = parseInt(progressFill.style.width) || 0;
+                    if (currentWidth < 90) {
+                        progressFill.style.width = (currentWidth + 10) + '%';
+                    }
+                }, 200);
+                
+                const response = await fetch(UPLOAD_ENDPOINT, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: formData
+                });
+                
+                clearInterval(progressInterval);
+                progressFill.style.width = '100%';
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    uploadStatusText.textContent = 'Upload successful!';
+                    showAlert(dashboardAlert, data.message || 'File uploaded successfully', 'success');
+                    
+                    // Refresh dashboard data after a short delay
+                    setTimeout(() => {
+                        fetchDashboardData(sessionStorage.getItem('existing_officer_id'), token);
+                    }, 1000);
+                } else {
+                    uploadStatusText.textContent = 'Upload failed';
+                    showAlert(dashboardAlert, data.detail || 'Upload failed', 'error');
+                }
+                
+            } catch (error) {
+                console.error('Upload error:', error);
+                uploadStatusText.textContent = 'Upload failed';
+                showAlert(dashboardAlert, 'Upload failed. Please try again.', 'error');
+            } finally {
+                setTimeout(() => {
+                    uploadProgress.style.display = 'none';
+                    progressFill.style.width = '0%';
+                }, 2000);
+                
+                const uploadBtn = documentType === 'passport' ? uploadPassportBtn : uploadPdfBtn;
+                uploadBtn.disabled = false;
+                uploadBtn.textContent = documentType === 'passport' ? 'Upload Passport' : 'Upload Consolidated PDF';
+            }
         }
         
         // Update account status
@@ -1134,12 +1530,14 @@
             // Set download handlers
             if (hasTerms) {
                 downloadTermsBtn.onclick = () => downloadPdf(pdf_paths.terms, 'terms_conditions');
-                downloadTermsBtn.style.cursor = 'pointer';
+                downloadTermsBtn.classList.remove('btn-disabled');
+                downloadTermsBtn.classList.add('btn-primary');
             }
             
             if (hasRegistration) {
                 downloadRegistrationBtn.onclick = () => downloadPdf(pdf_paths.registration, 'registration_form');
-                downloadRegistrationBtn.style.cursor = 'pointer';
+                downloadRegistrationBtn.classList.remove('btn-disabled');
+                downloadRegistrationBtn.classList.add('btn-primary');
             }
         }
         
@@ -1189,7 +1587,14 @@
                 return;
             }
             
-            if (confirm('Generate PDF documents? This may take a few moments.')) {
+            // Check if all required documents are uploaded
+            const dashboardData = await fetchDashboardData(officerId, token);
+            if (!dashboardData.passport_uploaded || !dashboardData.consolidated_pdf_uploaded) {
+                showAlert(dashboardAlert, 'Please upload all required documents before generating PDFs', 'error');
+                return;
+            }
+            
+            if (confirm('Regenerate PDF documents? This will create and send PDFs to your registered email. This may take a few moments.')) {
                 try {
                     showLoading();
                     generatePdfsBtn.disabled = true;
@@ -1201,18 +1606,21 @@
                             'Authorization': `Bearer ${token}`,
                             'Content-Type': 'application/json'
                         },
-                        body: JSON.stringify({})
+                        body: JSON.stringify({
+                            send_email: true,
+                            email: dashboardData.email
+                        })
                     });
                     
                     const data = await response.json();
                     
                     if (response.ok) {
-                        showAlert(dashboardAlert, data.message || 'PDF generation started. You will receive an email when completed.', 'success');
+                        showAlert(dashboardAlert, data.message || 'PDF regeneration started. Check your email for the documents.', 'success');
                         
                         // Refresh dashboard data after a delay
                         setTimeout(() => {
                             fetchDashboardData(officerId, token);
-                        }, 3000);
+                        }, 5000);
                     } else {
                         showAlert(dashboardAlert, data.detail || 'Failed to generate PDFs', 'error');
                     }
@@ -1223,7 +1631,7 @@
                 } finally {
                     hideLoading();
                     generatePdfsBtn.disabled = false;
-                    generatePdfsBtn.textContent = 'Generate PDFs';
+                    generatePdfsBtn.textContent = 'Regenerate PDFs & Send Email';
                 }
             }
         });
@@ -1253,62 +1661,9 @@
             loginOfficerId.focus();
         }
         
-        console.log('Existing Officer Dashboard loaded with FIXED document status');
+        console.log('Marshal Core of Nigeria - Existing Officer Dashboard loaded successfully');
+        console.log('New Upload System: Passport + Consolidated PDF only');
     });
-
-    // FIX: Update the validation to include new fields
-function validateOfficerForm() {
-    console.log('🔍 Validating officer form...');
-    
-    let isValid = true;
-    const errors = [];
-    
-    // 1. Check all required fields
-    const requiredFields = document.querySelectorAll('[required]');
-    requiredFields.forEach(field => {
-        if (!field.value || !field.value.trim()) {
-            const fieldName = field.name || field.id || field.placeholder;
-            errors.push(`${fieldName} is required`);
-            field.style.border = '2px solid red';
-            isValid = false;
-        } else {
-            field.style.border = '';
-        }
-    });
-    
-    // 2. Special check for date_of_enlistment (NEW FIELD)
-    const enlistmentDate = document.querySelector('[name*="enlistment"], [id*="enlistment"]');
-    if (enlistmentDate && !enlistmentDate.value) {
-        errors.push('Date of enlistment is required');
-        enlistmentDate.style.border = '2px solid red';
-        isValid = false;
-    }
-    
-    // 3. Special check for officer ID format (NEW FORMAT)
-    const officerId = document.querySelector('[name*="officer"], [id*="officer"]');
-    if (officerId && officerId.value) {
-        const idPattern = /^(MCN|MBT|MBC)\/[A-Z0-9]{3,4}\/\d{3}$/i;
-        if (!idPattern.test(officerId.value.trim())) {
-            errors.push('Invalid Officer ID format. Use: PREFIX/ALPHANUMERIC/INTAKE (e.g., MCN/001B/031)');
-            officerId.style.border = '2px solid red';
-            isValid = false;
-        }
-    }
-    
-    // Log results
-    if (errors.length > 0) {
-        console.error('❌ Validation errors:', errors);
-        // Show errors to user
-        alert('Please fix the following errors:\n\n' + errors.join('\n'));
-        return false;
-    }
-    
-    console.log('✅ All validations passed');
-    return true;
-}
-
-// Replace your existing validation function
-// Or modify line 1675 to use this function
-</script>
+    </script>
 </body>
 </html>

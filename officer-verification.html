@@ -766,7 +766,7 @@
           <li><strong>Format:</strong> <span class="id-prefix-badge">PREFIX</span>/<span class="id-prefix-badge">ALPHANUMERIC</span>/<span class="id-prefix-badge">INTAKE</span></li>
           <li><span class="id-prefix-badge">MCN</span> - Marshal Core of Nigeria (e.g., MCN/001B/031)</li>
           <li><span class="id-prefix-badge">MBT</span> - Marshal Board of Trustees (e.g., MBT/A01/123)</li>
-          <li><span class="id-prefix-badge">MBC</span> - Marshal Board Committee (e.g., MBC/1234/001)</li>
+          <li><span class="id-prefix-badge">MBC</span> - Marshal Board of Committee (e.g., MBC/1234/001)</li>
         </ul>
         <p><strong>Note:</strong> Alphanumeric can be 3-4 characters (letters/numbers), Intake is 3 digits</p>
       </div>
@@ -1943,7 +1943,7 @@ window.onload = () => {
       state_of_origin: document.getElementById("state_of_origin").value || null,
       local_government_origin: document.getElementById("local_government_origin").value || null,
       rank: document.getElementById("rank").value,
-      position: document.getElementById("appointment").value.trim() || null,
+      position: document.getElementById("appointment")?.value || null,
       years_of_service: document.getElementById("years_of_service").value || null,
       service_number: verifiedOfficerId,
       religion: document.getElementById("religion").value || null,

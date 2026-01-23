@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MCN-NG | Existing Officer Dashboard</title>
     <style>
-        /* Keep all existing styles, add new ones for upload functionality */
-        
         * {
             margin: 0;
             padding: 0;
@@ -429,7 +427,7 @@
             font-size: 14px;
         }
 
-        /* NEW: Upload Section Styles */
+        /* Upload Section Styles */
         .upload-section {
             background-color: #f8f9fa;
             border-radius: 10px;
@@ -603,6 +601,32 @@
             cursor: not-allowed;
         }
 
+        /* Passport Photo Container */
+        .passport-container {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e1e5eb;
+        }
+
+        .passport-photo {
+            width: 150px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            margin: 0 auto 10px;
+            display: block;
+        }
+
+        .passport-label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .dashboard-header {
@@ -712,7 +736,7 @@
                 <p>This is your dedicated dashboard for existing officers. Here you can upload documents, view your profile, check document status, and track your verification progress.</p>
             </div>
 
-            <!-- Document Upload Section (NEW - Upload 2 files only) -->
+            <!-- Document Upload Section -->
             <div class="dashboard-card">
                 <div class="card-header">
                     <div class="card-title">
@@ -790,7 +814,7 @@
 
             <!-- Dashboard Grid -->
             <div class="dashboard-grid">
-                <!-- Profile Information Card -->
+                <!-- Profile Information Card with Passport Photo -->
                 <div class="dashboard-card">
                     <div class="card-header">
                         <div class="card-title">
@@ -798,6 +822,14 @@
                             <span>Profile Information</span>
                         </div>
                         <div class="card-status status-verified" id="profileStatus">Verified</div>
+                    </div>
+                    
+                    <!-- ✅ Passport Photo Display -->
+                    <div class="passport-container" id="passportContainer">
+                        <img id="passportPhoto" class="passport-photo" src="" alt="Passport Photo" style="display: none;">
+                        <div id="noPassportMessage" class="passport-label">
+                            Passport photo not uploaded
+                        </div>
                     </div>
                     
                     <div class="info-item">
@@ -832,9 +864,13 @@
                         <span class="info-label">Last Promotion:</span>
                         <span class="info-value" id="profilePromotion">Loading...</span>
                     </div>
+                    <div class="info-item">
+                        <span class="info-label">Residential Address:</span>
+                        <span class="info-value" id="profileAddress">Loading...</span>
+                    </div>
                 </div>
 
-                <!-- Document Status Card (UPDATED - Now shows only 2 documents) -->
+                <!-- Document Status Card -->
                 <div class="dashboard-card">
                     <div class="card-header">
                         <div class="card-title">
@@ -845,7 +881,7 @@
                     </div>
                     
                     <ul class="document-list" id="documentList">
-                        <!-- Documents will be loaded here - NOW ONLY 2 DOCUMENTS -->
+                        <!-- Documents will be loaded here -->
                     </ul>
                     
                     <div class="info-item" style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #f0f2f5;">
@@ -870,7 +906,7 @@
                     </div>
                     <div class="info-item">
                         <span class="info-label">Account Active:</span>
-                        <span class="info-value verified" id="accountActive">Yes</span>
+                        <span class="info-value" id="accountActive">Yes</span>
                     </div>
                     <div class="info-item">
                         <span class="info-label">Registration Date:</span>
@@ -893,7 +929,7 @@
                     </div>
                 </div>
 
-                <!-- PDF Status Card (UPDATED - PDFs are auto-generated and emailed) -->
+                <!-- PDF Status Card -->
                 <div class="dashboard-card">
                     <div class="card-header">
                         <div class="card-title">
@@ -972,6 +1008,11 @@
         const officerName = document.getElementById('officerName');
         const officerId = document.getElementById('officerId');
         const welcomeName = document.getElementById('welcomeName');
+        
+        // Profile Elements
+        const passportPhoto = document.getElementById('passportPhoto');
+        const passportContainer = document.getElementById('passportContainer');
+        const noPassportMessage = document.getElementById('noPassportMessage');
         const profileFullName = document.getElementById('profileFullName');
         const profileOfficerId = document.getElementById('profileOfficerId');
         const profileCategory = document.getElementById('profileCategory');
@@ -980,14 +1021,21 @@
         const profilePhone = document.getElementById('profilePhone');
         const profileEnlistment = document.getElementById('profileEnlistment');
         const profilePromotion = document.getElementById('profilePromotion');
+        const profileAddress = document.getElementById('profileAddress');
+        
+        // Document Elements
         const documentList = document.getElementById('documentList');
         const documentsStatus = document.getElementById('documentsStatus');
         const documentCompletion = document.getElementById('documentCompletion');
+        
+        // Account Elements
         const accountStatus = document.getElementById('accountStatus');
         const verificationStatus = document.getElementById('verificationStatus');
         const accountActive = document.getElementById('accountActive');
         const registrationDate = document.getElementById('registrationDate');
         const lastLogin = document.getElementById('lastLogin');
+        
+        // PDF Elements
         const termsPdfStatus = document.getElementById('termsPdfStatus');
         const registrationPdfStatus = document.getElementById('registrationPdfStatus');
         const pdfStatus = document.getElementById('pdfStatus');
@@ -997,18 +1045,32 @@
         
         // API Configuration
         const API_BASE_URL = 'https://backend-mcn-ltd.onrender.com';
-        const DASHBOARD_ENDPOINT = `${API_BASE_URL}/api/existing-officers/dashboard`;
         const LOGIN_ENDPOINT = `${API_BASE_URL}/api/existing-officers/login`;
-        const GENERATE_PDFS_ENDPOINT = `${API_BASE_URL}/api/existing-officers/generate-pdfs`;
         const UPLOAD_ENDPOINT = `${API_BASE_URL}/api/existing-officers/upload-document`;
+        const PASSPORT_ENDPOINT = `${API_BASE_URL}/api/existing-officers/passport`;
+        
+        // Dashboard Endpoints
+        const DASHBOARD_ENDPOINT = `${API_BASE_URL}/api/existing-officers/dashboard`;
+        const DASHBOARD_PROFILE_ENDPOINT = `${API_BASE_URL}/api/existing-officers/dashboard/profile`;
+        const DASHBOARD_DOCUMENTS_ENDPOINT = `${API_BASE_URL}/api/existing-officers/dashboard/documents`;
+        const DASHBOARD_PDFS_ENDPOINT = `${API_BASE_URL}/api/existing-officers/dashboard/pdfs`;
+        const DASHBOARD_GENERATE_PDFS_ENDPOINT = `${API_BASE_URL}/api/existing-officers/dashboard/generate-pdfs`;
         
         // Check if already logged in
         const sessionOfficerId = sessionStorage.getItem('existing_officer_id');
         const sessionToken = sessionStorage.getItem('existing_officer_token');
         
         if (sessionOfficerId && sessionToken) {
-            showDashboard();
-            fetchDashboardData(sessionOfficerId, sessionToken);
+            if (validateJWTToken(sessionToken)) {
+                console.log('✅ Valid session found, showing dashboard');
+                showDashboard();
+                fetchAllDashboardData(sessionOfficerId, sessionToken);
+                loadPassportPhoto(sessionOfficerId, sessionToken);
+            } else {
+                console.log('❌ Invalid session token, clearing storage');
+                sessionStorage.clear();
+                showLogin();
+            }
         }
         
         // Show loading
@@ -1030,6 +1092,34 @@
             setTimeout(() => {
                 alertElement.style.display = 'none';
             }, 5000);
+        }
+        
+        // Validate JWT token format
+        function validateJWTToken(token) {
+            if (!token || typeof token !== 'string') {
+                console.error('❌ Token is empty or not a string');
+                return false;
+            }
+            
+            const parts = token.split('.');
+            if (parts.length !== 3) {
+                console.error('❌ Token does not have 3 parts:', parts.length);
+                console.error('Token:', token.substring(0, 50) + '...');
+                return false;
+            }
+            
+            if (!parts[0] || !parts[1] || !parts[2]) {
+                console.error('❌ Token has empty parts');
+                return false;
+            }
+            
+            if (!token.startsWith('eyJ')) {
+                console.error('❌ Token does not start with expected JWT header');
+                return false;
+            }
+            
+            console.log('✅ Token format validation passed');
+            return true;
         }
         
         // Format date
@@ -1076,6 +1166,46 @@
             dashboardPage.style.display = 'block';
         }
         
+        // ✅ Load Passport Photo Function
+        async function loadPassportPhoto(officerId, token) {
+            try {
+                console.log(`📸 Loading passport photo for officer: ${officerId}`);
+                
+                const response = await fetch(`${PASSPORT_ENDPOINT}/${officerId}`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('📸 Passport response:', data);
+                    
+                    if (data.passport_url) {
+                        // Show passport photo
+                        passportPhoto.src = data.passport_url;
+                        passportPhoto.style.display = 'block';
+                        noPassportMessage.style.display = 'none';
+                        passportContainer.style.background = '#e8f5e9';
+                        console.log('✅ Passport photo loaded');
+                    } else {
+                        // No passport photo
+                        passportPhoto.style.display = 'none';
+                        noPassportMessage.textContent = 'Passport photo not uploaded';
+                        noPassportMessage.style.display = 'block';
+                        passportContainer.style.background = '#f8f9fa';
+                        console.log('⚠️ No passport photo available');
+                    }
+                } else {
+                    console.warn('⚠️ Could not fetch passport photo:', response.status);
+                }
+            } catch (error) {
+                console.error('❌ Error loading passport photo:', error);
+            }
+        }
+        
         // Handle login
         loginBtn.addEventListener('click', async function() {
             const officerId = loginOfficerId.value.trim().toUpperCase();
@@ -1096,6 +1226,9 @@
                 loginBtn.disabled = true;
                 loginBtn.textContent = 'Logging in...';
                 
+                console.log('📤 Sending login request to:', LOGIN_ENDPOINT);
+                console.log('🔑 Officer ID:', officerId);
+                
                 const response = await fetch(LOGIN_ENDPOINT, {
                     method: 'POST',
                     headers: {
@@ -1108,26 +1241,38 @@
                     })
                 });
                 
-                const data = await response.json();
+                console.log('📥 Login response status:', response.status);
                 
-                if (response.ok) {
-                    // Save session data
+                const data = await response.json();
+                console.log('📥 Login response data:', data);
+                
+                if (response.ok && data.access_token) {
+                    if (!validateJWTToken(data.access_token)) {
+                        showAlert(loginAlert, 'Invalid token received from server. Please try again.', 'error');
+                        return;
+                    }
+                    
+                    console.log('✅ Login successful, token validated');
+                    
                     sessionStorage.setItem('existing_officer_id', officerId);
                     sessionStorage.setItem('existing_officer_token', data.access_token);
-                    sessionStorage.setItem('existing_officer_name', data.full_name);
-                    sessionStorage.setItem('existing_officer_email', data.email);
+                    sessionStorage.setItem('existing_officer_name', data.full_name || '');
+                    sessionStorage.setItem('existing_officer_email', data.email || '');
                     
-                    // Show dashboard and fetch data
+                    console.log('💾 Session saved, showing dashboard');
+                    
                     showDashboard();
-                    await fetchDashboardData(officerId, data.access_token);
+                    await fetchAllDashboardData(officerId, data.access_token);
+                    await loadPassportPhoto(officerId, data.access_token);
                     showAlert(dashboardAlert, 'Login successful!', 'success');
                 } else {
+                    console.error('❌ Login failed:', data.detail);
                     showAlert(loginAlert, data.detail || 'Login failed. Please check your credentials.', 'error');
                     sessionStorage.clear();
                 }
                 
             } catch (error) {
-                console.error('Login error:', error);
+                console.error('❌ Login error:', error);
                 showAlert(loginAlert, 'Login failed. Please check your credentials or try again later.', 'error');
                 sessionStorage.clear();
             } finally {
@@ -1137,12 +1282,114 @@
             }
         });
         
-        // Fetch dashboard data
-        async function fetchDashboardData(officerId, token) {
+        // Fetch ALL dashboard data from separate endpoints
+        async function fetchAllDashboardData(officerId, token) {
             try {
                 showLoading();
                 
-                const response = await fetch(`${API_BASE_URL}/api/existing-officers/dashboard`, {
+                console.log(`📡 Fetching dashboard data for: ${officerId}`);
+                console.log(`📡 Token (first 50 chars): ${token.substring(0, 50)}...`);
+                
+                if (!validateJWTToken(token)) {
+                    showAlert(dashboardAlert, 'Invalid session token. Please login again.', 'error');
+                    sessionStorage.clear();
+                    showLogin();
+                    return null;
+                }
+                
+                // Try main dashboard endpoint first
+                console.log('🔄 Attempting main dashboard endpoint...');
+                const dashboardResponse = await fetch(DASHBOARD_ENDPOINT, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                console.log(`📡 Main dashboard response status: ${dashboardResponse.status}`);
+                
+                if (dashboardResponse.ok) {
+                    const data = await dashboardResponse.json();
+                    console.log("✅ MAIN Dashboard data received:", data);
+                    updateDashboard(data);
+                    return data;
+                } else if (dashboardResponse.status === 403) {
+                    console.log('⚠️ Main dashboard returned 403, trying separate endpoints...');
+                    
+                    // Try separate endpoints
+                    const [profileData, documentsData, pdfsData] = await Promise.all([
+                        fetchDashboardEndpoint('profile', token),
+                        fetchDashboardEndpoint('documents', token),
+                        fetchDashboardEndpoint('pdfs', token)
+                    ]);
+                    
+                    console.log('📊 Combined data from separate endpoints:', {
+                        profile: profileData,
+                        documents: documentsData,
+                        pdfs: pdfsData
+                    });
+                    
+                    // Merge all data
+                    const combinedData = {
+                        ...(profileData || {}),
+                        ...(documentsData || {}),
+                        ...(pdfsData || {})
+                    };
+                    
+                    console.log('✅ Combined dashboard data:', combinedData);
+                    updateDashboard(combinedData);
+                    return combinedData;
+                } else {
+                    const errorData = await dashboardResponse.json();
+                    console.error("❌ Dashboard API Error:", errorData);
+                    
+                    if (dashboardResponse.status === 401) {
+                        if (errorData.detail && errorData.detail.includes('Not enough segments')) {
+                            console.error('🔴 JWT TOKEN ERROR: Token is malformed');
+                            showAlert(dashboardAlert, 'Authentication error: Invalid token format. Please login again.', 'error');
+                        } else if (errorData.detail && errorData.detail.includes('expired')) {
+                            console.error('🔴 JWT TOKEN ERROR: Token expired');
+                            showAlert(dashboardAlert, 'Session expired. Please login again.', 'error');
+                        } else {
+                            showAlert(dashboardAlert, `Authentication error: ${errorData.detail || 'Unauthorized'}`, 'error');
+                        }
+                        sessionStorage.clear();
+                        setTimeout(() => showLogin(), 2000);
+                    } else {
+                        showAlert(dashboardAlert, `Dashboard Error: ${errorData.detail || 'Failed to fetch dashboard data'}`, 'error');
+                    }
+                    
+                    clearDashboardData();
+                    throw new Error(errorData.detail || 'Failed to fetch dashboard data');
+                }
+                
+            } catch (error) {
+                console.error('❌ Error fetching dashboard:', error);
+                
+                if (error.name === 'TypeError' && error.message.includes('fetch')) {
+                    showAlert(dashboardAlert, 'Network error. Please check your internet connection.', 'error');
+                } else {
+                    showAlert(dashboardAlert, 'Failed to load dashboard data. Please refresh the page or try again later.', 'error');
+                }
+                
+                clearDashboardData();
+                throw error;
+            } finally {
+                hideLoading();
+            }
+        }
+        
+        // Fetch specific dashboard endpoint
+        async function fetchDashboardEndpoint(endpoint, token) {
+            try {
+                console.log(`📡 Fetching ${endpoint} endpoint...`);
+                const endpointUrl = endpoint === 'profile' ? DASHBOARD_PROFILE_ENDPOINT :
+                                  endpoint === 'documents' ? DASHBOARD_DOCUMENTS_ENDPOINT :
+                                  endpoint === 'pdfs' ? DASHBOARD_PDFS_ENDPOINT : '';
+                
+                const response = await fetch(endpointUrl, {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`,
@@ -1153,121 +1400,129 @@
                 
                 if (response.ok) {
                     const data = await response.json();
-                    updateDashboard(data);
+                    console.log(`✅ ${endpoint} data received:`, data);
                     return data;
                 } else {
-                    const errorData = await response.json();
-                    throw new Error(errorData.detail || 'Failed to fetch dashboard data');
+                    console.warn(`⚠️ ${endpoint} endpoint returned ${response.status}`);
+                    return null;
                 }
-                
             } catch (error) {
-                console.error('Error fetching dashboard:', error);
-                showAlert(dashboardAlert, 'Failed to load dashboard data. Please try again.', 'error');
-                // Fallback to mock data if API fails
-                const mockData = getMockDashboardData(officerId);
-                updateDashboard(mockData);
-                return mockData;
-            } finally {
-                hideLoading();
+                console.error(`❌ Error fetching ${endpoint}:`, error);
+                return null;
             }
         }
         
-        // Get mock dashboard data (fallback)
-        function getMockDashboardData(officerId) {
-            const prefix = officerId.split('/')[0];
-            const categories = {
-                'MCN': 'Marshal Core of Nigeria',
-                'MBT': 'Marshal Board of Trustees',
-                'MBC': 'Marshal Board Committee'
-            };
+        // Clear dashboard data when API fails
+        function clearDashboardData() {
+            console.log("🔄 Clearing dashboard data due to API failure");
             
-            return {
-                officer_id: officerId,
-                full_name: sessionStorage.getItem('existing_officer_name') || officerId.replace('/', ' ').replace('/', ' '),
-                category: categories[prefix] || 'Marshal Officer',
-                rank: 'Officer',
-                email: sessionStorage.getItem('existing_officer_email') || 'officer@marshalcoreofnigeria.ng',
-                phone: '+2348012345678',
-                date_of_enlistment: '2020-01-15',
-                date_of_promotion: '2023-06-20',
-                created_at: '2024-01-01T10:00:00Z',
-                last_login: new Date().toISOString(),
-                status: 'verified',
-                is_verified: true,
-                is_active: true,
-                passport_uploaded: false,
-                consolidated_pdf_uploaded: false,
-                has_terms_pdf: false,
-                has_registration_pdf: false,
-                dashboard_access_count: 1,
-                document_paths: {
-                    passport: null,
-                    consolidated_pdf: null
-                },
-                pdf_paths: {
-                    terms: null,
-                    registration: null
-                }
-            };
+            officerName.textContent = 'Error Loading Data';
+            officerId.textContent = 'ID: Error';
+            welcomeName.textContent = 'Officer';
+            
+            // Profile data
+            profileFullName.textContent = 'Error Loading';
+            profileOfficerId.textContent = 'Error';
+            profileCategory.textContent = 'Error';
+            profileRank.textContent = 'Error';
+            profileEmail.textContent = 'Error';
+            profilePhone.textContent = 'Error';
+            profileEnlistment.textContent = 'Error';
+            profilePromotion.textContent = 'Error';
+            profileAddress.textContent = 'Error';
+            
+            // Passport photo
+            passportPhoto.style.display = 'none';
+            noPassportMessage.textContent = 'Error loading passport';
+            noPassportMessage.style.display = 'block';
+            
+            // Document status
+            documentList.innerHTML = '';
+            documentsStatus.textContent = 'Error';
+            documentsStatus.className = 'card-status status-incomplete';
+            documentCompletion.textContent = '0%';
+            
+            // Upload status
+            uploadStatus.textContent = 'Error';
+            uploadStatus.className = 'card-status status-incomplete';
+            uploadProgressText.textContent = '0/2 files';
+            
+            // Account status
+            accountStatus.textContent = 'Error';
+            accountStatus.className = 'card-status status-incomplete';
+            verificationStatus.textContent = 'Error';
+            verificationStatus.className = 'info-value missing';
+            accountActive.textContent = 'Error';
+            accountActive.className = 'info-value missing';
+            registrationDate.textContent = 'Error';
+            lastLogin.textContent = 'Error';
+            
+            // PDF status
+            pdfStatus.textContent = 'Error';
+            pdfStatus.className = 'card-status status-incomplete';
+            termsPdfStatus.textContent = 'Error';
+            termsPdfStatus.className = 'info-value missing';
+            registrationPdfStatus.textContent = 'Error';
+            registrationPdfStatus.className = 'info-value missing';
+            
+            // Buttons
+            downloadTermsBtn.disabled = true;
+            downloadRegistrationBtn.disabled = true;
+            generatePdfsBtn.disabled = true;
         }
         
         // Update dashboard with data
         function updateDashboard(data) {
-            console.log("Dashboard data received:", data);
+            console.log("=== FULL DASHBOARD DATA ===");
+            console.log(JSON.stringify(data, null, 2));
+            console.log("=== END DASHBOARD DATA ===");
             
-            // Update profile information
-            const displayName = data.full_name || data.officer_id || 'Unknown Officer';
+            const displayName = data.full_name || sessionStorage.getItem('existing_officer_name') || data.officer_id || 'Unknown Officer';
             officerName.textContent = displayName;
-            officerId.textContent = `ID: ${data.officer_id}`;
+            officerId.textContent = `ID: ${data.officer_id || sessionStorage.getItem('existing_officer_id') || 'N/A'}`;
             welcomeName.textContent = displayName;
             
+            // Update profile information
             profileFullName.textContent = displayName;
-            profileOfficerId.textContent = data.officer_id || 'N/A';
+            profileOfficerId.textContent = data.officer_id || sessionStorage.getItem('existing_officer_id') || 'N/A';
             profileCategory.textContent = data.category || 'N/A';
             profileRank.textContent = data.rank || 'N/A';
-            profileEmail.textContent = data.email || 'N/A';
+            profileEmail.textContent = data.email || sessionStorage.getItem('existing_officer_email') || 'N/A';
             profilePhone.textContent = data.phone || 'N/A';
             profileEnlistment.textContent = formatDate(data.date_of_enlistment);
             profilePromotion.textContent = formatDate(data.date_of_promotion) || 'N/A';
+            profileAddress.textContent = data.residential_address || data.address || 'N/A';
             
-            // Update document status (NEW - Only 2 documents)
             updateDocumentStatus(data);
-            
-            // Update upload status
             updateUploadStatus(data);
-            
-            // Update account status
             updateAccountStatus(data);
-            
-            // Update PDF status
             updatePdfStatus(data);
         }
         
-        // Update document status (NEW - Only 2 documents: passport + consolidated PDF)
+        // Update document status
         function updateDocumentStatus(data) {
             console.log("📊 Updating document status with data:", data);
+            
+            const passportUploaded = data.passport_uploaded || data.passport_upload_status === 'uploaded';
+            const pdfUploaded = data.consolidated_pdf_uploaded || data.consolidated_pdf_upload_status === 'uploaded';
             
             const documents = [
                 { 
                     name: 'Passport Photo', 
-                    key: 'passport_uploaded',
                     required: true,
-                    uploaded: data.passport_uploaded || false
+                    uploaded: passportUploaded
                 },
                 { 
                     name: 'Consolidated PDF (All Documents)', 
-                    key: 'consolidated_pdf_uploaded',
                     required: true,
-                    uploaded: data.consolidated_pdf_uploaded || false
+                    uploaded: pdfUploaded
                 }
             ];
             
-            // Clear and update list
             documentList.innerHTML = '';
             
-            let uploadedCount = 0;
-            let requiredCount = 0;
             let requiredUploaded = 0;
+            let requiredCount = 0;
             
             documents.forEach(doc => {
                 const li = document.createElement('li');
@@ -1287,7 +1542,6 @@
                     statusSpan.textContent = '✓ Uploaded';
                     statusSpan.style.background = '#d4edda';
                     statusSpan.style.color = '#155724';
-                    uploadedCount++;
                     if (doc.required) requiredUploaded++;
                 } else {
                     statusSpan.textContent = '✗ Missing';
@@ -1302,11 +1556,9 @@
                 documentList.appendChild(li);
             });
             
-            // Update completion
             const completionPercent = requiredCount > 0 ? Math.round((requiredUploaded / requiredCount) * 100) : 0;
             documentCompletion.textContent = `${completionPercent}%`;
             
-            // Update document status badge
             if (requiredUploaded === requiredCount) {
                 documentsStatus.textContent = 'Complete';
                 documentsStatus.className = 'card-status status-approved';
@@ -1323,13 +1575,12 @@
         
         // Update upload status
         function updateUploadStatus(data) {
-            const passportUploaded = data.passport_uploaded || false;
-            const pdfUploaded = data.consolidated_pdf_uploaded || false;
+            const passportUploaded = data.passport_uploaded || data.passport_upload_status === 'uploaded';
+            const pdfUploaded = data.consolidated_pdf_uploaded || data.consolidated_pdf_upload_status === 'uploaded';
             
             const totalUploaded = (passportUploaded ? 1 : 0) + (pdfUploaded ? 1 : 0);
             uploadProgressText.textContent = `${totalUploaded}/2 files`;
             
-            // Update upload status badge
             if (totalUploaded === 2) {
                 uploadStatus.textContent = 'Complete';
                 uploadStatus.className = 'card-status status-approved';
@@ -1341,7 +1592,6 @@
                 uploadStatus.className = 'card-status status-pending';
             }
             
-            // Update file input placeholders
             if (passportUploaded) {
                 passportUpload.placeholder = "Passport already uploaded";
             }
@@ -1358,14 +1608,12 @@
                 return;
             }
             
-            // Validate file type
             const validTypes = ['image/jpeg', 'image/jpg', 'image/png'];
             if (!validTypes.includes(file.type)) {
                 showAlert(dashboardAlert, 'Only JPG and PNG files are allowed for passport', 'error');
                 return;
             }
             
-            // Validate file size (2MB)
             if (file.size > 2 * 1024 * 1024) {
                 showAlert(dashboardAlert, 'Passport photo must be less than 2MB', 'error');
                 return;
@@ -1382,13 +1630,11 @@
                 return;
             }
             
-            // Validate file type
             if (file.type !== 'application/pdf') {
                 showAlert(dashboardAlert, 'Only PDF files are allowed', 'error');
                 return;
             }
             
-            // Validate file size (10MB)
             if (file.size > 10 * 1024 * 1024) {
                 showAlert(dashboardAlert, 'PDF must be less than 10MB', 'error');
                 return;
@@ -1405,13 +1651,18 @@
                 return;
             }
             
+            const officerId = sessionStorage.getItem('existing_officer_id');
+            if (!officerId) {
+                showAlert(dashboardAlert, 'Officer ID not found in session', 'error');
+                return;
+            }
+            
             const formData = new FormData();
             formData.append('file', file);
             formData.append('document_type', documentType);
-            formData.append('officer_id', sessionStorage.getItem('existing_officer_id'));
+            formData.append('officer_id', officerId);
             
             try {
-                // Show upload progress
                 uploadProgress.style.display = 'block';
                 uploadStatusText.textContent = `Uploading ${documentType === 'passport' ? 'Passport Photo' : 'Consolidated PDF'}...`;
                 progressFill.style.width = '0%';
@@ -1420,13 +1671,14 @@
                 uploadBtn.disabled = true;
                 uploadBtn.textContent = 'Uploading...';
                 
-                // Simulate progress
                 const progressInterval = setInterval(() => {
                     const currentWidth = parseInt(progressFill.style.width) || 0;
                     if (currentWidth < 90) {
                         progressFill.style.width = (currentWidth + 10) + '%';
                     }
                 }, 200);
+                
+                console.log(`📤 Uploading ${documentType} for officer ${officerId}`);
                 
                 const response = await fetch(UPLOAD_ENDPOINT, {
                     method: 'POST',
@@ -1439,15 +1691,23 @@
                 clearInterval(progressInterval);
                 progressFill.style.width = '100%';
                 
+                console.log(`📤 Upload response status: ${response.status}`);
+                
                 const data = await response.json();
+                console.log(`📤 Upload response data:`, data);
                 
                 if (response.ok) {
                     uploadStatusText.textContent = 'Upload successful!';
                     showAlert(dashboardAlert, data.message || 'File uploaded successfully', 'success');
                     
-                    // Refresh dashboard data after a short delay
+                    // Reload passport photo if it was uploaded
+                    if (documentType === 'passport') {
+                        await loadPassportPhoto(officerId, token);
+                    }
+                    
+                    // Refresh dashboard data
                     setTimeout(() => {
-                        fetchDashboardData(sessionStorage.getItem('existing_officer_id'), token);
+                        fetchAllDashboardData(officerId, token);
                     }, 1000);
                 } else {
                     uploadStatusText.textContent = 'Upload failed';
@@ -1472,21 +1732,17 @@
         
         // Update account status
         function updateAccountStatus(data) {
-            // Update verification status
-            const isVerified = data.is_verified || data.status === 'verified' || data.status === 'approved';
+            const isVerified = data.is_verified || data.verification_status === 'verified' || data.status === 'verified' || data.status === 'approved';
             verificationStatus.textContent = isVerified ? 'Verified' : 'Pending';
             verificationStatus.className = isVerified ? 'info-value verified' : 'info-value pending';
             
-            // Update account active
-            const isActive = data.is_active !== false;
+            const isActive = data.is_active !== false && data.account_status !== 'inactive';
             accountActive.textContent = isActive ? 'Yes' : 'No';
             accountActive.className = isActive ? 'info-value verified' : 'info-value missing';
             
-            // Update dates
-            registrationDate.textContent = formatDate(data.created_at) || 'N/A';
+            registrationDate.textContent = formatDate(data.created_at) || formatDate(data.registration_date) || 'N/A';
             lastLogin.textContent = formatDateTime(data.last_login) || 'Never';
             
-            // Update account status badge
             if (data.status === 'approved') {
                 accountStatus.textContent = 'Approved';
                 accountStatus.className = 'card-status status-approved';
@@ -1501,17 +1757,33 @@
         
         // Update PDF status
         function updatePdfStatus(data) {
-            const pdf_paths = data.pdf_paths || {};
-            const hasTerms = data.has_terms_pdf || !!pdf_paths.terms;
-            const hasRegistration = data.has_registration_pdf || !!pdf_paths.registration;
+            console.log("📄 PDF Status data:", data);
             
+            // Check various possible locations for PDF paths
+            const pdf_paths = data.pdf_paths || data.pdf_download_urls || data.pdf_files || {};
+            const pdf_status = data.pdf_status || {};
+            
+            console.log("📄 pdf_paths object:", pdf_paths);
+            console.log("📄 pdf_status object:", pdf_status);
+            
+            // Check if PDFs exist using multiple possible fields
+            const hasTerms = !!pdf_paths.terms || 
+                           !!pdf_paths.terms_and_conditions || 
+                           (pdf_status.terms_and_conditions && pdf_status.terms_and_conditions.generated);
+            
+            const hasRegistration = !!pdf_paths.registration || 
+                                  !!pdf_paths.registration_form || 
+                                  (pdf_status.registration_form && pdf_status.registration_form.generated);
+            
+            console.log(`📄 PDF Status - Terms: ${hasTerms}, Registration: ${hasRegistration}`);
+            
+            // Update UI
             termsPdfStatus.textContent = hasTerms ? '✓ Available' : '✗ Not Generated';
             termsPdfStatus.className = hasTerms ? 'info-value verified' : 'info-value missing';
             
             registrationPdfStatus.textContent = hasRegistration ? '✓ Available' : '✗ Not Generated';
             registrationPdfStatus.className = hasRegistration ? 'info-value verified' : 'info-value missing';
             
-            // Update PDF status badge
             if (hasTerms && hasRegistration) {
                 pdfStatus.textContent = 'Complete';
                 pdfStatus.className = 'card-status status-approved';
@@ -1523,57 +1795,49 @@
                 pdfStatus.className = 'card-status status-pending';
             }
             
-            // Enable/disable buttons
+            // Enable/disable download buttons
             downloadTermsBtn.disabled = !hasTerms;
             downloadRegistrationBtn.disabled = !hasRegistration;
             
-            // Set download handlers
+            // Set up download button handlers
             if (hasTerms) {
-                downloadTermsBtn.onclick = () => downloadPdf(pdf_paths.terms, 'terms_conditions');
-                downloadTermsBtn.classList.remove('btn-disabled');
-                downloadTermsBtn.classList.add('btn-primary');
+                // Try different possible path formats
+                let termsPath = pdf_paths.terms || 
+                               pdf_paths.terms_and_conditions ||
+                               (pdf_status.terms_and_conditions && pdf_status.terms_and_conditions.file_path);
+                
+                if (termsPath) {
+                    // Extract filename from path
+                    const termsFilename = termsPath.split('/').pop();
+                    const termsUrl = `${API_BASE_URL}/download/pdf/${termsFilename}`;
+                    
+                    downloadTermsBtn.onclick = () => {
+                        console.log(`📥 Downloading Terms PDF: ${termsUrl}`);
+                        window.open(termsUrl, '_blank');
+                    };
+                    downloadTermsBtn.classList.remove('btn-disabled');
+                    downloadTermsBtn.classList.add('btn-primary');
+                }
             }
             
             if (hasRegistration) {
-                downloadRegistrationBtn.onclick = () => downloadPdf(pdf_paths.registration, 'registration_form');
-                downloadRegistrationBtn.classList.remove('btn-disabled');
-                downloadRegistrationBtn.classList.add('btn-primary');
-            }
-        }
-        
-        // Download PDF
-        async function downloadPdf(pdfPath, fileName) {
-            try {
-                showLoading();
-                const token = sessionStorage.getItem('existing_officer_token');
+                // Try different possible path formats
+                let regPath = pdf_paths.registration || 
+                             pdf_paths.registration_form ||
+                             (pdf_status.registration_form && pdf_status.registration_form.file_path);
                 
-                // Create a temporary link to download the file
-                const response = await fetch(`${API_BASE_URL}${pdfPath}`, {
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                });
-                
-                if (response.ok) {
-                    const blob = await response.blob();
-                    const url = window.URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = `${fileName}_${sessionStorage.getItem('existing_officer_id')}.pdf`;
-                    document.body.appendChild(a);
-                    a.click();
-                    window.URL.revokeObjectURL(url);
-                    document.body.removeChild(a);
+                if (regPath) {
+                    // Extract filename from path
+                    const regFilename = regPath.split('/').pop();
+                    const regUrl = `${API_BASE_URL}/download/pdf/${regFilename}`;
                     
-                    showAlert(dashboardAlert, 'Download started successfully', 'success');
-                } else {
-                    showAlert(dashboardAlert, 'Failed to download PDF', 'error');
+                    downloadRegistrationBtn.onclick = () => {
+                        console.log(`📥 Downloading Registration PDF: ${regUrl}`);
+                        window.open(regUrl, '_blank');
+                    };
+                    downloadRegistrationBtn.classList.remove('btn-disabled');
+                    downloadRegistrationBtn.classList.add('btn-primary');
                 }
-            } catch (error) {
-                console.error('Download error:', error);
-                showAlert(dashboardAlert, 'Failed to download PDF', 'error');
-            } finally {
-                hideLoading();
             }
         }
         
@@ -1587,47 +1851,78 @@
                 return;
             }
             
-            // Check if all required documents are uploaded
-            const dashboardData = await fetchDashboardData(officerId, token);
-            if (!dashboardData.passport_uploaded || !dashboardData.consolidated_pdf_uploaded) {
-                showAlert(dashboardAlert, 'Please upload all required documents before generating PDFs', 'error');
+            // First check if all documents are uploaded
+            try {
+                showLoading();
+                
+                // Check documents status
+                const documentsResponse = await fetch(DASHBOARD_DOCUMENTS_ENDPOINT, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                if (documentsResponse.ok) {
+                    const documentsData = await documentsResponse.json();
+                    
+                    if (!documentsData.passport_uploaded || !documentsData.consolidated_pdf_uploaded) {
+                        hideLoading();
+                        showAlert(dashboardAlert, 'Please upload all required documents before generating PDFs', 'error');
+                        return;
+                    }
+                }
+            } catch (error) {
+                console.error('Error checking documents:', error);
+                hideLoading();
+                showAlert(dashboardAlert, 'Failed to check document status', 'error');
                 return;
             }
             
             if (confirm('Regenerate PDF documents? This will create and send PDFs to your registered email. This may take a few moments.')) {
                 try {
-                    showLoading();
                     generatePdfsBtn.disabled = true;
                     generatePdfsBtn.textContent = 'Generating...';
                     
-                    const response = await fetch(`${GENERATE_PDFS_ENDPOINT}`, {
+                    console.log('📄 Generating PDFs via dashboard endpoint:', DASHBOARD_GENERATE_PDFS_ENDPOINT);
+                    
+                    const response = await fetch(DASHBOARD_GENERATE_PDFS_ENDPOINT, {
                         method: 'POST',
                         headers: {
                             'Authorization': `Bearer ${token}`,
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            send_email: true,
-                            email: dashboardData.email
-                        })
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        }
                     });
                     
-                    const data = await response.json();
+                    console.log('📄 PDF generation response status:', response.status);
                     
                     if (response.ok) {
+                        const data = await response.json();
+                        console.log('📄 PDF generation response:', data);
+                        
                         showAlert(dashboardAlert, data.message || 'PDF regeneration started. Check your email for the documents.', 'success');
                         
                         // Refresh dashboard data after a delay
                         setTimeout(() => {
-                            fetchDashboardData(officerId, token);
-                        }, 5000);
+                            fetchAllDashboardData(officerId, token);
+                        }, 3000);
                     } else {
-                        showAlert(dashboardAlert, data.detail || 'Failed to generate PDFs', 'error');
+                        // Try to parse error
+                        try {
+                            const errorData = await response.json();
+                            console.error('❌ PDF generation failed:', errorData);
+                            showAlert(dashboardAlert, errorData.detail || 'Failed to generate PDFs', 'error');
+                        } catch (parseError) {
+                            console.error('❌ Could not parse error response:', parseError);
+                            showAlert(dashboardAlert, `Failed to generate PDFs (Status: ${response.status})`, 'error');
+                        }
                     }
                     
                 } catch (error) {
-                    console.error('Error generating PDFs:', error);
-                    showAlert(dashboardAlert, 'Failed to generate PDFs. Please try again.', 'error');
+                    console.error('❌ Error generating PDFs:', error);
+                    showAlert(dashboardAlert, 'Failed to generate PDFs. Please try again later.', 'error');
                 } finally {
                     hideLoading();
                     generatePdfsBtn.disabled = false;
@@ -1639,11 +1934,8 @@
         // Logout
         logoutBtn.addEventListener('click', function() {
             if (confirm('Are you sure you want to logout?')) {
-                // Clear session storage
                 sessionStorage.clear();
-                // Show login page
                 showLogin();
-                // Clear form
                 loginOfficerId.value = '';
                 loginPassword.value = '';
             }
@@ -1662,7 +1954,11 @@
         }
         
         console.log('Marshal Core of Nigeria - Existing Officer Dashboard loaded successfully');
-        console.log('New Upload System: Passport + Consolidated PDF only');
+        console.log('🔧 JWT Token validation enabled');
+        console.log('📸 Passport photo display enabled');
+        console.log('📊 System: 2-Upload (Passport + Consolidated PDF only)');
+        console.log('🚀 Frontend ready for Render backend connection');
+        console.log('🔄 Multi-endpoint fallback strategy enabled');
     });
     </script>
 </body>

@@ -427,144 +427,6 @@
             font-size: 14px;
         }
 
-        /* Upload Section Styles */
-        .upload-section {
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .upload-header {
-            margin-bottom: 15px;
-            color: #2c3e50;
-            font-weight: 600;
-        }
-
-        .upload-instructions {
-            background: #fff8e1;
-            border-left: 4px solid #ff9800;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-
-        .upload-instructions h4 {
-            color: #ff9800;
-            margin-bottom: 10px;
-        }
-
-        .upload-instructions ul {
-            padding-left: 20px;
-            margin: 10px 0;
-        }
-
-        .upload-instructions li {
-            margin-bottom: 5px;
-            font-size: 13px;
-            color: #555;
-        }
-
-        .upload-input {
-            margin-bottom: 15px;
-        }
-
-        .upload-input label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .file-input {
-            width: 100%;
-            padding: 10px;
-            border: 2px dashed #ddd;
-            border-radius: 8px;
-            background: white;
-            cursor: pointer;
-            transition: border-color 0.3s;
-        }
-
-        .file-input:hover {
-            border-color: #254a93;
-        }
-
-        .upload-btn {
-            background: #254a93;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-            width: 100%;
-        }
-
-        .upload-btn:hover:not(:disabled) {
-            background: #1a3570;
-            transform: translateY(-1px);
-        }
-
-        .upload-btn:disabled {
-            background: #cccccc;
-            cursor: not-allowed;
-        }
-
-        .document-checklist {
-            background-color: #e8f5e9;
-            border: 1px solid #4CAF50;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 15px 0;
-            font-size: 13px;
-        }
-        
-        .document-checklist h5 {
-            color: #2e7d32;
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-        
-        .document-checklist ol {
-            padding-left: 20px;
-            margin: 10px 0;
-        }
-        
-        .document-checklist li {
-            margin-bottom: 5px;
-            font-size: 12px;
-        }
-
-        .upload-progress {
-            margin-top: 15px;
-            padding: 10px;
-            background-color: #f9f9f9;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            font-size: 14px;
-            display: none;
-        }
-        
-        .progress-bar {
-            width: 100%;
-            height: 10px;
-            background-color: #e0e0e0;
-            border-radius: 5px;
-            margin-top: 5px;
-            overflow: hidden;
-        }
-        
-        .progress-fill {
-            height: 100%;
-            background-color: #4CAF50;
-            width: 0%;
-            transition: width 0.3s;
-        }
-
         /* Button Styles */
         .action-btn {
             padding: 10px 15px;
@@ -625,6 +487,34 @@
             font-size: 12px;
             color: #666;
             margin-top: 5px;
+        }
+
+        /* Document Status Section */
+        .document-status-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .document-status-header {
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .document-status-icon {
+            width: 30px;
+            height: 30px;
+            background: #e3f2fd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #254a93;
         }
 
         /* Responsive Design */
@@ -733,82 +623,33 @@
             <!-- Welcome Banner -->
             <div class="welcome-banner">
                 <h2>Welcome, <span id="welcomeName">Officer</span>!</h2>
-                <p>This is your dedicated dashboard for existing officers. Here you can upload documents, view your profile, check document status, and track your verification progress.</p>
+                <p>This is your dedicated dashboard for existing officers. Here you can view your profile, check document status, and track your verification progress.</p>
             </div>
 
-            <!-- Document Upload Section -->
+            <!-- Document Status Section (Removed Upload) -->
             <div class="dashboard-card">
                 <div class="card-header">
                     <div class="card-title">
-                        <div class="card-icon">📤</div>
-                        <span>Document Upload</span>
+                        <div class="card-icon">📋</div>
+                        <span>Document Status</span>
                     </div>
-                    <div class="card-status status-pending" id="uploadStatus">Pending</div>
+                    <div class="card-status status-complete" id="documentsStatus">Complete</div>
                 </div>
                 
-                <div class="upload-instructions">
-                    <h4>📋 IMPORTANT UPLOAD INSTRUCTIONS:</h4>
-                    <ul>
-                        <li><strong>Passport Photo:</strong> Upload separate passport photo (JPG/PNG format, max 2MB)</li>
-                        <li><strong>Consolidated PDF:</strong> Scan ALL other documents into ONE PDF file containing:</li>
+                <div class="document-status-section">
+                    <div class="document-status-header">
+                        <div class="document-status-icon">✓</div>
+                        <span>All Required Documents Uploaded</span>
+                    </div>
+                    
+                    <ul class="document-list" id="documentList">
+                        <!-- Documents will be loaded here -->
                     </ul>
                     
-                    <div class="document-checklist">
-                        <h5>📄 Consolidated PDF MUST Include These 10 Documents:</h5>
-                        <ol>
-                            <li>NIN slip</li>
-                            <li>All school results</li>
-                            <li>Birth certificates</li>
-                            <li>Back and front ID card</li>
-                            <li>All Gmail forms</li>
-                            <li>All marshal certificates</li>
-                            <li>Bio data enrollment/ appointment letter</li>
-                            <li>Promotion letter</li>
-                            <li>Application form</li>
-                            <li>Both affidavits of non membership of cult groups</li>
-                        </ol>
+                    <div class="info-item" style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #f0f2f5;">
+                        <span class="info-label">Document Completion:</span>
+                        <span class="info-value" id="documentCompletion">100%</span>
                     </div>
-                    
-                    <p><strong>Note:</strong> PDF must be less than 10MB. All documents must be clear and legible.</p>
-                </div>
-                
-                <!-- Passport Photo Upload -->
-                <div class="upload-section">
-                    <div class="upload-header">Passport Photo (Required)</div>
-                    <div class="upload-input">
-                        <label for="passportUpload">Upload Passport Photo (JPG/PNG):</label>
-                        <input type="file" id="passportUpload" class="file-input" accept=".jpg,.jpeg,.png" data-type="passport">
-                        <small style="color: #666; font-size: 12px; margin-top: 5px; display: block;">
-                            Max size: 2MB | Accepted formats: JPG, JPEG, PNG
-                        </small>
-                    </div>
-                    <button id="uploadPassportBtn" class="upload-btn">Upload Passport</button>
-                </div>
-                
-                <!-- Consolidated PDF Upload -->
-                <div class="upload-section">
-                    <div class="upload-header">Consolidated Documents (Required)</div>
-                    <div class="upload-input">
-                        <label for="documentsPdfUpload">Upload Consolidated PDF:</label>
-                        <input type="file" id="documentsPdfUpload" class="file-input" accept=".pdf" data-type="consolidated_pdf">
-                        <small style="color: #666; font-size: 12px; margin-top: 5px; display: block;">
-                            Max size: 10MB | Must be a single PDF containing all 10 listed documents
-                        </small>
-                    </div>
-                    <button id="uploadPdfBtn" class="upload-btn">Upload Consolidated PDF</button>
-                </div>
-                
-                <!-- Upload Progress -->
-                <div class="upload-progress" id="uploadProgress">
-                    <div id="uploadStatusText">Uploading...</div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progressFill"></div>
-                    </div>
-                </div>
-                
-                <div class="info-item" style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #f0f2f5;">
-                    <span class="info-label">Upload Progress:</span>
-                    <span class="info-value" id="uploadProgressText">0/2 files</span>
                 </div>
             </div>
 
@@ -824,11 +665,11 @@
                         <div class="card-status status-verified" id="profileStatus">Verified</div>
                     </div>
                     
-                    <!-- ✅ Passport Photo Display -->
+                    <!-- Passport Photo Display -->
                     <div class="passport-container" id="passportContainer">
                         <img id="passportPhoto" class="passport-photo" src="" alt="Passport Photo" style="display: none;">
                         <div id="noPassportMessage" class="passport-label">
-                            Passport photo not uploaded
+                            Loading passport photo...
                         </div>
                     </div>
                     
@@ -870,26 +711,6 @@
                     </div>
                 </div>
 
-                <!-- Document Status Card -->
-                <div class="dashboard-card">
-                    <div class="card-header">
-                        <div class="card-title">
-                            <div class="card-icon">📎</div>
-                            <span>Document Status</span>
-                        </div>
-                        <div class="card-status" id="documentsStatus">Loading...</div>
-                    </div>
-                    
-                    <ul class="document-list" id="documentList">
-                        <!-- Documents will be loaded here -->
-                    </ul>
-                    
-                    <div class="info-item" style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #f0f2f5;">
-                        <span class="info-label">Document Completion:</span>
-                        <span class="info-value" id="documentCompletion">0%</span>
-                    </div>
-                </div>
-
                 <!-- Account Status Card -->
                 <div class="dashboard-card">
                     <div class="card-header">
@@ -897,16 +718,16 @@
                             <div class="card-icon">🛡️</div>
                             <span>Account Status</span>
                         </div>
-                        <div class="card-status status-pending" id="accountStatus">Pending</div>
+                        <div class="card-status status-approved" id="accountStatus">Approved</div>
                     </div>
                     
                     <div class="info-item">
                         <span class="info-label">Verification Status:</span>
-                        <span class="info-value" id="verificationStatus">Pending</span>
+                        <span class="info-value verified" id="verificationStatus">Verified</span>
                     </div>
                     <div class="info-item">
                         <span class="info-label">Account Active:</span>
-                        <span class="info-value" id="accountActive">Yes</span>
+                        <span class="info-value verified" id="accountActive">Yes</span>
                     </div>
                     <div class="info-item">
                         <span class="info-label">Registration Date:</span>
@@ -922,9 +743,9 @@
                         <ul style="padding-left: 20px; font-size: 14px; color: #555;">
                             <li>Use your Officer ID to login</li>
                             <li>Password created during registration</li>
-                            <li>Upload passport photo separately (JPG/PNG)</li>
-                            <li>Upload consolidated PDF for all other documents</li>
-                            <li>Contact support@marshalcoreofnigeria.ng for password reset</li>
+                            <li>Documents already uploaded (Passport + Consolidated PDF)</li>
+                            <li>PDFs available for download below</li>
+                            <li>Contact support@marshalcoreofnigeria.ng for assistance</li>
                         </ul>
                     </div>
                 </div>
@@ -936,24 +757,24 @@
                             <div class="card-icon">📄</div>
                             <span>PDF Documents</span>
                         </div>
-                        <div class="card-status" id="pdfStatus">Loading...</div>
+                        <div class="card-status status-complete" id="pdfStatus">Complete</div>
                     </div>
                     
                     <div class="info-item">
                         <span class="info-label">Terms & Conditions:</span>
-                        <span class="info-value" id="termsPdfStatus">Not Generated</span>
+                        <span class="info-value verified" id="termsPdfStatus">✓ Available</span>
                     </div>
                     <div class="info-item">
                         <span class="info-label">Registration Form:</span>
-                        <span class="info-value" id="registrationPdfStatus">Not Generated</span>
+                        <span class="info-value verified" id="registrationPdfStatus">✓ Available</span>
                     </div>
                     
                     <div style="margin-top: 20px; display: flex; gap: 10px;">
-                        <button id="downloadTermsBtn" class="action-btn btn-primary" style="flex: 1;" disabled>
-                            Download Terms
+                        <button id="downloadTermsBtn" class="action-btn btn-primary" style="flex: 1;">
+                            Download Terms PDF
                         </button>
-                        <button id="downloadRegistrationBtn" class="action-btn btn-primary" style="flex: 1;" disabled>
-                            Download Registration
+                        <button id="downloadRegistrationBtn" class="action-btn btn-primary" style="flex: 1;">
+                            Download Registration PDF
                         </button>
                     </div>
                     
@@ -962,8 +783,8 @@
                     </button>
                     
                     <div style="margin-top: 15px; padding: 10px; background: #fff3cd; border-radius: 5px; font-size: 12px; color: #856404;">
-                        <strong>Note:</strong> PDFs are automatically generated and sent to your email after registration. 
-                        You can regenerate them here if needed.
+                        <strong>Note:</strong> PDFs are automatically generated during registration. 
+                        You can regenerate them here if needed. New PDFs will be sent to your email.
                     </div>
                 </div>
             </div>
@@ -991,17 +812,6 @@
         const loginOfficerId = document.getElementById('loginOfficerId');
         const loginPassword = document.getElementById('loginPassword');
         const loginBtn = document.getElementById('loginBtn');
-        
-        // Upload Elements
-        const passportUpload = document.getElementById('passportUpload');
-        const documentsPdfUpload = document.getElementById('documentsPdfUpload');
-        const uploadPassportBtn = document.getElementById('uploadPassportBtn');
-        const uploadPdfBtn = document.getElementById('uploadPdfBtn');
-        const uploadProgress = document.getElementById('uploadProgress');
-        const progressFill = document.getElementById('progressFill');
-        const uploadStatusText = document.getElementById('uploadStatusText');
-        const uploadProgressText = document.getElementById('uploadProgressText');
-        const uploadStatus = document.getElementById('uploadStatus');
         
         // Dashboard Elements
         const logoutBtn = document.getElementById('logoutBtn');
@@ -1043,18 +853,19 @@
         const downloadRegistrationBtn = document.getElementById('downloadRegistrationBtn');
         const generatePdfsBtn = document.getElementById('generatePdfsBtn');
         
-        // API Configuration
+        // API Configuration - CORRECTED ENDPOINTS
         const API_BASE_URL = 'https://backend-mcn-ltd.onrender.com';
         const LOGIN_ENDPOINT = `${API_BASE_URL}/api/existing-officers/login`;
-        const UPLOAD_ENDPOINT = `${API_BASE_URL}/api/existing-officers/upload-document`;
-        const PASSPORT_ENDPOINT = `${API_BASE_URL}/api/existing-officers/passport`;
         
-        // Dashboard Endpoints
+        // ✅ CORRECTED DASHBOARD ENDPOINTS - Use the dashboard sub-endpoints
         const DASHBOARD_ENDPOINT = `${API_BASE_URL}/api/existing-officers/dashboard`;
         const DASHBOARD_PROFILE_ENDPOINT = `${API_BASE_URL}/api/existing-officers/dashboard/profile`;
         const DASHBOARD_DOCUMENTS_ENDPOINT = `${API_BASE_URL}/api/existing-officers/dashboard/documents`;
         const DASHBOARD_PDFS_ENDPOINT = `${API_BASE_URL}/api/existing-officers/dashboard/pdfs`;
         const DASHBOARD_GENERATE_PDFS_ENDPOINT = `${API_BASE_URL}/api/existing-officers/dashboard/generate-pdfs`;
+        
+        // ✅ CORRECT PASSPORT ENDPOINT
+        const PASSPORT_ENDPOINT = `${API_BASE_URL}/api/existing-officers/passport`;
         
         // Check if already logged in
         const sessionOfficerId = sessionStorage.getItem('existing_officer_id');
@@ -1065,7 +876,6 @@
                 console.log('✅ Valid session found, showing dashboard');
                 showDashboard();
                 fetchAllDashboardData(sessionOfficerId, sessionToken);
-                loadPassportPhoto(sessionOfficerId, sessionToken);
             } else {
                 console.log('❌ Invalid session token, clearing storage');
                 sessionStorage.clear();
@@ -1104,7 +914,6 @@
             const parts = token.split('.');
             if (parts.length !== 3) {
                 console.error('❌ Token does not have 3 parts:', parts.length);
-                console.error('Token:', token.substring(0, 50) + '...');
                 return false;
             }
             
@@ -1166,45 +975,64 @@
             dashboardPage.style.display = 'block';
         }
         
-        // ✅ Load Passport Photo Function
-        async function loadPassportPhoto(officerId, token) {
-            try {
-                console.log(`📸 Loading passport photo for officer: ${officerId}`);
-                
-                const response = await fetch(`${PASSPORT_ENDPOINT}/${officerId}`, {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'Accept': 'application/json'
-                    }
-                });
-                
-                if (response.ok) {
-                    const data = await response.json();
-                    console.log('📸 Passport response:', data);
-                    
-                    if (data.passport_url) {
-                        // Show passport photo
-                        passportPhoto.src = data.passport_url;
-                        passportPhoto.style.display = 'block';
-                        noPassportMessage.style.display = 'none';
-                        passportContainer.style.background = '#e8f5e9';
-                        console.log('✅ Passport photo loaded');
-                    } else {
-                        // No passport photo
-                        passportPhoto.style.display = 'none';
-                        noPassportMessage.textContent = 'Passport photo not uploaded';
-                        noPassportMessage.style.display = 'block';
-                        passportContainer.style.background = '#f8f9fa';
-                        console.log('⚠️ No passport photo available');
-                    }
-                } else {
-                    console.warn('⚠️ Could not fetch passport photo:', response.status);
-                }
-            } catch (error) {
-                console.error('❌ Error loading passport photo:', error);
+     // Update the loadPassportPhoto function:
+async function loadPassportPhoto(officerId, token) {
+    try {
+        console.log(`📸 Loading passport photo for officer: ${officerId}`);
+        
+        const response = await fetch(`${PASSPORT_ENDPOINT}/${officerId}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Accept': 'application/json'
             }
+        });
+        
+        console.log(`📸 Passport response status: ${response.status}`);
+        
+        if (response.ok) {
+            const data = await response.json();
+            console.log('📸 Passport response:', data);
+            
+            if (data.passport_url) {
+                // Show passport photo
+                passportPhoto.src = data.passport_url;
+                passportPhoto.style.display = 'block';
+                noPassportMessage.style.display = 'none';
+                passportContainer.style.background = '#e8f5e9';
+                console.log('✅ Passport photo loaded');
+            } else {
+                // No passport photo
+                passportPhoto.style.display = 'none';
+                noPassportMessage.textContent = data.message || 'Passport photo not uploaded';
+                noPassportMessage.style.display = 'block';
+                passportContainer.style.background = '#f8f9fa';
+                console.log('⚠️ No passport photo available');
+            }
+        } else {
+            console.warn(`⚠️ Could not fetch passport photo: ${response.status}`);
+            
+            // Try to get error details
+            try {
+                const errorData = await response.json();
+                console.warn('Passport endpoint error:', errorData);
+            } catch (e) {
+                // Ignore if response is not JSON
+            }
+            
+            passportPhoto.style.display = 'none';
+            noPassportMessage.textContent = 'Passport photo not available';
+            noPassportMessage.style.display = 'block';
         }
+    } catch (error) {
+        console.error('❌ Error loading passport photo:', error);
+        passportPhoto.style.display = 'none';
+        noPassportMessage.textContent = 'Error loading passport photo';
+        noPassportMessage.style.display = 'block';
+    }
+}
+
+// PDF generation error handling is implemented inside the generatePdfsBtn click handler below.
         
         // Handle login
         loginBtn.addEventListener('click', async function() {
@@ -1263,7 +1091,6 @@
                     
                     showDashboard();
                     await fetchAllDashboardData(officerId, data.access_token);
-                    await loadPassportPhoto(officerId, data.access_token);
                     showAlert(dashboardAlert, 'Login successful!', 'success');
                 } else {
                     console.error('❌ Login failed:', data.detail);
@@ -1297,73 +1124,35 @@
                     return null;
                 }
                 
-                // Try main dashboard endpoint first
-                console.log('🔄 Attempting main dashboard endpoint...');
-                const dashboardResponse = await fetch(DASHBOARD_ENDPOINT, {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    }
+                // Try separate endpoints (the dashboard sub-endpoints work)
+                console.log('🔄 Fetching separate dashboard endpoints...');
+                
+                const [profileData, documentsData, pdfsData] = await Promise.all([
+                    fetchDashboardEndpoint('profile', token),
+                    fetchDashboardEndpoint('documents', token),
+                    fetchDashboardEndpoint('pdfs', token)
+                ]);
+                
+                console.log('📊 Combined data from separate endpoints:', {
+                    profile: profileData,
+                    documents: documentsData,
+                    pdfs: pdfsData
                 });
                 
-                console.log(`📡 Main dashboard response status: ${dashboardResponse.status}`);
+                // Merge all data
+                const combinedData = {
+                    ...(profileData || {}),
+                    ...(documentsData || {}),
+                    ...(pdfsData || {})
+                };
                 
-                if (dashboardResponse.ok) {
-                    const data = await dashboardResponse.json();
-                    console.log("✅ MAIN Dashboard data received:", data);
-                    updateDashboard(data);
-                    return data;
-                } else if (dashboardResponse.status === 403) {
-                    console.log('⚠️ Main dashboard returned 403, trying separate endpoints...');
-                    
-                    // Try separate endpoints
-                    const [profileData, documentsData, pdfsData] = await Promise.all([
-                        fetchDashboardEndpoint('profile', token),
-                        fetchDashboardEndpoint('documents', token),
-                        fetchDashboardEndpoint('pdfs', token)
-                    ]);
-                    
-                    console.log('📊 Combined data from separate endpoints:', {
-                        profile: profileData,
-                        documents: documentsData,
-                        pdfs: pdfsData
-                    });
-                    
-                    // Merge all data
-                    const combinedData = {
-                        ...(profileData || {}),
-                        ...(documentsData || {}),
-                        ...(pdfsData || {})
-                    };
-                    
-                    console.log('✅ Combined dashboard data:', combinedData);
-                    updateDashboard(combinedData);
-                    return combinedData;
-                } else {
-                    const errorData = await dashboardResponse.json();
-                    console.error("❌ Dashboard API Error:", errorData);
-                    
-                    if (dashboardResponse.status === 401) {
-                        if (errorData.detail && errorData.detail.includes('Not enough segments')) {
-                            console.error('🔴 JWT TOKEN ERROR: Token is malformed');
-                            showAlert(dashboardAlert, 'Authentication error: Invalid token format. Please login again.', 'error');
-                        } else if (errorData.detail && errorData.detail.includes('expired')) {
-                            console.error('🔴 JWT TOKEN ERROR: Token expired');
-                            showAlert(dashboardAlert, 'Session expired. Please login again.', 'error');
-                        } else {
-                            showAlert(dashboardAlert, `Authentication error: ${errorData.detail || 'Unauthorized'}`, 'error');
-                        }
-                        sessionStorage.clear();
-                        setTimeout(() => showLogin(), 2000);
-                    } else {
-                        showAlert(dashboardAlert, `Dashboard Error: ${errorData.detail || 'Failed to fetch dashboard data'}`, 'error');
-                    }
-                    
-                    clearDashboardData();
-                    throw new Error(errorData.detail || 'Failed to fetch dashboard data');
-                }
+                console.log('✅ Combined dashboard data:', combinedData);
+                updateDashboard(combinedData);
+                
+                // Load passport photo
+                await loadPassportPhoto(officerId, token);
+                
+                return combinedData;
                 
             } catch (error) {
                 console.error('❌ Error fetching dashboard:', error);
@@ -1398,12 +1187,16 @@
                     }
                 });
                 
+                console.log(`📡 ${endpoint} response status: ${response.status}`);
+                
                 if (response.ok) {
                     const data = await response.json();
                     console.log(`✅ ${endpoint} data received:`, data);
                     return data;
                 } else {
                     console.warn(`⚠️ ${endpoint} endpoint returned ${response.status}`);
+                    const errorData = await response.json().catch(() => ({}));
+                    console.error(`❌ ${endpoint} error:`, errorData);
                     return null;
                 }
             } catch (error) {
@@ -1442,11 +1235,6 @@
             documentsStatus.className = 'card-status status-incomplete';
             documentCompletion.textContent = '0%';
             
-            // Upload status
-            uploadStatus.textContent = 'Error';
-            uploadStatus.className = 'card-status status-incomplete';
-            uploadProgressText.textContent = '0/2 files';
-            
             // Account status
             accountStatus.textContent = 'Error';
             accountStatus.className = 'card-status status-incomplete';
@@ -1473,7 +1261,7 @@
         
         // Update dashboard with data
         function updateDashboard(data) {
-            console.log("=== FULL DASHBOARD DATA ===");
+            console.log("=== DASHBOARD DATA ===");
             console.log(JSON.stringify(data, null, 2));
             console.log("=== END DASHBOARD DATA ===");
             
@@ -1494,7 +1282,6 @@
             profileAddress.textContent = data.residential_address || data.address || 'N/A';
             
             updateDocumentStatus(data);
-            updateUploadStatus(data);
             updateAccountStatus(data);
             updatePdfStatus(data);
         }
@@ -1503,8 +1290,8 @@
         function updateDocumentStatus(data) {
             console.log("📊 Updating document status with data:", data);
             
-            const passportUploaded = data.passport_uploaded || data.passport_upload_status === 'uploaded';
-            const pdfUploaded = data.consolidated_pdf_uploaded || data.consolidated_pdf_upload_status === 'uploaded';
+            const passportUploaded = data.passport_uploaded || false;
+            const pdfUploaded = data.consolidated_pdf_uploaded || false;
             
             const documents = [
                 { 
@@ -1573,163 +1360,6 @@
             console.log(`📊 Document summary: ${requiredUploaded}/${requiredCount} required uploaded (${completionPercent}%)`);
         }
         
-        // Update upload status
-        function updateUploadStatus(data) {
-            const passportUploaded = data.passport_uploaded || data.passport_upload_status === 'uploaded';
-            const pdfUploaded = data.consolidated_pdf_uploaded || data.consolidated_pdf_upload_status === 'uploaded';
-            
-            const totalUploaded = (passportUploaded ? 1 : 0) + (pdfUploaded ? 1 : 0);
-            uploadProgressText.textContent = `${totalUploaded}/2 files`;
-            
-            if (totalUploaded === 2) {
-                uploadStatus.textContent = 'Complete';
-                uploadStatus.className = 'card-status status-approved';
-            } else if (totalUploaded === 1) {
-                uploadStatus.textContent = 'Partial';
-                uploadStatus.className = 'card-status status-pending';
-            } else {
-                uploadStatus.textContent = 'Pending';
-                uploadStatus.className = 'card-status status-pending';
-            }
-            
-            if (passportUploaded) {
-                passportUpload.placeholder = "Passport already uploaded";
-            }
-            if (pdfUploaded) {
-                documentsPdfUpload.placeholder = "Consolidated PDF already uploaded";
-            }
-        }
-        
-        // Handle passport upload
-        uploadPassportBtn.addEventListener('click', async function() {
-            const file = passportUpload.files[0];
-            if (!file) {
-                showAlert(dashboardAlert, 'Please select a passport photo file', 'error');
-                return;
-            }
-            
-            const validTypes = ['image/jpeg', 'image/jpg', 'image/png'];
-            if (!validTypes.includes(file.type)) {
-                showAlert(dashboardAlert, 'Only JPG and PNG files are allowed for passport', 'error');
-                return;
-            }
-            
-            if (file.size > 2 * 1024 * 1024) {
-                showAlert(dashboardAlert, 'Passport photo must be less than 2MB', 'error');
-                return;
-            }
-            
-            await uploadFile(file, 'passport');
-        });
-        
-        // Handle PDF upload
-        uploadPdfBtn.addEventListener('click', async function() {
-            const file = documentsPdfUpload.files[0];
-            if (!file) {
-                showAlert(dashboardAlert, 'Please select a PDF file', 'error');
-                return;
-            }
-            
-            if (file.type !== 'application/pdf') {
-                showAlert(dashboardAlert, 'Only PDF files are allowed', 'error');
-                return;
-            }
-            
-            if (file.size > 10 * 1024 * 1024) {
-                showAlert(dashboardAlert, 'PDF must be less than 10MB', 'error');
-                return;
-            }
-            
-            await uploadFile(file, 'consolidated_pdf');
-        });
-        
-        // Upload file function
-        async function uploadFile(file, documentType) {
-            const token = sessionStorage.getItem('existing_officer_token');
-            if (!token) {
-                showAlert(dashboardAlert, 'Please login first', 'error');
-                return;
-            }
-            
-            const officerId = sessionStorage.getItem('existing_officer_id');
-            if (!officerId) {
-                showAlert(dashboardAlert, 'Officer ID not found in session', 'error');
-                return;
-            }
-            
-            const formData = new FormData();
-            formData.append('file', file);
-            formData.append('document_type', documentType);
-            formData.append('officer_id', officerId);
-            
-            try {
-                uploadProgress.style.display = 'block';
-                uploadStatusText.textContent = `Uploading ${documentType === 'passport' ? 'Passport Photo' : 'Consolidated PDF'}...`;
-                progressFill.style.width = '0%';
-                
-                const uploadBtn = documentType === 'passport' ? uploadPassportBtn : uploadPdfBtn;
-                uploadBtn.disabled = true;
-                uploadBtn.textContent = 'Uploading...';
-                
-                const progressInterval = setInterval(() => {
-                    const currentWidth = parseInt(progressFill.style.width) || 0;
-                    if (currentWidth < 90) {
-                        progressFill.style.width = (currentWidth + 10) + '%';
-                    }
-                }, 200);
-                
-                console.log(`📤 Uploading ${documentType} for officer ${officerId}`);
-                
-                const response = await fetch(UPLOAD_ENDPOINT, {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    },
-                    body: formData
-                });
-                
-                clearInterval(progressInterval);
-                progressFill.style.width = '100%';
-                
-                console.log(`📤 Upload response status: ${response.status}`);
-                
-                const data = await response.json();
-                console.log(`📤 Upload response data:`, data);
-                
-                if (response.ok) {
-                    uploadStatusText.textContent = 'Upload successful!';
-                    showAlert(dashboardAlert, data.message || 'File uploaded successfully', 'success');
-                    
-                    // Reload passport photo if it was uploaded
-                    if (documentType === 'passport') {
-                        await loadPassportPhoto(officerId, token);
-                    }
-                    
-                    // Refresh dashboard data
-                    setTimeout(() => {
-                        fetchAllDashboardData(officerId, token);
-                    }, 1000);
-                } else {
-                    uploadStatusText.textContent = 'Upload failed';
-                    showAlert(dashboardAlert, data.detail || 'Upload failed', 'error');
-                }
-                
-            } catch (error) {
-                console.error('Upload error:', error);
-                uploadStatusText.textContent = 'Upload failed';
-                showAlert(dashboardAlert, 'Upload failed. Please try again.', 'error');
-            } finally {
-                setTimeout(() => {
-                    uploadProgress.style.display = 'none';
-                    progressFill.style.width = '0%';
-                }, 2000);
-                
-                const uploadBtn = documentType === 'passport' ? uploadPassportBtn : uploadPdfBtn;
-                uploadBtn.disabled = false;
-                uploadBtn.textContent = documentType === 'passport' ? 'Upload Passport' : 'Upload Consolidated PDF';
-            }
-        }
-        
         // Update account status
         function updateAccountStatus(data) {
             const isVerified = data.is_verified || data.verification_status === 'verified' || data.status === 'verified' || data.status === 'approved';
@@ -1795,10 +1425,6 @@
                 pdfStatus.className = 'card-status status-pending';
             }
             
-            // Enable/disable download buttons
-            downloadTermsBtn.disabled = !hasTerms;
-            downloadRegistrationBtn.disabled = !hasRegistration;
-            
             // Set up download button handlers
             if (hasTerms) {
                 // Try different possible path formats
@@ -1807,17 +1433,17 @@
                                (pdf_status.terms_and_conditions && pdf_status.terms_and_conditions.file_path);
                 
                 if (termsPath) {
-                    // Extract filename from path
-                    const termsFilename = termsPath.split('/').pop();
-                    const termsUrl = `${API_BASE_URL}/download/pdf/${termsFilename}`;
-                    
                     downloadTermsBtn.onclick = () => {
-                        console.log(`📥 Downloading Terms PDF: ${termsUrl}`);
-                        window.open(termsUrl, '_blank');
+                        console.log(`📥 Downloading Terms PDF: ${termsPath}`);
+                        window.open(termsPath, '_blank');
                     };
+                    downloadTermsBtn.disabled = false;
                     downloadTermsBtn.classList.remove('btn-disabled');
                     downloadTermsBtn.classList.add('btn-primary');
                 }
+            } else {
+                downloadTermsBtn.disabled = true;
+                downloadTermsBtn.classList.add('btn-disabled');
             }
             
             if (hasRegistration) {
@@ -1827,21 +1453,21 @@
                              (pdf_status.registration_form && pdf_status.registration_form.file_path);
                 
                 if (regPath) {
-                    // Extract filename from path
-                    const regFilename = regPath.split('/').pop();
-                    const regUrl = `${API_BASE_URL}/download/pdf/${regFilename}`;
-                    
                     downloadRegistrationBtn.onclick = () => {
-                        console.log(`📥 Downloading Registration PDF: ${regUrl}`);
-                        window.open(regUrl, '_blank');
+                        console.log(`📥 Downloading Registration PDF: ${regPath}`);
+                        window.open(regPath, '_blank');
                     };
+                    downloadRegistrationBtn.disabled = false;
                     downloadRegistrationBtn.classList.remove('btn-disabled');
                     downloadRegistrationBtn.classList.add('btn-primary');
                 }
+            } else {
+                downloadRegistrationBtn.disabled = true;
+                downloadRegistrationBtn.classList.add('btn-disabled');
             }
         }
         
-        // Generate PDFs
+        // Generate PDFs from dashboard
         generatePdfsBtn.addEventListener('click', async function() {
             const officerId = sessionStorage.getItem('existing_officer_id');
             const token = sessionStorage.getItem('existing_officer_token');
@@ -1851,37 +1477,9 @@
                 return;
             }
             
-            // First check if all documents are uploaded
-            try {
-                showLoading();
-                
-                // Check documents status
-                const documentsResponse = await fetch(DASHBOARD_DOCUMENTS_ENDPOINT, {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'Content-Type': 'application/json'
-                    }
-                });
-                
-                if (documentsResponse.ok) {
-                    const documentsData = await documentsResponse.json();
-                    
-                    if (!documentsData.passport_uploaded || !documentsData.consolidated_pdf_uploaded) {
-                        hideLoading();
-                        showAlert(dashboardAlert, 'Please upload all required documents before generating PDFs', 'error');
-                        return;
-                    }
-                }
-            } catch (error) {
-                console.error('Error checking documents:', error);
-                hideLoading();
-                showAlert(dashboardAlert, 'Failed to check document status', 'error');
-                return;
-            }
-            
-            if (confirm('Regenerate PDF documents? This will create and send PDFs to your registered email. This may take a few moments.')) {
+            if (confirm('Regenerate PDF documents? This will create and send new PDFs to your registered email. This may take a few moments.')) {
                 try {
+                    showLoading();
                     generatePdfsBtn.disabled = true;
                     generatePdfsBtn.textContent = 'Generating...';
                     
@@ -1958,7 +1556,7 @@
         console.log('📸 Passport photo display enabled');
         console.log('📊 System: 2-Upload (Passport + Consolidated PDF only)');
         console.log('🚀 Frontend ready for Render backend connection');
-        console.log('🔄 Multi-endpoint fallback strategy enabled');
+        console.log('🔄 Using separate dashboard endpoints strategy');
     });
     </script>
 </body>

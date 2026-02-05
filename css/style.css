@@ -74,7 +74,9 @@ a:focus {
 }
 
 .logo_box img {
-  width: 125%;
+  width: auto;
+  max-height: 60px;
+  display: block;
 }
 .rc-number {
   position: absolute;

@@ -15,6 +15,7 @@
         body {
             background: #f5f7fa;
             color: #333;
+            min-height: 100vh;
         }
 
         /* Header Styles */
@@ -22,19 +23,25 @@
             background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
             color: white;
             padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            min-height: 80px;
+        }
+
         .header-left {
             display: flex;
             align-items: center;
             gap: 20px;
+            flex: 1;
         }
 
         .logo {
@@ -53,10 +60,52 @@
             opacity: 0.9;
         }
 
+        .header-center {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1001;
+        }
+
+        .passport-wrapper {
+            width: 120px;
+            height: 140px;
+            border: 3px solid white;
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-passport-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        .header-passport-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background: #e9ecef;
+            color: #666;
+            font-size: 12px;
+            text-align: center;
+        }
+
         .header-right {
             display: flex;
             align-items: center;
             gap: 20px;
+            flex: 1;
+            justify-content: flex-end;
         }
 
         .officer-info {
@@ -95,6 +144,7 @@
             max-width: 1200px;
             margin: 30px auto;
             padding: 0 20px;
+            width: 100%;
         }
 
         /* Welcome Banner */
@@ -220,12 +270,15 @@
             font-weight: 600;
             color: #555;
             font-size: 14px;
+            flex: 1;
         }
 
         .info-value {
             text-align: right;
             color: #2c3e50;
             font-weight: 500;
+            flex: 1;
+            padding-left: 10px;
         }
 
         .info-value.verified {
@@ -262,6 +315,7 @@
             align-items: center;
             gap: 10px;
             font-weight: 500;
+            flex: 1;
         }
 
         .document-status {
@@ -269,6 +323,7 @@
             padding: 3px 10px;
             border-radius: 12px;
             font-weight: 600;
+            white-space: nowrap;
         }
 
         .required-badge {
@@ -279,14 +334,16 @@
             font-size: 10px;
             font-weight: 600;
             margin-left: 5px;
+            white-space: nowrap;
         }
 
         /* Alert Styles */
         .alert {
-            padding: 20px;
+            padding: 15px 20px;
             border-radius: 10px;
             margin-bottom: 25px;
             display: none;
+            font-size: 14px;
         }
 
         .alert-success {
@@ -354,6 +411,7 @@
             background: white;
             border-radius: 15px;
             box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            width: 90%;
         }
 
         .login-header {
@@ -364,10 +422,12 @@
         .login-header h1 {
             color: #d32f2f;
             margin-bottom: 10px;
+            font-size: 28px;
         }
 
         .login-header p {
             color: #666;
+            font-size: 16px;
         }
 
         .form-group {
@@ -379,6 +439,7 @@
             margin-bottom: 8px;
             font-weight: 600;
             color: #333;
+            font-size: 14px;
         }
 
         .form-group input {
@@ -435,6 +496,8 @@
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s;
+            font-size: 14px;
+            white-space: nowrap;
         }
 
         .btn-primary {
@@ -463,7 +526,7 @@
             cursor: not-allowed;
         }
 
-        /* Passport Photo Container - UPDATED STYLING */
+        /* Passport Photo Container */
         .passport-container {
             text-align: center;
             margin-bottom: 20px;
@@ -471,7 +534,6 @@
             background: #f8f9fa;
             border-radius: 10px;
             border: 1px solid #e1e5eb;
-            position: relative;
             width: 100%;
             min-height: 200px;
             display: flex;
@@ -486,8 +548,8 @@
             object-fit: cover;
             border-radius: 8px;
             border: 2px solid #ddd;
-            margin: 0 auto 10px;
-            display: none; /* Hidden by default */
+            margin-bottom: 10px;
+            display: none;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
@@ -505,58 +567,6 @@
             background: #e9ecef;
             border-radius: 8px;
             border: 2px dashed #adb5bd;
-        }
-
-        .passport-placeholder i {
-            font-size: 40px;
-            color: #999;
-            margin-bottom: 10px;
-        }
-
-        .passport-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(26, 35, 126, 0.8);
-            color: white;
-            padding: 5px;
-            font-size: 11px;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        /* Dashboard passport positioning - NEW */
-        .dashboard-header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
-
-        .dashboard-header-center {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 20px;
-            z-index: 1001;
-        }
-
-        .passport-wrapper {
-            width: 120px;
-            height: 140px;
-            border: 3px solid white;
-            border-radius: 8px;
-            overflow: hidden;
-            background: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .header-passport-photo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: none; /* Hidden by default */
         }
 
         .passport-label {
@@ -612,7 +622,7 @@
 
         /* Passport loading animation */
         .passport-loading {
-            display: flex;
+            display: none;
             flex-direction: column;
             align-items: center;
             justify-content: center;
@@ -629,48 +639,132 @@
             margin-bottom: 10px;
         }
 
-        /* Responsive Design */
+        /* Responsive Design - IMPROVED */
+        @media (max-width: 1024px) {
+            .header-center {
+                position: relative;
+                left: 0;
+                top: 0;
+                transform: none;
+                margin: 15px auto;
+                order: 3;
+                width: 100%;
+            }
+            
+            .passport-wrapper {
+                margin: 0 auto;
+            }
+        }
+
         @media (max-width: 768px) {
             .dashboard-header {
-                padding: 15px 20px;
+                padding: 15px;
+            }
+
+            .header-top {
                 flex-direction: column;
                 gap: 15px;
                 text-align: center;
             }
 
-            .header-left, .header-right {
+            .header-left {
+                flex-direction: column;
                 width: 100%;
-                justify-content: center;
+                text-align: center;
             }
 
-            .dashboard-header-center {
+            .header-title h1 {
+                font-size: 20px;
+            }
+
+            .header-title p {
+                font-size: 12px;
+            }
+
+            .header-center {
                 position: relative;
                 left: 0;
+                top: 0;
                 transform: none;
                 margin: 15px 0;
                 order: 2;
-                width: 100%;
             }
 
-            .passport-wrapper {
-                margin: 0 auto;
+            .header-right {
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                gap: 10px;
             }
 
             .officer-info {
                 text-align: center;
+                width: 100%;
+            }
+
+            .logout-btn {
+                width: 100%;
+                max-width: 200px;
             }
 
             .dashboard-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .dashboard-card {
+                padding: 20px;
+            }
+
+            .card-title {
+                font-size: 16px;
+            }
+
+            .welcome-banner {
+                padding: 20px;
             }
 
             .welcome-banner h2 {
-                font-size: 24px;
+                font-size: 22px;
+            }
+
+            .welcome-banner p {
+                font-size: 14px;
             }
 
             .login-container {
-                margin: 50px 20px;
-                padding: 30px 20px;
+                margin: 50px auto;
+                padding: 25px 20px;
+            }
+
+            .login-header h1 {
+                font-size: 24px;
+            }
+
+            .info-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+
+            .info-value {
+                text-align: left;
+                padding-left: 0;
+                width: 100%;
+            }
+
+            .document-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .document-name {
+                width: 100%;
+            }
+
+            .document-status {
+                align-self: flex-start;
             }
 
             .passport-photo, .passport-placeholder {
@@ -681,17 +775,32 @@
 
         @media (max-width: 480px) {
             .dashboard-header {
-                padding: 10px 15px;
+                padding: 10px;
             }
-            
+
+            .logo {
+                height: 50px;
+            }
+
             .passport-wrapper {
                 width: 100px;
                 height: 120px;
             }
-            
+
             .passport-photo, .passport-placeholder {
                 width: 100px;
                 height: 130px;
+            }
+
+            .action-btn {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+
+            .card-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
             }
         }
     </style>
@@ -745,7 +854,7 @@
     <div id="dashboardPage" style="display: none;">
         <!-- Header -->
         <header class="dashboard-header">
-            <div class="dashboard-header-top">
+            <div class="header-top">
                 <div class="header-left">
                     <img src="images/logo.png" alt="Marshal Core of Nigeria Logo" class="logo">
                     <div class="header-title">
@@ -754,11 +863,11 @@
                     </div>
                 </div>
                 
-                <div class="dashboard-header-center">
+                <div class="header-center">
                     <div class="passport-wrapper">
                         <img id="headerPassportPhoto" class="header-passport-photo" src="" alt="Passport Photo">
-                        <div id="headerNoPassport" class="passport-placeholder" style="display: flex;">
-                            <div>No Photo</div>
+                        <div id="headerNoPassport" class="header-passport-placeholder">
+                            No Photo
                         </div>
                     </div>
                 </div>
@@ -825,12 +934,11 @@
                     
                     <!-- Passport Photo Display -->
                     <div class="passport-container" id="passportContainer">
-                        <div class="passport-loading" id="passportLoading" style="display: flex;">
+                        <div class="passport-loading" id="passportLoading">
                             <div class="passport-spinner"></div>
                             <div>Loading passport photo...</div>
                         </div>
-                        <img id="passportPhoto" class="passport-photo" src="" alt="Passport Photo" 
-                             onerror="this.style.display='none'; document.getElementById('noPassportMessage').style.display='flex';">
+                        <img id="passportPhoto" class="passport-photo" src="" alt="Passport Photo">
                         <div id="noPassportMessage" class="passport-placeholder" style="display: none;">
                             <div>No Passport Photo</div>
                             <small>Not uploaded yet</small>
@@ -934,11 +1042,11 @@
                         <span class="info-value verified" id="registrationPdfStatus">✓ Available</span>
                     </div>
                     
-                    <div style="margin-top: 20px; display: flex; gap: 10px;">
-                        <button id="downloadTermsBtn" class="action-btn btn-primary" style="flex: 1;">
+                    <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+                        <button id="downloadTermsBtn" class="action-btn btn-primary" style="flex: 1; min-width: 150px;">
                             Download Terms PDF
                         </button>
-                        <button id="downloadRegistrationBtn" class="action-btn btn-primary" style="flex: 1;">
+                        <button id="downloadRegistrationBtn" class="action-btn btn-primary" style="flex: 1; min-width: 150px;">
                             Download Registration PDF
                         </button>
                     </div>
@@ -1035,8 +1143,9 @@
         const DASHBOARD_PDFS_ENDPOINT = `${API_BASE_URL}/api/existing-officers/dashboard/pdfs`;
         const DASHBOARD_GENERATE_PDFS_ENDPOINT = `${API_BASE_URL}/api/existing-officers/dashboard/generate-pdfs`;
         
-        // Passport Endpoint
-        const PASSPORT_ENDPOINT = `${API_BASE_URL}/api/existing-officers/passport`;
+        // Passport Endpoint - FIXED: Need correct endpoint
+        // From logs, this endpoint doesn't exist or is incorrect
+        const PASSPORT_ENDPOINT = `${API_BASE_URL}/api/existing-officers/dashboard/passport`;
         
         // Check if already logged in
         const sessionOfficerId = sessionStorage.getItem('existing_officer_id');
@@ -1146,76 +1255,77 @@
             dashboardPage.style.display = 'block';
         }
         
-        // Load passport photo with caching and fallbacks
-        async function loadPassportPhoto(officerId, token) {
-            try {
-                console.log(`📸 Loading passport photo for officer: ${officerId}`);
-                
-                // Show loading state
-                passportLoading.style.display = 'flex';
-                passportPhoto.style.display = 'none';
-                noPassportMessage.style.display = 'none';
-                headerPassportPhoto.style.display = 'none';
-                headerNoPassport.style.display = 'flex';
-                
-                const response = await fetch(`${PASSPORT_ENDPOINT}/${officerId}`, {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'Accept': 'application/json',
-                        'Cache-Control': 'no-cache'
-                    }
-                });
-                
-                console.log(`📸 Passport response status: ${response.status}`);
-                
-                if (response.ok) {
-                    const data = await response.json();
-                    console.log('📸 Passport response:', data);
-                    
-                    if (data.passport_url) {
-                        // Set up both passport images with cache busting
-                        const timestamp = new Date().getTime();
-                        const passportUrl = `${data.passport_url}?t=${timestamp}`;
-                        
-                        // Preload the image
-                        const img = new Image();
-                        img.onload = function() {
-                            // Main passport photo
-                            passportPhoto.src = passportUrl;
-                            passportPhoto.style.display = 'block';
-                            passportLoading.style.display = 'none';
-                            noPassportMessage.style.display = 'none';
-                            
-                            // Header passport photo
-                            headerPassportPhoto.src = passportUrl;
-                            headerPassportPhoto.style.display = 'block';
-                            headerNoPassport.style.display = 'none';
-                            
-                            passportLabel.textContent = 'Passport Photo';
-                            passportLabel.style.color = '#4caf50';
-                            
-                            console.log('✅ Passport photo loaded successfully');
-                        };
-                        
-                        img.onerror = function() {
-                            console.warn('❌ Failed to load passport image');
-                            showNoPassport();
-                        };
-                        
-                        img.src = passportUrl;
-                    } else {
-                        showNoPassport(data.message);
-                    }
-                } else {
-                    console.warn(`⚠️ Could not fetch passport photo: ${response.status}`);
-                    showNoPassport('Passport photo not available');
-                }
-            } catch (error) {
-                console.error('❌ Error loading passport photo:', error);
-                showNoPassport('Error loading passport photo');
+async function loadPassportPhoto(officerId, token) {
+    try {
+        console.log(`📸 Loading passport photo for officer: ${officerId}`);
+        
+        // Show loading state
+        passportLoading.style.display = 'flex';
+        passportPhoto.style.display = 'none';
+        noPassportMessage.style.display = 'none';
+        headerPassportPhoto.style.display = 'none';
+        headerNoPassport.style.display = 'flex';
+        
+        // ✅ Use the dashboard passport endpoint (no officer_id in URL)
+        const response = await fetch(`${PASSPORT_ENDPOINT}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Accept': 'application/json',
+                'Cache-Control': 'no-cache'
             }
+        });
+        
+        console.log(`📸 Passport response status: ${response.status}`);
+        
+        if (response.ok) {
+            const data = await response.json();
+            console.log('📸 Passport response:', data);
+            
+            if (data.passport_url) {
+                // Set up both passport images with cache busting
+                const timestamp = new Date().getTime();
+                const passportUrl = `${data.passport_url}?t=${timestamp}`;
+                
+                // Preload the image
+                const img = new Image();
+                img.onload = function() {
+                    // Main passport photo
+                    passportPhoto.src = passportUrl;
+                    passportPhoto.style.display = 'block';
+                    passportLoading.style.display = 'none';
+                    noPassportMessage.style.display = 'none';
+                    
+                    // Header passport photo
+                    headerPassportPhoto.src = passportUrl;
+                    headerPassportPhoto.style.display = 'block';
+                    headerNoPassport.style.display = 'none';
+                    
+                    passportLabel.textContent = 'Passport Photo';
+                    passportLabel.style.color = '#4caf50';
+                    
+                    console.log('✅ Passport photo loaded successfully');
+                };
+                
+                img.onerror = function() {
+                    console.warn('❌ Failed to load passport image');
+                    showNoPassport('Failed to load image');
+                };
+                
+                img.src = passportUrl;
+            } else {
+                showNoPassport(data.message || 'Passport photo not uploaded');
+            }
+        } else {
+            console.warn(`⚠️ Could not fetch passport photo: ${response.status}`);
+            showNoPassport('Passport photo not available');
         }
+        
+    } catch (error) {
+        console.error('❌ Error loading passport photo:', error);
+        showNoPassport('Error loading passport photo');
+    }
+}
         
         function showNoPassport(message = 'Passport photo not uploaded') {
             passportLoading.style.display = 'none';
@@ -1274,6 +1384,9 @@
                 if (response.ok && data.access_token) {
                     if (!validateJWTToken(data.access_token)) {
                         showAlert(loginAlert, 'Invalid token received from server. Please try again.', 'error');
+                        loginBtn.disabled = false;
+                        loginBtn.textContent = 'Login to Dashboard';
+                        hideLoading();
                         return;
                     }
                     
@@ -1687,7 +1800,10 @@
                             'Authorization': `Bearer ${token}`,
                             'Content-Type': 'application/json',
                             'Accept': 'application/json'
-                        }
+                        },
+                        body: JSON.stringify({
+                            officer_id: officerId
+                        })
                     });
                     
                     console.log('📄 PDF generation response status:', response.status);
@@ -1707,10 +1823,10 @@
                         try {
                             const errorData = await response.json();
                             console.error('❌ PDF generation failed:', errorData);
-                            showAlert(dashboardAlert, errorData.detail || 'Failed to generate PDFs', 'error');
+                            showAlert(dashboardAlert, errorData.detail || 'Failed to generate PDFs. Please contact support.', 'error');
                         } catch (parseError) {
                             console.error('❌ Could not parse error response:', parseError);
-                            showAlert(dashboardAlert, `Failed to generate PDFs (Status: ${response.status})`, 'error');
+                            showAlert(dashboardAlert, `Failed to generate PDFs (Status: ${response.status}). Please try again later.`, 'error');
                         }
                     }
                     

@@ -321,35 +321,11 @@
       font-weight: 600;
     }
 
-    .fee-list {
-      margin: 15px 0;
-    }
-
-    .fee-item {
-      display: flex;
-      justify-content: space-between;
-      padding: 10px 0;
-      border-bottom: 1px dashed #ddd;
-    }
-
-    .fee-item:last-child {
-      border-bottom: none;
-    }
-
-    .fee-name {
-      color: #333;
-      font-weight: 500;
-    }
-
-    .fee-amount {
-      color: var(--primary-red);
-      font-weight: 600;
-    }
-
-    .category-select-container {
+    /* Category Cards */
+    .category-cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 25px;
       margin: 30px 0;
     }
 
@@ -357,7 +333,7 @@
       background: white;
       border: 2px solid #e0e0e0;
       border-radius: 12px;
-      padding: 25px;
+      padding: 30px;
       transition: all 0.3s ease;
       cursor: pointer;
       text-align: center;
@@ -381,7 +357,7 @@
     }
 
     .category-title {
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: var(--primary-navy);
       margin-bottom: 10px;
@@ -391,103 +367,7 @@
       color: #666;
       font-size: 0.95rem;
       line-height: 1.5;
-    }
-
-    /* Tier Cards */
-    .tier-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 25px;
-      margin: 30px 0;
-    }
-
-    .tier-card {
-      background: white;
-      border: 2px solid #e0e0e0;
-      border-radius: 12px;
-      padding: 30px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .tier-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--secondary-blue);
-      box-shadow: 0 10px 30px rgba(37, 74, 147, 0.15);
-    }
-
-    .tier-card.selected {
-      border-color: var(--primary-red);
-      background: linear-gradient(135deg, #fff5f5 0%, #ffeaea 100%);
-    }
-
-    .tier-card.selected::before {
-      content: '✓ Selected';
-      position: absolute;
-      top: -12px;
-      right: 20px;
-      background: var(--primary-red);
-      color: white;
-      padding: 5px 15px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      z-index: 2;
-    }
-
-    .tier-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       margin-bottom: 20px;
-      padding-bottom: 15px;
-      border-bottom: 2px solid #eee;
-    }
-
-    .tier-name {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--primary-navy);
-    }
-
-    .tier-price {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--primary-red);
-    }
-
-    .tier-price span {
-      font-size: 1rem;
-      color: #666;
-    }
-
-    .benefits-list {
-      list-style: none;
-      margin: 20px 0;
-      padding: 0;
-    }
-
-    .benefits-list li {
-      padding: 10px 0;
-      border-bottom: 1px solid #f0f0f0;
-      display: flex;
-      align-items: flex-start;
-      color: #555;
-    }
-
-    .benefits-list li::before {
-      content: '✓';
-      color: var(--primary-red);
-      font-weight: bold;
-      margin-right: 10px;
-      flex-shrink: 0;
-      font-size: 1.1rem;
-    }
-
-    .benefits-list li:last-child {
-      border-bottom: none;
     }
 
     /* Buttons */
@@ -712,7 +592,7 @@
 
     /* Terms & Conditions */
     .terms-container {
-      max-height: 300px;
+      max-height: 400px;
       overflow-y: auto;
       padding: 20px;
       background: #f9f9f9;
@@ -848,6 +728,50 @@
       margin-bottom: 15px;
     }
 
+    /* Continue Application Box */
+    .continue-box {
+      background: #e8f5e9;
+      border-radius: 10px;
+      padding: 25px;
+      margin: 25px 0;
+      border-left: 4px solid #4CAF50;
+      text-align: center;
+    }
+
+    .continue-box h4 {
+      color: #2e7d32;
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+
+    .continue-status {
+      background: #f5f5f5;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 15px 0;
+      text-align: left;
+    }
+
+    .status-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px dashed #ddd;
+    }
+
+    .status-item:last-child {
+      border-bottom: none;
+    }
+
+    .status-label {
+      color: #666;
+    }
+
+    .status-value {
+      color: #333;
+      font-weight: 500;
+    }
+
     /* Loader */
     .loader-overlay {
       display: none;
@@ -963,11 +887,7 @@
         margin: 10px;
       }
 
-      .tier-cards {
-        grid-template-columns: 1fr;
-      }
-
-      .category-select-container {
+      .category-cards {
         grid-template-columns: 1fr;
       }
 
@@ -1012,20 +932,12 @@
         font-size: 1.6rem;
       }
 
-      .tier-card {
-        padding: 20px;
-      }
-
-      .tier-name {
-        font-size: 1.2rem;
-      }
-
-      .tier-price {
-        font-size: 1.6rem;
-      }
-
       .category-card {
         padding: 20px;
+      }
+
+      .category-title {
+        font-size: 1.2rem;
       }
     }
 
@@ -1036,6 +948,14 @@
     .mt-20 { margin-top: 20px; }
     .mt-30 { margin-top: 30px; }
     .hidden { display: none !important; }
+    .optional-badge {
+      background: #e3f2fd;
+      color: #1565c0;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      margin-left: 8px;
+    }
   </style>
 </head>
 <body>
@@ -1094,301 +1014,246 @@
       <div class="progress-steps">
         <div class="progress-bar" id="progressBar"></div>
         <div class="step active" data-step="0">
-          <div class="step-circle">0</div>
-          <div class="step-label">Requirements</div>
+          <div class="step-circle">1</div>
+          <div class="step-label">Terms & Conditions</div>
         </div>
         <div class="step" data-step="1">
-          <div class="step-circle">1</div>
-          <div class="step-label">Pre-Register</div>
-        </div>
-        <div class="step" data-step="2">
           <div class="step-circle">2</div>
           <div class="step-label">Select Category</div>
         </div>
-        <div class="step" data-step="3">
+        <div class="step" data-step="2">
           <div class="step-circle">3</div>
-          <div class="step-label">Payment Gateway</div>
+          <div class="step-label">Check Status</div>
+        </div>
+        <div class="step" data-step="3">
+          <div class="step-circle">4</div>
+          <div class="step-label">Payment</div>
         </div>
         <div class="step" data-step="4">
-          <div class="step-circle">4</div>
-          <div class="step-label">Verify Password</div>
-        </div>
-        <div class="step" data-step="5">
           <div class="step-circle">5</div>
-          <div class="step-label">Application Form</div>
+          <div class="step-label">Application</div>
         </div>
       </div>
     </div>
 
-    <!-- NEW: Section 0: Requirements Page -->
-    <div class="section-container active" id="section0">
+    <!-- Section 1: Terms & Conditions (FIRST PAGE) -->
+    <div class="section-container active" id="section1">
       <div class="card">
-        <h2>📋 Requirements for Joining Marshal Core of Nigeria</h2>
+        <h2>📋 Terms & Conditions</h2>
         <p class="card-description">
-          Before proceeding with your application, please carefully review all requirements and fees.
-          Ensure you meet the necessary criteria for your selected category.
+          Please read and accept the Terms & Conditions before proceeding with your application.
         </p>
         
-        <div class="requirements-category">
-          <h4>GENERAL REQUIREMENTS</h4>
-          <ul class="requirements-list">
-            <li><strong>Age Requirements:</strong>
-              <ul style="margin-left: 20px; margin-top: 5px;">
-                <li>Regular Officers: 18 years and above</li>
-                <li>Marshal Cadets: 14-17 years</li>
-                <li>VIP Officers: 25 years and above</li>
-              </ul>
-            </li>
-            <li>Must be medically and physically fit</li>
-            <li>Must be psychologically fit to train</li>
-            <li>Must speak English and any two additional languages (e.g., Hausa, Yoruba, Igbo, French)</li>
-            <li>Must have a guarantor who can vouch for you</li>
-            <li>Must have a valid NIN (National Identification Number) except Marshal Core Cadets</li>
-          </ul>
-        </div>
-        
-        <div class="requirements-category">
-          <h4>FORM FEES</h4>
-          <div class="fee-list">
-            <div class="fee-item">
-              <span class="fee-name">Marshal Core Cadets Cadre:</span>
-              <span class="fee-amount">₦1,500</span>
-            </div>
-            <div class="fee-item">
-              <span class="fee-description">(One thousand five hundred naira only) - Buy from our office or through schools, churches etc only</span>
-            </div>
-            <div class="fee-item">
-              <span class="fee-name">Regular Cadre:</span>
-              <span class="fee-amount">₦5,180</span>
-            </div>
-            <div class="fee-item">
-              <span class="fee-description">(Five Thousand One Hundred Naira) - Online form only</span>
-            </div>
-            <div class="fee-item">
-              <span class="fee-name">VIP Cadre:</span>
-              <span class="fee-amount">₦25,900</span>
-            </div>
-            <div class="fee-item">
-              <span class="fee-description">(Twenty-Five Thousand Nine Hundred Naira) - Online form only</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="requirements-category">
-          <h4>UNIFORM AND RECRUITMENT FEES</h4>
-          <div class="fee-list">
-            <div class="fee-item">
-              <span class="fee-name">Marshal Core Cadets:</span>
-              <span class="fee-amount">₦45,000</span>
-            </div>
-            <div class="fee-item">
-              <span class="fee-description">For complete uniform only (Marshal shall assist cadets with Boot, G-belt, name tags and ID card)</span>
-            </div>
-            <div class="fee-item">
-              <span class="fee-name">Regular Cadre:</span>
-              <span class="fee-amount">₦95,000</span>
-            </div>
-            <div class="fee-item">
-              <span class="fee-description">(Ninety-Five Thousand Naira) - For complete uniform, ID card, Beret, G-belt and name tags (excluding boots)</span>
-            </div>
-            <div class="fee-item">
-              <span class="fee-name">VIP Cadre:</span>
-              <span class="fee-amount">₦200,000</span>
-            </div>
-            <div class="fee-item">
-              <span class="fee-description">(Two Hundred Thousand Naira) - For complete uniform, ID card, Beret, G-belt, name tags and boots</span>
-            </div>
-          </div>
-          <p><strong>Note:</strong> The recruitment fees can be paid in installments.</p>
-        </div>
-        
-        <div class="requirements-category">
-          <h4>SELECT YOUR CATEGORY</h4>
-          <p class="mb-20">Please select the category you are applying for:</p>
-          
-          <div class="category-select-container">
-            <div class="category-card" id="regularCategory" onclick="selectCategory('regular')">
-              <div class="category-icon">👮</div>
-              <div class="category-title">Regular Cadre</div>
-              <div class="category-description">
-                For individuals aged 18+ seeking employment, skill acquisition, and career development in security services.
-              </div>
-              <div class="mt-20">
-                <div class="fee-amount">Form Fee: ₦5,180</div>
-                <div class="fee-amount">Uniform Fee: ₦95,000</div>
-              </div>
-              <button type="button" class="btn btn-primary mt-20" onclick="selectCategory('regular')">
-                Select Regular Cadre
-              </button>
-            </div>
+        <div class="terms-container">
+          <div class="terms-content">
+            <h4>MARSHAL CORE OF NIGERIA - TERMS OF SERVICE</h4>
+            <p>This is a legally binding agreement between Marshal Core of Nigeria (hereinafter referred to as "the Organization") and the Applicant/Officer.</p>
             
-            <div class="category-card" id="vipCategory" onclick="selectCategory('vip')">
-              <div class="category-icon">💼</div>
-              <div class="category-title">VIP Cadre</div>
-              <div class="category-description">
-                For executives aged 25+ seeking security association status, tech career pathway, and business protection services.
-              </div>
-              <div class="mt-20">
-                <div class="fee-amount">Form Fee: ₦25,900</div>
-                <div class="fee-amount">Uniform Fee: ₦200,000</div>
-              </div>
-              <button type="button" class="btn btn-primary mt-20" onclick="selectCategory('vip')">
-                Select VIP Cadre
-              </button>
-            </div>
+            <h4>GENERAL REQUIREMENTS</h4>
+            <ul>
+              <li><strong>Age Requirements:</strong>
+                <ul>
+                  <li>Regular Officers: 18 years and above</li>
+                  <li>Marshal Cadets: 14-17 years</li>
+                  <li>VIP Officers: 25 years and above</li>
+                </ul>
+              </li>
+              <li>Must be medically and physically fit</li>
+              <li>Must be psychologically fit to train</li>
+              <li>Must speak English and any two additional languages</li>
+              <li>Must have a guarantor who can vouch for you</li>
+              <li>NIN is recommended but optional for initial application</li>
+            </ul>
+            
+            <h4>APPLICATION FEES</h4>
+            <ul>
+              <li>Regular Cadre: ₦5,180 (Online form only)</li>
+              <li>VIP Cadre: ₦25,900 (Online form only)</li>
+            </ul>
+            
+            <h4>UNIFORM AND TRAINING FEES</h4>
+            <p><em>Note: These fees can be paid in installments and will be communicated separately after application approval.</em></p>
+            <ul>
+              <li>Regular Cadre: ₦95,000 (Complete uniform package)</li>
+              <li>VIP Cadre: ₦200,000 (Complete uniform package with additional benefits)</li>
+            </ul>
+            
+            <h4>IMPORTANT NOTES</h4>
+            <ul>
+              <li>Application fee is non-refundable</li>
+              <li>All payments are processed securely</li>
+              <li>Organization reserves the right to reject any application</li>
+              <li>False information will lead to disqualification</li>
+              <li>By proceeding, you agree to all terms and conditions</li>
+            </ul>
           </div>
-          
-          <div class="checkbox-container mt-30">
-            <input type="checkbox" id="agreeRequirements" required>
-            <label for="agreeRequirements">
-              I have read and understood all requirements for joining Marshal Core of Nigeria. 
-              I confirm that I meet the necessary criteria for my selected category and agree to proceed with the application process.
-            </label>
-          </div>
+        </div>
+        
+        <div class="scroll-indicator" id="termsScrollIndicator">
+          Please scroll to the bottom to read and accept all terms
+        </div>
+        
+        <div class="checkbox-container">
+          <input type="checkbox" id="agreeTerms" required>
+          <label for="agreeTerms">
+            I have read, understood, and agree to all Terms & Conditions of Marshal Core of Nigeria. 
+            I confirm that I meet the necessary requirements for application.
+          </label>
         </div>
         
         <div class="action-buttons">
           <button type="button" class="btn btn-secondary" onclick="window.location.href='index.html'">
             ← Back to Home
           </button>
-          <button type="button" class="btn btn-primary" id="proceedToApplicationBtn" onclick="proceedToApplication()">
-            I Agree & Proceed to Application →
+          <button type="button" class="btn btn-primary" id="proceedToCategoryBtn" onclick="proceedToCategory()">
+            I Agree & Select Category →
           </button>
         </div>
       </div>
     </div>
 
-    <!-- Section 1: Pre-Registration -->
-    <div class="section-container" id="section1">
-      <div class="card">
-        <h2>👋 Welcome to Marshal Core Of Nigeria</h2>
-        <p class="card-description">
-          Begin your journey to becoming a certified security professional. 
-          Fill in your basic details to start the application process.
-        </p>
-        
-        <form id="preRegisterForm">
-          <div class="form-group">
-            <label for="fullName">Full Name *</label>
-            <input type="text" id="fullName" class="form-control" placeholder="Enter your full name" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="email">Email Address *</label>
-            <input type="email" id="email" class="form-control" placeholder="Enter your email address" required>
-            <small class="file-info">This email will be used for all communications</small>
-            <div id="emailValidationRow" style="margin-top:8px;display:flex;gap:8px;align-items:center;">
-              <small id="emailCheckMsg" style="flex:1;color:#666;display:block;">We will validate your email before proceeding.</small>
-              <button type="button" id="sendVerificationBtn" class="btn btn-outline-secondary" disabled>Send verification</button>
-            </div>
-
-            <div id="verificationSection" style="margin-top:8px;display:none;">
-              <input type="text" id="verificationCode" class="form-control" placeholder="Enter verification code" style="display:inline-block; width:60%; margin-right:8px;" />
-              <button type="button" id="confirmVerificationBtn" class="btn btn-primary">Confirm code</button>
-              <button type="button" id="resendVerificationBtn" class="btn btn-link" style="margin-left:8px;">Resend</button>
-            </div>
-          </div>
-          
-          <div class="action-buttons">
-            <button type="button" class="btn btn-secondary" onclick="goToSection(0)">
-              ← Back to Requirements
-            </button>
-            <button type="submit" class="btn btn-primary btn-lg">
-              Continue to Pathway Selection →
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-
-    <!-- Section 2: Pathway Selection -->
+    <!-- Section 2: Category Selection (SECOND PAGE) -->
     <div class="section-container" id="section2">
       <div class="card">
-        <h2>🎯 Select Your Pathway</h2>
+        <h2>🎯 Select Your Category</h2>
         <p class="card-description">
-          Choose the pathway that aligns with your career goals and aspirations.
-          Both pathways offer comprehensive training and certification.
+          Choose the category that best fits your goals and aspirations. 
+          Detailed information about fees and benefits will be provided after selection.
         </p>
         
-        <div class="tier-cards">
-          <!-- Regular Pathway -->
-          <div class="tier-card" id="regularTier" onclick="selectTier('regular')">
-            <div class="tier-header">
-              <div class="tier-name">Regular Officer Pathway</div>
-              <div class="tier-price">₦5,180</div>
+        <div class="category-cards">
+          <!-- Regular Category -->
+          <div class="category-card" id="regularCategory" onclick="selectCategory('regular')">
+            <div class="category-icon">👮</div>
+            <div class="category-title">Regular Cadre</div>
+            <div class="category-description">
+              For individuals aged 18+ seeking employment, skill acquisition, 
+              career development in security services, and comprehensive training.
             </div>
-            
-            <h3>Core Benefits</h3>
-            <ul class="benefits-list">
-              <li>3-month comprehensive recruitment training</li>
-              <li>Job placement opportunities nationwide</li>
-              <li>Skill development programs & certifications</li>
-              <li>Monthly stipends during training period</li>
-              <li>Armed forces preparation & discipline</li>
-              <li>ICT Knowledge & Basic Tech Skills</li>
-              <li>Professional networking opportunities</li>
-              <li>Career advancement support</li>
-            </ul>
-            
-            <button type="button" class="btn btn-primary btn-full" onclick="selectTier('regular')">
-              Select Regular Pathway
+            <div class="mt-20">
+              <p><strong>Suitable For:</strong> Job seekers, fresh graduates, career changers</p>
+              <p><strong>Training:</strong> 3-month comprehensive program</p>
+              <p><strong>Benefits:</strong> Job placement, skill development, career support</p>
+            </div>
+            <button type="button" class="btn btn-primary mt-20" onclick="selectCategory('regular')">
+              Select Regular Cadre
             </button>
           </div>
           
-          <!-- VIP Pathway -->
-          <div class="tier-card" id="vipTier" onclick="selectTier('vip')">
-            <div class="tier-header">
-              <div class="tier-name">VIP Security Pathway</div>
-              <div class="tier-price">₦25,900</div>
+          <!-- VIP Category -->
+          <div class="category-card" id="vipCategory" onclick="selectCategory('vip')">
+            <div class="category-icon">💼</div>
+            <div class="category-title">VIP Cadre</div>
+            <div class="category-description">
+              For executives aged 25+ seeking security association status, 
+              tech career pathway, business protection, and advanced training.
             </div>
-            
-            <h3>Premium Benefits</h3>
-            <ul class="benefits-list">
-              <li>Official security association status</li>
-              <li>Full Tech Career Pathway (SXTM Training)</li>
-              <li>Organizational backing & legal protection</li>
-              <li>Executive networking with professionals</li>
-              <li>Advanced security awareness training</li>
-              <li>Priority support & consultation services</li>
-              <li>Business protection services</li>
-              <li>Advanced ICT & Cybersecurity education</li>
-              <li>Personal development & executive training</li>
-            </ul>
-            
-            <button type="button" class="btn btn-primary btn-full" onclick="selectTier('vip')">
-              Select VIP Pathway
+            <div class="mt-20">
+              <p><strong>Suitable For:</strong> Executives, business owners, professionals</p>
+              <p><strong>Training:</strong> Advanced security & tech programs</p>
+              <p><strong>Benefits:</strong> Tech career pathway, networking, business protection</p>
+            </div>
+            <button type="button" class="btn btn-primary mt-20" onclick="selectCategory('vip')">
+              Select VIP Cadre
             </button>
           </div>
         </div>
         
         <div class="action-buttons">
           <button type="button" class="btn btn-secondary" onclick="goToSection(1)">
-            ← Back
+            ← Back to Terms
           </button>
-          <button type="button" class="btn btn-primary" id="proceedToPaymentBtn" onclick="proceedToPayment()">
-            Proceed to Payment →
+          <button type="button" class="btn btn-primary" id="proceedToCheckBtn" onclick="proceedToCheckStatus()">
+            Proceed to Check Status →
           </button>
         </div>
       </div>
     </div>
 
-    <!-- Section 3: Payment -->
+    <!-- Section 3: Check Status / Continue Application -->
     <div class="section-container" id="section3">
       <div class="card">
-        <h2>💳 Payment Details</h2>
+        <h2>🔍 Check Your Application Status</h2>
         <p class="card-description">
-          Complete your payment securely using Paystack. All transactions are encrypted and secure.
+          Enter your details to check if you have an existing application. 
+          If you've started before, you can continue from where you left off.
+        </p>
+        
+        <form id="checkStatusForm">
+          <div class="form-group">
+            <label for="checkFullName">Full Name *</label>
+            <input type="text" id="checkFullName" class="form-control" placeholder="Enter your full name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="checkEmail">Email Address *</label>
+            <input type="email" id="checkEmail" class="form-control" placeholder="Enter your email address" required>
+            <small class="file-info">We'll check if you have an existing application</small>
+          </div>
+          
+          <div id="continueApplicationBox" class="continue-box" style="display: none;">
+            <h4>📋 Existing Application Found!</h4>
+            <div class="continue-status">
+              <div class="status-item">
+                <span class="status-label">Application Status:</span>
+                <span class="status-value" id="appStatus">Not Available</span>
+              </div>
+              <div class="status-item">
+                <span class="status-label">Current Stage:</span>
+                <span class="status-value" id="currentStage">Not Available</span>
+              </div>
+              <div class="status-item">
+                <span class="status-label">Last Updated:</span>
+                <span class="status-value" id="lastUpdated">Not Available</span>
+              </div>
+              <div class="status-item">
+                <span class="status-label">Password Status:</span>
+                <span class="status-value" id="passwordStatus">Not Available</span>
+              </div>
+            </div>
+            <p class="mb-20">Click "Continue Application" to resume from where you left off.</p>
+            <button type="button" class="btn btn-success btn-lg" id="continueAppBtn" onclick="continueApplication()">
+              Continue Application →
+            </button>
+          </div>
+          
+          <div id="startNewBox" class="continue-box" style="display: none; background: #e3f2fd; border-left-color: #2196f3;">
+            <h4>🎉 Start New Application</h4>
+            <p>No existing application found. You can start a new application process.</p>
+            <button type="button" class="btn btn-primary btn-lg" onclick="startNewApplication()">
+              Start New Application →
+            </button>
+          </div>
+          
+          <div class="action-buttons">
+            <button type="button" class="btn btn-secondary" onclick="goToSection(2)">
+              ← Change Category
+            </button>
+            <button type="submit" class="btn btn-primary" id="checkStatusBtn">
+              Check Application Status
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Section 4: Payment -->
+    <div class="section-container" id="section4">
+      <div class="card">
+        <h2>💳 Complete Payment</h2>
+        <p class="card-description">
+          Secure payment for your application fee. After payment, you'll receive a password to continue.
         </p>
         
         <div class="payment-summary mb-30">
           <h3>Payment Summary</h3>
           <div class="form-group">
-            <label>Selected Pathway</label>
-            <input type="text" class="form-control" id="selectedPathway" readonly>
+            <label>Selected Category</label>
+            <input type="text" class="form-control" id="paymentCategory" readonly>
           </div>
           
           <div class="form-group">
-            <label>Amount to Pay</label>
+            <label>Application Fee</label>
             <div class="payment-amount" id="paymentAmount">₦0</div>
           </div>
           
@@ -1400,13 +1265,14 @@
         
         <div class="terms-container">
           <div class="terms-content">
-            <h4>Payment Terms & Conditions</h4>
+            <h4>Payment Information</h4>
             <ul>
-              <li>All payments are processed securely through Paystack</li>
-              <li>Application fee is non-refundable once processed</li>
-              <li>Payment confirms your intent to join Marshal Core Nigeria</li>
-              <li>Receipt will be sent to your email automatically</li>
-              <li>For payment issues, contact support@marshalcoreofnigeria.ng</li>
+              <li>This is the application fee only</li>
+              <li>Uniform and training fees are separate and payable in installments</li>
+              <li>Payment is processed securely via Paystack</li>
+              <li>Application fee is non-refundable</li>
+              <li>Receipt will be sent to your email</li>
+              <li>After payment, you'll receive a password to complete your application</li>
             </ul>
           </div>
         </div>
@@ -1414,13 +1280,13 @@
         <div class="checkbox-container mb-30">
           <input type="checkbox" id="agreePayment" required>
           <label for="agreePayment">
-            I agree to the payment terms and authorize Marshal Core Nigeria to process my payment.
+            I agree to proceed with the payment and understand this is for the application fee only.
           </label>
         </div>
         
         <div class="action-buttons">
-          <button type="button" class="btn btn-secondary" onclick="goToSection(2)">
-            ← Change Pathway
+          <button type="button" class="btn btn-secondary" onclick="goToSection(3)">
+            ← Back
           </button>
           <button type="button" class="btn btn-primary btn-lg" id="payNowBtn" onclick="initiatePayment()">
             Pay Now with Paystack
@@ -1434,24 +1300,24 @@
       </div>
     </div>
 
-    <!-- Section 4: Password Verification -->
-    <div class="section-container" id="section4">
+    <!-- Section 5: Password Entry (for existing users) -->
+    <div class="section-container" id="section5">
       <div class="card">
-        <h2>🔐 Verify Your Identity</h2>
+        <h2>🔐 Enter Your Password</h2>
         <p class="card-description">
-          A password has been sent to your email. Enter it below to proceed with your application.
+          Enter the password sent to your email to continue with your application.
         </p>
         
         <form id="passwordForm">
           <div class="form-group">
-            <label for="verifyEmail">Email Address</label>
-            <input type="email" id="verifyEmail" class="form-control" readonly>
+            <label for="passwordEmail">Email Address</label>
+            <input type="email" id="passwordEmail" class="form-control" readonly>
           </div>
           
           <div class="form-group">
             <label for="password">Application Password *</label>
             <input type="password" id="password" class="form-control" placeholder="Enter the password sent to your email" required>
-            <small class="file-info">Password is valid for 7 days • One-time use only</small>
+            <small class="file-info">Password is valid for 7 days • Check your email</small>
           </div>
           
           <div class="form-group">
@@ -1461,7 +1327,7 @@
           </div>
           
           <div class="action-buttons">
-            <button type="button" class="btn btn-secondary" onclick="goToSection(3)">
+            <button type="button" class="btn btn-secondary" onclick="goToSection(4)">
               ← Back to Payment
             </button>
             <button type="submit" class="btn btn-primary">
@@ -1472,13 +1338,12 @@
       </div>
     </div>
 
-    <!-- Section 5: Application Form -->
-    <div class="section-container" id="section5">
+    <!-- Section 6: Application Form -->
+    <div class="section-container" id="section6">
       <div class="card">
         <h2>📝 Complete Your Application</h2>
         <p class="card-description">
-          Fill in all required details and upload necessary documents. 
-          Your passport photo will appear on all generated PDFs.
+          Fill in all required details. Passport photo is required. NIN details are optional.
         </p>
         
         <form id="applicationForm" enctype="multipart/form-data">
@@ -1486,6 +1351,7 @@
           <input type="hidden" id="applicationPassword" name="application_password">
           <input type="hidden" id="applicationEmail" name="email">
           <input type="hidden" id="applicationTier" name="application_tier">
+          <input type="hidden" id="preApplicantId" name="pre_applicant_id">
           
           <!-- Section A: Basic Information -->
           <h3>Section A: Basic Information</h3>
@@ -1501,8 +1367,9 @@
             </div>
             
             <div class="form-group">
-              <label for="ninNumber">NIN Number *</label>
-              <input type="text" id="ninNumber" name="nin_number" class="form-control" required>
+              <label for="ninNumber">NIN Number <span class="optional-badge">Optional</span></label>
+              <input type="text" id="ninNumber" name="nin_number" class="form-control" placeholder="Enter your NIN (optional)">
+              <small class="file-info">National Identification Number (optional for initial application)</small>
             </div>
             
             <div class="form-group">
@@ -1535,22 +1402,22 @@
             <div class="file-upload" id="passportUpload">
               <div class="upload-icon">📷</div>
               <p>Click to upload or drag and drop</p>
-              <p class="file-info">JPG or PNG, max 2MB • Required for PDF generation</p>
+              <p class="file-info">JPG or PNG, max 2MB • Required for ID card</p>
               <input type="file" id="passportPhoto" name="passport_photo" class="file-input" accept="image/jpeg,image/png" required>
               <label for="passportPhoto" class="file-label">Choose Passport Photo</label>
             </div>
             <div class="file-preview" id="passportPreview"></div>
           </div>
           
-          <!-- NIN Slip Upload -->
+          <!-- NIN Slip Upload (Optional) -->
           <div class="form-group">
-            <label>NIN Slip *</label>
+            <label>NIN Slip <span class="optional-badge">Optional</span></label>
             <div class="file-upload" id="ninUpload">
               <div class="upload-icon">📄</div>
               <p>Click to upload or drag and drop</p>
-              <p class="file-info">PDF, JPG or PNG, max 5MB</p>
-              <input type="file" id="ninSlip" name="nin_slip" class="file-input" accept=".pdf,image/jpeg,image/png" required>
-              <label for="ninSlip" class="file-label">Choose NIN Slip</label>
+              <p class="file-info">PDF, JPG or PNG, max 5MB • Optional for initial application</p>
+              <input type="file" id="ninSlip" name="nin_slip" class="file-input" accept=".pdf,image/jpeg,image/png">
+              <label for="ninSlip" class="file-label">Choose NIN Slip (Optional)</label>
             </div>
             <div class="file-preview" id="ninPreview"></div>
           </div>
@@ -1591,7 +1458,7 @@
           
           <!-- Submit Button -->
           <div class="action-buttons">
-            <button type="button" class="btn btn-secondary" onclick="goToSection(4)">
+            <button type="button" class="btn btn-secondary" onclick="goToSection(5)">
               ← Back
             </button>
             <button type="submit" class="btn btn-primary btn-lg">
@@ -1602,14 +1469,13 @@
       </div>
     </div>
 
-    <!-- Section 6: Success Screen -->
-    <div class="section-container" id="section6">
+    <!-- Section 7: Success Screen -->
+    <div class="section-container" id="section7">
       <div class="card success-screen">
         <div class="success-icon">✓</div>
         <h1 class="success-title">Application Submitted Successfully!</h1>
         <p class="success-message">
-          Your application has been processed. Your passport photo and logo have been embedded in the generated PDFs.
-          Check your email for the documents or download them below.
+          Your application has been processed. Check your email for the documents or download them below.
         </p>
         
         <div class="download-links">
@@ -1654,15 +1520,11 @@
         Email: info@marshalcoreofnigeria.ng<br>
         Phone: +234 9137 428 031
       </p>
-      <!-- footer section -->
-<section class="container-fluid footer_section">
-  <p>
-    Copyright ©️ 2025<br>
-    All right reserved by <strong>MARSHAL CORE OF NIGERIA</strong><br>
-    <span style="font-size: 0.9em;">powered by <strong>MARSHAL BOARD COMMITTEE</strong></span>
-  </p>
-</section>
-<!-- footer section -->
+      <div class="copyright">
+        Copyright &copy; 2025 All Rights Reserved By<br>
+        Marshal Core of Nigeria<br>
+        powered by MARSHAL BOARD COMMITTEE
+      </div>
     </div>
   </section>
 
@@ -1683,12 +1545,13 @@
     let userData = {
       fullName: '',
       email: '',
-      tier: '',
+      category: '',
       amount: 0,
       paymentReference: '',
       preApplicantId: '',
       applicantId: '',
-      password: ''
+      password: '',
+      applicationStatus: null
     };
 
     // Initialize when page loads
@@ -1700,12 +1563,14 @@
       setupEventListeners();
       setupFileUploads();
       setupPrivacyScroll();
+      setupTermsScroll();
       
       // Test backend connection
       testBackendConnection();
       
-      // Disable proceed button initially on requirements page
-      document.getElementById('proceedToApplicationBtn').disabled = true;
+      // Disable proceed button initially on terms page
+      document.getElementById('proceedToCategoryBtn').disabled = true;
+      document.getElementById('proceedToCheckBtn').disabled = true;
     });
 
     async function testBackendConnection() {
@@ -1722,125 +1587,29 @@
 
     function initializeApp() {
       // Initialize the progress bar
-      updateProgressBar(0);
+      updateProgressBar(1);
       
       // Check for payment callback parameters
       handlePaymentCallback();
-      
-      // Disable proceed buttons initially
-      document.getElementById('proceedToPaymentBtn').disabled = true;
     }
 
     function setupEventListeners() {
-      // Requirements checkbox
-      const agreeRequirements = document.getElementById('agreeRequirements');
-      const proceedToApplicationBtn = document.getElementById('proceedToApplicationBtn');
+      // Terms checkbox
+      const agreeTerms = document.getElementById('agreeTerms');
+      const proceedToCategoryBtn = document.getElementById('proceedToCategoryBtn');
       
-      if (agreeRequirements && proceedToApplicationBtn) {
-        agreeRequirements.addEventListener('change', function() {
-          proceedToApplicationBtn.disabled = !this.checked;
+      if (agreeTerms && proceedToCategoryBtn) {
+        agreeTerms.addEventListener('change', function() {
+          proceedToCategoryBtn.disabled = !this.checked;
         });
       }
 
-      // Pre-registration form
-      const preRegisterForm = document.getElementById('preRegisterForm');
-      const emailInput = document.getElementById('email');
-      const sendVerificationBtn = document.getElementById('sendVerificationBtn');
-      const confirmVerificationBtn = document.getElementById('confirmVerificationBtn');
-      const resendVerificationBtn = document.getElementById('resendVerificationBtn');
-
-      if (preRegisterForm) {
-        preRegisterForm.addEventListener('submit', function(e) {
+      // Check status form
+      const checkStatusForm = document.getElementById('checkStatusForm');
+      if (checkStatusForm) {
+        checkStatusForm.addEventListener('submit', function(e) {
           e.preventDefault();
-          handlePreRegistration();
-        });
-      }
-
-      // Email input: check on blur and after typing pause
-      if (emailInput) {
-        let emailTimer = null;
-        emailInput.addEventListener('input', function() {
-          document.getElementById('emailCheckMsg').textContent = 'Typing...';
-          document.getElementById('sendVerificationBtn').disabled = true;
-          userData.emailVerified = false;
-          if (emailTimer) clearTimeout(emailTimer);
-          emailTimer = setTimeout(async () => {
-            const email = emailInput.value.trim().toLowerCase();
-            if (!validateEmail(email)) {
-              document.getElementById('emailCheckMsg').textContent = 'Invalid email format';
-              return;
-            }
-            document.getElementById('emailCheckMsg').textContent = 'Checking email...';
-            const res = await checkEmail(email);
-            if (!res.ok || (res.body && res.body.valid === false)) {
-              document.getElementById('emailCheckMsg').textContent = res.body.reason || 'Email not accepted';
-              document.getElementById('sendVerificationBtn').disabled = true;
-            } else {
-              document.getElementById('emailCheckMsg').textContent = 'Email looks good. You can send a verification code.';
-              document.getElementById('sendVerificationBtn').disabled = false;
-            }
-          }, 700);
-        });
-
-        emailInput.addEventListener('blur', async function() {
-          const email = emailInput.value.trim().toLowerCase();
-          if (!validateEmail(email)) return;
-          const res = await checkEmail(email);
-          if (!res.ok || (res.body && res.body.valid === false)) {
-            document.getElementById('emailCheckMsg').textContent = res.body.reason || 'Email not accepted';
-            document.getElementById('sendVerificationBtn').disabled = true;
-          } else {
-            document.getElementById('emailCheckMsg').textContent = 'Email looks good. You can send a verification code.';
-            document.getElementById('sendVerificationBtn').disabled = false;
-          }
-        });
-      }
-
-      // Send verification
-      if (sendVerificationBtn) {
-        sendVerificationBtn.addEventListener('click', async function() {
-          const email = (document.getElementById('email').value || '').trim().toLowerCase();
-          if (!validateEmail(email)) { showStatus('Enter a valid email first', 'error'); return; }
-          sendVerificationBtn.disabled = true;
-          document.getElementById('emailCheckMsg').textContent = 'Sending verification code...';
-          const res = await sendVerification(email);
-          if (!res.ok) {
-            document.getElementById('emailCheckMsg').textContent = res.body || 'Failed to send code';
-            sendVerificationBtn.disabled = false;
-            return;
-          }
-          document.getElementById('emailCheckMsg').textContent = 'Verification code sent. Check your email.';
-          document.getElementById('verificationSection').style.display = 'block';
-        });
-      }
-
-      // Confirm verification
-      if (confirmVerificationBtn) {
-        confirmVerificationBtn.addEventListener('click', async function() {
-          const code = (document.getElementById('verificationCode').value || '').trim();
-          const email = (document.getElementById('email').value || '').trim().toLowerCase();
-          if (!code) { showStatus('Enter verification code', 'error'); return; }
-          document.getElementById('emailCheckMsg').textContent = 'Confirming code...';
-          const res = await confirmVerification(email, code);
-          if (!res.ok) {
-            document.getElementById('emailCheckMsg').textContent = res.body || 'Code invalid';
-            return;
-          }
-          document.getElementById('emailCheckMsg').textContent = 'Email verified ✓';
-          userData.emailVerified = true;
-          document.getElementById('verificationSection').style.display = 'none';
-        });
-      }
-
-      // Resend verification
-      if (resendVerificationBtn) {
-        resendVerificationBtn.addEventListener('click', async function() {
-          const email = (document.getElementById('email').value || '').trim().toLowerCase();
-          if (!validateEmail(email)) { showStatus('Enter a valid email first', 'error'); return; }
-          document.getElementById('emailCheckMsg').textContent = 'Resending code...';
-          const res = await sendVerification(email);
-          if (!res.ok) document.getElementById('emailCheckMsg').textContent = res.body || 'Failed to resend';
-          else document.getElementById('emailCheckMsg').textContent = 'Verification code resent. Check your email.';
+          checkApplicationStatus();
         });
       }
 
@@ -1863,36 +1632,28 @@
       }
     }
 
-    // NEW: Category Selection on Requirements Page
-    function selectCategory(category) {
-      console.log(`Selected category: ${category}`);
+    // Terms scroll check
+    function setupTermsScroll() {
+      const termsContainer = document.querySelector('.terms-container');
+      const agreeTerms = document.getElementById('agreeTerms');
+      const scrollIndicator = document.getElementById('termsScrollIndicator');
       
-      // Remove selected class from all categories
-      document.getElementById('regularCategory').classList.remove('selected');
-      document.getElementById('vipCategory').classList.remove('selected');
-      
-      // Add selected class to chosen category
-      document.getElementById(`${category}Category`).classList.add('selected');
-      
-      // Store selected category
-      userData.category = category;
-    }
-
-    function proceedToApplication() {
-      const agreeRequirements = document.getElementById('agreeRequirements');
-      
-      if (!agreeRequirements.checked) {
-        showStatus('Please agree to the requirements before proceeding', 'error');
-        return;
+      if (termsContainer && agreeTerms && scrollIndicator) {
+        termsContainer.addEventListener('scroll', function() {
+          const scrollPercentage = (this.scrollTop + this.clientHeight) / this.scrollHeight;
+          
+          if (scrollPercentage > 0.95) {
+            agreeTerms.disabled = false;
+            scrollIndicator.style.display = 'none';
+          } else {
+            agreeTerms.disabled = true;
+            scrollIndicator.style.display = 'block';
+          }
+        });
+        
+        // Initial check
+        agreeTerms.disabled = true;
       }
-      
-      if (!userData.category) {
-        showStatus('Please select a category before proceeding', 'error');
-        return;
-      }
-      
-      // Move to pre-registration section
-      goToSection(1);
     }
 
     // Progress and Navigation
@@ -1939,9 +1700,49 @@
       const progressBar = document.getElementById('progressBar');
       if (!progressBar) return;
       
-      const totalSteps = 6; // Now includes section 0
-      const progressPercentage = ((currentStep) / (totalSteps - 1)) * 100;
+      const totalSteps = 5; // Steps 0-4 (Terms, Category, Check, Payment, Application)
+      const progressPercentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
       progressBar.style.width = `${progressPercentage}%`;
+    }
+
+    // Section 1: Terms & Conditions
+    function proceedToCategory() {
+      const agreeTerms = document.getElementById('agreeTerms');
+      
+      if (!agreeTerms.checked) {
+        showStatus('Please agree to the Terms & Conditions before proceeding', 'error');
+        return;
+      }
+      
+      goToSection(2);
+    }
+
+    // Section 2: Category Selection
+    function selectCategory(category) {
+      console.log(`Selected category: ${category}`);
+      
+      // Remove selected class from all categories
+      document.getElementById('regularCategory').classList.remove('selected');
+      document.getElementById('vipCategory').classList.remove('selected');
+      
+      // Add selected class to chosen category
+      document.getElementById(`${category}Category`).classList.add('selected');
+      
+      // Store selected category and set amount
+      userData.category = category;
+      userData.amount = category === 'regular' ? 5180 : 25900;
+      
+      // Enable proceed button
+      document.getElementById('proceedToCheckBtn').disabled = false;
+    }
+
+    function proceedToCheckStatus() {
+      if (!userData.category) {
+        showStatus('Please select a category first', 'error');
+        return;
+      }
+      
+      goToSection(3);
     }
 
     // Helper function to safely read response body (JSON or text)
@@ -1955,54 +1756,10 @@
       }
     }
 
-    // Step 1: Pre-registration
-    async function checkEmail(email) {
-      try {
-        const res = await fetch(`${API_BASE_URL}/pre-applicant/check-email`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ email })
-        });
-        const body = await readBodySafely(res);
-        return { ok: res.ok, status: res.status, body };
-      } catch (e) {
-        return { ok: false, status: 0, body: 'Network error' };
-      }
-    }
-
-    async function sendVerification(email) {
-      try {
-        const res = await fetch(`${API_BASE_URL}/pre-applicant/send-verification`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ email })
-        });
-        const body = await readBodySafely(res);
-        return { ok: res.ok, status: res.status, body };
-      } catch (e) {
-        return { ok: false, status: 0, body: 'Network error' };
-      }
-    }
-
-    async function confirmVerification(email, code) {
-      try {
-        const res = await fetch(`${API_BASE_URL}/pre-applicant/confirm-verification`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ email, code })
-        });
-        const body = await readBodySafely(res);
-        return { ok: res.ok, status: res.status, body };
-      } catch (e) {
-        return { ok: false, status: 0, body: 'Network error' };
-      }
-    }
-
-    const REQUIRE_EMAIL_VERIFICATION = false; // toggle to require verification before registering
-
-    async function handlePreRegistration() {
-      const fullName = document.getElementById('fullName').value.trim();
-      const email = document.getElementById('email').value.trim().toLowerCase();
+    // Section 3: Check Application Status
+    async function checkApplicationStatus() {
+      const fullName = document.getElementById('checkFullName').value.trim();
+      const email = document.getElementById('checkEmail').value.trim().toLowerCase();
 
       if (!fullName || !email) {
         showStatus('Please fill in all required fields', 'error');
@@ -2014,79 +1771,144 @@
         return;
       }
 
-      // run backend validation (MX/disposable checks)
-      document.getElementById('emailCheckMsg').textContent = 'Checking email...';
-      const check = await checkEmail(email);
-      if (!check.ok || (check.body && check.body.valid === false)) {
-        const reason = (check.body && (check.body.reason || JSON.stringify(check.body))) || 'Email validation failed';
-        document.getElementById('emailCheckMsg').textContent = reason;
-        document.getElementById('sendVerificationBtn').disabled = true;
-        showStatus(`Email validation failed: ${reason}`, 'error');
+      showLoader('Checking your application status...');
+
+      try {
+        // First check if user exists as pre-applicant
+        const response = await fetch(`${API_BASE_URL}/pre-applicant/check-status`, {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({ 
+            email: email,
+            full_name: fullName,
+            category: userData.category
+          })
+        });
+
+        const contentType = response.headers.get('content-type') || '';
+        if (!response.ok) {
+          const body = await readBodySafely(response);
+          
+          // If user doesn't exist, show start new option
+          if (response.status === 404) {
+            hideLoader();
+            userData.fullName = fullName;
+            userData.email = email;
+            
+            document.getElementById('continueApplicationBox').style.display = 'none';
+            document.getElementById('startNewBox').style.display = 'block';
+            return;
+          }
+          
+          throw new Error(typeof body === 'object' ? (body.detail || JSON.stringify(body)) : body);
+        }
+
+        // Parse successful response
+        const data = await readBodySafely(response);
+        console.log('Application status response:', data);
+
+        // Store user data
+        userData = { 
+          ...userData, 
+          fullName, 
+          email,
+          preApplicantId: data.pre_applicant_id || data.id,
+          applicationStatus: data.status,
+          category: data.tier || userData.category
+        };
+
+        hideLoader();
+        
+        // Update status display
+        document.getElementById('appStatus').textContent = data.status || 'Active';
+        document.getElementById('currentStage').textContent = data.current_stage || 'Pre-registration';
+        document.getElementById('lastUpdated').textContent = data.last_updated || 'Today';
+        document.getElementById('passwordStatus').textContent = data.password_sent ? 'Sent ✓' : 'Not Sent';
+        
+        // Show continue box
+        document.getElementById('continueApplicationBox').style.display = 'block';
+        document.getElementById('startNewBox').style.display = 'none';
+
+      } catch (error) {
+        hideLoader();
+        console.error('Status check error:', error);
+        showStatus(`Error checking status: ${error.message}`, 'error');
+      }
+    }
+
+    function continueApplication() {
+      if (!userData.preApplicantId) {
+        showStatus('No application found to continue', 'error');
         return;
       }
 
-      // email passes checks
-      document.getElementById('emailCheckMsg').textContent = 'Email looks good. You can send a verification code.';
-      document.getElementById('sendVerificationBtn').disabled = false;
-
-      if (REQUIRE_EMAIL_VERIFICATION && !userData.emailVerified) {
-        showStatus('Please verify your email before proceeding', 'error');
-        return;
+      // Check the current status and route accordingly
+      switch(userData.applicationStatus) {
+        case 'exists_not_paid':
+          // Route to payment section
+          setupPaymentSection();
+          goToSection(4);
+          break;
+          
+        case 'payment_completed':
+          // Route to password entry
+          setupPasswordSection();
+          goToSection(5);
+          break;
+          
+        case 'application_submitted':
+          // Application already submitted
+          showStatus('Application already submitted. Check your email for PDFs.', 'info');
+          break;
+          
+        default:
+          // Default to payment section
+          setupPaymentSection();
+          goToSection(4);
       }
+    }
 
+    function startNewApplication() {
+      // Register as new pre-applicant
+      registerNewPreApplicant();
+    }
+
+    async function registerNewPreApplicant() {
       showLoader('Registering your application...');
 
       try {
-        // Step 1: Pre-register
         const response = await fetch(`${API_BASE_URL}/pre-applicant/register`, {
           method: 'POST',
           headers: { 
             'Content-Type': 'application/json',
             'Accept': 'application/json'
           },
-          body: JSON.stringify({ full_name: fullName, email: email })
+          body: JSON.stringify({ 
+            full_name: userData.fullName, 
+            email: userData.email,
+            tier: userData.category
+          })
         });
 
-        // Use safe parsing to avoid JSON parse errors
-        const contentType = response.headers.get('content-type') || '';
         if (!response.ok) {
           const body = await readBodySafely(response);
-          // Handle existing user cases
-          if (typeof body === 'object') {
-            if (body.status === 'exists_not_paid') {
-              hideLoader();
-              userData = { ...userData, fullName, email, preApplicantId: body.pre_applicant_id };
-              showStatus('Account found. Please select your pathway.', 'info');
-              goToSection(2);
-              return;
-            } else if (body.status === 'payment_completed') {
-              hideLoader();
-              userData = { ...userData, fullName, email, preApplicantId: body.pre_applicant_id };
-              showStatus('Payment already completed. Generating password...', 'info');
-              await generatePassword(email, fullName);
-              return;
-            } else if (body.detail) {
-              throw new Error(body.detail);
-            }
-          }
-          throw new Error(typeof body === 'string' ? body : 'Registration failed');
+          throw new Error(typeof body === 'object' ? (body.detail || JSON.stringify(body)) : body);
         }
 
-        // Parse successful response
         const data = await readBodySafely(response);
-        console.log('📋 Pre-registration response:', data);
+        console.log('Pre-registration response:', data);
 
-        // New user registration successful
-        userData = { 
-          ...userData, 
-          fullName, 
-          email, 
-          preApplicantId: data.pre_applicant_id || data.id 
-        };
+        userData.preApplicantId = data.pre_applicant_id || data.id;
 
         hideLoader();
-        showStatus('Registration successful! Please select your pathway.', 'success');
-        goToSection(2);
+        showStatus('Registration successful! Proceeding to payment.', 'success');
+        
+        // Setup payment section and go to payment
+        setupPaymentSection();
+        goToSection(4);
 
       } catch (error) {
         hideLoader();
@@ -2095,41 +1917,14 @@
       }
     }
 
-    // Step 2: Tier Selection
-    function selectTier(tier) {
-      console.log(`Selected tier: ${tier}`);
-      
-      // Remove selected class from all tiers
-      document.getElementById('regularTier').classList.remove('selected');
-      document.getElementById('vipTier').classList.remove('selected');
-      
-      // Add selected class to chosen tier
-      document.getElementById(`${tier}Tier`).classList.add('selected');
-      
-      // Update user data
-      userData.tier = tier;
-      userData.amount = tier === 'regular' ? 5180 : 25900;
-      
-      // Enable proceed button
-      document.getElementById('proceedToPaymentBtn').disabled = false;
-    }
-
-    function proceedToPayment() {
-      if (!userData.tier) {
-        showStatus('Please select a pathway first', 'error');
-        return;
-      }
-      
-      // Update payment section with selected tier
-      const pathwayName = userData.tier === 'regular' ? 'Regular Officer Pathway' : 'VIP Security Pathway';
-      document.getElementById('selectedPathway').value = pathwayName;
+    function setupPaymentSection() {
+      const categoryName = userData.category === 'regular' ? 'Regular Cadre' : 'VIP Cadre';
+      document.getElementById('paymentCategory').value = categoryName;
       document.getElementById('paymentAmount').textContent = `₦${userData.amount.toLocaleString()}`;
       document.getElementById('paymentEmail').value = userData.email;
-      
-      goToSection(3);
     }
 
-    // Step 3: Payment - FIXED with robust error handling and correct API calls
+    // Section 4: Payment
     async function initiatePayment() {
       if (!document.getElementById('agreePayment').checked) {
         showStatus('Please agree to the payment terms', 'error');
@@ -2139,15 +1934,8 @@
       showLoader('Initializing payment...');
       
       try {
-        const email = userData.email;
-        const tier = userData.tier;
-        
-        if (!email || !tier) {
-          throw new Error('Missing email or tier selection');
-        }
-        
-        // Step 1: Select tier in backend - FIXED: Using POST with query parameters as backend expects
-        const tierUrl = `${API_BASE_URL}/pre-applicant/select-tier?email=${encodeURIComponent(email)}&tier=${encodeURIComponent(tier)}`;
+        // Select tier in backend
+        const tierUrl = `${API_BASE_URL}/pre-applicant/select-tier?email=${encodeURIComponent(userData.email)}&tier=${encodeURIComponent(userData.category)}`;
         const tierResponse = await fetch(tierUrl, {
           method: 'POST',
           headers: { 
@@ -2155,24 +1943,13 @@
           }
         });
         
-        // Safely handle response
         if (!tierResponse.ok) {
           const body = await readBodySafely(tierResponse);
           const errorMsg = typeof body === 'object' ? (body.detail || JSON.stringify(body)) : body;
-          throw new Error(`Tier selection failed: ${tierResponse.status} - ${errorMsg}`);
+          throw new Error(`Tier selection failed: ${errorMsg}`);
         }
         
-        // Ensure we have JSON response
-        const tierContentType = tierResponse.headers.get('content-type') || '';
-        if (!tierContentType.includes('application/json')) {
-          const text = await tierResponse.text();
-          throw new Error(`Expected JSON from tier selection but got: ${text.substring(0, 200)}`);
-        }
-        
-        const tierData = await readBodySafely(tierResponse);
-        console.log('Tier selection response:', tierData);
-        
-        // Step 2: Initiate payment - FIXED: Using correct JSON payload
+        // Initiate payment
         const paymentResponse = await fetch(`${API_BASE_URL}/api/payments/initiate`, {
           method: 'POST',
           headers: { 
@@ -2181,12 +1958,11 @@
           },
           body: JSON.stringify({
             email: userData.email,
-            payment_type: userData.tier,
+            payment_type: userData.category,
             user_type: 'pre_applicant'
           })
         });
         
-        // Safely handle payment response
         if (!paymentResponse.ok) {
           const body = await readBodySafely(paymentResponse);
           
@@ -2197,29 +1973,16 @@
               showStatus('Payment already completed. Generating password...', 'info');
               await generatePassword(userData.email, userData.fullName);
               return;
-            } else if (body.status === 'pending' && body.authorization_url) {
-              hideLoader();
-              window.open(body.authorization_url, '_blank');
-              showStatus('Payment pending. A new window has been opened for you to complete the payment.', 'info');
-              return;
             }
           }
           
           const errorMsg = typeof body === 'object' ? (body.detail || JSON.stringify(body)) : body;
-          throw new Error(`Payment initiation failed: ${paymentResponse.status} - ${errorMsg}`);
-        }
-        
-        // Ensure we have JSON response
-        const paymentContentType = paymentResponse.headers.get('content-type') || '';
-        if (!paymentContentType.includes('application/json')) {
-          const text = await paymentResponse.text();
-          throw new Error(`Expected JSON from payment initiation but got: ${text.substring(0, 200)}`);
+          throw new Error(`Payment initiation failed: ${errorMsg}`);
         }
         
         const paymentData = await readBodySafely(paymentResponse);
         console.log('Payment initiation response:', paymentData);
         
-        // Store payment reference
         userData.paymentReference = paymentData.payment_reference;
         
         // Initialize Paystack
@@ -2230,19 +1993,18 @@
         hideLoader();
         
         const handler = PaystackPop.setup({
-          key: 'pk_test_c6ff4f4622c7e35eb557e9e3be0c7424b5d0a3d4', // Your test key - replace with your actual key
+          key: 'pk_test_c6ff4f4622c7e35eb557e9e3be0c7424b5d0a3d4', // Your test key
           email: userData.email,
-          amount: userData.amount * 100, // Convert to kobo
+          amount: userData.amount * 100,
           currency: 'NGN',
           ref: paymentData.payment_reference,
           metadata: {
             full_name: userData.fullName,
-            tier: userData.tier,
+            tier: userData.category,
             pre_applicant_id: userData.preApplicantId
           },
           callback: function(response) {
             console.log('Payment callback:', response);
-            // Payment successful
             verifyPayment(response.reference);
           },
           onClose: function() {
@@ -2270,18 +2032,10 @@
           }
         });
         
-        // Safely handle response
         if (!response.ok) {
           const body = await readBodySafely(response);
           const errorMsg = typeof body === 'object' ? (body.detail || JSON.stringify(body)) : body;
-          throw new Error(`Payment verification failed: ${response.status} - ${errorMsg}`);
-        }
-        
-        // Ensure JSON response
-        const contentType = response.headers.get('content-type') || '';
-        if (!contentType.includes('application/json')) {
-          const text = await response.text();
-          throw new Error(`Expected JSON from payment verification but got: ${text.substring(0, 200)}`);
+          throw new Error(`Payment verification failed: ${errorMsg}`);
         }
         
         const data = await readBodySafely(response);
@@ -2302,51 +2056,42 @@
 
       async function sendRequest(sendAsObject = true) {
         const headers = { 'Content-Type': 'application/json', 'Accept': 'application/json' };
-        const body = sendAsObject ? JSON.stringify({ email }) : JSON.stringify(email); // raw string fallback
+        const body = sendAsObject ? JSON.stringify({ email }) : JSON.stringify(email);
 
         return fetch(`${API_BASE_URL}/access/generate-password`, { method: 'POST', headers, body });
       }
 
       try {
-        // First try: send as JSON object { email }
         let response = await sendRequest(true);
-
-        // If server rejects with 422, retry with raw string body (legacy FastAPI EmailStr signature)
         if (response.status === 422) {
-          console.warn('Password generation returned 422; retrying with raw string body');
           response = await sendRequest(false);
         }
 
-        // Safely handle response
         if (!response.ok) {
           const body = await readBodySafely(response);
           const errorMsg = typeof body === 'object' ? (body.detail || JSON.stringify(body)) : body;
-          throw new Error(`Password generation failed: ${response.status} - ${errorMsg}`);
+          throw new Error(`Password generation failed: ${errorMsg}`);
         }
 
-        // Parse JSON if present
         const contentType = (response.headers.get('content-type') || '').toLowerCase();
         const data = contentType.includes('application/json') ? await response.json() : await response.text();
-        console.log('Password generation response:', data);
 
         hideLoader();
         showStatus('Password generated and sent to your email!', 'success');
 
-        // Pre-fill email in verification section
-        document.getElementById('verifyEmail').value = email;
-        userData.password = (typeof data === 'object' && data.password) ? data.password : '';
-
-        // Move to password verification section
-        goToSection(4);
+        // Setup password section
+        setupPasswordSection();
+        goToSection(5);
 
       } catch (error) {
         hideLoader();
         console.error('Password generation error:', error);
-
-        // Helpful retry hint: if backend has promoted the user but password not generated,
-        // instruct user to wait a moment and poll the pre-applicant status (or contact support)
-        showStatus(`Password generation failed: ${error.message}. If you completed payment, wait a few seconds and try "Resend Password" or contact support.`, 'error');
+        showStatus(`Password generation failed: ${error.message}. If you completed payment, wait a few seconds and try "Resend Password".`, 'error');
       }
+    }
+
+    function setupPasswordSection() {
+      document.getElementById('passwordEmail').value = userData.email;
     }
 
     async function resendPassword() {
@@ -2361,17 +2106,14 @@
       try {
         let response = await sendRequest(true);
         if (response.status === 422) {
-          console.warn('Resend password returned 422; retrying with raw string body');
           response = await sendRequest(false);
         }
 
         if (!response.ok) {
           const body = await readBodySafely(response);
           const errorMsg = typeof body === 'object' ? (body.detail || JSON.stringify(body)) : body;
-          throw new Error(`Failed to resend password: ${response.status} - ${errorMsg}`);
+          throw new Error(`Failed to resend password: ${errorMsg}`);
         }
-
-        const data = await readBodySafely(response);
 
         hideLoader();
         showStatus('Password resent to your email!', 'success');
@@ -2379,14 +2121,14 @@
       } catch (error) {
         hideLoader();
         console.error('Resend password error:', error);
-        showStatus(`Failed to resend password: ${error.message}. If you still have issues, contact support.`, 'error');
+        showStatus(`Failed to resend password: ${error.message}`, 'error');
       }
     }
 
-    // Step 4: Password Verification
+    // Section 5: Password Verification
     async function handlePasswordVerification() {
       const password = document.getElementById('password').value.trim();
-      const email = document.getElementById('verifyEmail').value.trim();
+      const email = document.getElementById('passwordEmail').value.trim();
       
       if (!email || !password) {
         showStatus('Both email and password are required', 'error');
@@ -2408,18 +2150,10 @@
           })
         });
         
-        // Safely handle response
         if (!response.ok) {
           const body = await readBodySafely(response);
           const errorMsg = typeof body === 'object' ? (body.detail || JSON.stringify(body)) : body;
-          throw new Error(`Password verification failed: ${response.status} - ${errorMsg}`);
-        }
-        
-        // Ensure JSON response
-        const contentType = response.headers.get('content-type') || '';
-        if (!contentType.includes('application/json')) {
-          const text = await response.text();
-          throw new Error(`Expected JSON from password verification but got: ${text.substring(0, 200)}`);
+          throw new Error(`Password verification failed: ${errorMsg}`);
         }
         
         const data = await readBodySafely(response);
@@ -2436,7 +2170,7 @@
         
         hideLoader();
         showStatus('Password verified successfully!', 'success');
-        goToSection(5);
+        goToSection(6);
         
       } catch (error) {
         hideLoader();
@@ -2469,16 +2203,17 @@
       document.getElementById('formFullName').value = userData.fullName;
       document.getElementById('applicationEmail').value = userData.email;
       document.getElementById('applicationPassword').value = userData.password;
-      document.getElementById('applicationTier').value = userData.tier;
+      document.getElementById('applicationTier').value = userData.category;
+      document.getElementById('preApplicantId').value = userData.preApplicantId;
       
-      // Load reasons for joining based on tier
+      // Load reasons for joining based on category
       const reasonsSection = document.getElementById('reasonsSection');
       reasonsSection.innerHTML = '';
       
-      if (userData.tier === 'regular') {
+      if (userData.category === 'regular') {
         reasonsSection.innerHTML = `
           <div class="form-group">
-            <label>Select UP TO 3 reasons for joining:</label>
+            <label>Select reasons for joining (choose up to 3):</label>
             <div class="checkbox-container">
               <input type="checkbox" name="selected_reasons" value="seeking_employment" id="reason1">
               <label for="reason1">Seeking Employment & Work</label>
@@ -2505,7 +2240,7 @@
       } else {
         reasonsSection.innerHTML = `
           <div class="form-group">
-            <label>Select ALL reasons that apply:</label>
+            <label>Select reasons for joining (choose all that apply):</label>
             <div class="checkbox-container">
               <input type="checkbox" name="selected_reasons" value="security_association" id="reason6">
               <label for="reason6">Security Association & Legal Protection</label>
@@ -2526,26 +2261,17 @@
               <input type="checkbox" name="selected_reasons" value="business_protection" id="reason10">
               <label for="reason10">Business Protection & Organizational Backup</label>
             </div>
-            <div class="checkbox-container">
-              <input type="checkbox" name="selected_reasons" value="cybersecurity" id="reason11">
-              <label for="reason11">Advanced ICT & Cybersecurity Education</label>
-            </div>
-            <div class="checkbox-container">
-              <input type="checkbox" name="selected_reasons" value="executive_training" id="reason12">
-              <label for="reason12">Personal Development & Executive Training</label>
-            </div>
-            <small class="file-info">Select all that apply</small>
           </div>
         `;
       }
     }
 
-    // Step 5: Application Form Submission
+    // Section 6: Application Form Submission
     async function handleApplicationSubmit() {
       // Validate passport upload
       const passportFile = document.getElementById('passportPhoto').files[0];
       if (!passportFile) {
-        showStatus('Passport photo is required for PDF generation', 'error');
+        showStatus('Passport photo is required', 'error');
         return;
       }
       
@@ -2576,7 +2302,7 @@
           throw new Error('Please select at least one reason for joining');
         }
         
-        if (userData.tier === 'regular' && selectedReasons.length > 3) {
+        if (userData.category === 'regular' && selectedReasons.length > 3) {
           throw new Error('Regular applicants can select up to 3 reasons only');
         }
         
@@ -2588,18 +2314,10 @@
           body: formData
         });
         
-        // Safely handle response
         if (!response.ok) {
           const body = await readBodySafely(response);
           const errorMsg = typeof body === 'object' ? (body.detail || JSON.stringify(body)) : body;
-          throw new Error(`Application submission failed: ${response.status} - ${errorMsg}`);
-        }
-        
-        // Ensure JSON response
-        const contentType = response.headers.get('content-type') || '';
-        if (!contentType.includes('application/json')) {
-          const text = await response.text();
-          throw new Error(`Expected JSON from application submission but got: ${text.substring(0, 200)}`);
+          throw new Error(`Application submission failed: ${errorMsg}`);
         }
         
         const data = await readBodySafely(response);
@@ -2609,10 +2327,10 @@
         userData.applicantId = data.id || data.applicant_id;
         
         hideLoader();
-        showStatus('Application submitted successfully! PDFs have been generated with your passport photo.', 'success');
+        showStatus('Application submitted successfully!', 'success');
         
         // Move to success screen
-        goToSection(6);
+        goToSection(7);
         
       } catch (error) {
         hideLoader();
@@ -2621,7 +2339,7 @@
       }
     }
 
-    // Step 6: PDF Downloads
+    // Section 7: PDF Downloads
     async function downloadPDF(type) {
       if (!userData.applicantId) {
         showStatus('Applicant ID not found. Please contact support.', 'error');
@@ -2641,7 +2359,7 @@
         if (!response.ok) {
           const body = await readBodySafely(response);
           const errorMsg = typeof body === 'object' ? (body.detail || JSON.stringify(body)) : body;
-          throw new Error(`PDF generation failed: ${response.status} - ${errorMsg}`);
+          throw new Error(`PDF generation failed: ${errorMsg}`);
         }
         
         const blob = await response.blob();
@@ -2665,7 +2383,6 @@
     }
 
     function goToPortal() {
-      // Redirect to applicant portal
       window.location.href = 'https://marshalcoreofnigeria.ng/portal';
     }
 
@@ -2685,7 +2402,6 @@
       statusDiv.className = `status-message status-${type}`;
       statusDiv.style.display = 'block';
       
-      // Auto-hide after 5 seconds
       setTimeout(() => {
         statusDiv.style.display = 'none';
       }, 5000);
@@ -2696,7 +2412,7 @@
       return re.test(email);
     }
 
-    // Handle Paystack callback from URL parameters
+    // Handle Paystack callback
     function handlePaymentCallback() {
       const urlParams = new URLSearchParams(window.location.search);
       const reference = urlParams.get('reference');
@@ -2721,15 +2437,12 @@
       
       if (!dropZone || !fileInput || !preview) return;
       
-      // Click to upload
       dropZone.addEventListener('click', () => fileInput.click());
       
-      // Handle file selection
       fileInput.addEventListener('change', function() {
         handleFileSelect(this.files[0], preview, isImage);
       });
       
-      // Drag and drop
       ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
         dropZone.addEventListener(eventName, preventDefaults, false);
       });
@@ -2849,7 +2562,6 @@
         }
       });
       
-      // Initial check
       agreeCheckbox.disabled = true;
     }
   </script>

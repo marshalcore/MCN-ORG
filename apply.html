@@ -201,7 +201,7 @@
       border-radius: 15px;
       padding: 40px;
       margin: 20px auto;
-      max-width: 800px;
+      max-width: 900px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.1);
       border: 1px solid rgba(255,255,255,0.2);
       position: relative;
@@ -273,6 +273,124 @@
 
     .form-control::placeholder {
       color: #999;
+    }
+
+    /* Requirements List Styling */
+    .requirements-list {
+      list-style: none;
+      margin: 20px 0;
+      padding: 0;
+    }
+
+    .requirements-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      align-items: flex-start;
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .requirements-list li::before {
+      content: '•';
+      color: var(--primary-red);
+      font-weight: bold;
+      margin-right: 10px;
+      flex-shrink: 0;
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .requirements-list li:last-child {
+      border-bottom: none;
+    }
+
+    .requirements-category {
+      background: #f0f7ff;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 25px 0;
+      border-left: 4px solid var(--secondary-blue);
+    }
+
+    .requirements-category h4 {
+      color: var(--primary-navy);
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .fee-list {
+      margin: 15px 0;
+    }
+
+    .fee-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px dashed #ddd;
+    }
+
+    .fee-item:last-child {
+      border-bottom: none;
+    }
+
+    .fee-name {
+      color: #333;
+      font-weight: 500;
+    }
+
+    .fee-amount {
+      color: var(--primary-red);
+      font-weight: 600;
+    }
+
+    .category-select-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .category-card {
+      background: white;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 25px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--secondary-blue);
+      box-shadow: 0 10px 30px rgba(37, 74, 147, 0.15);
+    }
+
+    .category-card.selected {
+      border-color: var(--primary-red);
+      background: linear-gradient(135deg, #fff5f5 0%, #ffeaea 100%);
+    }
+
+    .category-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: var(--secondary-blue);
+    }
+
+    .category-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary-navy);
+      margin-bottom: 10px;
+    }
+
+    .category-description {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.5;
     }
 
     /* Tier Cards */
@@ -849,6 +967,10 @@
         grid-template-columns: 1fr;
       }
 
+      .category-select-container {
+        grid-template-columns: 1fr;
+      }
+
       .action-buttons {
         flex-direction: column;
       }
@@ -900,6 +1022,10 @@
 
       .tier-price {
         font-size: 1.6rem;
+      }
+
+      .category-card {
+        padding: 20px;
       }
     }
 
@@ -967,33 +1093,175 @@
     <div class="progress-container">
       <div class="progress-steps">
         <div class="progress-bar" id="progressBar"></div>
-        <div class="step active" data-step="1">
+        <div class="step active" data-step="0">
+          <div class="step-circle">0</div>
+          <div class="step-label">Requirements</div>
+        </div>
+        <div class="step" data-step="1">
           <div class="step-circle">1</div>
           <div class="step-label">Pre-Register</div>
         </div>
         <div class="step" data-step="2">
           <div class="step-circle">2</div>
-          <div class="step-label">Select Pathway</div>
+          <div class="step-label">Select Category</div>
         </div>
         <div class="step" data-step="3">
           <div class="step-circle">3</div>
-          <div class="step-label">Payment</div>
+          <div class="step-label">Payment Gateway</div>
         </div>
         <div class="step" data-step="4">
           <div class="step-circle">4</div>
-          <div class="step-label">Verify</div>
+          <div class="step-label">Verify Password</div>
         </div>
         <div class="step" data-step="5">
           <div class="step-circle">5</div>
-          <div class="step-label">Application</div>
+          <div class="step-label">Application Form</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEW: Section 0: Requirements Page -->
+    <div class="section-container active" id="section0">
+      <div class="card">
+        <h2>📋 Requirements for Joining Marshal Core of Nigeria</h2>
+        <p class="card-description">
+          Before proceeding with your application, please carefully review all requirements and fees.
+          Ensure you meet the necessary criteria for your selected category.
+        </p>
+        
+        <div class="requirements-category">
+          <h4>GENERAL REQUIREMENTS</h4>
+          <ul class="requirements-list">
+            <li><strong>Age Requirements:</strong>
+              <ul style="margin-left: 20px; margin-top: 5px;">
+                <li>Regular Officers: 18 years and above</li>
+                <li>Marshal Cadets: 14-17 years</li>
+                <li>VIP Officers: 25 years and above</li>
+              </ul>
+            </li>
+            <li>Must be medically and physically fit</li>
+            <li>Must be psychologically fit to train</li>
+            <li>Must speak English and any two additional languages (e.g., Hausa, Yoruba, Igbo, French)</li>
+            <li>Must have a guarantor who can vouch for you</li>
+            <li>Must have a valid NIN (National Identification Number) except Marshal Core Cadets</li>
+          </ul>
+        </div>
+        
+        <div class="requirements-category">
+          <h4>FORM FEES</h4>
+          <div class="fee-list">
+            <div class="fee-item">
+              <span class="fee-name">Marshal Core Cadets Cadre:</span>
+              <span class="fee-amount">₦1,500</span>
+            </div>
+            <div class="fee-item">
+              <span class="fee-description">(One thousand five hundred naira only) - Buy from our office or through schools, churches etc only</span>
+            </div>
+            <div class="fee-item">
+              <span class="fee-name">Regular Cadre:</span>
+              <span class="fee-amount">₦5,180</span>
+            </div>
+            <div class="fee-item">
+              <span class="fee-description">(Five Thousand One Hundred Naira) - Online form only</span>
+            </div>
+            <div class="fee-item">
+              <span class="fee-name">VIP Cadre:</span>
+              <span class="fee-amount">₦25,900</span>
+            </div>
+            <div class="fee-item">
+              <span class="fee-description">(Twenty-Five Thousand Nine Hundred Naira) - Online form only</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="requirements-category">
+          <h4>UNIFORM AND RECRUITMENT FEES</h4>
+          <div class="fee-list">
+            <div class="fee-item">
+              <span class="fee-name">Marshal Core Cadets:</span>
+              <span class="fee-amount">₦45,000</span>
+            </div>
+            <div class="fee-item">
+              <span class="fee-description">For complete uniform only (Marshal shall assist cadets with Boot, G-belt, name tags and ID card)</span>
+            </div>
+            <div class="fee-item">
+              <span class="fee-name">Regular Cadre:</span>
+              <span class="fee-amount">₦95,000</span>
+            </div>
+            <div class="fee-item">
+              <span class="fee-description">(Ninety-Five Thousand Naira) - For complete uniform, ID card, Beret, G-belt and name tags (excluding boots)</span>
+            </div>
+            <div class="fee-item">
+              <span class="fee-name">VIP Cadre:</span>
+              <span class="fee-amount">₦200,000</span>
+            </div>
+            <div class="fee-item">
+              <span class="fee-description">(Two Hundred Thousand Naira) - For complete uniform, ID card, Beret, G-belt, name tags and boots</span>
+            </div>
+          </div>
+          <p><strong>Note:</strong> The recruitment fees can be paid in installments.</p>
+        </div>
+        
+        <div class="requirements-category">
+          <h4>SELECT YOUR CATEGORY</h4>
+          <p class="mb-20">Please select the category you are applying for:</p>
+          
+          <div class="category-select-container">
+            <div class="category-card" id="regularCategory" onclick="selectCategory('regular')">
+              <div class="category-icon">👮</div>
+              <div class="category-title">Regular Cadre</div>
+              <div class="category-description">
+                For individuals aged 18+ seeking employment, skill acquisition, and career development in security services.
+              </div>
+              <div class="mt-20">
+                <div class="fee-amount">Form Fee: ₦5,180</div>
+                <div class="fee-amount">Uniform Fee: ₦95,000</div>
+              </div>
+              <button type="button" class="btn btn-primary mt-20" onclick="selectCategory('regular')">
+                Select Regular Cadre
+              </button>
+            </div>
+            
+            <div class="category-card" id="vipCategory" onclick="selectCategory('vip')">
+              <div class="category-icon">💼</div>
+              <div class="category-title">VIP Cadre</div>
+              <div class="category-description">
+                For executives aged 25+ seeking security association status, tech career pathway, and business protection services.
+              </div>
+              <div class="mt-20">
+                <div class="fee-amount">Form Fee: ₦25,900</div>
+                <div class="fee-amount">Uniform Fee: ₦200,000</div>
+              </div>
+              <button type="button" class="btn btn-primary mt-20" onclick="selectCategory('vip')">
+                Select VIP Cadre
+              </button>
+            </div>
+          </div>
+          
+          <div class="checkbox-container mt-30">
+            <input type="checkbox" id="agreeRequirements" required>
+            <label for="agreeRequirements">
+              I have read and understood all requirements for joining Marshal Core of Nigeria. 
+              I confirm that I meet the necessary criteria for my selected category and agree to proceed with the application process.
+            </label>
+          </div>
+        </div>
+        
+        <div class="action-buttons">
+          <button type="button" class="btn btn-secondary" onclick="window.location.href='index.html'">
+            ← Back to Home
+          </button>
+          <button type="button" class="btn btn-primary" id="proceedToApplicationBtn" onclick="proceedToApplication()">
+            I Agree & Proceed to Application →
+          </button>
         </div>
       </div>
     </div>
 
     <!-- Section 1: Pre-Registration -->
-    <div class="section-container active" id="section1">
+    <div class="section-container" id="section1">
       <div class="card">
-        <h2>👋 Welcome to Marshal Core Nigeria</h2>
+        <h2>👋 Welcome to Marshal Core Of Nigeria</h2>
         <p class="card-description">
           Begin your journey to becoming a certified security professional. 
           Fill in your basic details to start the application process.
@@ -1009,9 +1277,22 @@
             <label for="email">Email Address *</label>
             <input type="email" id="email" class="form-control" placeholder="Enter your email address" required>
             <small class="file-info">This email will be used for all communications</small>
+            <div id="emailValidationRow" style="margin-top:8px;display:flex;gap:8px;align-items:center;">
+              <small id="emailCheckMsg" style="flex:1;color:#666;display:block;">We will validate your email before proceeding.</small>
+              <button type="button" id="sendVerificationBtn" class="btn btn-outline-secondary" disabled>Send verification</button>
+            </div>
+
+            <div id="verificationSection" style="margin-top:8px;display:none;">
+              <input type="text" id="verificationCode" class="form-control" placeholder="Enter verification code" style="display:inline-block; width:60%; margin-right:8px;" />
+              <button type="button" id="confirmVerificationBtn" class="btn btn-primary">Confirm code</button>
+              <button type="button" id="resendVerificationBtn" class="btn btn-link" style="margin-left:8px;">Resend</button>
+            </div>
           </div>
           
           <div class="action-buttons">
+            <button type="button" class="btn btn-secondary" onclick="goToSection(0)">
+              ← Back to Requirements
+            </button>
             <button type="submit" class="btn btn-primary btn-lg">
               Continue to Pathway Selection →
             </button>
@@ -1373,10 +1654,15 @@
         Email: info@marshalcoreofnigeria.ng<br>
         Phone: +234 9137 428 031
       </p>
-      <div class="copyright">
-        Copyright &copy; 2025 All Rights Reserved By<br>
-        Marshal Core of Nigeria<br>
-      </div>
+      <!-- footer section -->
+<section class="container-fluid footer_section">
+  <p>
+    Copyright ©️ 2025<br>
+    All right reserved by <strong>MARSHAL CORE OF NIGERIA</strong><br>
+    <span style="font-size: 0.9em;">powered by <strong>MARSHAL BOARD COMMITTEE</strong></span>
+  </p>
+</section>
+<!-- footer section -->
     </div>
   </section>
 
@@ -1417,6 +1703,9 @@
       
       // Test backend connection
       testBackendConnection();
+      
+      // Disable proceed button initially on requirements page
+      document.getElementById('proceedToApplicationBtn').disabled = true;
     });
 
     async function testBackendConnection() {
@@ -1433,25 +1722,128 @@
 
     function initializeApp() {
       // Initialize the progress bar
-      updateProgressBar(1);
+      updateProgressBar(0);
       
       // Check for payment callback parameters
       handlePaymentCallback();
       
-      // Disable proceed button initially
+      // Disable proceed buttons initially
       document.getElementById('proceedToPaymentBtn').disabled = true;
     }
 
     function setupEventListeners() {
+      // Requirements checkbox
+      const agreeRequirements = document.getElementById('agreeRequirements');
+      const proceedToApplicationBtn = document.getElementById('proceedToApplicationBtn');
+      
+      if (agreeRequirements && proceedToApplicationBtn) {
+        agreeRequirements.addEventListener('change', function() {
+          proceedToApplicationBtn.disabled = !this.checked;
+        });
+      }
+
       // Pre-registration form
       const preRegisterForm = document.getElementById('preRegisterForm');
+      const emailInput = document.getElementById('email');
+      const sendVerificationBtn = document.getElementById('sendVerificationBtn');
+      const confirmVerificationBtn = document.getElementById('confirmVerificationBtn');
+      const resendVerificationBtn = document.getElementById('resendVerificationBtn');
+
       if (preRegisterForm) {
         preRegisterForm.addEventListener('submit', function(e) {
           e.preventDefault();
           handlePreRegistration();
         });
       }
-      
+
+      // Email input: check on blur and after typing pause
+      if (emailInput) {
+        let emailTimer = null;
+        emailInput.addEventListener('input', function() {
+          document.getElementById('emailCheckMsg').textContent = 'Typing...';
+          document.getElementById('sendVerificationBtn').disabled = true;
+          userData.emailVerified = false;
+          if (emailTimer) clearTimeout(emailTimer);
+          emailTimer = setTimeout(async () => {
+            const email = emailInput.value.trim().toLowerCase();
+            if (!validateEmail(email)) {
+              document.getElementById('emailCheckMsg').textContent = 'Invalid email format';
+              return;
+            }
+            document.getElementById('emailCheckMsg').textContent = 'Checking email...';
+            const res = await checkEmail(email);
+            if (!res.ok || (res.body && res.body.valid === false)) {
+              document.getElementById('emailCheckMsg').textContent = res.body.reason || 'Email not accepted';
+              document.getElementById('sendVerificationBtn').disabled = true;
+            } else {
+              document.getElementById('emailCheckMsg').textContent = 'Email looks good. You can send a verification code.';
+              document.getElementById('sendVerificationBtn').disabled = false;
+            }
+          }, 700);
+        });
+
+        emailInput.addEventListener('blur', async function() {
+          const email = emailInput.value.trim().toLowerCase();
+          if (!validateEmail(email)) return;
+          const res = await checkEmail(email);
+          if (!res.ok || (res.body && res.body.valid === false)) {
+            document.getElementById('emailCheckMsg').textContent = res.body.reason || 'Email not accepted';
+            document.getElementById('sendVerificationBtn').disabled = true;
+          } else {
+            document.getElementById('emailCheckMsg').textContent = 'Email looks good. You can send a verification code.';
+            document.getElementById('sendVerificationBtn').disabled = false;
+          }
+        });
+      }
+
+      // Send verification
+      if (sendVerificationBtn) {
+        sendVerificationBtn.addEventListener('click', async function() {
+          const email = (document.getElementById('email').value || '').trim().toLowerCase();
+          if (!validateEmail(email)) { showStatus('Enter a valid email first', 'error'); return; }
+          sendVerificationBtn.disabled = true;
+          document.getElementById('emailCheckMsg').textContent = 'Sending verification code...';
+          const res = await sendVerification(email);
+          if (!res.ok) {
+            document.getElementById('emailCheckMsg').textContent = res.body || 'Failed to send code';
+            sendVerificationBtn.disabled = false;
+            return;
+          }
+          document.getElementById('emailCheckMsg').textContent = 'Verification code sent. Check your email.';
+          document.getElementById('verificationSection').style.display = 'block';
+        });
+      }
+
+      // Confirm verification
+      if (confirmVerificationBtn) {
+        confirmVerificationBtn.addEventListener('click', async function() {
+          const code = (document.getElementById('verificationCode').value || '').trim();
+          const email = (document.getElementById('email').value || '').trim().toLowerCase();
+          if (!code) { showStatus('Enter verification code', 'error'); return; }
+          document.getElementById('emailCheckMsg').textContent = 'Confirming code...';
+          const res = await confirmVerification(email, code);
+          if (!res.ok) {
+            document.getElementById('emailCheckMsg').textContent = res.body || 'Code invalid';
+            return;
+          }
+          document.getElementById('emailCheckMsg').textContent = 'Email verified ✓';
+          userData.emailVerified = true;
+          document.getElementById('verificationSection').style.display = 'none';
+        });
+      }
+
+      // Resend verification
+      if (resendVerificationBtn) {
+        resendVerificationBtn.addEventListener('click', async function() {
+          const email = (document.getElementById('email').value || '').trim().toLowerCase();
+          if (!validateEmail(email)) { showStatus('Enter a valid email first', 'error'); return; }
+          document.getElementById('emailCheckMsg').textContent = 'Resending code...';
+          const res = await sendVerification(email);
+          if (!res.ok) document.getElementById('emailCheckMsg').textContent = res.body || 'Failed to resend';
+          else document.getElementById('emailCheckMsg').textContent = 'Verification code resent. Check your email.';
+        });
+      }
+
       // Password form
       const passwordForm = document.getElementById('passwordForm');
       if (passwordForm) {
@@ -1469,6 +1861,38 @@
           handleApplicationSubmit();
         });
       }
+    }
+
+    // NEW: Category Selection on Requirements Page
+    function selectCategory(category) {
+      console.log(`Selected category: ${category}`);
+      
+      // Remove selected class from all categories
+      document.getElementById('regularCategory').classList.remove('selected');
+      document.getElementById('vipCategory').classList.remove('selected');
+      
+      // Add selected class to chosen category
+      document.getElementById(`${category}Category`).classList.add('selected');
+      
+      // Store selected category
+      userData.category = category;
+    }
+
+    function proceedToApplication() {
+      const agreeRequirements = document.getElementById('agreeRequirements');
+      
+      if (!agreeRequirements.checked) {
+        showStatus('Please agree to the requirements before proceeding', 'error');
+        return;
+      }
+      
+      if (!userData.category) {
+        showStatus('Please select a category before proceeding', 'error');
+        return;
+      }
+      
+      // Move to pre-registration section
+      goToSection(1);
     }
 
     // Progress and Navigation
@@ -1515,8 +1939,8 @@
       const progressBar = document.getElementById('progressBar');
       if (!progressBar) return;
       
-      const totalSteps = 5;
-      const progressPercentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
+      const totalSteps = 6; // Now includes section 0
+      const progressPercentage = ((currentStep) / (totalSteps - 1)) * 100;
       progressBar.style.width = `${progressPercentage}%`;
     }
 
@@ -1532,41 +1956,101 @@
     }
 
     // Step 1: Pre-registration
+    async function checkEmail(email) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/pre-applicant/check-email`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+        const body = await readBodySafely(res);
+        return { ok: res.ok, status: res.status, body };
+      } catch (e) {
+        return { ok: false, status: 0, body: 'Network error' };
+      }
+    }
+
+    async function sendVerification(email) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/pre-applicant/send-verification`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+        const body = await readBodySafely(res);
+        return { ok: res.ok, status: res.status, body };
+      } catch (e) {
+        return { ok: false, status: 0, body: 'Network error' };
+      }
+    }
+
+    async function confirmVerification(email, code) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/pre-applicant/confirm-verification`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ email, code })
+        });
+        const body = await readBodySafely(res);
+        return { ok: res.ok, status: res.status, body };
+      } catch (e) {
+        return { ok: false, status: 0, body: 'Network error' };
+      }
+    }
+
+    const REQUIRE_EMAIL_VERIFICATION = false; // toggle to require verification before registering
+
     async function handlePreRegistration() {
       const fullName = document.getElementById('fullName').value.trim();
-      const email = document.getElementById('email').value.trim();
-      
+      const email = document.getElementById('email').value.trim().toLowerCase();
+
       if (!fullName || !email) {
         showStatus('Please fill in all required fields', 'error');
         return;
       }
-      
+
       if (!validateEmail(email)) {
         showStatus('Please enter a valid email address', 'error');
         return;
       }
-      
+
+      // run backend validation (MX/disposable checks)
+      document.getElementById('emailCheckMsg').textContent = 'Checking email...';
+      const check = await checkEmail(email);
+      if (!check.ok || (check.body && check.body.valid === false)) {
+        const reason = (check.body && (check.body.reason || JSON.stringify(check.body))) || 'Email validation failed';
+        document.getElementById('emailCheckMsg').textContent = reason;
+        document.getElementById('sendVerificationBtn').disabled = true;
+        showStatus(`Email validation failed: ${reason}`, 'error');
+        return;
+      }
+
+      // email passes checks
+      document.getElementById('emailCheckMsg').textContent = 'Email looks good. You can send a verification code.';
+      document.getElementById('sendVerificationBtn').disabled = false;
+
+      if (REQUIRE_EMAIL_VERIFICATION && !userData.emailVerified) {
+        showStatus('Please verify your email before proceeding', 'error');
+        return;
+      }
+
       showLoader('Registering your application...');
-      
+
       try {
-        // Step 1: Pre-register - FIXED: Using correct endpoint with JSON body
+        // Step 1: Pre-register
         const response = await fetch(`${API_BASE_URL}/pre-applicant/register`, {
           method: 'POST',
           headers: { 
             'Content-Type': 'application/json',
             'Accept': 'application/json'
           },
-          body: JSON.stringify({
-            full_name: fullName,
-            email: email
-          })
+          body: JSON.stringify({ full_name: fullName, email: email })
         });
-        
+
         // Use safe parsing to avoid JSON parse errors
         const contentType = response.headers.get('content-type') || '';
         if (!response.ok) {
           const body = await readBodySafely(response);
-          
           // Handle existing user cases
           if (typeof body === 'object') {
             if (body.status === 'exists_not_paid') {
@@ -1579,7 +2063,7 @@
               hideLoader();
               userData = { ...userData, fullName, email, preApplicantId: body.pre_applicant_id };
               showStatus('Payment already completed. Generating password...', 'info');
-              generatePassword(email, fullName);
+              await generatePassword(email, fullName);
               return;
             } else if (body.detail) {
               throw new Error(body.detail);
@@ -1587,11 +2071,11 @@
           }
           throw new Error(typeof body === 'string' ? body : 'Registration failed');
         }
-        
+
         // Parse successful response
         const data = await readBodySafely(response);
         console.log('📋 Pre-registration response:', data);
-        
+
         // New user registration successful
         userData = { 
           ...userData, 
@@ -1599,11 +2083,11 @@
           email, 
           preApplicantId: data.pre_applicant_id || data.id 
         };
-        
+
         hideLoader();
         showStatus('Registration successful! Please select your pathway.', 'success');
         goToSection(2);
-        
+
       } catch (error) {
         hideLoader();
         console.error('Registration error:', error);
@@ -1815,87 +2299,87 @@
 
     async function generatePassword(email, fullName) {
       showLoader('Generating application password...');
-      
+
+      async function sendRequest(sendAsObject = true) {
+        const headers = { 'Content-Type': 'application/json', 'Accept': 'application/json' };
+        const body = sendAsObject ? JSON.stringify({ email }) : JSON.stringify(email); // raw string fallback
+
+        return fetch(`${API_BASE_URL}/access/generate-password`, { method: 'POST', headers, body });
+      }
+
       try {
-        const response = await fetch(`${API_BASE_URL}/access/generate-password`, {
-          method: 'POST',
-          headers: { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({ email: email })
-        });
-        
+        // First try: send as JSON object { email }
+        let response = await sendRequest(true);
+
+        // If server rejects with 422, retry with raw string body (legacy FastAPI EmailStr signature)
+        if (response.status === 422) {
+          console.warn('Password generation returned 422; retrying with raw string body');
+          response = await sendRequest(false);
+        }
+
         // Safely handle response
         if (!response.ok) {
           const body = await readBodySafely(response);
           const errorMsg = typeof body === 'object' ? (body.detail || JSON.stringify(body)) : body;
           throw new Error(`Password generation failed: ${response.status} - ${errorMsg}`);
         }
-        
-        // Ensure JSON response
-        const contentType = response.headers.get('content-type') || '';
-        if (!contentType.includes('application/json')) {
-          const text = await response.text();
-          throw new Error(`Expected JSON from password generation but got: ${text.substring(0, 200)}`);
-        }
-        
-        const data = await readBodySafely(response);
+
+        // Parse JSON if present
+        const contentType = (response.headers.get('content-type') || '').toLowerCase();
+        const data = contentType.includes('application/json') ? await response.json() : await response.text();
         console.log('Password generation response:', data);
-        
+
         hideLoader();
         showStatus('Password generated and sent to your email!', 'success');
-        
+
         // Pre-fill email in verification section
         document.getElementById('verifyEmail').value = email;
-        userData.password = data.password || '';
-        
+        userData.password = (typeof data === 'object' && data.password) ? data.password : '';
+
         // Move to password verification section
         goToSection(4);
-        
+
       } catch (error) {
         hideLoader();
         console.error('Password generation error:', error);
-        showStatus(`Password generation failed: ${error.message}`, 'error');
+
+        // Helpful retry hint: if backend has promoted the user but password not generated,
+        // instruct user to wait a moment and poll the pre-applicant status (or contact support)
+        showStatus(`Password generation failed: ${error.message}. If you completed payment, wait a few seconds and try "Resend Password" or contact support.`, 'error');
       }
     }
 
     async function resendPassword() {
       showLoader('Resending password...');
-      
+
+      async function sendRequest(sendAsObject = true) {
+        const headers = { 'Content-Type': 'application/json', 'Accept': 'application/json' };
+        const body = sendAsObject ? JSON.stringify({ email: userData.email }) : JSON.stringify(userData.email);
+        return fetch(`${API_BASE_URL}/access/generate-password`, { method: 'POST', headers, body });
+      }
+
       try {
-        const response = await fetch(`${API_BASE_URL}/access/generate-password`, {
-          method: 'POST',
-          headers: { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({ email: userData.email })
-        });
-        
-        // Safely handle response
+        let response = await sendRequest(true);
+        if (response.status === 422) {
+          console.warn('Resend password returned 422; retrying with raw string body');
+          response = await sendRequest(false);
+        }
+
         if (!response.ok) {
           const body = await readBodySafely(response);
           const errorMsg = typeof body === 'object' ? (body.detail || JSON.stringify(body)) : body;
           throw new Error(`Failed to resend password: ${response.status} - ${errorMsg}`);
         }
-        
-        // Ensure JSON response
-        const contentType = response.headers.get('content-type') || '';
-        if (!contentType.includes('application/json')) {
-          const text = await response.text();
-          throw new Error(`Expected JSON from password resend but got: ${text.substring(0, 200)}`);
-        }
-        
+
         const data = await readBodySafely(response);
-        
+
         hideLoader();
         showStatus('Password resent to your email!', 'success');
-        
+
       } catch (error) {
         hideLoader();
         console.error('Resend password error:', error);
-        showStatus(`Failed to resend password: ${error.message}`, 'error');
+        showStatus(`Failed to resend password: ${error.message}. If you still have issues, contact support.`, 'error');
       }
     }
 

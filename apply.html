@@ -3005,7 +3005,7 @@ async function getCorrectPreApplicantId() {
       
       // Add guarantor form link
       const guarantorLink = document.createElement('a');
-      guarantorLink.href = `${baseUrl}/static/guarantor-form.pdf`;
+      guarantorLink.href = `${baseUrl}/static/pdfs/guarantor_form.pdf`;
       guarantorLink.className = 'btn btn-secondary ml-2';
       guarantorLink.download = 'Marshal_Core_Guarantor_Form.pdf';
       guarantorLink.textContent = 'Guarantor Form';
@@ -3059,7 +3059,7 @@ async function getCorrectPreApplicantId() {
       showLoader('Downloading Guarantor Form...');
       
       try {
-        const response = await fetch(`${API_BASE_URL}/static/guarantor-form.pdf`, {
+        const response = await fetch(`${API_BASE_URL}/static/pdfs/guarantor_form.pdf`, {
           method: 'GET'
         });
         

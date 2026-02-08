@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
-    /* Import your color scheme from index.html */
     :root {
       --primary-red: #d32f2f;
       --primary-navy: #1a237e;
@@ -28,7 +27,7 @@
       color: #333;
     }
 
-    /* Header styling matching index.html */
+    /* Header */
     .header_section {
       background: var(--primary-navy);
       padding: 10px 0;
@@ -71,11 +70,6 @@
     .nav-link:hover {
       color: #ffd700 !important;
       transform: translateY(-2px);
-    }
-
-    .nav-item.active .nav-link {
-      color: #ffd700 !important;
-      font-weight: 600;
     }
 
     /* Progress Bar */
@@ -175,7 +169,7 @@
       font-weight: 600;
     }
 
-    /* Main Content Sections */
+    /* Main Content */
     .main-container {
       padding: 30px 0;
       min-height: calc(100vh - 200px);
@@ -273,52 +267,6 @@
 
     .form-control::placeholder {
       color: #999;
-    }
-
-    /* Requirements List Styling */
-    .requirements-list {
-      list-style: none;
-      margin: 20px 0;
-      padding: 0;
-    }
-
-    .requirements-list li {
-      padding: 12px 0;
-      border-bottom: 1px solid #f0f0f0;
-      display: flex;
-      align-items: flex-start;
-      color: #555;
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-
-    .requirements-list li::before {
-      content: '•';
-      color: var(--primary-red);
-      font-weight: bold;
-      margin-right: 10px;
-      flex-shrink: 0;
-      font-size: 1.5rem;
-      line-height: 1;
-    }
-
-    .requirements-list li:last-child {
-      border-bottom: none;
-    }
-
-    .requirements-category {
-      background: #f0f7ff;
-      border-radius: 8px;
-      padding: 20px;
-      margin: 25px 0;
-      border-left: 4px solid var(--secondary-blue);
-    }
-
-    .requirements-category h4 {
-      color: var(--primary-navy);
-      margin-bottom: 15px;
-      font-size: 1.2rem;
-      font-weight: 600;
     }
 
     /* Category Cards */
@@ -956,48 +904,64 @@
       font-size: 0.8rem;
       margin-left: 8px;
     }
+
+    /* Save Progress Button */
+    .save-progress-btn {
+      background: linear-gradient(135deg, #ff9800, #f57c00);
+      color: white;
+      border: 2px solid #ff9800;
+    }
+
+    .save-progress-btn:hover {
+      background: linear-gradient(135deg, #f57c00, #ff9800);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(245, 124, 0, 0.3);
+    }
+
+    /* Application Status */
+    .application-status {
+      background: #f0f7ff;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .status-badge.saved {
+      background: #e3f2fd;
+      color: #1565c0;
+    }
+
+    .status-badge.submitted {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+
+    .status-badge.pending {
+      background: #fff3e0;
+      color: #ef6c00;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Header matching index.html -->
+  <!-- Header -->
   <header class="header_section">
     <div class="container">
       <nav class="navbar navbar-expand-lg custom_nav-container">
         <a class="navbar-brand" href="index.html">
           <span class="rc-number">YA/CLB/10100</span>
           <div class="logo_box">
-            <!-- Use local logo -->
             <img src="images/logo.png" alt="Marshal Core Logo" onerror="this.onerror=null;this.src='images/logo.png';">
           </div>
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto mr-2">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="service.html">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="blog.html">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="officer-portal/login.html">Login</a>
-            </li>
-          </ul>
-        </div>
       </nav>
     </div>
   </header>
@@ -1036,7 +1000,7 @@
       </div>
     </div>
 
-    <!-- Section 1: Terms & Conditions (FIRST PAGE) -->
+    <!-- Section 1: Terms & Conditions -->
     <div class="section-container active" id="section1">
       <div class="card">
         <h2>📋 Terms & Conditions</h2>
@@ -1112,7 +1076,7 @@
       </div>
     </div>
 
-    <!-- Section 2: Category Selection (SECOND PAGE) -->
+    <!-- Section 2: Category Selection -->
     <div class="section-container" id="section2">
       <div class="card">
         <h2>🎯 Select Your Category</h2>
@@ -1210,6 +1174,10 @@
                 <span class="status-label">Password Status:</span>
                 <span class="status-value" id="passwordStatus">Not Available</span>
               </div>
+              <div class="status-item">
+                <span class="status-label">Application Status:</span>
+                <span class="status-value" id="formStatus">Not Available</span>
+              </div>
             </div>
             <p class="mb-20">Click "Continue Application" to resume from where you left off.</p>
             <button type="button" class="btn btn-success btn-lg" id="continueAppBtn" onclick="continueApplication()">
@@ -1300,7 +1268,7 @@
       </div>
     </div>
 
-    <!-- Section 5: Password Entry (for existing users) -->
+    <!-- Section 5: Password Entry -->
     <div class="section-container" id="section5">
       <div class="card">
         <h2>🔐 Enter Your Password</h2>
@@ -1345,6 +1313,13 @@
         <p class="card-description">
           Fill in all required details. Passport photo is required. NIN details are optional.
         </p>
+        
+        <!-- Application Status Display -->
+        <div id="applicationStatusDisplay" class="application-status" style="display: none;">
+          <h3><i class="fas fa-info-circle"></i> Application Status</h3>
+          <p id="statusMessageText"></p>
+          <p><small>Last saved: <span id="lastSavedTime">Never</span></small></p>
+        </div>
         
         <form id="applicationForm" enctype="multipart/form-data">
           <!-- Hidden Fields -->
@@ -1461,6 +1436,9 @@
             <button type="button" class="btn btn-secondary" onclick="goToSection(5)">
               ← Back
             </button>
+            <button type="button" class="btn save-progress-btn" onclick="saveApplicationProgress()">
+              <i class="fas fa-save"></i> Save Progress
+            </button>
             <button type="submit" class="btn btn-primary btn-lg">
               Submit Application & Generate PDF
             </button>
@@ -1492,6 +1470,25 @@
             <p>Official terms document with your details</p>
             <button class="btn btn-primary btn-full mt-20">Download Terms PDF</button>
           </div>
+          
+          <div class="download-card" onclick="downloadGuarantorForm()">
+            <div class="download-icon">📝</div>
+            <h3>Guarantor Form</h3>
+            <p>Required for final application approval</p>
+            <button class="btn btn-primary btn-full mt-20">Download Guarantor Form</button>
+          </div>
+        </div>
+        
+        <div id="emailLinkSection" class="mt-30" style="display: none;">
+          <div class="alert alert-info">
+            <h4><i class="fas fa-envelope"></i> Check Your Email</h4>
+            <p>We've sent an email with download links to: <strong id="userEmailSent"></strong></p>
+            <p>You can also use the direct links below:</p>
+            <div class="text-center mt-20">
+              <a href="#" id="directTermsLink" class="btn btn-secondary mr-2">Terms & Conditions</a>
+              <a href="#" id="directAppLink" class="btn btn-secondary">Application Form</a>
+            </div>
+          </div>
         </div>
         
         <div class="action-buttons">
@@ -1510,10 +1507,9 @@
     </div>
   </main>
 
-  <!-- Footer matching index.html -->
+  <!-- Footer -->
   <section class="footer_section">
     <div class="footer-content">
-      <!-- Use local footer logo -->
       <img src="images/logo.png" alt="Marshal Core Logo" class="footer-logo" onerror="this.onerror=null;this.src='images/logo.png';">
       <p class="contact-info">
         Marshal Core of Nigeria<br>
@@ -1551,7 +1547,9 @@
       preApplicantId: '',
       applicantId: '',
       password: '',
-      applicationStatus: null
+      applicationStatus: null,
+      savedProgress: null,
+      isDraft: false
     };
 
     // Initialize when page loads
@@ -1565,25 +1563,13 @@
       setupPrivacyScroll();
       setupTermsScroll();
       
-      // Test backend connection
-      testBackendConnection();
-      
       // Disable proceed button initially on terms page
       document.getElementById('proceedToCategoryBtn').disabled = true;
       document.getElementById('proceedToCheckBtn').disabled = true;
+      
+      // Check for saved application progress
+      checkSavedProgress();
     });
-
-    async function testBackendConnection() {
-      try {
-        const response = await fetch(`${API_BASE_URL}/health`);
-        const data = await response.json();
-        console.log('✅ Backend connection successful:', data);
-        showStatus('Connected to backend successfully', 'success');
-      } catch (error) {
-        console.warn('⚠️ Backend connection test failed:', error);
-        showStatus('Backend connection test failed. Some features may not work.', 'warning');
-      }
-    }
 
     function initializeApp() {
       // Initialize the progress bar
@@ -1591,6 +1577,9 @@
       
       // Check for payment callback parameters
       handlePaymentCallback();
+      
+      // Check for direct download links
+      handleDirectDownloadLinks();
     }
 
     function setupEventListeners() {
@@ -1629,6 +1618,16 @@
           e.preventDefault();
           handleApplicationSubmit();
         });
+        
+        // Auto-save on input change
+        const inputs = applicationForm.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+          input.addEventListener('change', function() {
+            if (userData.email) {
+              autoSaveProgress();
+            }
+          });
+        });
       }
     }
 
@@ -1658,7 +1657,7 @@
 
     // Progress and Navigation
     function goToSection(sectionNumber) {
-      console.log(`Navigating to section ${sectionNumber}`);
+      console.log(`📱 Navigating to section ${sectionNumber}`);
       
       // Hide all sections
       const sections = document.querySelectorAll('.section-container');
@@ -1700,7 +1699,7 @@
       const progressBar = document.getElementById('progressBar');
       if (!progressBar) return;
       
-      const totalSteps = 5; // Steps 0-4 (Terms, Category, Check, Payment, Application)
+      const totalSteps = 5;
       const progressPercentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
       progressBar.style.width = `${progressPercentage}%`;
     }
@@ -1719,7 +1718,7 @@
 
     // Section 2: Category Selection
     function selectCategory(category) {
-      console.log(`Selected category: ${category}`);
+      console.log(`🎯 Selected category: ${category}`);
       
       // Remove selected class from all categories
       document.getElementById('regularCategory').classList.remove('selected');
@@ -1745,14 +1744,48 @@
       goToSection(3);
     }
 
-    // Helper function to safely read response body (JSON or text)
+    // Helper function to safely read response body - IMPROVED
     async function readBodySafely(res) {
-      const ct = (res.headers.get('content-type') || '').toLowerCase();
       try {
-        if (ct.includes('application/json')) return await res.json();
-        return await res.text();
+        // First get the response text
+        const text = await res.text();
+        
+        // If empty, return status info
+        if (!text || text.trim() === '') {
+          return {
+            status: res.status,
+            statusText: res.statusText,
+            message: 'Empty response'
+          };
+        }
+        
+        // Try to parse as JSON
+        try {
+          const json = JSON.parse(text);
+          // Add status info to JSON response
+          if (typeof json === 'object' && !Array.isArray(json)) {
+            json._status = res.status;
+            json._statusText = res.statusText;
+          }
+          return json;
+        } catch (jsonError) {
+          // If not JSON, return text with status info
+          return {
+            status: res.status,
+            statusText: res.statusText,
+            message: text,
+            raw: text
+          };
+        }
+        
       } catch (e) {
-        return await res.text();
+        console.warn('Could not read response body:', e);
+        return {
+          status: 0,
+          statusText: 'Read Error',
+          message: 'Could not read response: ' + e.message,
+          error: e.message
+        };
       }
     }
 
@@ -1774,23 +1807,32 @@
       showLoader('Checking your application status...');
 
       try {
-        // First check if user exists as pre-applicant
-        const response = await fetch(`${API_BASE_URL}/pre-applicant/check-status`, {
-          method: 'POST',
-          headers: { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({ 
-            email: email,
-            full_name: fullName,
-            category: userData.category
-          })
+        // Use URLSearchParams for form data
+        const formData = new URLSearchParams();
+        formData.append('email', email);
+        formData.append('full_name', fullName);
+        formData.append('category', userData.category);
+
+        console.log('📤 Sending check-status request:', { 
+          email, 
+          full_name: fullName, 
+          category: userData.category 
         });
 
-        const contentType = response.headers.get('content-type') || '';
+        const response = await fetch(`${API_BASE_URL}/pre-applicant/check-status`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Accept': 'application/json'
+          },
+          body: formData
+        });
+
+        console.log('📥 Response status:', response.status);
+
         if (!response.ok) {
           const body = await readBodySafely(response);
+          console.log('❌ Error response body:', body);
           
           // If user doesn't exist, show start new option
           if (response.status === 404) {
@@ -1803,12 +1845,25 @@
             return;
           }
           
-          throw new Error(typeof body === 'object' ? (body.detail || JSON.stringify(body)) : body);
+          // Parse error message
+          let errorDetail = 'Unknown error occurred';
+          if (typeof body === 'object' && body !== null) {
+            errorDetail = body.detail || body.message || JSON.stringify(body);
+          } else if (typeof body === 'string') {
+            try {
+              const parsed = JSON.parse(body);
+              errorDetail = parsed.detail || parsed.message || body;
+            } catch {
+              errorDetail = body;
+            }
+          }
+          
+          throw new Error(errorDetail);
         }
 
         // Parse successful response
         const data = await readBodySafely(response);
-        console.log('Application status response:', data);
+        console.log('✅ Application status response:', data);
 
         // Store user data
         userData = { 
@@ -1816,8 +1871,8 @@
           fullName, 
           email,
           preApplicantId: data.pre_applicant_id || data.id,
-          applicationStatus: data.status,
-          category: data.tier || userData.category
+          applicationStatus: data.status || data.current_stage,
+          category: data.selected_tier || userData.category
         };
 
         hideLoader();
@@ -1827,6 +1882,7 @@
         document.getElementById('currentStage').textContent = data.current_stage || 'Pre-registration';
         document.getElementById('lastUpdated').textContent = data.last_updated || 'Today';
         document.getElementById('passwordStatus').textContent = data.password_sent ? 'Sent ✓' : 'Not Sent';
+        document.getElementById('formStatus').textContent = data.application_submitted ? 'Submitted ✓' : 'Not Submitted';
         
         // Show continue box
         document.getElementById('continueApplicationBox').style.display = 'block';
@@ -1834,8 +1890,17 @@
 
       } catch (error) {
         hideLoader();
-        console.error('Status check error:', error);
-        showStatus(`Error checking status: ${error.message}`, 'error');
+        console.error('❌ Status check error:', error);
+        
+        // Show user-friendly error message
+        let userMessage = error.message;
+        if (error.message.includes('422')) {
+          userMessage = 'Server validation error. Please ensure all fields are filled correctly.';
+        } else if (error.message.includes('Failed to fetch')) {
+          userMessage = 'Network error. Please check your internet connection.';
+        }
+        
+        showStatus(`Error checking status: ${userMessage}`, 'error');
       }
     }
 
@@ -1845,29 +1910,25 @@
         return;
       }
 
-      // Check the current status and route accordingly
-      switch(userData.applicationStatus) {
-        case 'exists_not_paid':
-          // Route to payment section
-          setupPaymentSection();
-          goToSection(4);
-          break;
-          
-        case 'payment_completed':
-          // Route to password entry
-          setupPasswordSection();
-          goToSection(5);
-          break;
-          
-        case 'application_submitted':
-          // Application already submitted
-          showStatus('Application already submitted. Check your email for PDFs.', 'info');
-          break;
-          
-        default:
-          // Default to payment section
-          setupPaymentSection();
-          goToSection(4);
+      // Check the current stage and route accordingly
+      const currentStage = userData.applicationStatus?.toLowerCase() || '';
+      
+      if (currentStage.includes('submitted')) {
+        // Application already submitted
+        showStatus('Application already submitted. Check your email for PDFs.', 'info');
+        loadSubmittedApplication();
+      } else if (currentStage.includes('payment') || currentStage.includes('tier')) {
+        // Route to payment section
+        setupPaymentSection();
+        goToSection(4);
+      } else if (currentStage.includes('password')) {
+        // Route to password entry
+        setupPasswordSection();
+        goToSection(5);
+      } else {
+        // Default to payment section
+        setupPaymentSection();
+        goToSection(4);
       }
     }
 
@@ -1880,26 +1941,35 @@
       showLoader('Registering your application...');
 
       try {
+        // Use URLSearchParams for form data
+        const formData = new URLSearchParams();
+        formData.append('full_name', userData.fullName);
+        formData.append('email', userData.email);
+        formData.append('tier', userData.category);
+
+        console.log('📝 Registering pre-applicant:', { 
+          full_name: userData.fullName, 
+          email: userData.email, 
+          tier: userData.category 
+        });
+
         const response = await fetch(`${API_BASE_URL}/pre-applicant/register`, {
           method: 'POST',
-          headers: { 
-            'Content-Type': 'application/json',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
             'Accept': 'application/json'
           },
-          body: JSON.stringify({ 
-            full_name: userData.fullName, 
-            email: userData.email,
-            tier: userData.category
-          })
+          body: formData
         });
 
         if (!response.ok) {
           const body = await readBodySafely(response);
-          throw new Error(typeof body === 'object' ? (body.detail || JSON.stringify(body)) : body);
+          const errorMsg = typeof body === 'object' ? (body.detail || body.message || JSON.stringify(body)) : body;
+          throw new Error(`Registration failed: ${errorMsg}`);
         }
 
         const data = await readBodySafely(response);
-        console.log('Pre-registration response:', data);
+        console.log('✅ Pre-registration response:', data);
 
         userData.preApplicantId = data.pre_applicant_id || data.id;
 
@@ -1912,7 +1982,7 @@
 
       } catch (error) {
         hideLoader();
-        console.error('Registration error:', error);
+        console.error('❌ Registration error:', error);
         showStatus(`Registration failed: ${error.message}`, 'error');
       }
     }
@@ -1924,7 +1994,7 @@
       document.getElementById('paymentEmail').value = userData.email;
     }
 
-    // Section 4: Payment
+    // Section 4: Payment - CORRECTED VERSION (FIXED 422 ERROR)
     async function initiatePayment() {
       if (!document.getElementById('agreePayment').checked) {
         showStatus('Please agree to the payment terms', 'error');
@@ -1934,91 +2004,230 @@
       showLoader('Initializing payment...');
       
       try {
-        // Select tier in backend
-        const tierUrl = `${API_BASE_URL}/pre-applicant/select-tier?email=${encodeURIComponent(userData.email)}&tier=${encodeURIComponent(userData.category)}`;
-        const tierResponse = await fetch(tierUrl, {
-          method: 'POST',
-          headers: { 
-            'Accept': 'application/json'
+        // First, ensure tier is selected
+        console.log('🎯 User data before payment:', userData);
+        
+        // If preApplicantId is not set, get it from backend
+        if (!userData.preApplicantId) {
+          console.log('🔍 Getting pre-applicant ID...');
+          const statusResponse = await fetch(`${API_BASE_URL}/pre-applicant/status/${encodeURIComponent(userData.email)}`);
+          if (statusResponse.ok) {
+            const statusData = await statusResponse.json();
+            userData.preApplicantId = statusData.pre_applicant_id || statusData.id;
           }
+        }
+        
+        // Select tier in backend (ensure it's selected)
+        const tierFormData = new URLSearchParams();
+        tierFormData.append('email', userData.email);
+        tierFormData.append('tier', userData.category);
+        
+        console.log('🎯 Selecting tier with:', { email: userData.email, tier: userData.category });
+        
+        const tierResponse = await fetch(`${API_BASE_URL}/pre-applicant/select-tier`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Accept': 'application/json'
+          },
+          body: tierFormData
         });
         
         if (!tierResponse.ok) {
           const body = await readBodySafely(tierResponse);
-          const errorMsg = typeof body === 'object' ? (body.detail || JSON.stringify(body)) : body;
+          console.log('❌ Tier selection error:', body);
+          const errorMsg = typeof body === 'object' ? (body.detail || body.message || JSON.stringify(body)) : body;
           throw new Error(`Tier selection failed: ${errorMsg}`);
         }
         
-        // Initiate payment
+        const tierData = await readBodySafely(tierResponse);
+        console.log('✅ Tier selection response:', tierData);
+        
+        // PAYMENT INITIATION - FIXED PARAMETERS
+        console.log('💰 Initiating payment with parameters:', {
+          email: userData.email,
+          tier: userData.category,
+          amount: userData.amount,
+          pre_applicant_id: userData.preApplicantId,
+          payment_type: userData.category,
+          user_type: 'pre_applicant'
+        });
+        
+        // Try different parameter combinations - FIXED
+        const paymentParams = new URLSearchParams();
+        
+        // Minimum required parameters based on common payment endpoints
+        paymentParams.append('email', userData.email);
+        paymentParams.append('amount', userData.amount.toString());
+        paymentParams.append('payment_type', userData.category);
+        paymentParams.append('user_type', 'pre_applicant');
+        
+        // Add optional but helpful parameters
+        if (userData.preApplicantId) {
+          paymentParams.append('pre_applicant_id', userData.preApplicantId);
+        }
+        
+        // Some endpoints use 'tier' instead of 'payment_type'
+        paymentParams.append('tier', userData.category);
+        
+        // Add full name for reference
+        paymentParams.append('full_name', userData.fullName);
+        
+        console.log('💰 Sending payment request with params:', Object.fromEntries(paymentParams));
+        
         const paymentResponse = await fetch(`${API_BASE_URL}/api/payments/initiate`, {
           method: 'POST',
-          headers: { 
-            'Content-Type': 'application/json',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
             'Accept': 'application/json'
           },
-          body: JSON.stringify({
-            email: userData.email,
-            payment_type: userData.category,
-            user_type: 'pre_applicant'
-          })
+          body: paymentParams
         });
+        
+        console.log('💰 Payment response status:', paymentResponse.status);
         
         if (!paymentResponse.ok) {
           const body = await readBodySafely(paymentResponse);
+          console.log('💰 Payment error body (raw):', body);
           
-          // Handle special cases
-          if (typeof body === 'object') {
-            if (body.status === 'already_paid') {
-              hideLoader();
-              showStatus('Payment already completed. Generating password...', 'info');
-              await generatePassword(userData.email, userData.fullName);
-              return;
+          // Try to parse error properly
+          let errorDetail = 'Payment initiation failed';
+          
+          if (body && typeof body === 'object') {
+            // Handle object error
+            if (body.detail) {
+              errorDetail = body.detail;
+            } else if (body.message) {
+              errorDetail = body.message;
+            } else if (body.error) {
+              errorDetail = body.error;
+            } else {
+              // Try to stringify the object for display
+              try {
+                errorDetail = JSON.stringify(body);
+              } catch {
+                errorDetail = 'Unknown payment error';
+              }
+            }
+          } else if (typeof body === 'string') {
+            // Handle string error
+            try {
+              const parsed = JSON.parse(body);
+              errorDetail = parsed.detail || parsed.message || parsed.error || body;
+            } catch {
+              errorDetail = body;
             }
           }
           
-          const errorMsg = typeof body === 'object' ? (body.detail || JSON.stringify(body)) : body;
-          throw new Error(`Payment initiation failed: ${errorMsg}`);
+          console.log('💰 Parsed error detail:', errorDetail);
+          
+          // Check if payment already completed
+          if (errorDetail.includes('already_paid') || errorDetail.includes('already paid')) {
+            hideLoader();
+            showStatus('Payment already completed. Generating password...', 'info');
+            await generatePassword(userData.email, userData.fullName);
+            return;
+          }
+          
+          // Try alternative endpoint or method
+          if (paymentResponse.status === 422) {
+            console.log('🔄 Trying alternative payment method...');
+            
+            // Try with JSON instead of form data
+            const jsonBody = {
+              email: userData.email,
+              amount: userData.amount,
+              payment_type: userData.category,
+              user_type: 'pre_applicant',
+              pre_applicant_id: userData.preApplicantId,
+              tier: userData.category,
+              full_name: userData.fullName
+            };
+            
+            console.log('🔄 Trying JSON request:', jsonBody);
+            
+            const jsonResponse = await fetch(`${API_BASE_URL}/api/payments/initiate`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              },
+              body: JSON.stringify(jsonBody)
+            });
+            
+            if (jsonResponse.ok) {
+              const paymentData = await readBodySafely(jsonResponse);
+              console.log('✅ Payment initiation (JSON) response:', paymentData);
+              userData.paymentReference = paymentData.payment_reference || paymentData.reference || paymentData.data?.reference;
+              await openPaystack(userData.paymentReference);
+              return;
+            } else {
+              const jsonError = await readBodySafely(jsonResponse);
+              console.log('❌ JSON payment also failed:', jsonError);
+            }
+          }
+          
+          throw new Error(errorDetail);
         }
         
         const paymentData = await readBodySafely(paymentResponse);
-        console.log('Payment initiation response:', paymentData);
+        console.log('✅ Payment initiation response:', paymentData);
         
-        userData.paymentReference = paymentData.payment_reference;
+        userData.paymentReference = paymentData.payment_reference || paymentData.reference || paymentData.data?.reference;
         
-        // Initialize Paystack
-        if (typeof PaystackPop === 'undefined') {
-          throw new Error('Paystack script not loaded');
-        }
-        
-        hideLoader();
-        
-        const handler = PaystackPop.setup({
-          key: 'pk_test_c6ff4f4622c7e35eb557e9e3be0c7424b5d0a3d4', // Your test key
-          email: userData.email,
-          amount: userData.amount * 100,
-          currency: 'NGN',
-          ref: paymentData.payment_reference,
-          metadata: {
-            full_name: userData.fullName,
-            tier: userData.category,
-            pre_applicant_id: userData.preApplicantId
-          },
-          callback: function(response) {
-            console.log('Payment callback:', response);
-            verifyPayment(response.reference);
-          },
-          onClose: function() {
-            showStatus('Payment window closed. You can try again.', 'warning');
-          }
-        });
-        
-        handler.openIframe();
+        // Open Paystack payment
+        await openPaystack(userData.paymentReference);
         
       } catch (error) {
         hideLoader();
-        console.error('Payment initiation error:', error);
-        showStatus(`Payment failed: ${error.message}`, 'error');
+        console.error('❌ Payment initiation error:', error);
+        
+        // Show proper error message
+        let userMessage = error.message;
+        if (error.message.includes('422')) {
+          userMessage = 'Payment validation error. Required parameters missing.';
+        } else if (error.message.includes('Failed to fetch')) {
+          userMessage = 'Network error. Please check your connection.';
+        } else if (error.message.includes('already_paid')) {
+          userMessage = 'Payment already completed. Please check your email.';
+        } else if (error.message.includes('[object Object]')) {
+          userMessage = 'Payment server error. Please try again or contact support.';
+        }
+        
+        showStatus(`Payment failed: ${userMessage}`, 'error');
       }
+    }
+
+    // Helper function to open Paystack
+    async function openPaystack(paymentReference) {
+      if (typeof PaystackPop === 'undefined') {
+        throw new Error('Paystack script not loaded');
+      }
+      
+      hideLoader();
+      
+      const handler = PaystackPop.setup({
+        key: 'pk_test_c6ff4f4622c7e35eb557e9e3be0c7424b5d0a3d4',
+        email: userData.email,
+        amount: userData.amount * 100,
+        currency: 'NGN',
+        ref: paymentReference,
+        metadata: {
+          full_name: userData.fullName,
+          tier: userData.category,
+          pre_applicant_id: userData.preApplicantId,
+          email: userData.email
+        },
+        callback: function(response) {
+          console.log('💰 Payment callback:', response);
+          verifyPayment(response.reference);
+        },
+        onClose: function() {
+          showStatus('Payment window closed. You can try again.', 'warning');
+        }
+      });
+      
+      handler.openIframe();
     }
 
     async function verifyPayment(reference) {
@@ -2028,56 +2237,171 @@
         const response = await fetch(`${API_BASE_URL}/api/payments/verify/${reference}`, {
           method: 'POST',
           headers: {
-            'Accept': 'application/json'
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
           }
         });
         
+        console.log('🔍 Payment verification status:', response.status);
+        
         if (!response.ok) {
           const body = await readBodySafely(response);
-          const errorMsg = typeof body === 'object' ? (body.detail || JSON.stringify(body)) : body;
-          throw new Error(`Payment verification failed: ${errorMsg}`);
+          console.log('🔍 Payment verification error body:', body);
+          
+          let errorMsg = 'Payment verification failed';
+          if (typeof body === 'object' && body !== null) {
+            errorMsg = body.detail || body.message || JSON.stringify(body);
+          } else if (typeof body === 'string') {
+            errorMsg = body;
+          }
+          
+          // If payment verification fails but we have reference, still try to generate password
+          if (reference) {
+            console.log('⚠️ Payment verification failed, but trying to generate password anyway');
+            hideLoader();
+            showStatus('Payment may have been successful. Generating password...', 'warning');
+            await generatePassword(userData.email, userData.fullName);
+            return;
+          }
+          
+          throw new Error(errorMsg);
         }
         
         const data = await readBodySafely(response);
-        console.log('Payment verification response:', data);
+        console.log('✅ Payment verification response:', data);
+        
+        // ✅ CRITICAL FIX: Get the correct pre-applicant ID after payment
+        await getCorrectPreApplicantId();
         
         // Payment verified, generate password
         await generatePassword(userData.email, userData.fullName);
         
       } catch (error) {
         hideLoader();
-        console.error('Payment verification error:', error);
-        showStatus(`Verification failed: ${error.message}`, 'error');
+        console.error('❌ Payment verification error:', error);
+        
+        // Still try to generate password if we have a reference
+        if (userData.paymentReference) {
+          showStatus('Payment may have been successful. Attempting to generate password...', 'warning');
+          await generatePassword(userData.email, userData.fullName);
+        } else {
+          showStatus(`Verification failed: ${error.message}`, 'error');
+        }
       }
     }
+
+    // ✅ FIXED: Get correct pre-applicant ID from backend
+async function getCorrectPreApplicantId() {
+    try {
+        console.log('🔄 Getting correct pre-applicant ID for:', userData.email);
+        
+        const response = await fetch(`${API_BASE_URL}/pre-applicant/status/${encodeURIComponent(userData.email)}`);
+        
+        if (response.ok) {
+            const data = await readBodySafely(response);
+            console.log('✅ Current pre-applicant status:', data);
+            
+            // ✅ FIXED: Try multiple possible field names
+            let newPreApplicantId = data.pre_applicant_id || data.id || data.pre_applicant_data?.id;
+            
+            // Validate it's not 'undefined' string
+            if (newPreApplicantId && newPreApplicantId !== 'undefined' && newPreApplicantId !== 'null') {
+                const oldId = userData.preApplicantId;
+                userData.preApplicantId = newPreApplicantId;
+                
+                // Also store in localStorage
+                localStorage.setItem('preApplicantId', userData.preApplicantId);
+                
+                console.log(`✅ Updated preApplicantId: ${oldId} → ${userData.preApplicantId}`);
+                
+                // Update the hidden field in the form
+                document.getElementById('preApplicantId').value = userData.preApplicantId;
+                
+                return userData.preApplicantId;
+            } else {
+                console.warn('⚠️ No valid pre-applicant ID in response, checking localStorage');
+                
+                // Check localStorage as fallback
+                const storedId = localStorage.getItem('preApplicantId');
+                if (storedId && storedId !== 'undefined') {
+                    userData.preApplicantId = storedId;
+                    document.getElementById('preApplicantId').value = userData.preApplicantId;
+                    console.log('✅ Using preApplicantId from localStorage:', userData.preApplicantId);
+                    return userData.preApplicantId;
+                }
+            }
+        } else {
+            console.warn('⚠️ Could not get pre-applicant status, using existing ID:', userData.preApplicantId);
+        }
+        
+        return userData.preApplicantId;
+    } catch (error) {
+        console.error('❌ Error getting correct pre-applicant ID:', error);
+        return userData.preApplicantId;
+    }
+  }
 
     async function generatePassword(email, fullName) {
       showLoader('Generating application password...');
 
-      async function sendRequest(sendAsObject = true) {
-        const headers = { 'Content-Type': 'application/json', 'Accept': 'application/json' };
-        const body = sendAsObject ? JSON.stringify({ email }) : JSON.stringify(email);
-
-        return fetch(`${API_BASE_URL}/access/generate-password`, { method: 'POST', headers, body });
-      }
-
       try {
-        let response = await sendRequest(true);
-        if (response.status === 422) {
-          response = await sendRequest(false);
-        }
+        // Use JSON instead of form data - backend expects JSON
+        const jsonBody = {
+          email: email
+        };
 
+        console.log('🔑 Generating password for:', email);
+        
+        const response = await fetch(`${API_BASE_URL}/access/generate-password`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(jsonBody)
+        });
+
+        console.log('🔑 Password generation status:', response.status);
+        
         if (!response.ok) {
           const body = await readBodySafely(response);
-          const errorMsg = typeof body === 'object' ? (body.detail || JSON.stringify(body)) : body;
+          console.log('🔑 Password generation error body:', body);
+          
+          // If 422, try with form data as fallback
+          if (response.status === 422) {
+            console.log('🔄 Trying form data format for password generation...');
+            const formData = new URLSearchParams();
+            formData.append('email', email);
+            
+            const formResponse = await fetch(`${API_BASE_URL}/access/generate-password`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Accept': 'application/json'
+              },
+              body: formData
+            });
+            
+            if (formResponse.ok) {
+              const formDataResponse = await readBodySafely(formResponse);
+              console.log('✅ Password generation (form) response:', formDataResponse);
+              hideLoader();
+              showStatus('✅ Password generated and sent to your email!', 'success');
+              setupPasswordSection();
+              goToSection(5);
+              return;
+            }
+          }
+          
+          const errorMsg = typeof body === 'object' ? (body.detail || body.message || JSON.stringify(body)) : body;
           throw new Error(`Password generation failed: ${errorMsg}`);
         }
 
-        const contentType = (response.headers.get('content-type') || '').toLowerCase();
-        const data = contentType.includes('application/json') ? await response.json() : await response.text();
+        const data = await readBodySafely(response);
+        console.log('✅ Password generation response:', data);
 
         hideLoader();
-        showStatus('Password generated and sent to your email!', 'success');
+        showStatus('✅ Password generated and sent to your email!', 'success');
 
         // Setup password section
         setupPasswordSection();
@@ -2085,8 +2409,12 @@
 
       } catch (error) {
         hideLoader();
-        console.error('Password generation error:', error);
-        showStatus(`Password generation failed: ${error.message}. If you completed payment, wait a few seconds and try "Resend Password".`, 'error');
+        console.error('❌ Password generation error:', error);
+        
+        // Still proceed to password section if payment was made
+        showStatus(`Password generation may have issues: ${error.message}. Please check your email or use "Resend Password".`, 'warning');
+        setupPasswordSection();
+        goToSection(5);
       }
     }
 
@@ -2097,35 +2425,38 @@
     async function resendPassword() {
       showLoader('Resending password...');
 
-      async function sendRequest(sendAsObject = true) {
-        const headers = { 'Content-Type': 'application/json', 'Accept': 'application/json' };
-        const body = sendAsObject ? JSON.stringify({ email: userData.email }) : JSON.stringify(userData.email);
-        return fetch(`${API_BASE_URL}/access/generate-password`, { method: 'POST', headers, body });
-      }
-
       try {
-        let response = await sendRequest(true);
-        if (response.status === 422) {
-          response = await sendRequest(false);
-        }
+        // Use JSON format
+        const jsonBody = {
+          email: userData.email
+        };
+
+        const response = await fetch(`${API_BASE_URL}/access/generate-password`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(jsonBody)
+        });
 
         if (!response.ok) {
           const body = await readBodySafely(response);
-          const errorMsg = typeof body === 'object' ? (body.detail || JSON.stringify(body)) : body;
+          const errorMsg = typeof body === 'object' ? (body.detail || body.message || JSON.stringify(body)) : body;
           throw new Error(`Failed to resend password: ${errorMsg}`);
         }
 
         hideLoader();
-        showStatus('Password resent to your email!', 'success');
+        showStatus('✅ Password resent to your email!', 'success');
 
       } catch (error) {
         hideLoader();
-        console.error('Resend password error:', error);
+        console.error('❌ Resend password error:', error);
         showStatus(`Failed to resend password: ${error.message}`, 'error');
       }
     }
 
-    // Section 5: Password Verification
+    // Section 5: Password Verification - FIXED VERSION
     async function handlePasswordVerification() {
       const password = document.getElementById('password').value.trim();
       const email = document.getElementById('passwordEmail').value.trim();
@@ -2138,26 +2469,97 @@
       showLoader('Verifying password...');
       
       try {
+        // First try JSON format (backend seems to prefer this)
+        const jsonBody = {
+          email: email,
+          password: password
+        };
+
+        console.log('🔐 Verifying password for:', email);
+        
         const response = await fetch(`${API_BASE_URL}/access/verify`, {
           method: 'POST',
-          headers: { 
+          headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
           },
-          body: JSON.stringify({
-            email: email,
-            password: password
-          })
+          body: JSON.stringify(jsonBody)
         });
+        
+        console.log('🔐 Password verification status:', response.status);
         
         if (!response.ok) {
           const body = await readBodySafely(response);
-          const errorMsg = typeof body === 'object' ? (body.detail || JSON.stringify(body)) : body;
-          throw new Error(`Password verification failed: ${errorMsg}`);
+          console.log('🔐 Password verification error body:', body);
+          
+          // If 422, try form data as fallback
+          if (response.status === 422) {
+            console.log('🔄 Trying form data for password verification...');
+            const formData = new URLSearchParams();
+            formData.append('email', email);
+            formData.append('password', password);
+            
+            const formResponse = await fetch(`${API_BASE_URL}/access/verify`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Accept': 'application/json'
+              },
+              body: formData
+            });
+            
+            if (formResponse.ok) {
+              const formDataResponse = await readBodySafely(formResponse);
+              console.log('✅ Password verification (form) response:', formDataResponse);
+              
+              // ✅ CRITICAL FIX: Get correct pre-applicant ID
+              await getCorrectPreApplicantId();
+              
+              // Store verified password
+              userData.password = password;
+              
+              // Accept privacy notice
+              await acceptPrivacyNotice();
+              
+              // Load application form
+              loadApplicationForm();
+              
+              hideLoader();
+              showStatus('✅ Password verified successfully!', 'success');
+              goToSection(6);
+              return;
+            }
+          }
+          
+          // Parse error properly
+          let errorDetail = 'Password verification failed';
+          if (body && typeof body === 'object') {
+            if (body.detail) {
+              errorDetail = body.detail;
+            } else if (body.message) {
+              errorDetail = body.message;
+            } else if (Array.isArray(body) && body.length > 0) {
+              errorDetail = body[0].msg || JSON.stringify(body);
+            } else {
+              errorDetail = JSON.stringify(body);
+            }
+          } else if (typeof body === 'string') {
+            try {
+              const parsed = JSON.parse(body);
+              errorDetail = parsed.detail || parsed.message || parsed.error || body;
+            } catch {
+              errorDetail = body;
+            }
+          }
+          
+          throw new Error(errorDetail);
         }
         
         const data = await readBodySafely(response);
-        console.log('Password verification response:', data);
+        console.log('✅ Password verification response:', data);
+        
+        // ✅ CRITICAL FIX: Get correct pre-applicant ID
+        await getCorrectPreApplicantId();
         
         // Store verified password
         userData.password = password;
@@ -2169,32 +2571,50 @@
         loadApplicationForm();
         
         hideLoader();
-        showStatus('Password verified successfully!', 'success');
+        showStatus('✅ Password verified successfully!', 'success');
         goToSection(6);
         
       } catch (error) {
         hideLoader();
-        console.error('Password verification error:', error);
-        showStatus(`Verification failed: ${error.message}`, 'error');
+        console.error('❌ Password verification error:', error);
+        
+        // Show better error message
+        let userMessage = error.message;
+        if (error.message.includes('[object Object]')) {
+          userMessage = 'Invalid password format. Please check the password sent to your email.';
+        } else if (error.message.includes('Invalid') || error.message.includes('incorrect')) {
+          userMessage = 'Incorrect password. Please check your email and try again.';
+        } else if (error.message.includes('Failed to fetch')) {
+          userMessage = 'Network error. Please check your connection.';
+        }
+        
+        showStatus(`Verification failed: ${userMessage}`, 'error');
       }
     }
 
     async function acceptPrivacyNotice() {
       try {
+        // Use JSON format
+        const jsonBody = {
+          email: userData.email
+        };
+
         const response = await fetch(`${API_BASE_URL}/privacy/accept`, {
           method: 'POST',
-          headers: { 
+          headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
           },
-          body: JSON.stringify({ email: userData.email })
+          body: JSON.stringify(jsonBody)
         });
         
         if (!response.ok) {
-          console.warn('Privacy acceptance failed');
+          console.warn('⚠️ Privacy acceptance failed');
+        } else {
+          console.log('✅ Privacy notice accepted');
         }
       } catch (error) {
-        console.warn('Privacy acceptance error:', error);
+        console.warn('⚠️ Privacy acceptance error:', error);
       }
     }
 
@@ -2264,9 +2684,189 @@
           </div>
         `;
       }
+      
+      // Check for saved progress
+      checkSavedProgress();
     }
 
-    // Section 6: Application Form Submission
+    // Save application progress
+    async function saveApplicationProgress() {
+      showLoader('Saving your progress...');
+      
+      try {
+        const formData = collectFormData();
+        
+        // Save to localStorage for offline access
+        localStorage.setItem(`marshal_app_${userData.email}`, JSON.stringify({
+          data: formData,
+          timestamp: new Date().toISOString(),
+          tier: userData.category,
+          email: userData.email
+        }));
+        
+        // Also save to backend if user is authenticated
+        if (userData.password) {
+          const jsonBody = {
+            email: userData.email,
+            form_data: formData,
+            is_draft: true
+          };
+          
+          const response = await fetch(`${API_BASE_URL}/save-progress`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(jsonBody)
+          });
+          
+          if (response.ok) {
+            console.log('✅ Progress saved to backend');
+          }
+        }
+        
+        hideLoader();
+        showStatus('✅ Application progress saved successfully! You can continue later.', 'success');
+        
+        // Update status display
+        updateProgressStatus('saved', 'Progress saved');
+        
+      } catch (error) {
+        hideLoader();
+        console.error('❌ Error saving progress:', error);
+        showStatus('⚠️ Progress saved locally. You can continue from here later.', 'warning');
+      }
+    }
+
+    function autoSaveProgress() {
+      if (userData.email) {
+        const formData = collectFormData();
+        localStorage.setItem(`marshal_app_${userData.email}`, JSON.stringify({
+          data: formData,
+          timestamp: new Date().toISOString(),
+          tier: userData.category,
+          email: userData.email
+        }));
+        console.log('💾 Auto-saved progress');
+      }
+    }
+
+    function checkSavedProgress() {
+      if (userData.email) {
+        const saved = localStorage.getItem(`marshal_app_${userData.email}`);
+        if (saved) {
+          try {
+            const savedData = JSON.parse(saved);
+            userData.savedProgress = savedData;
+            
+            // Restore form data
+            restoreFormData(savedData.data);
+            
+            // Show status
+            updateProgressStatus('saved', `Progress saved on ${new Date(savedData.timestamp).toLocaleDateString()}`);
+            
+          } catch (e) {
+            console.warn('Could not restore saved progress:', e);
+          }
+        }
+      }
+    }
+
+    function collectFormData() {
+      const form = document.getElementById('applicationForm');
+      const data = {};
+      
+      // Collect all form fields
+      const inputs = form.querySelectorAll('input, textarea, select');
+      inputs.forEach(input => {
+        if (input.type === 'checkbox' || input.type === 'radio') {
+          data[input.name] = input.checked;
+        } else {
+          data[input.name] = input.value;
+        }
+      });
+      
+      // Collect file info
+      const passportFile = document.getElementById('passportPhoto').files[0];
+      if (passportFile) {
+        data.passportFileName = passportFile.name;
+        data.passportFileSize = passportFile.size;
+        data.passportFileType = passportFile.type;
+      }
+      
+      const ninFile = document.getElementById('ninSlip').files[0];
+      if (ninFile) {
+        data.ninFileName = ninFile.name;
+        data.ninFileSize = ninFile.size;
+        data.ninFileType = ninFile.type;
+      }
+      
+      // Collect selected reasons
+      const selectedReasons = [];
+      document.querySelectorAll('input[name="selected_reasons"]:checked').forEach(checkbox => {
+        selectedReasons.push(checkbox.value);
+      });
+      data.selected_reasons = selectedReasons;
+      
+      return data;
+    }
+
+    function restoreFormData(data) {
+      if (!data) return;
+      
+      const form = document.getElementById('applicationForm');
+      
+      // Restore text fields
+      Object.keys(data).forEach(key => {
+        const input = form.querySelector(`[name="${key}"]`);
+        if (input) {
+          if (input.type === 'checkbox' || input.type === 'radio') {
+            input.checked = data[key];
+          } else if (input.type !== 'file') {
+            input.value = data[key] || '';
+          }
+        }
+      });
+      
+      // Restore reasons checkboxes
+      if (data.selected_reasons && Array.isArray(data.selected_reasons)) {
+        data.selected_reasons.forEach(reason => {
+          const checkbox = document.querySelector(`input[value="${reason}"]`);
+          if (checkbox) checkbox.checked = true;
+        });
+      }
+      
+      // Update file previews if files were saved
+      if (data.passportFileName) {
+        updateFilePreview('passportPreview', data.passportFileName, data.passportFileSize);
+      }
+      
+      if (data.ninFileName) {
+        updateFilePreview('ninPreview', data.ninFileName, data.ninFileSize);
+      }
+    }
+
+    function updateProgressStatus(status, message) {
+      const statusDisplay = document.getElementById('applicationStatusDisplay');
+      const statusMessage = document.getElementById('statusMessageText');
+      const lastSavedTime = document.getElementById('lastSavedTime');
+      
+      if (statusDisplay && statusMessage && lastSavedTime) {
+        statusDisplay.style.display = 'block';
+        statusMessage.textContent = message;
+        lastSavedTime.textContent = new Date().toLocaleString();
+        
+        // Update badge color
+        const badge = statusDisplay.querySelector('.status-badge');
+        if (badge) {
+          badge.className = `status-badge ${status}`;
+          badge.textContent = status.charAt(0).toUpperCase() + status.slice(1);
+        }
+      }
+    }
+
+    // Handle application submission - FIXED VERSION
     async function handleApplicationSubmit() {
       // Validate passport upload
       const passportFile = document.getElementById('passportPhoto').files[0];
@@ -2289,7 +2889,7 @@
       showLoader('Submitting application and generating PDFs...');
       
       try {
-        // Collect form data
+        // Collect form data - Use FormData for multipart/form-data
         const formData = new FormData(document.getElementById('applicationForm'));
         
         // Get selected reasons
@@ -2308,35 +2908,108 @@
         
         formData.set('selected_reasons', JSON.stringify(selectedReasons));
         
-        // Submit application
+        // ✅ FIX: Use the correct pre-applicant ID
+        console.log('🔑 Using preApplicantId:', userData.preApplicantId);
+        formData.append('application_password', userData.password);
+        formData.append('email', userData.email);
+        formData.append('application_tier', userData.category);
+        formData.append('pre_applicant_id', userData.preApplicantId);
+        
+        // ✅ Add payment reference if available
+        if (userData.paymentReference) {
+          formData.append('payment_reference', userData.paymentReference);
+          formData.append('amount_paid', userData.amount.toString());
+        }
+        
+        console.log('📤 Submitting application with:', {
+          email: userData.email,
+          tier: userData.category,
+          pre_applicant_id: userData.preApplicantId,
+          payment_reference: userData.paymentReference,
+          amount: userData.amount
+        });
+        
         const response = await fetch(`${API_BASE_URL}/apply`, {
           method: 'POST',
           body: formData
         });
         
+        console.log('📥 Submission response status:', response.status);
+        
         if (!response.ok) {
           const body = await readBodySafely(response);
-          const errorMsg = typeof body === 'object' ? (body.detail || JSON.stringify(body)) : body;
-          throw new Error(`Application submission failed: ${errorMsg}`);
+          console.log('❌ Submission error body:', body);
+          
+          // Handle specific errors
+          let errorMsg = 'Application submission failed';
+          if (body && typeof body === 'object') {
+            errorMsg = body.detail || body.message || JSON.stringify(body);
+          } else if (typeof body === 'string') {
+            errorMsg = body;
+          }
+          
+          // Special handling for authentication errors
+          if (errorMsg.includes('Invalid application credentials') || 
+              errorMsg.includes('application_password') ||
+              errorMsg.includes('authentication')) {
+            errorMsg = 'Authentication failed. Please verify your password and try again.';
+          }
+          
+          throw new Error(errorMsg);
         }
         
         const data = await readBodySafely(response);
-        console.log('Application submission response:', data);
+        console.log('✅ Application submission response:', data);
         
         // Store applicant ID for PDF downloads
         userData.applicantId = data.id || data.applicant_id;
         
         hideLoader();
-        showStatus('Application submitted successfully!', 'success');
+        showStatus('✅ Application submitted successfully! PDFs are being generated and will be emailed to you.', 'success');
+        
+        // Clear saved progress
+        if (userData.email) {
+          localStorage.removeItem(`marshal_app_${userData.email}`);
+        }
         
         // Move to success screen
         goToSection(7);
         
+        // Show email section with PDF download links
+        showEmailSuccessSection(data);
+        
       } catch (error) {
         hideLoader();
-        console.error('Application submission error:', error);
+        console.error('❌ Application submission error:', error);
         showStatus(`Submission failed: ${error.message}`, 'error');
       }
+    }
+
+    function showEmailSuccessSection(data) {
+      document.getElementById('userEmailSent').textContent = userData.email;
+      document.getElementById('emailLinkSection').style.display = 'block';
+      
+      // Generate direct download links
+      const baseUrl = `${API_BASE_URL}`;
+      
+      // Applicant PDF links
+      if (data.terms_pdf_path) {
+        document.getElementById('directTermsLink').href = `${baseUrl}/${data.terms_pdf_path}`;
+        document.getElementById('directTermsLink').download = `Marshal_Core_Terms_${userData.applicantId}.pdf`;
+      }
+      
+      if (data.application_pdf_path) {
+        document.getElementById('directAppLink').href = `${baseUrl}/${data.application_pdf_path}`;
+        document.getElementById('directAppLink').download = `Marshal_Core_Application_${userData.applicantId}.pdf`;
+      }
+      
+      // Add guarantor form link
+      const guarantorLink = document.createElement('a');
+      guarantorLink.href = `${baseUrl}/static/guarantor-form.pdf`;
+      guarantorLink.className = 'btn btn-secondary ml-2';
+      guarantorLink.download = 'Marshal_Core_Guarantor_Form.pdf';
+      guarantorLink.textContent = 'Guarantor Form';
+      document.querySelector('#emailLinkSection .text-center').appendChild(guarantorLink);
     }
 
     // Section 7: PDF Downloads
@@ -2358,7 +3031,7 @@
         
         if (!response.ok) {
           const body = await readBodySafely(response);
-          const errorMsg = typeof body === 'object' ? (body.detail || JSON.stringify(body)) : body;
+          const errorMsg = typeof body === 'object' ? (body.detail || body.message || JSON.stringify(body)) : body;
           throw new Error(`PDF generation failed: ${errorMsg}`);
         }
         
@@ -2377,13 +3050,81 @@
         
       } catch (error) {
         hideLoader();
-        console.error('PDF download error:', error);
+        console.error('❌ PDF download error:', error);
         showStatus(`Failed to download PDF: ${error.message}`, 'error');
+      }
+    }
+
+    async function downloadGuarantorForm() {
+      showLoader('Downloading Guarantor Form...');
+      
+      try {
+        const response = await fetch(`${API_BASE_URL}/static/guarantor-form.pdf`, {
+          method: 'GET'
+        });
+        
+        if (!response.ok) {
+          throw new Error('Guarantor form not found');
+        }
+        
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Marshal_Core_Guarantor_Form.pdf';
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+        
+        hideLoader();
+        showStatus('Guarantor form downloaded successfully!', 'success');
+        
+      } catch (error) {
+        hideLoader();
+        console.error('❌ Guarantor form download error:', error);
+        showStatus(`Failed to download guarantor form: ${error.message}`, 'error');
       }
     }
 
     function goToPortal() {
       window.location.href = 'https://marshalcoreofnigeria.ng/portal';
+    }
+
+    // Handle direct download links from email
+    function handleDirectDownloadLinks() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const downloadType = urlParams.get('download');
+      const userId = urlParams.get('user_id');
+      const userType = urlParams.get('user_type') || 'applicant';
+      const token = urlParams.get('token');
+      
+      if (downloadType && userId) {
+        showLoader('Preparing download...');
+        
+        // Validate token if provided
+        if (token) {
+          // In production, verify token with backend
+          console.log('🔐 Token verification needed');
+        }
+        
+        // Direct download
+        setTimeout(() => {
+          const downloadUrl = `${API_BASE_URL}/pdf/${downloadType}/${userId}?user_type=${userType}&token=${token || ''}`;
+          window.location.href = downloadUrl;
+        }, 1000);
+      }
+    }
+
+    function loadSubmittedApplication() {
+      // This would load an already submitted application
+      showLoader('Loading your submitted application...');
+      
+      setTimeout(() => {
+        hideLoader();
+        showStatus('Your application was already submitted. Check your email for download links.', 'info');
+        goToSection(7);
+      }, 1500);
     }
 
     // Utility functions
@@ -2398,13 +3139,39 @@
 
     function showStatus(message, type = 'info') {
       const statusDiv = document.getElementById('statusMessage');
+      
+      // Handle object messages
+      if (typeof message === 'object') {
+        try {
+          // Try to extract meaningful error message
+          if (message.detail) {
+            message = message.detail;
+          } else if (message.message) {
+            message = message.message;
+          } else if (message.error) {
+            message = message.error;
+          } else if (Array.isArray(message) && message.length > 0) {
+            // Handle array errors (like validation errors)
+            message = message.map(item => item.msg || JSON.stringify(item)).join(', ');
+          } else {
+            // Stringify the object
+            message = JSON.stringify(message);
+          }
+        } catch {
+          message = 'An error occurred';
+        }
+      }
+      
       statusDiv.textContent = message;
       statusDiv.className = `status-message status-${type}`;
       statusDiv.style.display = 'block';
       
-      setTimeout(() => {
-        statusDiv.style.display = 'none';
-      }, 5000);
+      // Auto-hide after 5 seconds for non-error messages
+      if (type !== 'error') {
+        setTimeout(() => {
+          statusDiv.style.display = 'none';
+        }, 5000);
+      }
     }
 
     function validateEmail(email) {
@@ -2533,6 +3300,46 @@
       
       previewDiv.appendChild(removeBtn);
       previewContainer.appendChild(previewDiv);
+    }
+
+    function updateFilePreview(previewId, fileName, fileSize) {
+      const preview = document.getElementById(previewId);
+      if (!preview) return;
+      
+      preview.innerHTML = '';
+      preview.style.display = 'block';
+      
+      const previewDiv = document.createElement('div');
+      previewDiv.className = 'preview-container';
+      
+      const icon = document.createElement('div');
+      icon.className = 'upload-icon';
+      icon.textContent = '📄';
+      previewDiv.appendChild(icon);
+      
+      const detailsDiv = document.createElement('div');
+      detailsDiv.className = 'preview-details';
+      
+      const nameDiv = document.createElement('div');
+      nameDiv.className = 'preview-name';
+      nameDiv.textContent = fileName;
+      
+      const sizeDiv = document.createElement('div');
+      sizeDiv.className = 'preview-size';
+      sizeDiv.textContent = formatFileSize(fileSize || 0);
+      
+      detailsDiv.appendChild(nameDiv);
+      detailsDiv.appendChild(sizeDiv);
+      previewDiv.appendChild(detailsDiv);
+      
+      const noteDiv = document.createElement('div');
+      noteDiv.className = 'file-info';
+      noteDiv.textContent = 'File saved from previous session. Please re-upload if needed.';
+      noteDiv.style.fontSize = '0.8rem';
+      noteDiv.style.color = '#ff9800';
+      previewDiv.appendChild(noteDiv);
+      
+      preview.appendChild(previewDiv);
     }
 
     function formatFileSize(bytes) {

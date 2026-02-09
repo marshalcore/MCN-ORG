@@ -1099,7 +1099,7 @@
           <p>• Payments are processed securely via Paystack Live</p>
           <p>• All transactions are encrypted and PCI DSS compliant</p>
           <p>• Application fees are non-refundable</p>
-          <p>• Funds are automatically distributed to recipients</p>
+          <p>• All financial transactions are handled through secure banking channels</p>
         </div>
         
         <div class="terms-container">
@@ -1177,10 +1177,9 @@
             <h4>PAYMENT PROCESS</h4>
             <ul>
               <li>All payments processed via Paystack LIVE</li>
-              <li>35% automatically transferred to Director General</li>
-              <li>15% automatically transferred to eSTech System</li>
-              <li>Remaining 50% to Marshal Core (after transaction fees)</li>
-              <li>Immediate transfers happen automatically after payment</li>
+              <li>All financial transactions are handled through secure banking channels</li>
+              <li>Funds are processed according to organizational financial policies</li>
+              <li>Immediate processing happens automatically after payment</li>
             </ul>
             
             <h4>UNIFORM AND TRAINING FEES</h4>
@@ -1277,14 +1276,9 @@
         </div>
         
         <div class="payment-security">
-          <h5>💰 Payment Distribution</h5>
-          <p>After payment, funds are automatically distributed:</p>
-          <ul>
-            <li><strong>35%</strong> → Director General's UBA Account</li>
-            <li><strong>15%</strong> → eSTech System's OPay Account</li>
-            <li><strong>50%</strong> → Marshal Core (after transaction fees)</li>
-          </ul>
-          <p><em>Transfers happen immediately after successful payment verification.</em></p>
+          <h5>💰 Payment Information</h5>
+          <p>All payments are processed through secure banking channels and handled according to organizational financial policies.</p>
+          <p><em>Transfers are processed automatically after successful payment verification.</em></p>
         </div>
         
         <div class="action-buttons">
@@ -1387,7 +1381,7 @@
         <div class="payment-security">
           <h5>🔒 Secure Live Payment</h5>
           <p>You are making a <strong>REAL PAYMENT</strong> with real funds.</p>
-          <p>Payment will be processed via Paystack LIVE with immediate fund distribution.</p>
+          <p>Payment will be processed via Paystack LIVE with secure fund processing.</p>
           <p><strong>⚠️ Important:</strong> Application fee is non-refundable.</p>
         </div>
         
@@ -1415,13 +1409,7 @@
             <ul>
               <li><strong>This is a REAL payment with real funds</strong></li>
               <li>Payment processed via Paystack LIVE</li>
-              <li>Funds will be automatically distributed:
-                <ul>
-                  <li>35% to Director General (UBA: 2104644267)</li>
-                  <li>15% to eSTech System (OPay: 6426991017)</li>
-                  <li>50% to Marshal Core (after transaction fees)</li>
-                </ul>
-              </li>
+              <li>Funds will be processed through secure organizational banking channels</li>
               <li>Application fee is non-refundable</li>
               <li>Receipt will be sent to your email</li>
               <li>After payment, you'll receive a password to complete your application</li>
@@ -1435,7 +1423,7 @@
           <label for="agreePayment">
             <strong>I understand this is a LIVE payment with real funds.</strong> 
             I agree to proceed with the payment and understand this is for the application fee only.
-            I understand that 35% will go to Director General and 15% to eSTech System automatically.
+            I understand that all financial transactions are handled through secure organizational channels.
           </label>
         </div>
         
@@ -1649,7 +1637,7 @@
           <p><strong>Payment Reference:</strong> <span id="successPaymentRef"></span></p>
           <p><strong>Amount Paid:</strong> <span id="successAmount"></span></p>
           <p><strong>Payment Status:</strong> <span class="status-badge submitted">Success</span></p>
-          <p><em>Funds have been automatically distributed to recipients.</em></p>
+          <p><em>All financial transactions have been processed successfully.</em></p>
         </div>
         
         <div class="download-links">
@@ -1781,13 +1769,13 @@
     function showProductionModeWarning() {
       console.log('⚠️ WARNING: This is PRODUCTION mode');
       console.log('⚠️ All payments are REAL transactions');
-      console.log('⚠️ Funds will be transferred to recipients');
+      console.log('⚠️ Funds are processed through secure banking channels');
       
       // Show a persistent warning for production
       const warningHtml = `
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
           <strong>⚠️ PRODUCTION MODE:</strong> You are making real payments with real funds. 
-          Application fees are non-refundable. Funds are automatically distributed to recipients.
+          Application fees are non-refundable. Funds are processed through secure organizational channels.
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -2234,7 +2222,7 @@
       }
       
       // Show production mode confirmation
-      const confirmed = confirm(`⚠️ PRODUCTION MODE CONFIRMATION\n\nYou are about to make a REAL payment of ₦${userData.amount.toLocaleString()}.\n\nThis is a LIVE transaction with real funds.\n\n• 35% will go to Director General\n• 15% will go to eSTech System\n• 50% will go to Marshal Core\n\nApplication fee is non-refundable.\n\nClick OK to proceed with payment.`);
+      const confirmed = confirm(`⚠️ PRODUCTION MODE CONFIRMATION\n\nYou are about to make a REAL payment of ₦${userData.amount.toLocaleString()}.\n\nThis is a LIVE transaction with real funds.\n\nApplication fee is non-refundable.\n\nClick OK to proceed with payment.`);
       
       if (!confirmed) {
         showStatus('Payment cancelled by user', 'info');

@@ -1419,8 +1419,8 @@ window.onload = () => {
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
+        'Origin': 'https://marshalcoreofnigeria.ng'
       },
-      credentials: 'include',
     };
 
     const mergedOptions = {
@@ -1433,7 +1433,11 @@ window.onload = () => {
     };
 
     try {
+      console.log(`📤 Making request to: ${url}`);
+      console.log(`📤 Method: ${mergedOptions.method || 'GET'}`);
+      
       const response = await fetch(url, mergedOptions);
+      console.log(`📥 Response status: ${response.status}`);
       
       // Parse response
       let data;
@@ -1452,7 +1456,7 @@ window.onload = () => {
       };
       
     } catch (error) {
-      console.error('Request failed:', error);
+      console.error('❌ Request failed:', error);
       return {
         ok: false,
         status: 0,
@@ -1684,17 +1688,24 @@ window.onload = () => {
     progressFill.style.width = '0%';
     
     try {
+      console.log(`📤 Uploading ${documentType} for officer: ${verifiedOfficerId}`);
+      
       const response = await fetch(OFFICER_UPLOAD_ENDPOINT, {
         method: 'POST',
         body: formData,
-        credentials: 'include'
+        headers: {
+          'Origin': 'https://marshalcoreofnigeria.ng'
+        }
       });
+      
+      console.log(`📥 Upload response status: ${response.status}`);
       
       // Update progress
       progressFill.style.width = '100%';
       
       if (response.ok) {
         const data = await response.json();
+        console.log(`✅ ${documentType} uploaded successfully:`, data);
         
         // Update status
         if (documentType === 'passport') {
@@ -1714,11 +1725,13 @@ window.onload = () => {
         
         return data;
       } else {
-        const errorData = await response.json();
-        throw new Error(errorData.detail || 'Upload failed');
+        const errorData = await response.json().catch(() => ({}));
+        const errorMsg = errorData.detail || 'Upload failed';
+        console.error(`❌ ${documentType} upload failed:`, errorMsg);
+        throw new Error(errorMsg);
       }
     } catch (error) {
-      console.error('Upload error:', error);
+      console.error('❌ Upload error:', error);
       uploadStatusText.textContent = `Failed to upload ${documentType.replace('_', ' ')}`;
       uploadStatusText.style.color = '#d32f2f';
       throw error;
@@ -1970,9 +1983,9 @@ window.onload = () => {
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
+          'Origin': 'https://marshalcoreofnigeria.ng'
         },
-        body: JSON.stringify(formData),
-        credentials: 'include'
+        body: JSON.stringify(formData)
       });
 
       console.log("📥 Registration response status:", response.status);

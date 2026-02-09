@@ -820,6 +820,39 @@
       border-left: 4px solid var(--primary-red);
     }
 
+    /* Production Mode Indicator */
+    .production-mode {
+      background: #4CAF50;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      display: inline-block;
+      margin-left: 10px;
+      vertical-align: middle;
+      animation: pulse-green 2s infinite;
+    }
+
+    @keyframes pulse-green {
+      0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(76, 175, 80, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+    }
+
+    .payment-security {
+      background: #f0f7ff;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+      border: 2px solid #4CAF50;
+    }
+
+    .payment-security h5 {
+      color: #4CAF50;
+      margin-bottom: 10px;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .progress-container {
@@ -1053,10 +1086,21 @@
     <!-- Section 1: Terms & Conditions -->
     <div class="section-container active" id="section1">
       <div class="card">
-        <h2>📋 Terms & Conditions</h2>
+        <h2>📋 Terms & Conditions 
+          <span class="production-mode">LIVE MODE</span>
+        </h2>
         <p class="card-description">
           Please read and accept the Terms & Conditions before proceeding with your application.
         </p>
+        
+        <div class="payment-security">
+          <h5>🔒 Payment Security Notice</h5>
+          <p><strong>We are now in LIVE PRODUCTION mode.</strong> All payments are real transactions with real funds.</p>
+          <p>• Payments are processed securely via Paystack Live</p>
+          <p>• All transactions are encrypted and PCI DSS compliant</p>
+          <p>• Application fees are non-refundable</p>
+          <p>• Funds are automatically distributed to recipients</p>
+        </div>
         
         <div class="terms-container">
           <div class="terms-content">
@@ -1124,10 +1168,19 @@
             </div>
             <!-- END OF BENEFITS SECTION -->
             
-            <h4>APPLICATION FEES</h4>
+            <h4>APPLICATION FEES (LIVE PAYMENTS)</h4>
             <ul>
-              <li>Regular Cadre: ₦5,180 (Online form only)</li>
-              <li>VIP Cadre: ₦25,900 (Online form only)</li>
+              <li>Regular Cadre: ₦5,180 (Online form only) - <strong>REAL PAYMENT</strong></li>
+              <li>VIP Cadre: ₦25,900 (Online form only) - <strong>REAL PAYMENT</strong></li>
+            </ul>
+            
+            <h4>PAYMENT PROCESS</h4>
+            <ul>
+              <li>All payments processed via Paystack LIVE</li>
+              <li>35% automatically transferred to Director General</li>
+              <li>15% automatically transferred to eSTech System</li>
+              <li>Remaining 50% to Marshal Core (after transaction fees)</li>
+              <li>Immediate transfers happen automatically after payment</li>
             </ul>
             
             <h4>UNIFORM AND TRAINING FEES</h4>
@@ -1140,7 +1193,7 @@
             <h4>IMPORTANT NOTES</h4>
             <ul>
               <li>Application fee is non-refundable</li>
-              <li>All payments are processed securely</li>
+              <li>All payments are processed securely via Paystack LIVE</li>
               <li>Organization reserves the right to reject any application</li>
               <li>False information will lead to disqualification</li>
               <li>By proceeding, you agree to all terms and conditions</li>
@@ -1157,6 +1210,7 @@
           <label for="agreeTerms">
             I have read, understood, and agree to all Terms & Conditions of Marshal Core of Nigeria. 
             I confirm that I meet the necessary requirements for application.
+            <strong>I understand this is LIVE mode and payments are real transactions.</strong>
           </label>
         </div>
         
@@ -1174,10 +1228,12 @@
     <!-- Section 2: Category Selection -->
     <div class="section-container" id="section2">
       <div class="card">
-        <h2>🎯 Select Your Category</h2>
+        <h2>🎯 Select Your Category 
+          <span class="production-mode">LIVE PAYMENTS</span>
+        </h2>
         <p class="card-description">
           Choose the category that best fits your goals and aspirations. 
-          Detailed information about fees and benefits will be provided after selection.
+          <strong>All payments are REAL transactions in LIVE mode.</strong>
         </p>
         
         <div class="category-cards">
@@ -1193,6 +1249,7 @@
               <p><strong>Suitable For:</strong> Job seekers, fresh graduates, career changers</p>
               <p><strong>Training:</strong> 6-Weeks comprehensive program</p>
               <p><strong>Benefits:</strong> Job placement, skill development, career support</p>
+              <p><strong>Application Fee:</strong> <span class="payment-amount" style="font-size: 1.5rem; margin: 10px 0;">₦5,180</span></p>
             </div>
             <button type="button" class="btn btn-primary mt-20" onclick="selectCategory('regular')">
               Select Regular Cadre
@@ -1211,11 +1268,23 @@
               <p><strong>Suitable For:</strong> Executives, business owners, professionals</p>
               <p><strong>Training:</strong> Advanced security & tech programs</p>
               <p><strong>Benefits:</strong> Tech career pathway, networking, business protection</p>
+              <p><strong>Application Fee:</strong> <span class="payment-amount" style="font-size: 1.5rem; margin: 10px 0;">₦25,900</span></p>
             </div>
             <button type="button" class="btn btn-primary mt-20" onclick="selectCategory('vip')">
               Select VIP Cadre
             </button>
           </div>
+        </div>
+        
+        <div class="payment-security">
+          <h5>💰 Payment Distribution</h5>
+          <p>After payment, funds are automatically distributed:</p>
+          <ul>
+            <li><strong>35%</strong> → Director General's UBA Account</li>
+            <li><strong>15%</strong> → eSTech System's OPay Account</li>
+            <li><strong>50%</strong> → Marshal Core (after transaction fees)</li>
+          </ul>
+          <p><em>Transfers happen immediately after successful payment verification.</em></p>
         </div>
         
         <div class="action-buttons">
@@ -1273,6 +1342,10 @@
                 <span class="status-label">Application Status:</span>
                 <span class="status-value" id="formStatus">Not Available</span>
               </div>
+              <div class="status-item">
+                <span class="status-label">Payment Status:</span>
+                <span class="status-value" id="paymentStatus">Not Available</span>
+              </div>
             </div>
             <p class="mb-20">Click "Continue Application" to resume from where you left off.</p>
             <button type="button" class="btn btn-success btn-lg" id="continueAppBtn" onclick="continueApplication()">
@@ -1303,10 +1376,20 @@
     <!-- Section 4: Payment -->
     <div class="section-container" id="section4">
       <div class="card">
-        <h2>💳 Complete Payment</h2>
+        <h2>💳 Complete Payment 
+          <span class="production-mode">LIVE TRANSACTION</span>
+        </h2>
         <p class="card-description">
-          Secure payment for your application fee. After payment, you'll receive a password to continue.
+          <strong>LIVE PAYMENT:</strong> This is a real transaction with real funds. 
+          After payment, you'll receive a password to continue.
         </p>
+        
+        <div class="payment-security">
+          <h5>🔒 Secure Live Payment</h5>
+          <p>You are making a <strong>REAL PAYMENT</strong> with real funds.</p>
+          <p>Payment will be processed via Paystack LIVE with immediate fund distribution.</p>
+          <p><strong>⚠️ Important:</strong> Application fee is non-refundable.</p>
+        </div>
         
         <div class="payment-summary mb-30">
           <h3>Payment Summary</h3>
@@ -1328,14 +1411,21 @@
         
         <div class="terms-container">
           <div class="terms-content">
-            <h4>Payment Information</h4>
+            <h4>Payment Information - LIVE MODE</h4>
             <ul>
-              <li>This is the application fee only</li>
-              <li>Uniform and training fees are separate and payable in installments</li>
-              <li>Payment is processed securely via Paystack</li>
+              <li><strong>This is a REAL payment with real funds</strong></li>
+              <li>Payment processed via Paystack LIVE</li>
+              <li>Funds will be automatically distributed:
+                <ul>
+                  <li>35% to Director General (UBA: 2104644267)</li>
+                  <li>15% to eSTech System (OPay: 6426991017)</li>
+                  <li>50% to Marshal Core (after transaction fees)</li>
+                </ul>
+              </li>
               <li>Application fee is non-refundable</li>
               <li>Receipt will be sent to your email</li>
               <li>After payment, you'll receive a password to complete your application</li>
+              <li>Uniform and training fees are separate and payable in installments</li>
             </ul>
           </div>
         </div>
@@ -1343,7 +1433,9 @@
         <div class="checkbox-container mb-30">
           <input type="checkbox" id="agreePayment" required>
           <label for="agreePayment">
+            <strong>I understand this is a LIVE payment with real funds.</strong> 
             I agree to proceed with the payment and understand this is for the application fee only.
+            I understand that 35% will go to Director General and 15% to eSTech System automatically.
           </label>
         </div>
         
@@ -1352,13 +1444,13 @@
             ← Back
           </button>
           <button type="button" class="btn btn-primary btn-lg" id="payNowBtn" onclick="initiatePayment()">
-            Pay Now with Paystack
+            <i class="fas fa-lock"></i> Pay Now with Paystack LIVE
           </button>
         </div>
         
         <div class="text-center mt-20">
           <img src="https://paystack.com/assets/website/images/badges/verified-badge-with-border.png" alt="Paystack Verified" height="40">
-          <p class="file-info">Secured by Paystack • PCI DSS Compliant</p>
+          <p class="file-info">Secured by Paystack LIVE • PCI DSS Compliant • Real Transactions</p>
         </div>
       </div>
     </div>
@@ -1422,6 +1514,7 @@
           <input type="hidden" id="applicationEmail" name="email">
           <input type="hidden" id="applicationTier" name="application_tier">
           <input type="hidden" id="preApplicantId" name="pre_applicant_id">
+          <input type="hidden" id="paymentReference" name="payment_reference">
           
           <!-- Section A: Basic Information -->
           <h3>Section A: Basic Information</h3>
@@ -1551,6 +1644,14 @@
           Your application has been processed. Check your email for the documents or download them below.
         </p>
         
+        <div class="payment-security">
+          <h5>✅ Payment Confirmed</h5>
+          <p><strong>Payment Reference:</strong> <span id="successPaymentRef"></span></p>
+          <p><strong>Amount Paid:</strong> <span id="successAmount"></span></p>
+          <p><strong>Payment Status:</strong> <span class="status-badge submitted">Success</span></p>
+          <p><em>Funds have been automatically distributed to recipients.</em></p>
+        </div>
+        
         <div class="download-links">
           <div class="download-card" onclick="downloadPDF('application')">
             <div class="download-icon">📋</div>
@@ -1631,8 +1732,14 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <script>
-    // Global variables
+    // Global variables - UPDATED FOR PRODUCTION
     const API_BASE_URL = 'https://backend-mcn-ltd.onrender.com';
+    const FRONTEND_URL = 'https://marshalcoreofnigeria.ng';
+    const IS_PRODUCTION = true; // Set to true for production
+    
+    // LIVE Paystack Public Key
+    const PAYSTACK_PUBLIC_KEY = 'pk_live_f5c8f4811d213107200c089f061699694ae6c94f';
+    
     let userData = {
       fullName: '',
       email: '',
@@ -1649,8 +1756,10 @@
 
     // Initialize when page loads
     document.addEventListener('DOMContentLoaded', function() {
-      console.log('🚀 Application initialized');
+      console.log('🚀 Application initialized - PRODUCTION MODE');
       console.log('🔗 API Base URL:', API_BASE_URL);
+      console.log('🔗 Frontend URL:', FRONTEND_URL);
+      console.log('💰 Paystack Mode: LIVE');
       
       initializeApp();
       setupEventListeners();
@@ -1664,7 +1773,33 @@
       
       // Check for saved application progress
       checkSavedProgress();
+      
+      // Show production mode warning
+      showProductionModeWarning();
     });
+
+    function showProductionModeWarning() {
+      console.log('⚠️ WARNING: This is PRODUCTION mode');
+      console.log('⚠️ All payments are REAL transactions');
+      console.log('⚠️ Funds will be transferred to recipients');
+      
+      // Show a persistent warning for production
+      const warningHtml = `
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>⚠️ PRODUCTION MODE:</strong> You are making real payments with real funds. 
+          Application fees are non-refundable. Funds are automatically distributed to recipients.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      `;
+      
+      // Insert after the status message
+      const statusDiv = document.getElementById('statusMessage');
+      if (statusDiv && statusDiv.parentNode) {
+        statusDiv.parentNode.insertAdjacentHTML('afterend', warningHtml);
+      }
+    }
 
     function initializeApp() {
       // Initialize the progress bar
@@ -1839,7 +1974,7 @@
       goToSection(3);
     }
 
-    // Helper function to safely read response body - IMPROVED
+    // Helper function to safely read response body
     async function readBodySafely(res) {
       try {
         // First get the response text
@@ -1967,7 +2102,8 @@
           email,
           preApplicantId: data.pre_applicant_id || data.id,
           applicationStatus: data.status || data.current_stage,
-          category: data.selected_tier || userData.category
+          category: data.selected_tier || userData.category,
+          paymentReference: data.payment_reference || data.payment_ref
         };
 
         hideLoader();
@@ -1978,6 +2114,7 @@
         document.getElementById('lastUpdated').textContent = data.last_updated || 'Today';
         document.getElementById('passwordStatus').textContent = data.password_sent ? 'Sent ✓' : 'Not Sent';
         document.getElementById('formStatus').textContent = data.application_submitted ? 'Submitted ✓' : 'Not Submitted';
+        document.getElementById('paymentStatus').textContent = data.payment_status || (data.has_paid ? 'Paid ✓' : 'Not Paid');
         
         // Show continue box
         document.getElementById('continueApplicationBox').style.display = 'block';
@@ -2089,14 +2226,22 @@
       document.getElementById('paymentEmail').value = userData.email;
     }
 
-    // Section 4: Payment - CORRECTED VERSION (FIXED 422 ERROR)
+    // Section 4: Payment - UPDATED FOR LIVE MODE
     async function initiatePayment() {
       if (!document.getElementById('agreePayment').checked) {
         showStatus('Please agree to the payment terms', 'error');
         return;
       }
       
-      showLoader('Initializing payment...');
+      // Show production mode confirmation
+      const confirmed = confirm(`⚠️ PRODUCTION MODE CONFIRMATION\n\nYou are about to make a REAL payment of ₦${userData.amount.toLocaleString()}.\n\nThis is a LIVE transaction with real funds.\n\n• 35% will go to Director General\n• 15% will go to eSTech System\n• 50% will go to Marshal Core\n\nApplication fee is non-refundable.\n\nClick OK to proceed with payment.`);
+      
+      if (!confirmed) {
+        showStatus('Payment cancelled by user', 'info');
+        return;
+      }
+      
+      showLoader('Initializing LIVE payment...');
       
       try {
         // First, ensure tier is selected
@@ -2138,8 +2283,8 @@
         const tierData = await readBodySafely(tierResponse);
         console.log('✅ Tier selection response:', tierData);
         
-        // PAYMENT INITIATION - FIXED PARAMETERS
-        console.log('💰 Initiating payment with parameters:', {
+        // PAYMENT INITIATION - LIVE MODE
+        console.log('💰 Initiating LIVE payment with parameters:', {
           email: userData.email,
           tier: userData.category,
           amount: userData.amount,
@@ -2148,7 +2293,7 @@
           user_type: 'pre_applicant'
         });
         
-        // Try different parameter combinations - FIXED
+        // Try different parameter combinations
         const paymentParams = new URLSearchParams();
         
         // Minimum required parameters based on common payment endpoints
@@ -2168,7 +2313,7 @@
         // Add full name for reference
         paymentParams.append('full_name', userData.fullName);
         
-        console.log('💰 Sending payment request with params:', Object.fromEntries(paymentParams));
+        console.log('💰 Sending LIVE payment request with params:', Object.fromEntries(paymentParams));
         
         const paymentResponse = await fetch(`${API_BASE_URL}/api/payments/initiate`, {
           method: 'POST',
@@ -2270,7 +2415,7 @@
         
         userData.paymentReference = paymentData.payment_reference || paymentData.reference || paymentData.data?.reference;
         
-        // Open Paystack payment
+        // Open Paystack payment - LIVE MODE
         await openPaystack(userData.paymentReference);
         
       } catch (error) {
@@ -2293,7 +2438,7 @@
       }
     }
 
-    // Helper function to open Paystack
+    // Helper function to open Paystack - UPDATED FOR LIVE
     async function openPaystack(paymentReference) {
       if (typeof PaystackPop === 'undefined') {
         throw new Error('Paystack script not loaded');
@@ -2301,8 +2446,13 @@
       
       hideLoader();
       
+      // Create callback URL for production
+      const callbackUrl = `${FRONTEND_URL}/apply.html?reference=${paymentReference}&payment_success=true`;
+      
+      console.log('🔗 Callback URL for payment:', callbackUrl);
+      
       const handler = PaystackPop.setup({
-        key: 'pk_test_c6ff4f4622c7e35eb557e9e3be0c7424b5d0a3d4',
+        key: PAYSTACK_PUBLIC_KEY, // LIVE KEY
         email: userData.email,
         amount: userData.amount * 100,
         currency: 'NGN',
@@ -2311,10 +2461,11 @@
           full_name: userData.fullName,
           tier: userData.category,
           pre_applicant_id: userData.preApplicantId,
-          email: userData.email
+          email: userData.email,
+          application: 'marshal_core_production'
         },
         callback: function(response) {
-          console.log('💰 Payment callback:', response);
+          console.log('💰 LIVE Payment callback:', response);
           verifyPayment(response.reference);
         },
         onClose: function() {
@@ -2326,7 +2477,7 @@
     }
 
     async function verifyPayment(reference) {
-      showLoader('Verifying payment...');
+      showLoader('Verifying LIVE payment...');
       
       try {
         const response = await fetch(`${API_BASE_URL}/api/payments/verify/${reference}`, {
@@ -2365,7 +2516,7 @@
         const data = await readBodySafely(response);
         console.log('✅ Payment verification response:', data);
         
-        // ✅ CRITICAL FIX: Get the correct pre-applicant ID after payment
+        // Get the correct pre-applicant ID after payment
         await getCorrectPreApplicantId();
         
         // Payment verified, generate password
@@ -2385,56 +2536,56 @@
       }
     }
 
-    // ✅ FIXED: Get correct pre-applicant ID from backend
-async function getCorrectPreApplicantId() {
-    try {
-        console.log('🔄 Getting correct pre-applicant ID for:', userData.email);
-        
-        const response = await fetch(`${API_BASE_URL}/pre-applicant/status/${encodeURIComponent(userData.email)}`);
-        
-        if (response.ok) {
-            const data = await readBodySafely(response);
-            console.log('✅ Current pre-applicant status:', data);
+    // Get correct pre-applicant ID from backend
+    async function getCorrectPreApplicantId() {
+        try {
+            console.log('🔄 Getting correct pre-applicant ID for:', userData.email);
             
-            // ✅ FIXED: Try multiple possible field names
-            let newPreApplicantId = data.pre_applicant_id || data.id || data.pre_applicant_data?.id;
+            const response = await fetch(`${API_BASE_URL}/pre-applicant/status/${encodeURIComponent(userData.email)}`);
             
-            // Validate it's not 'undefined' string
-            if (newPreApplicantId && newPreApplicantId !== 'undefined' && newPreApplicantId !== 'null') {
-                const oldId = userData.preApplicantId;
-                userData.preApplicantId = newPreApplicantId;
+            if (response.ok) {
+                const data = await readBodySafely(response);
+                console.log('✅ Current pre-applicant status:', data);
                 
-                // Also store in localStorage
-                localStorage.setItem('preApplicantId', userData.preApplicantId);
+                // Try multiple possible field names
+                let newPreApplicantId = data.pre_applicant_id || data.id || data.pre_applicant_data?.id;
                 
-                console.log(`✅ Updated preApplicantId: ${oldId} → ${userData.preApplicantId}`);
-                
-                // Update the hidden field in the form
-                document.getElementById('preApplicantId').value = userData.preApplicantId;
-                
-                return userData.preApplicantId;
-            } else {
-                console.warn('⚠️ No valid pre-applicant ID in response, checking localStorage');
-                
-                // Check localStorage as fallback
-                const storedId = localStorage.getItem('preApplicantId');
-                if (storedId && storedId !== 'undefined') {
-                    userData.preApplicantId = storedId;
+                // Validate it's not 'undefined' string
+                if (newPreApplicantId && newPreApplicantId !== 'undefined' && newPreApplicantId !== 'null') {
+                    const oldId = userData.preApplicantId;
+                    userData.preApplicantId = newPreApplicantId;
+                    
+                    // Also store in localStorage
+                    localStorage.setItem('preApplicantId', userData.preApplicantId);
+                    
+                    console.log(`✅ Updated preApplicantId: ${oldId} → ${userData.preApplicantId}`);
+                    
+                    // Update the hidden field in the form
                     document.getElementById('preApplicantId').value = userData.preApplicantId;
-                    console.log('✅ Using preApplicantId from localStorage:', userData.preApplicantId);
+                    
                     return userData.preApplicantId;
+                } else {
+                    console.warn('⚠️ No valid pre-applicant ID in response, checking localStorage');
+                    
+                    // Check localStorage as fallback
+                    const storedId = localStorage.getItem('preApplicantId');
+                    if (storedId && storedId !== 'undefined') {
+                        userData.preApplicantId = storedId;
+                        document.getElementById('preApplicantId').value = userData.preApplicantId;
+                        console.log('✅ Using preApplicantId from localStorage:', userData.preApplicantId);
+                        return userData.preApplicantId;
+                    }
                 }
+            } else {
+                console.warn('⚠️ Could not get pre-applicant status, using existing ID:', userData.preApplicantId);
             }
-        } else {
-            console.warn('⚠️ Could not get pre-applicant status, using existing ID:', userData.preApplicantId);
+            
+            return userData.preApplicantId;
+        } catch (error) {
+            console.error('❌ Error getting correct pre-applicant ID:', error);
+            return userData.preApplicantId;
         }
-        
-        return userData.preApplicantId;
-    } catch (error) {
-        console.error('❌ Error getting correct pre-applicant ID:', error);
-        return userData.preApplicantId;
     }
-  }
 
     async function generatePassword(email, fullName) {
       showLoader('Generating application password...');
@@ -2551,7 +2702,7 @@ async function getCorrectPreApplicantId() {
       }
     }
 
-    // Section 5: Password Verification - FIXED VERSION
+    // Section 5: Password Verification
     async function handlePasswordVerification() {
       const password = document.getElementById('password').value.trim();
       const email = document.getElementById('passwordEmail').value.trim();
@@ -2607,7 +2758,7 @@ async function getCorrectPreApplicantId() {
               const formDataResponse = await readBodySafely(formResponse);
               console.log('✅ Password verification (form) response:', formDataResponse);
               
-              // ✅ CRITICAL FIX: Get correct pre-applicant ID
+              // Get correct pre-applicant ID
               await getCorrectPreApplicantId();
               
               // Store verified password
@@ -2653,7 +2804,7 @@ async function getCorrectPreApplicantId() {
         const data = await readBodySafely(response);
         console.log('✅ Password verification response:', data);
         
-        // ✅ CRITICAL FIX: Get correct pre-applicant ID
+        // Get correct pre-applicant ID
         await getCorrectPreApplicantId();
         
         // Store verified password
@@ -2720,6 +2871,7 @@ async function getCorrectPreApplicantId() {
       document.getElementById('applicationPassword').value = userData.password;
       document.getElementById('applicationTier').value = userData.category;
       document.getElementById('preApplicantId').value = userData.preApplicantId;
+      document.getElementById('paymentReference').value = userData.paymentReference || '';
       
       // Load reasons for joining based on category
       const reasonsSection = document.getElementById('reasonsSection');
@@ -2961,7 +3113,7 @@ async function getCorrectPreApplicantId() {
       }
     }
 
-    // Handle application submission - FIXED VERSION
+    // Handle application submission
     async function handleApplicationSubmit() {
       // Validate passport upload
       const passportFile = document.getElementById('passportPhoto').files[0];
@@ -3003,14 +3155,14 @@ async function getCorrectPreApplicantId() {
         
         formData.set('selected_reasons', JSON.stringify(selectedReasons));
         
-        // ✅ FIX: Use the correct pre-applicant ID
+        // Use the correct pre-applicant ID
         console.log('🔑 Using preApplicantId:', userData.preApplicantId);
         formData.append('application_password', userData.password);
         formData.append('email', userData.email);
         formData.append('application_tier', userData.category);
         formData.append('pre_applicant_id', userData.preApplicantId);
         
-        // ✅ Add payment reference if available
+        // Add payment reference if available
         if (userData.paymentReference) {
           formData.append('payment_reference', userData.paymentReference);
           formData.append('amount_paid', userData.amount.toString());
@@ -3069,6 +3221,10 @@ async function getCorrectPreApplicantId() {
         
         // Move to success screen
         goToSection(7);
+        
+        // Show payment info on success screen
+        document.getElementById('successPaymentRef').textContent = userData.paymentReference || 'Not provided';
+        document.getElementById('successAmount').textContent = `₦${userData.amount.toLocaleString()}`;
         
         // Show email section with PDF download links
         showEmailSuccessSection(data);
@@ -3222,6 +3378,19 @@ async function getCorrectPreApplicantId() {
       }, 1500);
     }
 
+    // Handle Paystack callback
+    function handlePaymentCallback() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const reference = urlParams.get('reference');
+      const trxref = urlParams.get('trxref');
+      const paymentSuccess = urlParams.get('payment_success');
+      
+      if ((reference || trxref) && paymentSuccess === 'true') {
+        showLoader('Verifying payment...');
+        verifyPayment(reference || trxref);
+      }
+    }
+
     // Utility functions
     function showLoader(text = 'Processing...') {
       document.getElementById('loaderText').textContent = text;
@@ -3272,18 +3441,6 @@ async function getCorrectPreApplicantId() {
     function validateEmail(email) {
       const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return re.test(email);
-    }
-
-    // Handle Paystack callback
-    function handlePaymentCallback() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const reference = urlParams.get('reference');
-      const trxref = urlParams.get('trxref');
-      
-      if (reference || trxref) {
-        showLoader('Verifying payment...');
-        verifyPayment(reference || trxref);
-      }
     }
 
     // File Upload Functions

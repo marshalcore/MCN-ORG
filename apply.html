@@ -228,6 +228,13 @@
       font-weight: 600;
     }
 
+    .card h4 {
+      color: var(--primary-red);
+      margin: 20px 0 10px;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
     .card-description {
       color: #666;
       margin-bottom: 30px;
@@ -948,6 +955,49 @@
       background: #fff3e0;
       color: #ef6c00;
     }
+
+    /* Benefits Styling */
+    .benefits-section {
+      background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+      border-radius: 10px;
+      padding: 25px;
+      margin: 25px 0;
+      border-left: 4px solid #4CAF50;
+    }
+
+    .benefits-title {
+      color: #2e7d32;
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .benefits-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .benefit-item {
+      padding: 10px 0;
+      border-bottom: 1px dashed #c8e6c9;
+    }
+
+    .benefit-item:last-child {
+      border-bottom: none;
+    }
+
+    .benefit-icon {
+      color: #4CAF50;
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+
+    .benefit-subitem {
+      margin-left: 25px;
+      margin-top: 5px;
+      color: #555;
+      font-size: 0.95rem;
+    }
   </style>
 </head>
 <body>
@@ -1028,6 +1078,51 @@
               <li>Must have a guarantor who can vouch for you</li>
               <li>NIN is recommended but optional for initial application</li>
             </ul>
+
+            <!-- BENEFITS SECTION - ADDED HERE -->
+            <div class="benefits-section">
+              <h4 class="benefits-title">🌟 BENEFITS OF JOINING MARSHAL CORE OF NIGERIA</h4>
+              <ul class="benefits-list">
+                <li class="benefit-item">
+                  <i class="fas fa-graduation-cap benefit-icon"></i>
+                  <strong>Skills Acquisition:</strong> We offer training in various skills, including:
+                  <ul class="benefit-subitem">
+                    <li>• Liquid soap production</li>
+                    <li>• Tailoring (for women)</li>
+                    <li>• Plumbing work (for men)</li>
+                    <li>• Mechanic work (for men)</li>
+                    <li>• Internet literacy</li>
+                  </ul>
+                </li>
+                
+                <li class="benefit-item">
+                  <i class="fas fa-laptop-code benefit-icon"></i>
+                  <strong>Tech Training:</strong> We offer a paid training program for those interested in learning more about technology and becoming tech-savvy.
+                </li>
+                
+                <li class="benefit-item">
+                  <i class="fas fa-briefcase benefit-icon"></i>
+                  <strong>Career Development:</strong> We prepare you for a career in Nigeria's security agencies, including:
+                  <ul class="benefit-subitem">
+                    <li>• Nigeria Police</li>
+                    <li>• Nigeria Army</li>
+                    <li>• Civil Defense</li>
+                    <li>• Immigration</li>
+                    <li>• And more</li>
+                  </ul>
+                </li>
+                
+                <li class="benefit-item">
+                  <i class="fas fa-user-graduate benefit-icon"></i>
+                  <strong>Personal Development:</strong> We teach you how to prepare for federal government job applications, including preparing your documents and mindset for success.
+                </li>
+              </ul>
+              
+              <p style="margin-top: 15px; font-style: italic; color: #2e7d32;">
+                <strong>Our Goal:</strong> To empower youth with skills, knowledge, and opportunities for personal and professional growth, while serving the community through voluntary service.
+              </p>
+            </div>
+            <!-- END OF BENEFITS SECTION -->
             
             <h4>APPLICATION FEES</h4>
             <ul>
@@ -1096,7 +1191,7 @@
             </div>
             <div class="mt-20">
               <p><strong>Suitable For:</strong> Job seekers, fresh graduates, career changers</p>
-              <p><strong>Training:</strong> 3-month comprehensive program</p>
+              <p><strong>Training:</strong> 6-Weeks comprehensive program</p>
               <p><strong>Benefits:</strong> Job placement, skill development, career support</p>
             </div>
             <button type="button" class="btn btn-primary mt-20" onclick="selectCategory('regular')">
@@ -3313,9 +3408,9 @@ async function getCorrectPreApplicantId() {
       previewDiv.className = 'preview-container';
       
       const icon = document.createElement('div');
-      icon.className = 'upload-icon';
-      icon.textContent = '📄';
-      previewDiv.appendChild(icon);
+        icon.className = 'upload-icon';
+        icon.textContent = '📄';
+        previewDiv.appendChild(icon);
       
       const detailsDiv = document.createElement('div');
       detailsDiv.className = 'preview-details';

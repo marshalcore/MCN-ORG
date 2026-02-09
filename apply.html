@@ -820,26 +820,7 @@
       border-left: 4px solid var(--primary-red);
     }
 
-    /* Production Mode Indicator */
-    .production-mode {
-      background: #4CAF50;
-      color: white;
-      padding: 5px 15px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: bold;
-      display: inline-block;
-      margin-left: 10px;
-      vertical-align: middle;
-      animation: pulse-green 2s infinite;
-    }
-
-    @keyframes pulse-green {
-      0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
-      70% { box-shadow: 0 0 0 10px rgba(76, 175, 80, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
-    }
-
+    /* Payment Security */
     .payment-security {
       background: #f0f7ff;
       border-radius: 10px;
@@ -1086,18 +1067,15 @@
     <!-- Section 1: Terms & Conditions -->
     <div class="section-container active" id="section1">
       <div class="card">
-        <h2>📋 Terms & Conditions 
-          <span class="production-mode">LIVE MODE</span>
-        </h2>
+        <h2>📋 Terms & Conditions</h2>
         <p class="card-description">
           Please read and accept the Terms & Conditions before proceeding with your application.
         </p>
         
         <div class="payment-security">
           <h5>🔒 Payment Security Notice</h5>
-          <p><strong>We are now in LIVE PRODUCTION mode.</strong> All payments are real transactions with real funds.</p>
-          <p>• Payments are processed securely via Paystack Live</p>
-          <p>• All transactions are encrypted and PCI DSS compliant</p>
+          <p>All payments are processed securely via Paystack.</p>
+          <p>• Payments are encrypted and PCI DSS compliant</p>
           <p>• Application fees are non-refundable</p>
           <p>• All financial transactions are handled through secure banking channels</p>
         </div>
@@ -1168,15 +1146,15 @@
             </div>
             <!-- END OF BENEFITS SECTION -->
             
-            <h4>APPLICATION FEES (LIVE PAYMENTS)</h4>
+            <h4>APPLICATION FEES</h4>
             <ul>
-              <li>Regular Cadre: ₦5,180 (Online form only) - <strong>REAL PAYMENT</strong></li>
-              <li>VIP Cadre: ₦25,900 (Online form only) - <strong>REAL PAYMENT</strong></li>
+              <li>Regular Cadre: ₦5,180 (Online form only)</li>
+              <li>VIP Cadre: ₦25,900 (Online form only)</li>
             </ul>
             
             <h4>PAYMENT PROCESS</h4>
             <ul>
-              <li>All payments processed via Paystack LIVE</li>
+              <li>All payments processed via Paystack</li>
               <li>All financial transactions are handled through secure banking channels</li>
               <li>Funds are processed according to organizational financial policies</li>
               <li>Immediate processing happens automatically after payment</li>
@@ -1192,7 +1170,7 @@
             <h4>IMPORTANT NOTES</h4>
             <ul>
               <li>Application fee is non-refundable</li>
-              <li>All payments are processed securely via Paystack LIVE</li>
+              <li>All payments are processed securely via Paystack</li>
               <li>Organization reserves the right to reject any application</li>
               <li>False information will lead to disqualification</li>
               <li>By proceeding, you agree to all terms and conditions</li>
@@ -1209,7 +1187,7 @@
           <label for="agreeTerms">
             I have read, understood, and agree to all Terms & Conditions of Marshal Core of Nigeria. 
             I confirm that I meet the necessary requirements for application.
-            <strong>I understand this is LIVE mode and payments are real transactions.</strong>
+            <strong>I understand that payments are processed securely.</strong>
           </label>
         </div>
         
@@ -1227,12 +1205,9 @@
     <!-- Section 2: Category Selection -->
     <div class="section-container" id="section2">
       <div class="card">
-        <h2>🎯 Select Your Category 
-          <span class="production-mode">LIVE PAYMENTS</span>
-        </h2>
+        <h2>🎯 Select Your Category</h2>
         <p class="card-description">
-          Choose the category that best fits your goals and aspirations. 
-          <strong>All payments are REAL transactions in LIVE mode.</strong>
+          Choose the category that best fits your goals and aspirations.
         </p>
         
         <div class="category-cards">
@@ -1370,18 +1345,14 @@
     <!-- Section 4: Payment -->
     <div class="section-container" id="section4">
       <div class="card">
-        <h2>💳 Complete Payment 
-          <span class="production-mode">LIVE TRANSACTION</span>
-        </h2>
+        <h2>💳 Complete Payment</h2>
         <p class="card-description">
-          <strong>LIVE PAYMENT:</strong> This is a real transaction with real funds. 
           After payment, you'll receive a password to continue.
         </p>
         
         <div class="payment-security">
-          <h5>🔒 Secure Live Payment</h5>
-          <p>You are making a <strong>REAL PAYMENT</strong> with real funds.</p>
-          <p>Payment will be processed via Paystack LIVE with secure fund processing.</p>
+          <h5>🔒 Secure Payment</h5>
+          <p>Payment will be processed via Paystack with secure fund processing.</p>
           <p><strong>⚠️ Important:</strong> Application fee is non-refundable.</p>
         </div>
         
@@ -1405,10 +1376,9 @@
         
         <div class="terms-container">
           <div class="terms-content">
-            <h4>Payment Information - LIVE MODE</h4>
+            <h4>Payment Information</h4>
             <ul>
-              <li><strong>This is a REAL payment with real funds</strong></li>
-              <li>Payment processed via Paystack LIVE</li>
+              <li>Payment processed via Paystack</li>
               <li>Funds will be processed through secure organizational banking channels</li>
               <li>Application fee is non-refundable</li>
               <li>Receipt will be sent to your email</li>
@@ -1421,7 +1391,7 @@
         <div class="checkbox-container mb-30">
           <input type="checkbox" id="agreePayment" required>
           <label for="agreePayment">
-            <strong>I understand this is a LIVE payment with real funds.</strong> 
+            <strong>I understand this is a payment with real funds.</strong> 
             I agree to proceed with the payment and understand this is for the application fee only.
             I understand that all financial transactions are handled through secure organizational channels.
           </label>
@@ -1432,13 +1402,13 @@
             ← Back
           </button>
           <button type="button" class="btn btn-primary btn-lg" id="payNowBtn" onclick="initiatePayment()">
-            <i class="fas fa-lock"></i> Pay Now with Paystack LIVE
+            <i class="fas fa-lock"></i> Pay Now with Paystack
           </button>
         </div>
         
         <div class="text-center mt-20">
           <img src="https://paystack.com/assets/website/images/badges/verified-badge-with-border.png" alt="Paystack Verified" height="40">
-          <p class="file-info">Secured by Paystack LIVE • PCI DSS Compliant • Real Transactions</p>
+          <p class="file-info">Secured by Paystack • PCI DSS Compliant</p>
         </div>
       </div>
     </div>
@@ -1720,12 +1690,12 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <script>
-    // Global variables - UPDATED FOR PRODUCTION
+    // Global variables
     const API_BASE_URL = 'https://backend-mcn-ltd.onrender.com';
     const FRONTEND_URL = 'https://marshalcoreofnigeria.ng';
-    const IS_PRODUCTION = true; // Set to true for production
+    const IS_PRODUCTION = true;
     
-    // LIVE Paystack Public Key
+    // Paystack Public Key
     const PAYSTACK_PUBLIC_KEY = 'pk_live_f5c8f4811d213107200c089f061699694ae6c94f';
     
     let userData = {
@@ -1744,10 +1714,9 @@
 
     // Initialize when page loads
     document.addEventListener('DOMContentLoaded', function() {
-      console.log('🚀 Application initialized - PRODUCTION MODE');
-      console.log('🔗 API Base URL:', API_BASE_URL);
-      console.log('🔗 Frontend URL:', FRONTEND_URL);
-      console.log('💰 Paystack Mode: LIVE');
+      console.log('Application initialized');
+      console.log('API Base URL:', API_BASE_URL);
+      console.log('Frontend URL:', FRONTEND_URL);
       
       initializeApp();
       setupEventListeners();
@@ -1761,33 +1730,7 @@
       
       // Check for saved application progress
       checkSavedProgress();
-      
-      // Show production mode warning
-      showProductionModeWarning();
     });
-
-    function showProductionModeWarning() {
-      console.log('⚠️ WARNING: This is PRODUCTION mode');
-      console.log('⚠️ All payments are REAL transactions');
-      console.log('⚠️ Funds are processed through secure banking channels');
-      
-      // Show a persistent warning for production
-      const warningHtml = `
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-          <strong>⚠️ PRODUCTION MODE:</strong> You are making real payments with real funds. 
-          Application fees are non-refundable. Funds are processed through secure organizational channels.
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      `;
-      
-      // Insert after the status message
-      const statusDiv = document.getElementById('statusMessage');
-      if (statusDiv && statusDiv.parentNode) {
-        statusDiv.parentNode.insertAdjacentHTML('afterend', warningHtml);
-      }
-    }
 
     function initializeApp() {
       // Initialize the progress bar
@@ -1875,7 +1818,7 @@
 
     // Progress and Navigation
     function goToSection(sectionNumber) {
-      console.log(`📱 Navigating to section ${sectionNumber}`);
+      console.log(`Navigating to section ${sectionNumber}`);
       
       // Hide all sections
       const sections = document.querySelectorAll('.section-container');
@@ -1936,7 +1879,7 @@
 
     // Section 2: Category Selection
     function selectCategory(category) {
-      console.log(`🎯 Selected category: ${category}`);
+      console.log(`Selected category: ${category}`);
       
       // Remove selected class from all categories
       document.getElementById('regularCategory').classList.remove('selected');
@@ -2031,7 +1974,7 @@
         formData.append('full_name', fullName);
         formData.append('category', userData.category);
 
-        console.log('📤 Sending check-status request:', { 
+        console.log('Sending check-status request:', { 
           email, 
           full_name: fullName, 
           category: userData.category 
@@ -2046,11 +1989,11 @@
           body: formData
         });
 
-        console.log('📥 Response status:', response.status);
+        console.log('Response status:', response.status);
 
         if (!response.ok) {
           const body = await readBodySafely(response);
-          console.log('❌ Error response body:', body);
+          console.log('Error response body:', body);
           
           // If user doesn't exist, show start new option
           if (response.status === 404) {
@@ -2081,7 +2024,7 @@
 
         // Parse successful response
         const data = await readBodySafely(response);
-        console.log('✅ Application status response:', data);
+        console.log('Application status response:', data);
 
         // Store user data
         userData = { 
@@ -2110,7 +2053,7 @@
 
       } catch (error) {
         hideLoader();
-        console.error('❌ Status check error:', error);
+        console.error('Status check error:', error);
         
         // Show user-friendly error message
         let userMessage = error.message;
@@ -2167,7 +2110,7 @@
         formData.append('email', userData.email);
         formData.append('tier', userData.category);
 
-        console.log('📝 Registering pre-applicant:', { 
+        console.log('Registering pre-applicant:', { 
           full_name: userData.fullName, 
           email: userData.email, 
           tier: userData.category 
@@ -2189,7 +2132,7 @@
         }
 
         const data = await readBodySafely(response);
-        console.log('✅ Pre-registration response:', data);
+        console.log('Pre-registration response:', data);
 
         userData.preApplicantId = data.pre_applicant_id || data.id;
 
@@ -2202,7 +2145,7 @@
 
       } catch (error) {
         hideLoader();
-        console.error('❌ Registration error:', error);
+        console.error('Registration error:', error);
         showStatus(`Registration failed: ${error.message}`, 'error');
       }
     }
@@ -2214,30 +2157,30 @@
       document.getElementById('paymentEmail').value = userData.email;
     }
 
-    // Section 4: Payment - UPDATED FOR LIVE MODE
+    // Section 4: Payment
     async function initiatePayment() {
       if (!document.getElementById('agreePayment').checked) {
         showStatus('Please agree to the payment terms', 'error');
         return;
       }
       
-      // Show production mode confirmation
-      const confirmed = confirm(`⚠️ PRODUCTION MODE CONFIRMATION\n\nYou are about to make a REAL payment of ₦${userData.amount.toLocaleString()}.\n\nThis is a LIVE transaction with real funds.\n\nApplication fee is non-refundable.\n\nClick OK to proceed with payment.`);
+      // Show confirmation
+      const confirmed = confirm(`You are about to make a payment of ₦${userData.amount.toLocaleString()}.\n\nApplication fee is non-refundable.\n\nClick OK to proceed with payment.`);
       
       if (!confirmed) {
         showStatus('Payment cancelled by user', 'info');
         return;
       }
       
-      showLoader('Initializing LIVE payment...');
+      showLoader('Initializing payment...');
       
       try {
         // First, ensure tier is selected
-        console.log('🎯 User data before payment:', userData);
+        console.log('User data before payment:', userData);
         
         // If preApplicantId is not set, get it from backend
         if (!userData.preApplicantId) {
-          console.log('🔍 Getting pre-applicant ID...');
+          console.log('Getting pre-applicant ID...');
           const statusResponse = await fetch(`${API_BASE_URL}/pre-applicant/status/${encodeURIComponent(userData.email)}`);
           if (statusResponse.ok) {
             const statusData = await statusResponse.json();
@@ -2250,7 +2193,7 @@
         tierFormData.append('email', userData.email);
         tierFormData.append('tier', userData.category);
         
-        console.log('🎯 Selecting tier with:', { email: userData.email, tier: userData.category });
+        console.log('Selecting tier with:', { email: userData.email, tier: userData.category });
         
         const tierResponse = await fetch(`${API_BASE_URL}/pre-applicant/select-tier`, {
           method: 'POST',
@@ -2263,16 +2206,16 @@
         
         if (!tierResponse.ok) {
           const body = await readBodySafely(tierResponse);
-          console.log('❌ Tier selection error:', body);
+          console.log('Tier selection error:', body);
           const errorMsg = typeof body === 'object' ? (body.detail || body.message || JSON.stringify(body)) : body;
           throw new Error(`Tier selection failed: ${errorMsg}`);
         }
         
         const tierData = await readBodySafely(tierResponse);
-        console.log('✅ Tier selection response:', tierData);
+        console.log('Tier selection response:', tierData);
         
-        // PAYMENT INITIATION - LIVE MODE
-        console.log('💰 Initiating LIVE payment with parameters:', {
+        // PAYMENT INITIATION
+        console.log('Initiating payment with parameters:', {
           email: userData.email,
           tier: userData.category,
           amount: userData.amount,
@@ -2301,7 +2244,7 @@
         // Add full name for reference
         paymentParams.append('full_name', userData.fullName);
         
-        console.log('💰 Sending LIVE payment request with params:', Object.fromEntries(paymentParams));
+        console.log('Sending payment request with params:', Object.fromEntries(paymentParams));
         
         const paymentResponse = await fetch(`${API_BASE_URL}/api/payments/initiate`, {
           method: 'POST',
@@ -2312,11 +2255,11 @@
           body: paymentParams
         });
         
-        console.log('💰 Payment response status:', paymentResponse.status);
+        console.log('Payment response status:', paymentResponse.status);
         
         if (!paymentResponse.ok) {
           const body = await readBodySafely(paymentResponse);
-          console.log('💰 Payment error body (raw):', body);
+          console.log('Payment error body (raw):', body);
           
           // Try to parse error properly
           let errorDetail = 'Payment initiation failed';
@@ -2347,7 +2290,7 @@
             }
           }
           
-          console.log('💰 Parsed error detail:', errorDetail);
+          console.log('Parsed error detail:', errorDetail);
           
           // Check if payment already completed
           if (errorDetail.includes('already_paid') || errorDetail.includes('already paid')) {
@@ -2359,7 +2302,7 @@
           
           // Try alternative endpoint or method
           if (paymentResponse.status === 422) {
-            console.log('🔄 Trying alternative payment method...');
+            console.log('Trying alternative payment method...');
             
             // Try with JSON instead of form data
             const jsonBody = {
@@ -2372,7 +2315,7 @@
               full_name: userData.fullName
             };
             
-            console.log('🔄 Trying JSON request:', jsonBody);
+            console.log('Trying JSON request:', jsonBody);
             
             const jsonResponse = await fetch(`${API_BASE_URL}/api/payments/initiate`, {
               method: 'POST',
@@ -2385,13 +2328,13 @@
             
             if (jsonResponse.ok) {
               const paymentData = await readBodySafely(jsonResponse);
-              console.log('✅ Payment initiation (JSON) response:', paymentData);
+              console.log('Payment initiation (JSON) response:', paymentData);
               userData.paymentReference = paymentData.payment_reference || paymentData.reference || paymentData.data?.reference;
               await openPaystack(userData.paymentReference);
               return;
             } else {
               const jsonError = await readBodySafely(jsonResponse);
-              console.log('❌ JSON payment also failed:', jsonError);
+              console.log('JSON payment also failed:', jsonError);
             }
           }
           
@@ -2399,16 +2342,16 @@
         }
         
         const paymentData = await readBodySafely(paymentResponse);
-        console.log('✅ Payment initiation response:', paymentData);
+        console.log('Payment initiation response:', paymentData);
         
         userData.paymentReference = paymentData.payment_reference || paymentData.reference || paymentData.data?.reference;
         
-        // Open Paystack payment - LIVE MODE
+        // Open Paystack payment
         await openPaystack(userData.paymentReference);
         
       } catch (error) {
         hideLoader();
-        console.error('❌ Payment initiation error:', error);
+        console.error('Payment initiation error:', error);
         
         // Show proper error message
         let userMessage = error.message;
@@ -2426,7 +2369,7 @@
       }
     }
 
-    // Helper function to open Paystack - UPDATED FOR LIVE
+    // Helper function to open Paystack
     async function openPaystack(paymentReference) {
       if (typeof PaystackPop === 'undefined') {
         throw new Error('Paystack script not loaded');
@@ -2434,13 +2377,13 @@
       
       hideLoader();
       
-      // Create callback URL for production
+      // Create callback URL
       const callbackUrl = `${FRONTEND_URL}/apply.html?reference=${paymentReference}&payment_success=true`;
       
-      console.log('🔗 Callback URL for payment:', callbackUrl);
+      console.log('Callback URL for payment:', callbackUrl);
       
       const handler = PaystackPop.setup({
-        key: PAYSTACK_PUBLIC_KEY, // LIVE KEY
+        key: PAYSTACK_PUBLIC_KEY,
         email: userData.email,
         amount: userData.amount * 100,
         currency: 'NGN',
@@ -2450,10 +2393,10 @@
           tier: userData.category,
           pre_applicant_id: userData.preApplicantId,
           email: userData.email,
-          application: 'marshal_core_production'
+          application: 'marshal_core'
         },
         callback: function(response) {
-          console.log('💰 LIVE Payment callback:', response);
+          console.log('Payment callback:', response);
           verifyPayment(response.reference);
         },
         onClose: function() {
@@ -2465,7 +2408,7 @@
     }
 
     async function verifyPayment(reference) {
-      showLoader('Verifying LIVE payment...');
+      showLoader('Verifying payment...');
       
       try {
         const response = await fetch(`${API_BASE_URL}/api/payments/verify/${reference}`, {
@@ -2476,11 +2419,11 @@
           }
         });
         
-        console.log('🔍 Payment verification status:', response.status);
+        console.log('Payment verification status:', response.status);
         
         if (!response.ok) {
           const body = await readBodySafely(response);
-          console.log('🔍 Payment verification error body:', body);
+          console.log('Payment verification error body:', body);
           
           let errorMsg = 'Payment verification failed';
           if (typeof body === 'object' && body !== null) {
@@ -2491,7 +2434,7 @@
           
           // If payment verification fails but we have reference, still try to generate password
           if (reference) {
-            console.log('⚠️ Payment verification failed, but trying to generate password anyway');
+            console.log('Payment verification failed, but trying to generate password anyway');
             hideLoader();
             showStatus('Payment may have been successful. Generating password...', 'warning');
             await generatePassword(userData.email, userData.fullName);
@@ -2502,7 +2445,7 @@
         }
         
         const data = await readBodySafely(response);
-        console.log('✅ Payment verification response:', data);
+        console.log('Payment verification response:', data);
         
         // Get the correct pre-applicant ID after payment
         await getCorrectPreApplicantId();
@@ -2512,7 +2455,7 @@
         
       } catch (error) {
         hideLoader();
-        console.error('❌ Payment verification error:', error);
+        console.error('Payment verification error:', error);
         
         // Still try to generate password if we have a reference
         if (userData.paymentReference) {
@@ -2527,13 +2470,13 @@
     // Get correct pre-applicant ID from backend
     async function getCorrectPreApplicantId() {
         try {
-            console.log('🔄 Getting correct pre-applicant ID for:', userData.email);
+            console.log('Getting correct pre-applicant ID for:', userData.email);
             
             const response = await fetch(`${API_BASE_URL}/pre-applicant/status/${encodeURIComponent(userData.email)}`);
             
             if (response.ok) {
                 const data = await readBodySafely(response);
-                console.log('✅ Current pre-applicant status:', data);
+                console.log('Current pre-applicant status:', data);
                 
                 // Try multiple possible field names
                 let newPreApplicantId = data.pre_applicant_id || data.id || data.pre_applicant_data?.id;
@@ -2546,31 +2489,31 @@
                     // Also store in localStorage
                     localStorage.setItem('preApplicantId', userData.preApplicantId);
                     
-                    console.log(`✅ Updated preApplicantId: ${oldId} → ${userData.preApplicantId}`);
+                    console.log(`Updated preApplicantId: ${oldId} → ${userData.preApplicantId}`);
                     
                     // Update the hidden field in the form
                     document.getElementById('preApplicantId').value = userData.preApplicantId;
                     
                     return userData.preApplicantId;
                 } else {
-                    console.warn('⚠️ No valid pre-applicant ID in response, checking localStorage');
+                    console.warn('No valid pre-applicant ID in response, checking localStorage');
                     
                     // Check localStorage as fallback
                     const storedId = localStorage.getItem('preApplicantId');
                     if (storedId && storedId !== 'undefined') {
                         userData.preApplicantId = storedId;
                         document.getElementById('preApplicantId').value = userData.preApplicantId;
-                        console.log('✅ Using preApplicantId from localStorage:', userData.preApplicantId);
+                        console.log('Using preApplicantId from localStorage:', userData.preApplicantId);
                         return userData.preApplicantId;
                     }
                 }
             } else {
-                console.warn('⚠️ Could not get pre-applicant status, using existing ID:', userData.preApplicantId);
+                console.warn('Could not get pre-applicant status, using existing ID:', userData.preApplicantId);
             }
             
             return userData.preApplicantId;
         } catch (error) {
-            console.error('❌ Error getting correct pre-applicant ID:', error);
+            console.error('Error getting correct pre-applicant ID:', error);
             return userData.preApplicantId;
         }
     }
@@ -2584,7 +2527,7 @@
           email: email
         };
 
-        console.log('🔑 Generating password for:', email);
+        console.log('Generating password for:', email);
         
         const response = await fetch(`${API_BASE_URL}/access/generate-password`, {
           method: 'POST',
@@ -2595,15 +2538,15 @@
           body: JSON.stringify(jsonBody)
         });
 
-        console.log('🔑 Password generation status:', response.status);
+        console.log('Password generation status:', response.status);
         
         if (!response.ok) {
           const body = await readBodySafely(response);
-          console.log('🔑 Password generation error body:', body);
+          console.log('Password generation error body:', body);
           
           // If 422, try with form data as fallback
           if (response.status === 422) {
-            console.log('🔄 Trying form data format for password generation...');
+            console.log('Trying form data format for password generation...');
             const formData = new URLSearchParams();
             formData.append('email', email);
             
@@ -2618,7 +2561,7 @@
             
             if (formResponse.ok) {
               const formDataResponse = await readBodySafely(formResponse);
-              console.log('✅ Password generation (form) response:', formDataResponse);
+              console.log('Password generation (form) response:', formDataResponse);
               hideLoader();
               showStatus('✅ Password generated and sent to your email!', 'success');
               setupPasswordSection();
@@ -2632,7 +2575,7 @@
         }
 
         const data = await readBodySafely(response);
-        console.log('✅ Password generation response:', data);
+        console.log('Password generation response:', data);
 
         hideLoader();
         showStatus('✅ Password generated and sent to your email!', 'success');
@@ -2643,7 +2586,7 @@
 
       } catch (error) {
         hideLoader();
-        console.error('❌ Password generation error:', error);
+        console.error('Password generation error:', error);
         
         // Still proceed to password section if payment was made
         showStatus(`Password generation may have issues: ${error.message}. Please check your email or use "Resend Password".`, 'warning');
@@ -2685,7 +2628,7 @@
 
       } catch (error) {
         hideLoader();
-        console.error('❌ Resend password error:', error);
+        console.error('Resend password error:', error);
         showStatus(`Failed to resend password: ${error.message}`, 'error');
       }
     }
@@ -2709,7 +2652,7 @@
           password: password
         };
 
-        console.log('🔐 Verifying password for:', email);
+        console.log('Verifying password for:', email);
         
         const response = await fetch(`${API_BASE_URL}/access/verify`, {
           method: 'POST',
@@ -2720,15 +2663,15 @@
           body: JSON.stringify(jsonBody)
         });
         
-        console.log('🔐 Password verification status:', response.status);
+        console.log('Password verification status:', response.status);
         
         if (!response.ok) {
           const body = await readBodySafely(response);
-          console.log('🔐 Password verification error body:', body);
+          console.log('Password verification error body:', body);
           
           // If 422, try form data as fallback
           if (response.status === 422) {
-            console.log('🔄 Trying form data for password verification...');
+            console.log('Trying form data for password verification...');
             const formData = new URLSearchParams();
             formData.append('email', email);
             formData.append('password', password);
@@ -2744,7 +2687,7 @@
             
             if (formResponse.ok) {
               const formDataResponse = await readBodySafely(formResponse);
-              console.log('✅ Password verification (form) response:', formDataResponse);
+              console.log('Password verification (form) response:', formDataResponse);
               
               // Get correct pre-applicant ID
               await getCorrectPreApplicantId();
@@ -2790,7 +2733,7 @@
         }
         
         const data = await readBodySafely(response);
-        console.log('✅ Password verification response:', data);
+        console.log('Password verification response:', data);
         
         // Get correct pre-applicant ID
         await getCorrectPreApplicantId();
@@ -2810,7 +2753,7 @@
         
       } catch (error) {
         hideLoader();
-        console.error('❌ Password verification error:', error);
+        console.error('Password verification error:', error);
         
         // Show better error message
         let userMessage = error.message;
@@ -2843,12 +2786,12 @@
         });
         
         if (!response.ok) {
-          console.warn('⚠️ Privacy acceptance failed');
+          console.warn('Privacy acceptance failed');
         } else {
-          console.log('✅ Privacy notice accepted');
+          console.log('Privacy notice accepted');
         }
       } catch (error) {
-        console.warn('⚠️ Privacy acceptance error:', error);
+        console.warn('Privacy acceptance error:', error);
       }
     }
 
@@ -2957,7 +2900,7 @@
           });
           
           if (response.ok) {
-            console.log('✅ Progress saved to backend');
+            console.log('Progress saved to backend');
           }
         }
         
@@ -2969,7 +2912,7 @@
         
       } catch (error) {
         hideLoader();
-        console.error('❌ Error saving progress:', error);
+        console.error('Error saving progress:', error);
         showStatus('⚠️ Progress saved locally. You can continue from here later.', 'warning');
       }
     }
@@ -2983,7 +2926,7 @@
           tier: userData.category,
           email: userData.email
         }));
-        console.log('💾 Auto-saved progress');
+        console.log('Auto-saved progress');
       }
     }
 
@@ -3144,7 +3087,7 @@
         formData.set('selected_reasons', JSON.stringify(selectedReasons));
         
         // Use the correct pre-applicant ID
-        console.log('🔑 Using preApplicantId:', userData.preApplicantId);
+        console.log('Using preApplicantId:', userData.preApplicantId);
         formData.append('application_password', userData.password);
         formData.append('email', userData.email);
         formData.append('application_tier', userData.category);
@@ -3156,7 +3099,7 @@
           formData.append('amount_paid', userData.amount.toString());
         }
         
-        console.log('📤 Submitting application with:', {
+        console.log('Submitting application with:', {
           email: userData.email,
           tier: userData.category,
           pre_applicant_id: userData.preApplicantId,
@@ -3169,11 +3112,11 @@
           body: formData
         });
         
-        console.log('📥 Submission response status:', response.status);
+        console.log('Submission response status:', response.status);
         
         if (!response.ok) {
           const body = await readBodySafely(response);
-          console.log('❌ Submission error body:', body);
+          console.log('Submission error body:', body);
           
           // Handle specific errors
           let errorMsg = 'Application submission failed';
@@ -3194,7 +3137,7 @@
         }
         
         const data = await readBodySafely(response);
-        console.log('✅ Application submission response:', data);
+        console.log('Application submission response:', data);
         
         // Store applicant ID for PDF downloads
         userData.applicantId = data.id || data.applicant_id;
@@ -3219,7 +3162,7 @@
         
       } catch (error) {
         hideLoader();
-        console.error('❌ Application submission error:', error);
+        console.error('Application submission error:', error);
         showStatus(`Submission failed: ${error.message}`, 'error');
       }
     }
@@ -3289,7 +3232,7 @@
         
       } catch (error) {
         hideLoader();
-        console.error('❌ PDF download error:', error);
+        console.error('PDF download error:', error);
         showStatus(`Failed to download PDF: ${error.message}`, 'error');
       }
     }
@@ -3321,7 +3264,7 @@
         
       } catch (error) {
         hideLoader();
-        console.error('❌ Guarantor form download error:', error);
+        console.error('Guarantor form download error:', error);
         showStatus(`Failed to download guarantor form: ${error.message}`, 'error');
       }
     }
@@ -3343,8 +3286,8 @@
         
         // Validate token if provided
         if (token) {
-          // In production, verify token with backend
-          console.log('🔐 Token verification needed');
+          // Verify token with backend
+          console.log('Token verification needed');
         }
         
         // Direct download

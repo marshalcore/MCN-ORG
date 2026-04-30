@@ -1,589 +1,192 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="MARSHAL CORE OF NIGERIA LIMITED" />
-  <meta name="description" content="MARSHAL CORE OF NIGERIA LIMITED" />
-  <meta name="author" content="MARSHAL CORE OF NIGERIA LIMITED" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>MCN-NG | Blog</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto:400,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/responsive.css" rel="stylesheet" />
+    <style>
+/* COMPLETE THEME STYLES */
+:root {
+    --bg-color: linear-gradient(135deg, #1f233e 0%, #0f1123 100%);
+    --text-color: #ffffff;
+    --text-secondary: #cbd5e1;
+}
+body.light-mode {
+    --bg-color: #f8f9fa;
+    --text-color: #1f233e;
+    --text-secondary: #555555;
+}
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+body.dark-mode { background: linear-gradient(135deg, #1f233e 0%, #0f1123 100%); }
+body.light-mode { background: #f8f9fa; }
+body.dark-mode .header_section { background-color: #1f233e; }
+body.light-mode .header_section { background-color: #254a93; }
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    background: #1f233e;
+    border: 2px solid #ffd700;
+    border-radius: 50px;
+    padding: 10px 18px;
+    cursor: pointer;
+}
+.theme-toggle i { color: #ffd700; font-size: 20px; margin-right: 8px; }
+.theme-toggle span { color: white; font-size: 14px; font-weight: 600; }
+body.light-mode .theme-toggle { background: #ffffff; border-color: #254a93; }
+body.light-mode .theme-toggle i,
+body.light-mode .theme-toggle span { color: #254a93; }
 
-  <title>MCN-NG | Blog</title>
+.story_section { padding: 60px 0; }
+.story_detail { padding: 30px; background: rgba(255,255,255,0.05); border-radius: 16px; backdrop-filter: blur(10px); }
+body.light-mode .story_detail { background: #ffffff; box-shadow: 0 5px 20px rgba(0,0,0,0.08); }
+</style>
+<style>
+.logo_box { width: 380px !important; display: inline-block !important; vertical-align: middle !important; }
+.logo_box img { width: 100% !important; max-height: 150px !important; display: block !important; object-fit: contain !important; }
+.navbar-brand { display: flex !important; align-items: center !important; gap: 20px !important; flex-wrap: wrap !important; }
+@media (max-width: 1200px) { .logo_box { width: 350px !important; } .logo_box img { max-height: 140px !important; } }
+@media (max-width: 992px) { .logo_box { width: 320px !important; } .logo_box img { max-height: 130px !important; } }
+@media (max-width: 768px) { .logo_box { width: 300px !important; } .logo_box img { max-height: 120px !important; } .navbar-brand { justify-content: center !important; } }
+@media (max-width: 576px) { .logo_box { width: 260px !important; } .logo_box img { max-height: 100px !important; } }
 
-  <!-- slider stylesheet -->
-  <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
-
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-
-  <!-- fonts style -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto:400,500&display=swap"
-    rel="stylesheet" />
-  <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
+</style>
+<style>
+/* Smaller registration number for all pages */
+.rc-number {
+    background: rgba(211, 47, 47, 0.15);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #ffd700;
+    border-left: 3px solid #d32f2f;
+    display: inline-block;
+    white-space: nowrap;
+    margin-right: 10px;
+}
+@media (max-width: 768px) {
+    .rc-number {
+        font-size: 8px;
+        padding: 2px 6px;
+    }
+}
+@media (max-width: 576px) {
+    .rc-number {
+        font-size: 7px;
+        padding: 2px 5px;
+    }
+}
+</style>
 </head>
-
-<body>
-  <!-- header section strats -->
-  <header class="header_section">
-    <div class="container">
-      <nav class="navbar navbar-expand-lg custom_nav-container ">
-        <a class="navbar-brand" href="#">
-          <span class="rc-number">YA/CLB/10100</span>
-          <div class="logo_box">
-            <img src="images/logo.png" alt="" />
-          </div>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto mr-2">
-            <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="service.html">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="blog.html">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://portal.marshalcoreofnigeria.ng">Login </a>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control nav_search-input mr-sm-2 d-none" type="search" placeholder="Search"
-              aria-label="Search" value="" />
-            <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
-          </form>
-        </div>
-      </nav>
-    </div>
-  </header>
-  <!-- end header section -->
-
-
-
-  <!-- story section -->
-  <div class="layout_padding">
-
-    <section class="layout_padding story_section ">
-      <div class="container-fluid">
-        <div class="row">
-          <div class=" col-md-6">
-            <div>
-              <img class="img-fluid" src="images/banner.jpg" alt="" />
-            </div>
-          </div>
-          <div class=" col-md-6">
-            <div class="story_detail">
-              <h3>
-                Our
-              </h3>
-              <h2>
-                Success And Benefits
-              </h2>
-              <p>
-              Marshal Core of Nigeria Limited has continued to grow with dignity and purpose, helping dedicated citizens build careers in a disciplined, service-oriented environment. Our success lies in the values we uphold—honor, service, and security for all.<br>
-
-              As a member, you enjoy <strong>competitive salary packages, comprehensive health coverage, and long-term benefits including pension and gratuity.</strong>  These are more than perks—they're our commitment to your future.
-
-              Join the Marshal Core Of Nigeria Limited today and secure a better future for yourself.<br>
-              <strong>Click the button below to become a member or a partner to this great vision.</strong> 
-            </p>
-              <div class="story_detail-btn">
-              <a href="apply.html" style="
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                background: linear-gradient(135deg, #6e8efb 0%, #a777e3 100%);
-                color: white;
-                padding: 12px 24px;
-                border-radius: 50px;
-                text-decoration: none;
-                font-weight: 600;
-                font-size: 16px;
-                box-shadow: 0 4px 15px rgba(106, 142, 251, 0.3);
-                transition: all 0.3s ease;
-                border: none;
-                cursor: pointer;
-                position: relative;
-                overflow: hidden;
-              " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(106, 142, 251, 0.4)'" 
-              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(106, 142, 251, 0.3)'" 
-              onmousedown="this.style.transform='translateY(1px)'" 
-              onmouseup="this.style.transform='translateY(-2px)'">
-                <span style="margin-right: 8px;">Join the Marshal Core Of Nigeria Limited today</span>
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNNSAxMmgxNE0xMiA1bDcgNy03IDciPjwvcGF0aD48L3N2Zz4=" alt="Arrow" style="transition: transform 0.3s ease;" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='translateX(0)'" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- end story section -->
-
-
-
-  <!-- info section -->
-  <section class="info_section layout_padding">
-    <div class="container">
-      <div class="row">
-        <div class=" col-md-4 info_detail">
-          <div>
-            <p>
-              Marshal Core of Nigeria Limited is committed to discipline, service, and national development. We inspire purpose-driven citizens to lead with honor and integrity, building a safer and more united Nigeria through excellence and professional conduct.<br>
-              Motto: Always Ready!
-
-            </p>
-          </div>
-        </div>
-        <div class=" col-md-4 address_container">
-          <div>
-            <h3>
-              Address:
-            </h3>
-            <div class="address_link-container">
-              <a href="">
-                <img src="images/location.png" alt="">
-                <span> Address: Km. 3, Marshal Core Of Nigeria, National Headquarters, Abumwenrenre Community, Ekiadolor/Agekponu Road, Benin City, Edo State, Nigeria.
-                </span>
-              </a>
-              <a href="">
-                <img src="images/phone.png" alt="">
-                <span> Tel: +234 9137 428 031
-                </span>
-              </a>
-              <a href="">
-                <img src="images/mail.png" alt="">
-                <span>
-                  info@marshalcoreofnigeria.ng
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class=" col-md-4 news_container">
-          <div>
-            <div>
-              <h3>
-                newsletter
-
-              </h3>
-              <form action="">
-                <input type="email" placeholder="ENTER YOUR EMAIL">
-                <div>
-                  <button type="submit">
-                    Subscribe
-                  </button>
+<body class="dark-mode">
+    <header class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg custom_nav-container">
+                <a class="navbar-brand" href="index.html">
+                    <span class="rc-number"><i class="fas fa-id-card"></i> REG: YA/CLB/10100</span>
+                    <div class="logo_box"><img src="images/logo.png" alt="Marshal Core of Nigeria Logo" /></div>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mr-2">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://portal.marshalcoreofnigeria.ng">Login</a></li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control nav_search-input mr-sm-2 d-none" type="search" placeholder="Search" />
+                        <button class="btn my-2 my-sm-0 nav_search-btn" type="submit"></button>
+                    </form>
                 </div>
-              </form>
-            </div>
-            <div class="social_container" style="
-  background-color: #000000;
-  padding: 30px 20px;
-  margin-top: 20px;
-  text-align: center;
-">
-  <ul style="
-    list-style: none;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-  ">
-    <!-- Facebook -->
-    <li style="display: inline-block;">
-      <a href="https://www.facebook.com/share/193pU1bn3Z/" title="Follow us on Facebook" target="_blank" rel="noopener noreferrer" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#3b5998'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-facebook.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-    
-    <!-- Twitter (X) -->
-    <li style="display: inline-block;">
-      <a href="https://twitter.com/yourprofile" title="Follow us on Twitter" target="_blank" rel="noopener noreferrer" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#000000'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-twitter.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-    
-    <!-- Instagram -->
-    <li style="display: inline-block;">
-      <a href="https://instagram.com/yourprofile" title="Follow us on Instagram" target="_blank" rel="noopener noreferrer" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#E1306C'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-instagram.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-    
-    <!-- TikTok -->
-    <li style="display: inline-block;">
-      <a href="https://www.tiktok.com/@marshalcoreofnigeria?_t=ZM-8ympBVpKsMS&_r=1" title="Follow us on TikTok" target="_blank" rel="noopener noreferrer" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#000000'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-tiktok.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-    
-    <!-- WhatsApp -->
-    <li style="display: inline-block;">
-      <a href="https://whatsapp.com/channel/0029Va73CEQEgGfDxFSFpU0d" title="Message us on WhatsApp" target="_blank" rel="noopener noreferrer" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#25D366'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-whatsapp.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-    
-    <!-- LinkedIn -->
-    <li style="display: inline-block;">
-      <a href="https://linkedin.com/company/yourcompany" title="Follow us on LinkedIn" target="_blank" rel="noopener noreferrer" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#0077B5'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-linkedin.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-    
-    <!-- YouTube -->
-    <li style="display: inline-block;">
-      <a href="https://youtube.com/shorts/IplFLfqOnSY?si=7X-imxb99EWeWbel" title="Subscribe to our YouTube" target="_blank" rel="noopener noreferrer" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#FF0000'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-youtube.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-    
-    <!-- Telegram -->
-    <li style="display: inline-block;">
-      <a href="https://t.me/yourchannel" title="Join us on Telegram" target="_blank" rel="noopener noreferrer" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#0088cc'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-telegram.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-    
-    <!-- Email -->
-    <li style="display: inline-block;">
-      <a href="mailto:MARSHALCOREOFNIGERIALIMITED@GMAIL.COM" title="Email us" style="
-        display: block;
-        text-decoration: none;
-      ">
-        <span style="
-          display: block;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 1px solid #ffffff;
-          position: relative;
-          transition: all 0.3s ease;
-        " onmouseover="this.style.backgroundColor='#EA4335'; this.style.transform='scale(1.1)'" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='scale(1)'">
-          <span style="
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform: translate3d(-50%, -50%, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            background-image: url('images/icon-email.svg');
-          "></span>
-        </span>
-      </a>
-    </li>
-  </ul>
-</div>
-<!-- End of Updated Social Media Container -->
-          </div>
+            </nav>
         </div>
-      </div>
+    </header>
+
+    <div class="container" style="padding: 60px 0;">
+        <div class="row">
+            <div class="col-md-6">
+                <img class="img-fluid" src="images/banner.jpg" alt="" style="border-radius: 16px;" />
+            </div>
+            <div class="col-md-6">
+                <div class="story_detail">
+                    <h3 style="color: #ffd700;">Our</h3>
+                    <h2 style="color: #d32f2f;">Success And Benefits</h2>
+                    <p>Marshal Core of Nigeria has continued to grow with dignity and purpose, helping dedicated citizens build careers in a disciplined, service-oriented environment. Our success lies in the values we uphold—honor, service, and security for all.</p>
+                    <p>As a member, you enjoy <strong>competitive salary packages, comprehensive health coverage, and long-term benefits including pension and gratuity.</strong> These are more than perks—they're our commitment to your future.</p>
+                    <p>Join the Marshal Core of Nigeria today and secure a better future for yourself.<br><strong>Click the button below to become a member or a partner to this great vision.</strong></p>
+                    <div class="story_detail-btn mt-4">
+                        <a href="apply.html" class="btn" style="background: linear-gradient(135deg, #d32f2f, #b71c1c); color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; border: 2px solid #ffd700;">Join the Marshal Core of Nigeria Today</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <!-- end info section -->
+    <section class="container-fluid footer_section" style="background: #1f233e; color: #ffffff; text-align: center; padding: 30px 20px; margin-top: 50px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p>Copyright &copy; 2025 Marshal Core of Nigeria. All rights reserved.</p>
+                    <p style="font-size: 12px; color: #ffd700;">Powered by Marshal Board Committee (MBC)</p>
+                    <p><a href="privacy.html" style="color: #ffd700; text-decoration: none;">Privacy Policy</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+        <span>Dark Mode</span>
+    </div>
 
-  <!-- footer section -->
-<section class="container-fluid footer_section">
-  <p>
-    Copyright ©️ 2025<br>
-    All right reserved by <strong>MARSHAL CORE OF NIGERIA</strong><br>
-    <span style="font-size: 0.9em;">powered by <strong>MARSHAL BOARD COMMITTEE</strong></span>
-  </p>
-</section>
-<!-- footer section -->
- 
-
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js">
-  </script>
-  <script type="text/javascript">
-    $(".owl-carousel").owlCarousel({
-      loop: true,
-      margin: 20,
-      nav: true,
-      navText: [],
-      autoplay: true,
-      autoplayHoverPause: true,
-      responsive: {
-        0: {
-          items: 1
-        },
-        600: {
-          items: 2
-        },
-        1000: {
-          items: 3
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+    function toggleTheme() {
+        const body = document.body;
+        const toggleBtn = document.getElementById('themeToggle');
+        if (body.classList.contains('dark-mode')) {
+            body.classList.remove('dark-mode');
+            body.classList.add('light-mode');
+            localStorage.setItem('theme', 'light');
+            toggleBtn.innerHTML = '<i class="fas fa-sun"></i><span>Light Mode</span>';
+        } else {
+            body.classList.remove('light-mode');
+            body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark');
+            toggleBtn.innerHTML = '<i class="fas fa-moon"></i><span>Dark Mode</span>';
         }
-      }
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme');
+        const body = document.body;
+        const toggleBtn = document.getElementById('themeToggle');
+        if (savedTheme === 'light') {
+            body.classList.add('light-mode');
+            body.classList.remove('dark-mode');
+            if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-sun"></i><span>Light Mode</span>';
+        } else {
+            body.classList.add('dark-mode');
+            body.classList.remove('light-mode');
+            if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-moon"></i><span>Dark Mode</span>';
+        }
     });
-  </script>
-
-  <script>
-    $(".nav_search-btn").click(function () {
-      if ($(".nav_search-input").hasClass("d-none")) {
-        event.preventDefault();
-        $(".nav_search-input")
-          .animate({
-              left: "-1000px"
-            },
-            "1000000"
-          )
-          .removeClass("d-none");
-      } else {
-        $(".nav_search-input")
-          .animate({
-              left: "0px"
-            },
-            "1000000"
-          )
-          .addClass("d-none");
-      }
-    });
-  </script>
-
-
-
+    </script>
 </body>
-
 </html>

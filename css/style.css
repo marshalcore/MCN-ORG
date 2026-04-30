@@ -1,4 +1,4 @@
-body {
+﻿body {
   font-family: "Open Sans", sans-serif;
   background-color: #fffcf4;
 }
@@ -70,7 +70,7 @@ a:focus {
 }
 
 .logo_box {
-  width: 120px;
+  width: 220px;
 }
 
 .logo_box img {
@@ -1120,3 +1120,57 @@ carousel-item {
   box-shadow: 0 10px 30px rgba(106,142,251,0.6);
 }
 
+
+
+/* Responsive logo for mobile devices */
+@media (max-width: 768px) {
+  .logo_box {
+    width: 160px;
+  }
+  .logo_box img {
+    max-height: 70px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .logo_box {
+    width: 190px;
+  }
+  .logo_box img {
+    max-height: 85px;
+  }
+}
+
+
+    /* Responsive Header & Footer Styles */
+    @media (max-width: 576px) {
+        .navbar-brand {
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+        }
+        
+        .rc-number {
+            font-size: 8px;
+            padding: 3px 6px;
+        }
+        
+        .logo_box {
+            width: 120px;
+        }
+        
+        .footer_section p {
+            font-size: 11px;
+        }
+    }
+    
+    @media (max-width: 380px) {
+        .rc-number {
+            font-size: 7px;
+            padding: 2px 5px;
+        }
+        
+        .logo_box {
+            width: 100px;
+        }
+    }

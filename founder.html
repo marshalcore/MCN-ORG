@@ -3,21 +3,21 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>MCN-NG | Contact Us</title>
+    <title>MCN-NG | Meet The Founder</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto:400,500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/responsive.css" rel="stylesheet" />
     <style>
-:root {
+:root { --text-secondary: #cbd5e1; --card-bg: rgba(255,255,255,0.08); --card-border: 1px solid rgba(255,255,255,0.1);
     --bg-color: linear-gradient(135deg, #1f233e 0%, #0f1123 100%);
     --text-color: #ffffff;
     --text-secondary: #cbd5e1;
     --card-bg: rgba(255,255,255,0.08);
     --card-border: 1px solid rgba(255,255,255,0.1);
 }
-body.light-mode {
+body.light-mode { --text-secondary: #555555; --card-bg: #ffffff; --card-border: 1px solid #e0e0e0;
     --bg-color: #f8f9fa;
     --text-color: #1f233e;
     --text-secondary: #555555;
@@ -30,7 +30,7 @@ body {
     transition: all 0.3s ease;
 }
 body.dark-mode { background: linear-gradient(135deg, #1f233e 0%, #0f1123 100%); }
-body.light-mode { background: #f8f9fa; }
+body.light-mode { --text-secondary: #555555; --card-bg: #ffffff; --card-border: 1px solid #e0e0e0; background: #f8f9fa; }
 body.dark-mode .header_section { background-color: #1f233e; }
 body.light-mode .header_section { background-color: #254a93; }
 
@@ -62,25 +62,22 @@ body.light-mode .header_section { background-color: #254a93; }
 body.light-mode .theme-toggle { background: #ffffff; border-color: #254a93; }
 body.light-mode .theme-toggle i, body.light-mode .theme-toggle span { color: #254a93; }
 
-/* Contact Page Specific */
-.contact-form-box { background: var(--card-bg); padding: 40px; border-radius: 20px; max-width: 700px; margin: 0 auto; backdrop-filter: blur(10px); border: var(--card-border); }
-.contact-form-box h2 { color: #d32f2f; margin-bottom: 30px; }
-.form-control { padding: 12px 15px; border-radius: 8px; margin-bottom: 20px; width: 100%; font-size: 14px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; }
-.form-control:focus { outline: none; border-color: #d32f2f; }
-.form-control option { background: #1f233e; color: white; }
-body.light-mode .form-control { padding: 12px 15px; border-radius: 8px; margin-bottom: 20px; width: 100%; font-size: 14px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; }
-body.light-mode .form-control option { background: white; color: #333; }
-.submit-btn { background: linear-gradient(135deg, #d32f2f, #b71c1c); color: white; padding: 12px 35px; border-radius: 50px; border: none; font-weight: 600; cursor: pointer; transition: all 0.3s ease; border: 2px solid #ffd700; width: 100%; max-width: 250px; }
-.submit-btn:hover { transform: translateY(-2px); }
-.contact-details-box { background: #d32f2f; border: 2px solid #ffd700; padding: 25px; border-radius: 10px; color: white; height: 100%; }
-.contact-details-box h3 { margin-bottom: 20px; border-bottom: 2px solid #ffd700; padding-bottom: 10px; }
-.contact-details-box .contact-item { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; }
-.contact-details-box .contact-item i { margin-top: 3px; width: 20px; }
-.map-container { height: 100%; min-height: 300px; border-radius: 10px; overflow: hidden; }
-.social-media-section { background: var(--card-bg); padding: 25px; border-radius: 12px; margin-top: 30px; text-align: center; border: var(--card-border); }
+/* Founder Page Specific */
+.founder-hero { text-align: center; padding: 40px 0; }
+.founder-image { text-align: center; margin-bottom: 20px; }
+.founder-image img { max-width: 300px; width: 100%; border: none; border-radius: 0; }
+.founder-detail-card { background: var(--card-bg); border-radius: 16px; padding: 25px; margin-bottom: 25px; border: var(--card-border); }
+.founder-detail-card h3 { color: #d32f2f; margin-bottom: 20px; }
+.info-row { border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.info-label { width: 140px; font-weight: 600; color: #ffd700; }
+.info-value { flex: 1; color: var(--text-secondary); }
+body.light-mode .info-row { border-bottom-color: #e0e0e0; border-bottom: 1px solid rgba(255,255,255,0.1); border-bottom-color: #e0e0e0; }
+.founder-detail-card ul { color: var(--text-secondary); padding-left: 20px; }
+.founder-detail-card ul li { margin-bottom: 8px; }
+.social-media-section { background: var(--card-bg); padding: 25px; border-radius: 12px; margin: 30px 0; text-align: center; border: var(--card-border); }
 .social-media-section h3 { color: #ffd700; margin-bottom: 20px; }
-.social-icons-horizontal { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; list-style: none; padding: 0; margin: 0; }
-.social-icon-link { display: flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 50%; color: white; font-size: 20px; text-decoration: none; transition: all 0.3s ease; }
+.social-icons-horizontal { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; list-style: none; padding: 0; }
+.social-icon-link { display: flex; align-items: center; justify-content: center; width: 45px; height: 45px;  color: white; font-size: 20px; text-decoration: none; transition: all 0.3s ease; }
 .social-icon-link:hover { transform: translateY(-3px); }
 .facebook { background: #3b5998; }
 .twitter { background: #000000; }
@@ -89,8 +86,11 @@ body.light-mode .form-control option { background: white; color: #333; }
 .whatsapp { background: #25D366; }
 .linkedin { background: #0077B5; }
 .youtube { background: #FF0000; }
+.telegram { background: #0088cc; }
 .email { background: #EA4335; }
-select.form-control { padding: 12px 15px; border-radius: 8px; margin-bottom: 20px; width: 100%; font-size: 14px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; } body.light-mode select.form-control { background: #f5f5f5; border: 1px solid #ddd; color: #333 !important; } body.light-mode select.form-control { padding: 12px 15px; border-radius: 8px; margin-bottom: 20px; width: 100%; font-size: 14px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; } body.light-mode select.form-control { background: #f5f5f5; border: 1px solid #ddd; color: #333 !important; } select.form-control option { padding: 10px; background: #1f233e; color: white; } body.light-mode select.form-control option { background: white; color: #333 !important; } body.light-mode select.form-control option { padding: 10px; background: #1f233e; color: white; } body.light-mode select.form-control option { background: white; color: #333 !important; }`nselect.form-control option:checked { background: #d32f2f; color: white; } body.light-mode select.form-control { color: #333 !important; } body.light-mode select.form-control option { color: #333 !important; }`n</style>
+.btn-back { display: inline-block; background: #1f233e; color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none; margin: 0 10px; transition: all 0.3s ease; border: 1px solid #ffd700; }
+.btn-back:hover { transform: translateY(-2px); color: white; background: #d32f2f; }
+</style>
 <style>
 /* Smaller registration number for all pages */
 .rc-number {
@@ -148,62 +148,68 @@ select.form-control { padding: 12px 15px; border-radius: 8px; margin-bottom: 20p
         </div>
     </header>
 
-    <div class="container" style="padding: 60px 0;">
-        <div class="contact-form-box">
-            <h2 class="text-center">Send us a Message</h2>
-            <form id="contactForm">
-                <input type="text" class="form-control" placeholder="Your Full Name *" required>
-                <input type="email" class="form-control" placeholder="Email Address *" required>
-                <input type="tel" class="form-control" placeholder="Phone Number *" required>
-                <select class="form-control" required style="min-height: 48px;">
-                    <option value="" disabled selected>Select Inquiry Type *</option>
-                    <option>General Information</option>
-                    <option>Volunteer Inquiry</option>
-                    <option>Recruitment Application</option>
-                    <option>Partnership Opportunity</option>
-                    <option>Support Request</option>
-                    <option>Feedback</option>
-                </select>
-                <textarea class="form-control" placeholder="Your Message *" rows="5" required></textarea>
-                <div class="text-center">
-                    <button type="submit" class="submit-btn"><i class="fas fa-paper-plane mr-2"></i> Send Message</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
     <div class="container" style="padding: 40px 0;">
-        <div class="row">
-            <div class="col-md-6 mb-4">
-                <div class="contact-details-box">
-                    <h3>Contact Information</h3>
-                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i> <span>Km. 3, Marshal Core of Nigeria, National Headquarters, Abumwenrenre Community, Ekiadolor/Agekponu Road, Benin City, Edo State, Nigeria.</span></div>
-                    <div class="contact-item"><i class="fas fa-phone"></i> <span>Tel: +234 9137 428 031</span></div>
-                    <div class="contact-item"><i class="fas fa-envelope"></i> <span>info@marshalcoreofnigeria.ng</span></div>
-                    <div class="contact-item"><i class="fas fa-user-tie"></i> <span>oseoboh@marshalcoreofnigeria.ng</span></div>
-                    <div class="contact-item"><i class="fas fa-briefcase"></i> <span>recruitment@marshalcoreofnigeria.ng</span></div>
-                    <div class="contact-item"><i class="fas fa-headset"></i> <span>support@marshalcoreofnigeria.ng</span></div>
-                </div>
+        <div class="founder-hero">
+            <div class="founder-image">
+                <img src="images/founder.jpg" alt="Founder Oseoboh Joshua Eromonsele">
             </div>
-            <div class="col-md-6 mb-4">
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.148218802958!2d5.5870417!3d6.2193962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1040d39f063a9c9f%3A0x9f5b5b5b5b5b5b5b!2sBenin%20City%2C%20Edo%20State%2C%20Nigeria!5e0!3m2!1sen!2sng!4v1647456789012!5m2!1sen!2sng" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
+            <h2 style="color: #d32f2f;">Oseoboh Joshua Eromonsele</h2>
+            <p style="color: var(--text-secondary);">Police Constable | EOD CBRN (Bomb Technician) | Nigeria Police Force</p>
         </div>
 
-        <div class="social-media-section">
-            <h3>Follow Us</h3>
-            <ul class="social-icons-horizontal">
-                <li><a href="https://www.facebook.com/share/193pU1bn3Z/" class="social-icon-link facebook"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#" class="social-icon-link twitter"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#" class="social-icon-link instagram"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="https://www.tiktok.com/@marshalcoreofnigeria" class="social-icon-link tiktok"><i class="fab fa-tiktok"></i></a></li>
-                <li><a href="https://whatsapp.com/channel/0029Va73CEQEgGfDxFSFpU0d" class="social-icon-link whatsapp"><i class="fab fa-whatsapp"></i></a></li>
-                <li><a href="#" class="social-icon-link linkedin"><i class="fab fa-linkedin-in"></i></a></li>
-                <li><a href="https://youtube.com/shorts/IplFLfqOnSY" class="social-icon-link youtube"><i class="fab fa-youtube"></i></a></li>
-                <li><a href="mailto:info@marshalcoreofnigeria.ng" class="social-icon-link email"><i class="fas fa-envelope"></i></a></li>
-            </ul>
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="founder-detail-card">
+                    <h3><i class="fas fa-user-circle"></i> Personal Details</h3>
+                    <div class="info-row"><div class="info-label">Full Name:</div><div class="info-value">Oseoboh Joshua Eromonsele</div></div>
+                    <div class="info-row"><div class="info-label">Born:</div><div class="info-value">1996 (Age 30-31)</div></div>
+                    <div class="info-row"><div class="info-label">State of Origin:</div><div class="info-value">Edo State</div></div>
+                    <div class="info-row"><div class="info-label">LGA:</div><div class="info-value">Esan North East</div></div>
+                    <div class="info-row"><div class="info-label">Marital Status:</div><div class="info-value">Married</div></div>
+                </div>
+                
+                <div class="founder-detail-card">
+                    <h3><i class="fas fa-shield-alt"></i> Service Record</h3>
+                    <div class="info-row"><div class="info-label">Allegiance:</div><div class="info-value">Nigeria</div></div>
+                    <div class="info-row"><div class="info-label">Branch/Service:</div><div class="info-value">Nigeria Police Force</div></div>
+                    <div class="info-row"><div class="info-label">Years of Service:</div><div class="info-value">2020 - Present</div></div>
+                    <div class="info-row"><div class="info-label">Rank:</div><div class="info-value">Police Constable</div></div>
+                    <div class="info-row"><div class="info-label">Department:</div><div class="info-value">EOD CBRN (Bomb Technician)</div></div>
+                </div>
+                
+                <div class="founder-detail-card">
+                    <h3><i class="fas fa-history"></i> Background & Experience</h3>
+                    <p>A visionary leader with extensive experience in security services since 2008, including service with:</p>
+                    <ul>
+                        <li>Man O' War</li>
+                        <li>Peace Marshal</li>
+                        <li>Peace Guard</li>
+                        <li>Nigeria Intelligence Defence Force</li>
+                        <li>Marine Guard of Nigeria</li>
+                    </ul>
+                    <p>Founded the Marshal Core of Nigeria to create a disciplined, professional organization dedicated to protecting lives and property across Nigeria.</p>
+                </div>
+                
+                <div class="social-media-section">
+                    <h3>Connect With The Founder</h3>
+                    <div class="social-icons-horizontal">
+                        <a href="#" class="social-icon-link facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon-link twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon-link instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon-link tiktok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-icon-link whatsapp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-icon-link linkedin"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon-link youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon-link telegram"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="mailto:oseoboh@marshalcoreofnigeria.ng" class="social-icon-link email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="about.html" class="btn-back"><i class="fas fa-arrow-left"></i> Back to About Us</a>
+                    <a href="index.html" class="btn-back" style="background: #d32f2f;"><i class="fas fa-home"></i> Home</a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -255,11 +261,6 @@ select.form-control { padding: 12px 15px; border-radius: 8px; margin-bottom: 20p
             body.classList.remove('light-mode');
             if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-moon"></i><span>Dark Mode</span>';
         }
-    });
-    document.getElementById('contactForm')?.addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('Thank you for your message! We will get back to you soon.');
-        this.reset();
     });
     </script>
 </body>

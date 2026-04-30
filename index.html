@@ -1,666 +1,1316 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
-  <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="MARSHAL CORE OF NIGERIA" />
-  <meta name="description" content="MARSHAL CORE OF NIGERIA" />
-  <meta name="author" content="MARSHAL CORE OF NIGERIA" />
+ <!-- Basic -->
+ <meta charset="utf-8" />
+ <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+ <!-- Mobile Metas -->
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+ <!-- Site Metas -->
+ <meta name="keywords" content="MARSHAL CORE OF NIGERIA" />
+ <meta name="description" content="MARSHAL CORE OF NIGERIA" />
+ <meta name="author" content="MARSHAL CORE OF NIGERIA" />
 
-  <title>MCN-NG</title>
+ <title>MCN-NG</title>
 
-  <!-- slider stylesheet -->
-  <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+ <!-- slider stylesheet -->
+ <link rel="stylesheet" type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
 
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+ <!-- bootstrap core css -->
+ <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
-  <!-- fonts style -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto:400,500&display=swap"
-    rel="stylesheet" />
-  <!-- Font Awesome for social icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
-  <style>
-    /* Custom styles for footer improvements */
-    .info_section .contact_location_container {
-      background: #222;
-      padding: 30px;
-      border-radius: 10px;
-      margin-bottom: 20px;
+ <!-- fonts style -->
+ <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto:400,500&display=swap"
+  rel="stylesheet" />
+ <!-- Font Awesome for social icons -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ <!-- Custom styles for this template -->
+ <link href="css/style.css" rel="stylesheet" />
+ <!-- responsive style -->
+ <link href="css/responsive.css" rel="stylesheet" />
+ <style>
+  
+  .info_section .contact_location_container {
+   background: #222;
+   padding: 30px;
+   border-radius: 10px;
+   margin-bottom: 20px;
+  }
+  
+  .contact-map-wrapper {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 30px;
+   align-items: stretch;
+  }
+  
+  .contact-info-column {
+   flex: 1;
+   min-width: 300px;
+  }
+  
+  .map-container {
+   flex: 1;
+   min-width: 300px;
+   height: 300px;
+   border-radius: 10px;
+   overflow: hidden;
+   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+   background: #f5f5f5;
+  }
+  
+  #footerMap {
+   width: 100%;
+   height: 100%;
+   border: 2px solid #ffd700;
+  }
+  
+  .contact-details-box {
+   background: #d32f2f; border: 2px solid #ffd700; 
+   padding: 25px;
+   border-radius: 10px;
+   height: 100%;
+   color: white;
+  }
+  
+  .contact-details-box h3 {
+   color: #fff;
+   margin-bottom: 20px;
+   font-size: 22px;
+   border-bottom: 2px solid #fff;
+   padding-bottom: 10px;
+  }
+  
+  .contact-item {
+   display: flex;
+   align-items: flex-start;
+   margin-bottom: 20px;
+   color: #fff;
+  }
+  
+  .contact-item i {
+   width: 24px;
+   margin-right: 15px;
+   margin-top: 3px;
+   font-size: 18px;
+   text-align: center;
+  }
+  
+  .social-media-section {
+   background: #000;
+   padding: 25px;
+   border-radius: 10px;
+   margin-top: 20px;
+  }
+  
+  .social-media-section h3 {
+   color: #fff;
+   text-align: center;
+   margin-bottom: 20px;
+   font-size: 22px;
+  }
+  
+  .social-icons-horizontal {
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   gap: 15px;
+   padding: 0;
+   margin: 0;
+   list-style: none;
+  }
+  
+  .social-icon-item {
+   display: inline-block;
+  }
+  
+  .social-icon-link {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   border: 2px solid #fff;
+   position: relative;
+   transition: all 0.3s ease;
+   background-color: #333;
+   color: white;
+   font-size: 20px;
+   text-decoration: none;
+  }
+  
+  .social-icon-link:hover {
+   transform: translateY(-5px) scale(1.1);
+   color: white;
+   text-decoration: none;
+  }
+  
+  
+  .social-icon-link.facebook { background-color: #3b5998; border-color: #3b5998; }
+  .social-icon-link.twitter { background-color: #000000; border-color: #000000; }
+  .social-icon-link.instagram { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); border-color: transparent; }
+  .social-icon-link.tiktok { background-color: #000000; border-color: #000000; }
+  .social-icon-link.whatsapp { background-color: #25D366; border-color: #25D366; }
+  .social-icon-link.linkedin { background-color: #0077B5; border-color: #0077B5; }
+  .social-icon-link.youtube { background-color: #FF0000; border-color: #FF0000; }
+  .social-icon-link.telegram { background-color: #0088cc; border-color: #0088cc; }
+  .social-icon-link.email { background-color: #EA4335; border-color: #EA4335; }
+  
+  
+  .social-icon-link.facebook:hover { background-color: #2d4373; }
+  .social-icon-link.twitter:hover { background-color: #1a1a1a; }
+  .social-icon-link.instagram:hover { opacity: 0.9; }
+  .social-icon-link.tiktok:hover { background-color: #1a1a1a; }
+  .social-icon-link.whatsapp:hover { background-color: #128C7E; }
+  .social-icon-link.linkedin:hover { background-color: #005582; }
+  .social-icon-link.youtube:hover { background-color: #cc0000; }
+  .social-icon-link.telegram:hover { background-color: #006699; }
+  .social-icon-link.email:hover { background-color: #c23321; }
+  
+  
+  .contact_section.contact_fullwidth {
+   background: #d32f2f; border: 2px solid #ffd700; 
+   padding: 60px 0;
+   color: white;
+  }
+  
+  .contact_section.contact_fullwidth .heading_container h2,
+  .contact_section.contact_fullwidth .heading_container p {
+   color: white;
+  }
+  
+  .contact_section.contact_fullwidth .contact_box.contact_box_full {
+   background: rgba(255, 255, 255, 0.95); 
+   padding: 40px;
+   border-radius: 15px;
+   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+   width: 100%;
+   max-width: 800px;
+   margin: 0 auto;
+  }
+  
+  .contact_section.contact_fullwidth .contact_box h3 {
+   color: #d32f2f; 
+   text-align: center;
+   margin-bottom: 30px;
+   font-size: 28px;
+   font-weight: bold;
+  }
+  
+  .contact_section.contact_fullwidth .form-control {
+   border-radius: 8px;
+   border: 1px solid #ddd;
+   padding: 15px;
+   margin-bottom: 20px;
+   font-size: 16px;
+   transition: all 0.3s ease;
+  }
+  
+  .contact_section.contact_fullwidth .form-control:focus {
+   border-color: #d32f2f;
+   box-shadow: 0 0 0 0.2rem rgba(211, 47, 47, 0.25);
+  }
+  
+  .contact_section.contact_fullwidth .contact_btn { background: #d32f2f; border: 2px solid #ffd700; border: 2px solid #ffd700;
+   border: 2px solid white;
+   color: white;
+   padding: 12px 40px;
+   border-radius: 50px;
+   font-weight: 600;
+   font-size: 18px;
+   transition: all 0.3s ease;
+   margin-top: 20px;
+  }
+  
+  .contact_section.contact_fullwidth .contact_btn:hover {
+   
+   color: #d32f2f;
+   border-color: #d32f2f;
+   transform: translateY(-3px);
+   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  .flag-banner {
+   position: relative;
+   width: 100%;
+   height: 80vh; 
+   min-height: 600px;
+   overflow: hidden;
+   background: linear-gradient(to bottom, #d32f2f 50%, #1a237e 50%); 
+   display: flex;
+   align-items: center;
+   justify-content: center;
+  }
+  
+  
+  .flag-banner.horizontal {
+   background: linear-gradient(to bottom, #d32f2f 50%, #1a237e 50%);
+  }
+  
+  
+  .flag-content {
+   position: relative;
+   z-index: 2;
+   text-align: center;
+   padding: 40px;
+   background: rgba(0, 0, 0, 0.6);
+   border-radius: 10px;
+   max-width: 800px;
+   margin: 0 auto;
+   backdrop-filter: blur(5px);
+   border: 2px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .flag-content h2 {
+   color: white;
+   font-size: 24px;
+   margin-bottom: 15px;
+   text-transform: uppercase;
+   letter-spacing: 2px;
+  }
+  
+  .flag-content h1 {
+   color: white;
+   font-size: 36px;
+   font-weight: bold;
+   margin-bottom: 20px;
+   text-transform: uppercase;
+  }
+  
+  .flag-content p {
+   color: #f0f0f0;
+   font-size: 18px;
+   font-style: italic;
+   margin: 0;
+  }
+  
+  
+  .slider_section {
+   height: auto;
+  }
+  
+  .carousel-inner {
+   height: auto;
+  }
+  
+  .carousel-item {
+   height: auto;
+  }
+  
+  
+  
+  .info_section .container {
+   padding-left: 15px;
+   padding-right: 15px;
+   width: 100%;
+   max-width: 100%;
+  }
+  
+  
+  .info_section .contact_location_container {
+   padding: 20px 15px;
+   margin-left: -15px;
+   margin-right: -15px;
+   border-radius: 0;
+   width: calc(100% + 30px);
+  }
+  
+  
+  .contact-map-wrapper {
+   gap: 20px;
+  }
+  
+  
+  .contact-info-column {
+   min-width: 100%;
+  }
+  
+  
+  .map-container {
+   min-width: 100%;
+   height: 250px;
+  }
+  
+  
+  .social-media-section {
+   padding: 20px 15px;
+   margin-left: -15px;
+   margin-right: -15px;
+   width: calc(100% + 30px);
+   border-radius: 0;
+  }
+  
+  
+  .info_section .row {
+   margin-left: -15px;
+   margin-right: -15px;
+   width: calc(100% + 30px);
+  }
+  
+  
+  .info_section .info_detail,
+  .info_section .news_container {
+   padding: 20px 15px;
+  }
+  
+  
+  .news_container form input[type="email"] {
+   width: 100%;
+   max-width: 100%;
+  }
+  
+  
+  .footer_section {
+   padding: 20px 15px !important;
+   margin-left: -15px;
+   margin-right: -15px;
+   width: calc(100% + 30px);
+  }
+  
+  
+  @media (max-width: 992px) {
+   .flag-banner {
+    height: 60vh;
+    min-height: 500px;
+   }
+   
+   .flag-content h1 {
+    font-size: 30px;
+   }
+   
+   .flag-content h2 {
+    font-size: 20px;
+   }
+   
+   .info_section .container {
+    padding-left: 20px;
+    padding-right: 20px;
+   }
+   
+   .info_section .contact_location_container {
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
+   }
+   
+   .social-media-section {
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
+   }
+  }
+  
+  @media (max-width: 768px) {
+   .flag-banner {
+    height: 50vh;
+    min-height: 400px;
+   }
+   
+   .flag-content {
+    padding: 30px 20px;
+    margin: 0 20px;
+   }
+   
+   .flag-content h1 {
+    font-size: 24px;
+   }
+   
+   .flag-content h2 {
+    font-size: 18px;
+   }
+   
+   .flag-content p {
+    font-size: 16px;
+   }
+   
+   
+   .info_section .container {
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 100%;
+   }
+   
+   .info_section .contact_location_container {
+    padding: 20px 10px;
+    margin-left: -10px;
+    margin-right: -10px;
+    width: calc(100% + 20px);
+   }
+   
+   .contact-details-box {
+    padding: 20px;
+   }
+   
+   .map-container {
+    height: 220px;
+   }
+   
+   .social-media-section {
+    padding: 20px 10px;
+    margin-left: -10px;
+    margin-right: -10px;
+    width: calc(100% + 20px);
+   }
+   
+   .social-icons-horizontal {
+    gap: 12px;
+   }
+   
+   .social-icon-link {
+    width: 46px;
+    height: 46px;
+    font-size: 18px;
+   }
+   
+   .info_section .row {
+    margin-left: -10px;
+    margin-right: -10px;
+    width: calc(100% + 20px);
+   }
+   
+   .info_section .info_detail,
+   .info_section .news_container {
+    padding: 15px 10px;
+   }
+   
+   .footer_section {
+    padding: 15px 10px !important;
+    margin-left: -10px;
+    margin-right: -10px;
+    width: calc(100% + 20px);
+   }
+   
+   
+   .contact_section.contact_fullwidth .contact_box.contact_box_full {
+    padding: 25px 20px;
+    margin-top: 0;
+    border-radius: 10px;
+   }
+   
+   .contact_section.contact_fullwidth {
+    padding: 40px 10px;
+   }
+   
+   .contact_section.contact_fullwidth .container {
+    padding-left: 10px;
+    padding-right: 10px;
+   }
+  }
+  
+  @media (max-width: 576px) {
+   .flag-banner {
+    height: 40vh;
+    min-height: 300px;
+   }
+   
+   .flag-content h1 {
+    font-size: 20px;
+   }
+   
+   .flag-content h2 {
+    font-size: 16px;
+   }
+   
+   .flag-content p {
+    font-size: 14px;
+   }
+   
+   
+   .info_section .container {
+    padding-left: 5px;
+    padding-right: 5px;
+   }
+   
+   .info_section .contact_location_container {
+    padding: 15px 5px;
+    margin-left: -5px;
+    margin-right: -5px;
+    width: calc(100% + 10px);
+   }
+   
+   .contact-details-box {
+    padding: 15px;
+   }
+   
+   .contact-details-box h3 {
+    font-size: 18px;
+   }
+   
+   .contact-item {
+    font-size: 14px;
+    margin-bottom: 15px;
+   }
+   
+   .contact-item i {
+    font-size: 16px;
+    margin-right: 10px;
+   }
+   
+   .map-container {
+    height: 200px;
+   }
+   
+   .social-media-section {
+    padding: 15px 5px;
+    margin-left: -5px;
+    margin-right: -5px;
+    width: calc(100% + 10px);
+   }
+   
+   .social-media-section h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+   }
+   
+   .social-icons-horizontal {
+    gap: 10px;
+    justify-content: space-around;
+   }
+   
+   .social-icon-link {
+    width: 42px;
+    height: 42px;
+    font-size: 16px;
+   }
+   
+   .info_section .row {
+    margin-left: -5px;
+    margin-right: -5px;
+    width: calc(100% + 10px);
+   }
+   
+   .info_section .info_detail,
+   .info_section .news_container {
+    padding: 15px 5px;
+   }
+   
+   .info_section .info_detail p {
+    font-size: 14px;
+   }
+   
+   .news_container h3 {
+    font-size: 18px;
+   }
+   
+   .footer_section {
+    padding: 10px 5px !important;
+    margin-left: -5px;
+    margin-right: -5px;
+    width: calc(100% + 10px);
+   }
+   
+   .footer_section p {
+    font-size: 14px;
+    text-align: center;
+   }
+   
+   
+   .contact_section.contact_fullwidth .contact_box.contact_box_full {
+    padding: 20px 15px;
+    border-radius: 8px;
+   }
+   
+   .contact_section.contact_fullwidth .contact_box h3 {
+    font-size: 22px;
+   }
+   
+   .contact_section.contact_fullwidth .contact_btn {
+    padding: 10px 30px;
+    font-size: 16px;
+   }
+   
+   .contact_section.contact_fullwidth {
+    padding: 30px 5px;
+   }
+  }
+  
+  
+  @media (max-width: 400px) {
+   .social-icons-horizontal {
+    gap: 8px;
+   }
+   
+   .social-icon-link {
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
+   }
+   
+   .contact-item {
+    font-size: 13px;
+   }
+   
+   .contact-details-box {
+    padding: 12px;
+   }
+  }
+ 
+.story_detail-btn a {
+    text-decoration: none;
+}
+.story_detail-btn a span {
+    color: white;
+}
+</style>
+<style>
+  .rc-number {
+    background: rgba(211, 47, 47, 0.15);
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #ffd700;
+    border-left: 3px solid #d32f2f;
+    display: inline-block;
+  }
+  @media (max-width: 768px) {
+    .rc-number {
+      font-size: 10px;
+      padding: 3px 8px;
     }
+  }
+
+.story_detail-btn a {
+    text-decoration: none;
+}
+.story_detail-btn a span {
+    color: white;
+}
+</style>
+
+
+
+<style>
     
-    .contact-map-wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      align-items: stretch;
+    .logo_box {
+        width: 100px !important;
+        display: inline-block !important;
+        vertical-align: middle !important;
     }
-    
-    .contact-info-column {
-      flex: 1;
-      min-width: 300px;
+    .logo_box img {
+        width: 100% !important;
+        max-height: 45px !important;
+        display: block !important;
+        object-fit: contain !important;
     }
-    
-    .map-container {
-      flex: 1;
-      min-width: 300px;
-      height: 300px;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      background: #f5f5f5;
+    .navbar-brand {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
     }
-    
-    #footerMap {
-      width: 100%;
-      height: 100%;
-      border: none;
+    @media (max-width: 768px) {
+        .logo_box {
+            width: 80px !important;
+        }
+        .logo_box img {
+            max-height: 35px !important;
+        }
     }
+
+.story_detail-btn a {
+    text-decoration: none;
+}
+.story_detail-btn a span {
+    color: white;
+}
+</style>
+
+
+
+
+
+
+
+<style>
     
-    .contact-details-box {
-      background: #d32f2f; /* RED background as requested */
-      padding: 25px;
-      border-radius: 10px;
-      height: 100%;
-      color: white;
+    .logo_box {
+        width: 400px !important;
+        display: inline-block !important;
+        vertical-align: middle !important;
     }
-    
-    .contact-details-box h3 {
-      color: #fff;
-      margin-bottom: 20px;
-      font-size: 22px;
-      border-bottom: 2px solid #fff;
-      padding-bottom: 10px;
+    .logo_box img {
+        width: 100% !important;
+        max-height: 160px !important;
+        display: block !important;
+        object-fit: contain !important;
     }
-    
-    .contact-item {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 20px;
-      color: #fff;
+    .navbar-brand {
+        display: flex !important;
+        align-items: center !important;
+        gap: 15px !important;
+        flex-wrap: wrap !important;
     }
-    
-    .contact-item i {
-      width: 24px;
-      margin-right: 15px;
-      margin-top: 3px;
-      font-size: 18px;
-      text-align: center;
-    }
-    
-    .social-media-section {
-      background: #000;
-      padding: 25px;
-      border-radius: 10px;
-      margin-top: 20px;
-    }
-    
-    .social-media-section h3 {
-      color: #fff;
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 22px;
-    }
-    
-    .social-icons-horizontal {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
-    
-    .social-icon-item {
-      display: inline-block;
-    }
-    
-    .social-icon-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      border: 2px solid #fff;
-      position: relative;
-      transition: all 0.3s ease;
-      background-color: #333;
-      color: white;
-      font-size: 20px;
-      text-decoration: none;
-    }
-    
-    .social-icon-link:hover {
-      transform: translateY(-5px) scale(1.1);
-      color: white;
-      text-decoration: none;
-    }
-    
-    /* Specific background colors for better visibility */
-    .social-icon-link.facebook { background-color: #3b5998; border-color: #3b5998; }
-    .social-icon-link.twitter { background-color: #000000; border-color: #000000; }
-    .social-icon-link.instagram { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); border-color: transparent; }
-    .social-icon-link.tiktok { background-color: #000000; border-color: #000000; }
-    .social-icon-link.whatsapp { background-color: #25D366; border-color: #25D366; }
-    .social-icon-link.linkedin { background-color: #0077B5; border-color: #0077B5; }
-    .social-icon-link.youtube { background-color: #FF0000; border-color: #FF0000; }
-    .social-icon-link.telegram { background-color: #0088cc; border-color: #0088cc; }
-    .social-icon-link.email { background-color: #EA4335; border-color: #EA4335; }
-    
-    /* Enhanced hover effects */
-    .social-icon-link.facebook:hover { background-color: #2d4373; }
-    .social-icon-link.twitter:hover { background-color: #1a1a1a; }
-    .social-icon-link.instagram:hover { opacity: 0.9; }
-    .social-icon-link.tiktok:hover { background-color: #1a1a1a; }
-    .social-icon-link.whatsapp:hover { background-color: #128C7E; }
-    .social-icon-link.linkedin:hover { background-color: #005582; }
-    .social-icon-link.youtube:hover { background-color: #cc0000; }
-    .social-icon-link.telegram:hover { background-color: #006699; }
-    .social-icon-link.email:hover { background-color: #c23321; }
-    
-    /* CONTACT FORM STYLING - RED BACKGROUND */
-    .contact_section.contact_fullwidth {
-      background: #d32f2f; /* RED background */
-      padding: 60px 0;
-      color: white;
-    }
-    
-    .contact_section.contact_fullwidth .heading_container h2,
-    .contact_section.contact_fullwidth .heading_container p {
-      color: white;
-    }
-    
-    .contact_section.contact_fullwidth .contact_box.contact_box_full {
-      background: rgba(255, 255, 255, 0.95); /* White with slight transparency */
-      padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    .contact_section.contact_fullwidth .contact_box h3 {
-      color: #d32f2f; /* Red color for the heading */
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 28px;
-      font-weight: bold;
-    }
-    
-    .contact_section.contact_fullwidth .form-control {
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      padding: 15px;
-      margin-bottom: 20px;
-      font-size: 16px;
-      transition: all 0.3s ease;
-    }
-    
-    .contact_section.contact_fullwidth .form-control:focus {
-      border-color: #d32f2f;
-      box-shadow: 0 0 0 0.2rem rgba(211, 47, 47, 0.25);
-    }
-    
-    .contact_section.contact_fullwidth .contact_btn {
-      background: #d32f2f;
-      border: 2px solid white;
-      color: white;
-      padding: 12px 40px;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 18px;
-      transition: all 0.3s ease;
-      margin-top: 20px;
-    }
-    
-    .contact_section.contact_fullwidth .contact_btn:hover {
-      background: white;
-      color: #d32f2f;
-      border-color: #d32f2f;
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-    
-    /* FLAG COLOR BANNER STYLING - REPLACING IMAGES */
-    .flag-banner {
-      position: relative;
-      width: 100%;
-      height: 80vh; /* Same height as the carousel images */
-      min-height: 600px;
-      overflow: hidden;
-      background: linear-gradient(to bottom, #d32f2f 50%, #1a237e 50%); /* Red top, Navy blue bottom */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    /* Simple horizontal split (your requested style) */
-    .flag-banner.horizontal {
-      background: linear-gradient(to bottom, #d32f2f 50%, #1a237e 50%);
-    }
-    
-    /* Flag content styling */
-    .flag-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      padding: 40px;
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 10px;
-      max-width: 800px;
-      margin: 0 auto;
-      backdrop-filter: blur(5px);
-      border: 2px solid rgba(255, 255, 255, 0.2);
-    }
-    
-    .flag-content h2 {
-      color: white;
-      font-size: 24px;
-      margin-bottom: 15px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-    
-    .flag-content h1 {
-      color: white;
-      font-size: 36px;
-      font-weight: bold;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-    }
-    
-    .flag-content p {
-      color: #f0f0f0;
-      font-size: 18px;
-      font-style: italic;
-      margin: 0;
-    }
-    
-    /* SLIDER SECTION OVERRIDES */
-    .slider_section {
-      height: auto;
-    }
-    
-    .carousel-inner {
-      height: auto;
-    }
-    
-    .carousel-item {
-      height: auto;
-    }
-    
-    /* FIXED FOOTER RESPONSIVENESS - WIDER CONTAINERS ON MOBILE */
-    /* Override container padding for info section on mobile */
-    .info_section .container {
-      padding-left: 15px;
-      padding-right: 15px;
-      width: 100%;
-      max-width: 100%;
-    }
-    
-    /* Make the contact_location_container wider on mobile */
-    .info_section .contact_location_container {
-      padding: 20px 15px;
-      margin-left: -15px;
-      margin-right: -15px;
-      border-radius: 0;
-      width: calc(100% + 30px);
-    }
-    
-    /* Adjust contact-map-wrapper for better mobile display */
-    .contact-map-wrapper {
-      gap: 20px;
-    }
-    
-    /* Make columns full width on mobile */
-    .contact-info-column {
-      min-width: 100%;
-    }
-    
-    /* Adjust map container for mobile */
-    .map-container {
-      min-width: 100%;
-      height: 250px;
-    }
-    
-    /* Adjust social media section for mobile */
-    .social-media-section {
-      padding: 20px 15px;
-      margin-left: -15px;
-      margin-right: -15px;
-      width: calc(100% + 30px);
-      border-radius: 0;
-    }
-    
-    /* Make info section rows full width on mobile */
-    .info_section .row {
-      margin-left: -15px;
-      margin-right: -15px;
-      width: calc(100% + 30px);
-    }
-    
-    /* Adjust info_detail and news_container padding */
-    .info_section .info_detail,
-    .info_section .news_container {
-      padding: 20px 15px;
-    }
-    
-    /* Make newsletter form wider */
-    .news_container form input[type="email"] {
-      width: 100%;
-      max-width: 100%;
-    }
-    
-    /* Footer section adjustments */
-    .footer_section {
-      padding: 20px 15px !important;
-      margin-left: -15px;
-      margin-right: -15px;
-      width: calc(100% + 30px);
-    }
-    
-    /* Responsive adjustments for flag banner */
     @media (max-width: 992px) {
-      .flag-banner {
-        height: 60vh;
-        min-height: 500px;
-      }
-      
-      .flag-content h1 {
-        font-size: 30px;
-      }
-      
-      .flag-content h2 {
-        font-size: 20px;
-      }
-      
-      .info_section .container {
-        padding-left: 20px;
-        padding-right: 20px;
-      }
-      
-      .info_section .contact_location_container {
-        margin-left: -20px;
-        margin-right: -20px;
-        width: calc(100% + 40px);
-      }
-      
-      .social-media-section {
-        margin-left: -20px;
-        margin-right: -20px;
-        width: calc(100% + 40px);
-      }
+        .logo_box {
+            width: 350px !important;
+        }
+        .logo_box img {
+            max-height: 140px !important;
+        }
+    }
+    @media (max-width: 768px) {
+        .logo_box {
+            width: 320px !important;
+        }
+        .logo_box img {
+            max-height: 130px !important;
+        }
+        .navbar-brand {
+            justify-content: center !important;
+        }
+    }
+    @media (max-width: 576px) {
+        .logo_box {
+            width: 280px !important;
+        }
+        .logo_box img {
+            max-height: 110px !important;
+        }
+    }
+    @media (max-width: 400px) {
+        .logo_box {
+            width: 240px !important;
+        }
+        .logo_box img {
+            max-height: 95px !important;
+        }
+    }
+
+.story_detail-btn a {
+    text-decoration: none;
+}
+.story_detail-btn a span {
+    color: white;
+}
+</style>
+<style>
+    
+    .logo_box {
+        width: 280px !important;
+        display: inline-block !important;
+        vertical-align: middle !important;
+    }
+    .logo_box img {
+        width: 100% !important;
+        max-height: 110px !important;
+        display: block !important;
+        object-fit: contain !important;
+    }
+    .navbar-brand {
+        display: flex !important;
+        align-items: center !important;
+        gap: 15px !important;
+        flex-wrap: wrap !important;
+    }
+    .rc-number {
+        background: rgba(211, 47, 47, 0.15);
+        padding: 5px 12px;
+        border-radius: 4px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #ffd700;
+        border-left: 3px solid #d32f2f;
+        display: inline-block;
+        white-space: nowrap;
+    }
+    @media (max-width: 992px) {
+        .logo_box {
+            width: 240px !important;
+        }
+        .logo_box img {
+            max-height: 95px !important;
+        }
+        .rc-number {
+            font-size: 11px;
+        }
+    }
+    @media (max-width: 768px) {
+        .logo_box {
+            width: 200px !important;
+        }
+        .logo_box img {
+            max-height: 80px !important;
+        }
+        .navbar-brand {
+            justify-content: center !important;
+        }
+        .rc-number {
+            font-size: 9px;
+            padding: 3px 8px;
+        }
+    }
+    @media (max-width: 576px) {
+        .logo_box {
+            width: 170px !important;
+        }
+        .logo_box img {
+            max-height: 65px !important;
+        }
+    }
+    @media (max-width: 400px) {
+        .logo_box {
+            width: 150px !important;
+        }
+        .logo_box img {
+            max-height: 55px !important;
+        }
+    }
+
+.story_detail-btn a {
+    text-decoration: none;
+}
+.story_detail-btn a span {
+    color: white;
+}
+</style>
+<style>
+    
+    .logo_box {
+        width: 380px !important;
+        display: inline-block !important;
+        vertical-align: middle !important;
+    }
+    .logo_box img {
+        width: 100% !important;
+        max-height: 150px !important;
+        display: block !important;
+        object-fit: contain !important;
+    }
+    .navbar-brand {
+        display: flex !important;
+        align-items: center !important;
+        gap: 20px !important;
+        flex-wrap: wrap !important;
+    }
+    .rc-number {
+        background: rgba(211, 47, 47, 0.2);
+        padding: 8px 15px;
+        border-radius: 6px;
+        font-size: 15px;
+        font-weight: 700;
+        color: #ffd700;
+        border-left: 4px solid #d32f2f;
+        display: inline-block;
+        white-space: nowrap;
+    }
+    
+    @media (min-width: 1400px) {
+        .logo_box {
+            width: 450px !important;
+        }
+        .logo_box img {
+            max-height: 180px !important;
+        }
+        .rc-number {
+            font-size: 16px;
+        }
+    }
+    
+    @media (max-width: 1200px) {
+        .logo_box {
+            width: 350px !important;
+        }
+        .logo_box img {
+            max-height: 140px !important;
+        }
+    }
+    
+    @media (max-width: 992px) {
+        .logo_box {
+            width: 320px !important;
+        }
+        .logo_box img {
+            max-height: 130px !important;
+        }
+        .rc-number {
+            font-size: 13px;
+            padding: 6px 12px;
+        }
     }
     
     @media (max-width: 768px) {
-      .flag-banner {
-        height: 50vh;
-        min-height: 400px;
-      }
-      
-      .flag-content {
-        padding: 30px 20px;
-        margin: 0 20px;
-      }
-      
-      .flag-content h1 {
-        font-size: 24px;
-      }
-      
-      .flag-content h2 {
-        font-size: 18px;
-      }
-      
-      .flag-content p {
-        font-size: 16px;
-      }
-      
-      /* MOBILE-SPECIFIC FIXES FOR FOOTER */
-      .info_section .container {
-        padding-left: 10px;
-        padding-right: 10px;
-        max-width: 100%;
-      }
-      
-      .info_section .contact_location_container {
-        padding: 20px 10px;
-        margin-left: -10px;
-        margin-right: -10px;
-        width: calc(100% + 20px);
-      }
-      
-      .contact-details-box {
-        padding: 20px;
-      }
-      
-      .map-container {
-        height: 220px;
-      }
-      
-      .social-media-section {
-        padding: 20px 10px;
-        margin-left: -10px;
-        margin-right: -10px;
-        width: calc(100% + 20px);
-      }
-      
-      .social-icons-horizontal {
-        gap: 12px;
-      }
-      
-      .social-icon-link {
-        width: 46px;
-        height: 46px;
-        font-size: 18px;
-      }
-      
-      .info_section .row {
-        margin-left: -10px;
-        margin-right: -10px;
-        width: calc(100% + 20px);
-      }
-      
-      .info_section .info_detail,
-      .info_section .news_container {
-        padding: 15px 10px;
-      }
-      
-      .footer_section {
-        padding: 15px 10px !important;
-        margin-left: -10px;
-        margin-right: -10px;
-        width: calc(100% + 20px);
-      }
-      
-      /* Contact form adjustments */
-      .contact_section.contact_fullwidth .contact_box.contact_box_full {
-        padding: 25px 20px;
-        margin-top: 0;
-        border-radius: 10px;
-      }
-      
-      .contact_section.contact_fullwidth {
-        padding: 40px 10px;
-      }
-      
-      .contact_section.contact_fullwidth .container {
-        padding-left: 10px;
-        padding-right: 10px;
-      }
+        .logo_box {
+            width: 300px !important;
+        }
+        .logo_box img {
+            max-height: 120px !important;
+        }
+        .navbar-brand {
+            justify-content: center !important;
+        }
+        .rc-number {
+            font-size: 11px;
+            padding: 5px 10px;
+        }
     }
     
     @media (max-width: 576px) {
-      .flag-banner {
-        height: 40vh;
-        min-height: 300px;
-      }
-      
-      .flag-content h1 {
-        font-size: 20px;
-      }
-      
-      .flag-content h2 {
-        font-size: 16px;
-      }
-      
-      .flag-content p {
-        font-size: 14px;
-      }
-      
-      /* EXTRA SMALL DEVICES FIXES */
-      .info_section .container {
-        padding-left: 5px;
-        padding-right: 5px;
-      }
-      
-      .info_section .contact_location_container {
-        padding: 15px 5px;
-        margin-left: -5px;
-        margin-right: -5px;
-        width: calc(100% + 10px);
-      }
-      
-      .contact-details-box {
-        padding: 15px;
-      }
-      
-      .contact-details-box h3 {
-        font-size: 18px;
-      }
-      
-      .contact-item {
-        font-size: 14px;
-        margin-bottom: 15px;
-      }
-      
-      .contact-item i {
-        font-size: 16px;
-        margin-right: 10px;
-      }
-      
-      .map-container {
-        height: 200px;
-      }
-      
-      .social-media-section {
-        padding: 15px 5px;
-        margin-left: -5px;
-        margin-right: -5px;
-        width: calc(100% + 10px);
-      }
-      
-      .social-media-section h3 {
-        font-size: 18px;
-        margin-bottom: 15px;
-      }
-      
-      .social-icons-horizontal {
-        gap: 10px;
-        justify-content: space-around;
-      }
-      
-      .social-icon-link {
-        width: 42px;
-        height: 42px;
-        font-size: 16px;
-      }
-      
-      .info_section .row {
-        margin-left: -5px;
-        margin-right: -5px;
-        width: calc(100% + 10px);
-      }
-      
-      .info_section .info_detail,
-      .info_section .news_container {
-        padding: 15px 5px;
-      }
-      
-      .info_section .info_detail p {
-        font-size: 14px;
-      }
-      
-      .news_container h3 {
-        font-size: 18px;
-      }
-      
-      .footer_section {
-        padding: 10px 5px !important;
-        margin-left: -5px;
-        margin-right: -5px;
-        width: calc(100% + 10px);
-      }
-      
-      .footer_section p {
-        font-size: 14px;
-        text-align: center;
-      }
-      
-      /* Contact form adjustments for small screens */
-      .contact_section.contact_fullwidth .contact_box.contact_box_full {
-        padding: 20px 15px;
-        border-radius: 8px;
-      }
-      
-      .contact_section.contact_fullwidth .contact_box h3 {
-        font-size: 22px;
-      }
-      
-      .contact_section.contact_fullwidth .contact_btn {
-        padding: 10px 30px;
-        font-size: 16px;
-      }
-      
-      .contact_section.contact_fullwidth {
-        padding: 30px 5px;
-      }
+        .logo_box {
+            width: 260px !important;
+        }
+        .logo_box img {
+            max-height: 100px !important;
+        }
+        .rc-number {
+            font-size: 10px;
+            padding: 4px 8px;
+        }
     }
     
-    /* For very small screens (under 400px) */
     @media (max-width: 400px) {
-      .social-icons-horizontal {
-        gap: 8px;
-      }
-      
-      .social-icon-link {
-        width: 40px;
-        height: 40px;
-        font-size: 15px;
-      }
-      
-      .contact-item {
-        font-size: 13px;
-      }
-      
-      .contact-details-box {
-        padding: 12px;
-      }
+        .logo_box {
+            width: 220px !important;
+        }
+        .logo_box img {
+            max-height: 85px !important;
+        }
+        .rc-number {
+            font-size: 9px;
+            padding: 3px 6px;
+        }
     }
-  </style>
+
+.story_detail-btn a {
+    text-decoration: none;
+}
+.story_detail-btn a span {
+    color: white;
+}
+</style>
+<style>
+
+.privacy-popup-overlay {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.95);
+    z-index: 9999;
+    transition: bottom 0.5s ease-in-out;
+    backdrop-filter: blur(10px);
+}
+.privacy-popup-overlay.active {
+    bottom: 0;
+}
+.privacy-popup-container {
+    background: linear-gradient(135deg, #1f233e 0%, #0f1123 100%);
+    border-top: 4px solid #d32f2f;
+    max-height: 85vh;
+    overflow-y: auto;
+    border-radius: 20px 20px 0 0;
+}
+.privacy-popup-header {
+    padding: 20px;
+    background: rgba(211, 47, 47, 0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #1f233e;
+}
+.privacy-popup-body {
+    padding: 30px;
+    color: #fff;
+}
+.privacy-popup-body h3 {
+    color: #d32f2f;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+.privacy-popup-body p, .privacy-popup-body li {
+    color: #ddd;
+    line-height: 1.6;
+}
+.privacy-popup-body ul {
+    padding-left: 20px;
+}
+.privacy-popup-footer {
+    padding: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    background: #0f1123;
+}
+.btn-accept {
+    background: #d32f2f; border: 2px solid #ffd700;
+    color: white;
+    border: 2px solid #ffd700;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 10px;
+}
+.btn-accept:hover {
+    background: #b71c1c;
+    transform: scale(1.05);
+}
+.btn-cancel {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #d32f2f;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 10px;
+}
+.btn-cancel:hover {
+    background: rgba(211, 47, 47, 0.2);
+}
+.close-popup {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #fff;
+}
+.close-popup:hover {
+    color: #d32f2f;
+}
+@media (max-width: 768px) {
+    .privacy-popup-body {
+        padding: 20px;
+    }
+    .btn-accept, .btn-cancel {
+        padding: 8px 20px;
+        margin: 5px;
+    }
+}
+
+.story_detail-btn a {
+    text-decoration: none;
+}
+.story_detail-btn a span {
+    color: white;
+}
+</style>
+<style>
+
+.story_section {
+    transition: background 0.3s ease;
+}
+.story_detail-btn a {
+    text-decoration: none;
+}
+.story_detail-btn a span {
+    color: white;
+}
+</style><style>
+/* FIXED: All section headings in RED */
+.welcome_detail h2, .service_detail h2, .story_detail h2,
+.welcome_detail h3, .service_detail h3, .story_detail h3,
+.service_detail h3 strong, .welcome_detail h3 strong {
+    color: #d32f2f !important;
+}
+
+/* FIXED: Story section dark mode */
+body.dark-mode .story_section,
+body.dark-mode .story_detail {
+    background: transparent !important;
+}
+
+body.dark-mode .story_detail {
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 12px !important;
+    padding: 30px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark-mode .story_detail h3 {
+    color: #ffd700 !important;
+}
+
+body.dark-mode .story_detail h2 {
+    color: #d32f2f !important;
+}
+
+body.dark-mode .story_detail p,
+body.dark-mode .story_detail strong,
+body.dark-mode .story_detail em {
+    color: #cbd5e1 !important;
+}
+
+/* FIXED: Welcome section dark mode */
+body.dark-mode .welcome_section,
+body.dark-mode .welcome_detail {
+    background: transparent !important;
+}
+
+body.dark-mode .welcome_detail {
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 12px !important;
+    padding: 30px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark-mode .welcome_detail h3 {
+    color: #ffd700 !important;
+}
+
+body.dark-mode .welcome_detail h2 {
+    color: #d32f2f !important;
+}
+
+body.dark-mode .welcome_detail p,
+body.dark-mode .welcome_detail strong {
+    color: #cbd5e1 !important;
+}
+
+/* FIXED: Service section headings red */
+.service_detail h2, .service_detail h3 {
+    color: #d32f2f !important;
+}
+</style>
+<style>
+/* FIX 1: Make ALL section headings RED */
+.welcome_detail h2, .service_detail h2, .story_detail h2,
+.welcome_detail h3, .service_detail h3, .story_detail h3,
+.welcome_detail h3 strong, .service_detail h3 strong,
+.service_detail h2 strong {
+    color: #d32f2f !important;
+}
+
+/* FIX 2: Story Section (Impact & Benefits) Dark Mode */
+body.dark-mode .story_section,
+body.dark-mode .story_detail {
+    background: transparent !important;
+}
+body.dark-mode .story_detail {
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 12px !important;
+    padding: 30px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+body.dark-mode .story_detail h3 {
+    color: #ffd700 !important;
+}
+body.dark-mode .story_detail h2 {
+    color: #d32f2f !important;
+}
+body.dark-mode .story_detail p,
+body.dark-mode .story_detail strong {
+    color: #cbd5e1 !important;
+}
+
+/* FIX 3: Welcome Section Dark Mode (ensure working) */
+body.dark-mode .welcome_section,
+body.dark-mode .welcome_detail {
+    background: transparent !important;
+}
+body.dark-mode .welcome_detail {
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 12px !important;
+    padding: 30px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+body.dark-mode .welcome_detail h3 {
+    color: #ffd700 !important;
+}
+body.dark-mode .welcome_detail h2 {
+    color: #d32f2f !important;
+}
+body.dark-mode .welcome_detail p,
+body.dark-mode .welcome_detail strong {
+    color: #cbd5e1 !important;
+}
+</style>
+<style>
+/* COMPLETE STORY SECTION DARK MODE FIX - Includes Image and Full Container */
+body.dark-mode .story_section {
+    background: linear-gradient(135deg, #1f233e 0%, #0f1123 100%) !important;
+}
+
+body.dark-mode .story_section .container-fluid,
+body.dark-mode .story_section .row,
+body.dark-mode .story_section .col-md-6 {
+    background: transparent !important;
+}
+
+/* Fix for the image container - dark overlay effect */
+body.dark-mode .story_section .col-md-6:first-child div {
+    position: relative;
+}
+
+body.dark-mode .story_section .col-md-6:first-child img {
+    filter: brightness(0.7) contrast(1.1);
+    opacity: 0.85;
+    transition: all 0.3s ease;
+}
+
+/* Dark mode for the story detail box */
+body.dark-mode .story_detail {
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(12px) !important;
+    border-radius: 16px !important;
+    padding: 30px !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.dark-mode .story_detail h3 {
+    color: #ffd700 !important;
+}
+
+body.dark-mode .story_detail h2 {
+    color: #d32f2f !important;
+}
+
+body.dark-mode .story_detail p,
+body.dark-mode .story_detail strong,
+body.dark-mode .story_detail em {
+    color: #e2e8f0 !important;
+}
+
+/* Ensure buttons remain visible */
+body.dark-mode .story_detail-btn a {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* LIGHT MODE - Story section */
+body.light-mode .story_section {
+    background: #f8f9fa !important;
+}
+
+body.light-mode .story_detail {
+    background: #ffffff !important;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+body.light-mode .story_detail h3 {
+    color: #254a93 !important;
+}
+
+body.light-mode .story_detail h2 {
+    color: #0c0b09 !important;
+}
+
+body.light-mode .story_detail p,
+body.light-mode .story_detail strong {
+    color: #555555 !important;
+}
+</style>
 </head>
 
-<body>
-  <!-- header section strats -->
+<body class="dark-mode">
   <header class="header_section">
     <div class="container">
       <nav class="navbar navbar-expand-lg custom_nav-container ">
-        <a class="navbar-brand" href="#">
-          <span class="rc-number">YA/CLB/10100</span>
+        <a class="navbar-brand" href="index.html">
+          <span class="rc-number"><i class="fas fa-id-card"></i> REG: YA/CLB/10100</span>
           <div class="logo_box">
-            <img src="images/logo.png" alt="" />
+            <img src="images/logo.png" alt="Marshal Core of Nigeria Logo" />
           </div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -670,11 +1320,11 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mr-2">
-            <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us </a>
+              <a class="nav-link" href="about.html">About Us</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="service.html">Services</a>
@@ -686,7 +1336,7 @@
               <a class="nav-link" href="contact.html">Contact us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://portal.marshalcoreofnigeria.ng">Login </a>
+              <a class="nav-link" href="https://portal.marshalcoreofnigeria.ng">Login</a>
             </li>
           </ul>
           <form class="form-inline my-2 my-lg-0">
@@ -698,636 +1348,1119 @@
       </nav>
     </div>
   </header>
-  <!-- end header section -->
-
-  <!-- REPLACED SLIDER SECTION WITH FLAG COLOR BANNER -->
-  <section class="slider_section">
-    <div id="carouselExampleIndicators" class="carousel slide vert" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      </ol>
-      <div class="carousel-inner">
-        <!-- First Slide - Red top, Navy Blue bottom -->
-        <div class="carousel-item active">
-          <div class="flag-banner horizontal">
-            <div class="flag-content">
-              <h2>Marshal Core of Nigeria</h2>
-              <h1>Voluntary Service Organization</h1>
-              <p>Motto: Always Ready!</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Second Slide - Same flag colors, different text -->
-        <div class="carousel-item">
-          <div class="flag-banner horizontal">
-            <div class="flag-content">
-              <h2>Serving Our Nation</h2>
-              <h1>Volunteer With Purpose</h1>
-              <p>Motto: Always Ready!</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Carousel Controls (optional - can remove if you don't want arrows) -->
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
+ <!-- header section strats -->
+ 
+ <!-- end header section -->
+  <!-- RECRUITMENT ANNOUNCEMENT BANNER -->
+  <div style="background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%); color: white; padding: 15px; text-align: center; position: relative; overflow: hidden;">
+    <div style="position: relative; z-index: 2;">
+      <strong style="font-size: 1.2rem;">📢 RECRUITMENT NOTICE </strong><br>
+      Applications for enlistment into MARSHAL CORE OF NIGERIA (MCN) as Recruits are now open!<br>
+      <strong>Application Period: 15th May 2026 - 15th August 2026</strong><br>
+      <a href="https://recruitment.marshalcoreofnigeria.ng" style="color: #ffd700; text-decoration: underline; font-weight: bold;">Click here to apply</a>
     </div>
-  </section>
-  <!-- end slider section -->
+    <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: repeating-linear-gradient(45deg, rgba(255,255,255,0.1) 0px, rgba(255,255,255,0.1) 2px, transparent 2px, transparent 8px); transform: rotate(45deg); z-index: 1;"></div>
+  </div>
 
-  <!-- welcome section -->
-  <section class="welcome_section layout_padding">
-    <div class="container-fluid">
-      <div class="row">
-        <div class=" col-md-6">
-          <div>
-            <img class="img-fluid" src="images/sob-1.jpg" alt="" />
-          </div>
-        </div>
-        <div class=" col-md-6">
-          <div class="welcome_detail">
-            <h3>
-              Welcome To
-            </h3>
-            <h2>
-              Marshal Core of Nigeria 
-            </h2>
-            <p>
-              <strong>
-              We are a registered and government-recognized voluntary organization, committed to empowering Nigerian youths through volunteerism, promoting discipline, and supporting national development through community service and patriotic engagement.
-              <br><br>
-              As a voluntary service organization under the National Youth Council of Nigeria, our mission is built on integrity, dedication, and selfless service to the nation. We believe in the power of volunteerism to transform communities and build a stronger Nigeria.
-              <br><br>
-              Join us as we shape a more responsible and engaged society through voluntary service, youth empowerment, and community development initiatives.
-              </strong>
-            </p>
-            <div class="welcome_detail-btn">
-              <a href="about.html" style="
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                background: linear-gradient(135deg, #6e8efb 0%, #a777e3 100%);
-                color: white;
-                padding: 12px 24px;
-                border-radius: 50px;
-                text-decoration: none;
-                font-weight: 600;
-                font-size: 16px;
-                box-shadow: 0 4px 15px rgba(106, 142, 251, 0.3);
-                transition: all 0.3s ease;
-                border: none;
-                cursor: pointer;
-                position: relative;
-                overflow: hidden;
-              " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(106, 142, 251, 0.4)'" 
-              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(106, 142, 251, 0.3)'" 
-              onmousedown="this.style.transform='translateY(1px)'" 
-              onmouseup="this.style.transform='translateY(-2px)'">
-                <span style="margin-right: 8px;">Read More</span>
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNNSAxMmgxNE0xMiA1bDcgNy03IDciPjwvcGF0aD48L3N2Zz4=" alt="Arrow" style="transition: transform 0.3s ease;" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='translateX(0)'" />
-              </a>
-            </div>
-          </div>
-        </div>
+ <!-- REPLACED SLIDER SECTION WITH FLAG COLOR BANNER -->
+ <section class="slider_section">
+  <div id="carouselExampleIndicators" class="carousel slide vert" data-ride="carousel">
+   <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+   </ol>
+   <div class="carousel-inner">
+    <!-- First Slide - Red top, Navy Blue bottom -->
+    <div class="carousel-item active">
+     <div class="flag-banner horizontal">
+      <div class="flag-content">
+       <h2>Marshal Core of Nigeria</h2>
+       <h1>Voluntary Service Organization</h1>
+       <p>Motto: Always Ready!</p>
       </div>
+     </div>
     </div>
-  </section>
-  <!-- end welcome section -->
-
-  <!-- service section -->
-  <section class="service_section ">
-    <div class="container">
-      <div class="service_detail">
-        <h3>
-          <strong>
-          Marshal Core of Nigeria (MCN)
-          </strong>
-        </h3>
-        <h2>
-          Is a voluntary organization under the National Youth Council of Nigeria, focused on:
-        </h2>
-        <br>
-        <p>
-        <strong>- Youth Development: Empowering young people with skills, knowledge, and opportunities.</strong><br>
-        <strong>- Community Service: Serving communities through outreach programs and initiatives.</strong><br>
-        <strong>- Leadership Training: Equipping youth with leadership skills and mentorship.</strong><br>
-        <strong>- Social Impact Projects:   Driving positive change through impactful projects.</strong><br>
-        <br>
-
-
-            <h3><strong>Rank structure of the marshal core of Nigeria </strong> <br></h3>
-            <strong>
-            18. Director General<br>
-            17. Deputy Director General<br>
-            16. Assistant director general<br>
-            15. Director<br>
-            14. Deputy director<br>
-            13. Assistant director<br>
-            12. chief Superintendent of marshal<br>
-            11. Superintendent of marshal<br>
-            10. Deputy superintendent of marshal<br>
-            9. Assistant marshal officer I<br>
-            8. Assistant marshal officer II<br>
-            7. Senior marshal officer<br>
-            6. Marshal staff<br>
-            5. Marshal sergeant<br>
-            4. Marshal corporal<br>
-            3. Marshal lance corporal<br>
-            2. Marshal private<br>
-            1. Marshal Trainee<br>
-            </strong>
-              <br>
-        
-
-
-
-        <strong>Establishment of the Marshal  Board Committee:</strong><br>
-
-        <strong>The Marshal Board Committee is hereby established as a section within the Marshal Core of Nigeria, responsible for recruitment/Enlisting, dismissing, and promoting officers of the Marshal Core of Nigeria. <br></strong>
-            <br>
-        <strong>Composition of the Marshal Board Committee: 
-
-        The Marshal Board Committee shall comprise of: <br></strong>
-
-       <h3><strong>Federal government officers:</strong> <br></h3>
-       <strong>- Representatives from the Nigeria Police </strong> <br>
-       <strong>- Representatives from the Nigeria Army/Air Force/Navy</strong> <br>
-       <strong>- Representatives from the Nigeria Security and Civil Defense Corps </strong><br>
-       <strong>- Representatives from EFCC (Economic and Financial Crimes Commission) </strong><br>
-       <strong>- Representatives from DSS (Department of State Services) </strong><br>
-       <strong>- Representatives from Correctional Service/fire/immigration service </strong><br>
-        <br>
-
-       <h3><strong>State government officers</strong><br></h3>
-       <strong>- Retired/ serving Marshal Core of Nigeria officers who have served well and attained the rank of Assistant Director General of the Marshal Core of Nigeria.</strong><br>
-          <br>
-        <h3><strong>Responsibilities:</strong></h3>
-        
-
-        The Marshal Board Committee shall be responsible for:<br>
-
-        - Recruitment of officers into the Marshal Core of Nigeria<br>
-        - Enlisting and promotion of officers<br>
-        - Dismissal of officers<br>
-        - Other matters related to the management of Marshal Core of Nigeria officers<br>
-
-        This establishment is aimed at ensuring effective management and oversight of the Marshal Core of Nigeria.<br><br>
-
-
-       <h3><strong>Establishment of the Marshal Board of Trustees.</strong><br></h3>
-
-        The Marshal Board of Trustees is hereby established to oversee the welfare and affairs of the National/State Headquarters of the Marshal Core of Nigeria.<br>
-          <br>
-        <h3><strong>Composition of the Marshal Board of Trustees:</strong><br></h3>
-
-        The Marshal Board of Trustees shall comprise of Marshal Core officers holding the following ranks: <br>
-
-        - Assistant Martial Officer I <br>
-        - Deputy Superintendent of Marshal<br>
-        - Superintendent of Marshal<br>
-        - Assistant Director<br>
-        - Deputy Director<br>
-        - Director<br>
-        <br>
-
-        <h3><strong>Responsibilities:</strong></h3>
-
-      The Marshal Board of Trustees shall be responsible for:
-          <br>
-        - Overseeing the welfare of the National/State Headquarters of the Marshal Core of Nigeria<br>
-        - Managing the affairs of the National/State Headquarters<br>
-        - Making decisions for the benefit of the Marshal Core of Nigeria<br>
-
-This establishment is aimed at ensuring the smooth operation and management of the National/State Headquarters of the Marshal Core of Nigeria.
-        </p>
+    
+    <!-- Second Slide - Same flag colors, different text -->
+    <div class="carousel-item">
+     <div class="flag-banner horizontal">
+      <div class="flag-content">
+       <h2>Serving Our Nation</h2>
+       <h1>Volunteer With Purpose</h1>
+       <p>Motto: Always Ready!</p>
       </div>
-      
-  <!-- story section -->
+     </div>
+    </div>
+   </div>
+   
+   <!-- Carousel Controls (optional - can remove if you don't want arrows) -->
+   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+   </a>
+   <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+   </a>
+  </div>
+ </section>
+ <!-- end slider section -->
 
-  <section class="layout_padding story_section">
-    <div class="container-fluid">
-      <div class="row">
-        <div class=" col-md-6">
-          <div>
-            <img class="img-fluid" src="images/banner.jpg" alt="" />
-          </div>
-        </div>
-        <div class=" col-md-6">
-          <div class="story_detail">
+ <!-- welcome section -->
+ <section class="welcome_section layout_padding">
+  <div class="container-fluid">
+   <div class="row">
+    <div class=" col-md-6">
+     <div>
+      <img class="img-fluid" src="images/sob-1.jpg" alt="" />
+     </div>
+    </div>
+    <div class=" col-md-6">
+     <div class="welcome_detail">
+      <h3>
+       Welcome To
+      </h3>
+      <h2>
+       Marshal Core of Nigeria 
+      </h2>
+      <p><strong>We are a registered and government-recognized voluntary organization, committed to empowering Nigerian youths through volunteerism, promoting discipline, and supporting national development through community service and patriotic engagement.<br><br>As a voluntary service organization under the National Youth Council of Nigeria, our mission is built on integrity, dedication, and selfless service to the nation. We believe in the power of volunteerism to transform communities and build a stronger Nigeria.<br><br>Join us as we shape a more responsible and engaged society through voluntary service, youth empowerment, and community development initiatives.</strong></p>
+      <div class="welcome_detail-btn">
+       <a href="about.html" style="
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+        transition: all 0.3s ease;
+        border: 2px solid #ffd700;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+       " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(106, 142, 251, 0.4)'" 
+       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(106, 142, 251, 0.3)'" 
+       onmousedown="this.style.transform='translateY(1px)'" 
+       onmouseup="this.style.transform='translateY(-2px)'">
+        <span style="margin-right: 8px;">Read More</span>
+        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNNSAxMmgxNE0xMiA1bDcgNy03IDciPjwvcGF0aD48L3N2Zz4=" alt="Arrow" style="transition: transform 0.3s ease;" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='translateX(0)'" />
+       </a>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+ <!-- end welcome section -->
+
+ <!-- service section -->
+ <section class="service_section ">
+  <div class="container">
+   <div class="service_detail">
     <h3>
-        Our
+     <strong>
+     Marshal Core of Nigeria (MCN)
+     </strong>
     </h3>
     <h2>
-        Impact and Benefits
+     Is a voluntary organization under the National Youth Council of Nigeria, focused on:
     </h2>
+    <br>
     <p>
-        Marshal Core of Nigeria has grown as a respected voluntary organization, empowering citizens to serve their communities with discipline and purpose. Our success lies in the values we uphold—honor, service, and security for all.<br>
+    <strong>- Youth Development: Empowering young people with skills, knowledge, and opportunities.</strong><br>
+    <strong>- Community Service: Serving communities through outreach programs and initiatives.</strong><br>
+    <strong>- Leadership Training: Equipping youth with leadership skills and mentorship.</strong><br>
+    <strong>- Social Impact Projects:  Driving positive change through impactful projects.</strong><br>
+    <br>
 
-        As a volunteer, you gain <strong>valuable security skills, professional training certifications, and networking opportunities.</strong> These experiences translate into <strong>leadership development and career advancement</strong> in security and community services.<br>
 
-        Join Marshal Core of Nigeria today and be part of building safer communities. <strong>Click the button below to volunteer or partner with our vision.</strong>
+      <h3><strong>Rank structure of the marshal core of Nigeria </strong> <br></h3>
+      <strong>
+      18. Director General<br>
+      17. Deputy Director General<br>
+      16. Assistant director general<br>
+      15. Director<br>
+      14. Deputy director<br>
+      13. Assistant director<br>
+      12. chief Superintendent of marshal<br>
+      11. Superintendent of marshal<br>
+      10. Deputy superintendent of marshal<br>
+      9. Assistant marshal officer I<br>
+      8. Assistant marshal officer II<br>
+      7. Senior marshal officer<br>
+      6. Marshal staff<br>
+      5. Marshal sergeant<br>
+      4. Marshal corporal<br>
+      3. Marshal lance corporal<br>
+      2. Marshal private<br>
+      1. Marshal Trainee<br>
+      </strong>
+       <br>
+    
+
+
+
+    <strong>Establishment of the Marshal Board Committee:</strong><br>
+
+    <strong>The Marshal Board Committee is hereby established as a section within the Marshal Core of Nigeria, responsible for recruitment/Enlisting, dismissing, and promoting officers of the Marshal Core of Nigeria. <br></strong>
+      <br>
+    <strong>Composition of the Marshal Board Committee: 
+
+    The Marshal Board Committee shall comprise of: <br></strong>
+
+    <h3><strong>Federal government officers:</strong> <br></h3>
+    <strong>- Representatives from the Nigeria Police </strong> <br>
+    <strong>- Representatives from the Nigeria Army/Air Force/Navy</strong> <br>
+    <strong>- Representatives from the Nigeria Security and Civil Defense Corps </strong><br>
+    <strong>- Representatives from EFCC (Economic and Financial Crimes Commission) </strong><br>
+    <strong>- Representatives from DSS (Department of State Services) </strong><br>
+    <strong>- Representatives from Correctional Service/fire/immigration service </strong><br>
+    <br>
+
+    <h3><strong>State government officers</strong><br></h3>
+    <strong>- Retired/ serving Marshal Core of Nigeria officers who have served well and attained the rank of Assistant Director General of the Marshal Core of Nigeria.</strong><br>
+     <br>
+    <h3><strong>Responsibilities:</strong></h3>
+    
+
+    The Marshal Board Committee shall be responsible for:<br>
+
+    - Recruitment of officers into the Marshal Core of Nigeria<br>
+    - Enlisting and promotion of officers<br>
+    - Dismissal of officers<br>
+    - Other matters related to the management of Marshal Core of Nigeria officers<br>
+
+    This establishment is aimed at ensuring effective management and oversight of the Marshal Core of Nigeria.<br><br>
+
+
+    <h3><strong>Establishment of the Marshal Board of Trustees.</strong><br></h3>
+
+    The Marshal Board of Trustees is hereby established to oversee the welfare and affairs of the National/State Headquarters of the Marshal Core of Nigeria.<br>
+     <br>
+    <h3><strong>Composition of the Marshal Board of Trustees:</strong><br></h3>
+
+    The Marshal Board of Trustees shall comprise of Marshal Core officers holding the following ranks: <br>
+
+    - Assistant Martial Officer I <br>
+    - Deputy Superintendent of Marshal<br>
+    - Superintendent of Marshal<br>
+    - Assistant Director<br>
+    - Deputy Director<br>
+    - Director<br>
+    <br>
+
+    <h3><strong>Responsibilities:</strong></h3>
+
+   The Marshal Board of Trustees shall be responsible for:
+     <br>
+    - Overseeing the welfare of the National/State Headquarters of the Marshal Core of Nigeria<br>
+    - Managing the affairs of the National/State Headquarters<br>
+    - Making decisions for the benefit of the Marshal Core of Nigeria<br>
+
+This establishment is aimed at ensuring the smooth operation and management of the National/State Headquarters of the Marshal Core of Nigeria.
     </p>
-             
-            <div class="story_detail-btn d-flex flex-column flex-md-row align-items-center justify-content-center" style="gap: 15px;">
-              <!-- Existing "Join the Marshal Core" button -->
-              <a href="https://recruitment.marshalcoreofnigeria.ng" style="
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                background: linear-gradient(135deg, #6e8efb 0%, #a777e3 100%);
-                color: white;
-                padding: 12px 24px;
-                border-radius: 50px;
-                text-decoration: none;
-                font-weight: 600;
-                font-size: 16px;
-                box-shadow: 0 4px 15px rgba(106, 142, 251, 0.3);
-                transition: all 0.3s ease;
-                border: none;
-                cursor: pointer;
-                position: relative;
-                overflow: hidden;
-                min-width: 250px;
-                text-align: center;
-              " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(106, 142, 251, 0.4)'" 
-              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(106, 142, 251, 0.3)'" 
-              onmousedown="this.style.transform='translateY(1px)'" 
-              onmouseup="this.style.transform='translateY(-2px)'">
-                <span style="margin-right: 8px;">Click Here to Apply (New Members)</span>
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNNSAxMmgxNE0xMiA1bDcgNy03IDciPjwvcGF0aD48L3N2Zz4=" alt="Arrow" style="transition: transform 0.3s ease;" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='translateX(0)'" />
-              </a>
-              
-              <!-- NEW: Button for Existing Users -->
-              <a href="https://verify.marshalcoreofnigeria.ng" style="
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
-                color: white;
-                padding: 12px 24px;
-                border-radius: 50px;
-                text-decoration: none;
-                font-weight: 600;
-                font-size: 16px;
-                box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
-                transition: all 0.3s ease;
-                border: none;
-                cursor: pointer;
-                position: relative;
-                overflow: hidden;
-                min-width: 250px;
-                text-align: center;
-              " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(76, 175, 80, 0.4)'" 
-              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(76, 175, 80, 0.3)'" 
-              onmousedown="this.style.transform='translateY(1px)'" 
-              onmouseup="this.style.transform='translateY(-2px)'">
-                <span style="margin-right: 8px;">Officer Verification</span>
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTIgMjJDNi40NzcgMjIgMiAxNy41MjMgMiAxMlM2LjQ3cyAyIDEyIDJzMTAgNC40NzcgMTAgMTAtNC40NzcgMTAtMTAgMTB6bTAtMnYtOEw3IDkiPjwvcGF0aD48L3N2Zz4=" alt="User Icon" style="transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
-              </a>
-            </div>
-            
-            <p class="text-center mt-3" style="color: #666; font-size: 14px;">
-              <em>Existing users: Click the green button above to verify your identity</em>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+   </div>
+   
+ <!-- story section -->
 
-  <!-- end story section -->
+ <section class="story_section layout_padding">
+  <div class="container-fluid">
+   <div class="row">
+    <div class=" col-md-6">
+     <div>
+      <img class="img-fluid" src="images/banner.jpg" alt="" />
+     </div>
+    </div>
+    <div class=" col-md-6">
+     <div class="story_detail">
+  <h3>
+    Our
+  </h3>
+  <h2>
+    Impact and Benefits
+  </h2>
+  <p>
+    Marshal Core of Nigeria has grown as a respected voluntary organization, empowering citizens to serve their communities with discipline and purpose. Our success lies in the values we uphold?honor, service, and security for all.<br>
+
+    As a volunteer, you gain <strong>valuable security skills, professional training certifications, and networking opportunities.</strong> These experiences translate into <strong>leadership development and career advancement</strong> in security and community services.<br>
+
+    Join Marshal Core of Nigeria today and be part of building safer communities. <strong>Click the button below to volunteer or partner with our vision.</strong>
+  </p>
+       
+      <div class="story_detail-btn d-flex flex-column flex-md-row align-items-center justify-content-center" style="gap: 15px;">
+       <!-- Existing "Join the Marshal Core" button -->
+       <a href="https://recruitment.marshalcoreofnigeria.ng" style="
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+        transition: all 0.3s ease;
+        border: 2px solid #ffd700;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        min-width: 250px;
+        text-align: center;
+       " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(106, 142, 251, 0.4)'" 
+       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(106, 142, 251, 0.3)'" 
+       onmousedown="this.style.transform='translateY(1px)'" 
+       onmouseup="this.style.transform='translateY(-2px)'">
+        <span style="margin-right: 8px;">Click Here to Apply (New Members)</span>
+        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNNSAxMmgxNE0xMiA1bDcgNy03IDciPjwvcGF0aD48L3N2Zz4=" alt="Arrow" style="transition: transform 0.3s ease;" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='translateX(0)'" />
+       </a>
+       
+       <!-- NEW: Button for Existing Users -->
+       <a href="https://verify.marshalcoreofnigeria.ng" style="
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        transition: all 0.3s ease;
+        border: 2px solid #ffd700;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        min-width: 250px;
+        text-align: center;
+       " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(76, 175, 80, 0.4)'" 
+       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(76, 175, 80, 0.3)'" 
+       onmousedown="this.style.transform='translateY(1px)'" 
+       onmouseup="this.style.transform='translateY(-2px)'">
+        <span style="margin-right: 8px;">Officer Verification</span>
+        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTIgMjJDNi40NzcgMjIgMiAxNy41MjMgMiAxMlM2LjQ3cyAyIDEyIDJzMTAgNC40NzcgMTAgMTAtNC40NzcgMTAtMTAgMTB6bTAtMnYtOEw3IDkiPjwvcGF0aD48L3N2Zz4=" alt="User Icon" style="transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
+       </a>
+      </div>
+      
+      <p class="text-center mt-3" style="font-size: 14px;">
+       <em>Existing users: Click the green button above to verify your identity</em>
+      </p>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ 
+<style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.story_detail-btn a {
+    text-decoration: none;
+}
+
+.story_detail-btn a span {
+    color: white;
+}
+</style>
+
+
+
 
 <!-- contact section - FULL WIDTH (NO MAP) -->
 <section class="contact_section contact_fullwidth">
-  <div class="container">
-    <div class="heading_container text-center mb-5">
-      <h2>Contact Us</h2>
-      <p>Get in touch with Marshal Core of Nigeria</p>
-    </div>
-
-    <div class="row justify-content-center">
-      <div class="col-lg-8 col-md-10">
-        <div class="contact_box contact_box_full">
-          <h3>Send us a Message</h3>
-
-          <form>
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Your Name" required>
-            </div>
-
-            <div class="form-group">
-              <input type="email" class="form-control" placeholder="Email Address" required>
-            </div>
-
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Phone Number">
-            </div>
-
-            <div class="form-group">
-              <textarea class="form-control" placeholder="Your Message" rows="6" required></textarea>
-            </div>
-
-            <div class="text-center">
-              <button type="submit" class="btn contact_btn">
-                Send Message
-              </button>
-            </div>
-          </form>
-
-        </div>
-      </div>
-    </div>
+ <div class="container">
+  <div class="heading_container text-center mb-5">
+   <h2>Contact Us</h2>
+   <p>Get in touch with Marshal Core of Nigeria</p>
   </div>
+
+  <div class="row justify-content-center">
+   <div class="col-lg-8 col-md-10">
+    <div class="contact_box contact_box_full">
+     <h3>Send us a Message</h3>
+
+     <form>
+      <div class="form-group">
+       <input type="text" class="form-control" placeholder="Your Name" required>
+      </div>
+
+      <div class="form-group">
+       <input type="email" class="form-control" placeholder="Email Address" required>
+      </div>
+
+      <div class="form-group">
+       <input type="text" class="form-control" placeholder="Phone Number">
+      </div>
+
+      <div class="form-group">
+       <textarea class="form-control" placeholder="Your Message" rows="6" required></textarea>
+      </div>
+
+      <div class="text-center">
+       <button type="submit" class="btn contact_btn">
+        Send Message
+       </button>
+      </div>
+     </form>
+
+    </div>
+   </div>
+  </div>
+ </div>
 </section>
 <!-- end contact section -->
 
 
-  <!-- info section -->
-  <section class="info_section layout_padding">
-    <div class="container">
-      <div class="contact_location_container">
-        <!-- Contact Info and Map in Rectangle Layout -->
-        <div class="contact-map-wrapper">
-          <!-- Contact Information Column (RED BACKGROUND) -->
-          <div class="contact-info-column">
-            <div class="contact-details-box">
-              <h3>Contact Information</h3>
-              <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Address: Km. 3, Marshal Core of Nigeria, National Headquarters, Abumwenrenre Community, Ekiadolor/Agekponu Road, Benin City, Edo State, Nigeria.</span>
-              </div>
-              <div class="contact-item">
-                <i class="fas fa-phone"></i>
-                <span>Tel: +234 9137 428 031</span>
-              </div>
-              <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <a href="mailto:info@marshalcoreofnigeria.ng" style="color: #254a93;">
-                    info@marshalcoreofnigeria.ng
-                </a>
-              </div>
-              <div class="contact-item">
-                <i class="fas fa-user-tie"></i>
-                <a href="mailto:oseoboh@marshalcoreofnigeria.ng" style="color: #254a93;">
-                    oseoboh@marshalcoreofnigeria.ng
-                </a>
-              </div>
-              <div class="contact-item">
-                <i class="fas fa-briefcase"></i>
-                <a href="mailto:recruitment@marshalcoreofnigeria.ng" style="color: #254a93;">
-                    recruitment@marshalcoreofnigeria.ng
-                </a>
-              </div>
-              <div class="contact-item">
-                <i class="fas fa-headset"></i>
-                <span>
-                <a href="mailto:support@marshalcoreofnigeria.ng" style="color: #254a93;">
-                    support@marshalcoreofnigeria.ng
-                </a>
-                </span>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Map Column -->
-          <div class="contact-info-column">
-            <div class="map-container">
-              <iframe 
-                id="footerMap"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.148218802958!2d5.5870417!3d6.2193962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1040d39f063a9c9f%3A0x9f5b5b5b5b5b5b5b!2sBenin%20City%2C%20Edo%20State%2C%20Nigeria!5e0!3m2!1sen!2sng!4v1647456789012!5m2!1sen!2sng"
-                width="100%"
-                height="100%"
-                style="border:0;"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-              </iframe>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Social Media Section with Font Icons -->
-        <div class="social-media-section">
-          <h3>Follow Us</h3>
-          <ul class="social-icons-horizontal">
-            <!-- Facebook -->
-            <li class="social-icon-item">
-              <a href="https://www.facebook.com/share/193pU1bn3Z/" title="Follow us on Facebook" target="_blank" rel="noopener noreferrer" class="social-icon-link facebook">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-            </li>
-            
-            <!-- Twitter (X) -->
-            <li class="social-icon-item">
-              <a href="https://twitter.com/yourprofile" title="Follow us on Twitter" target="_blank" rel="noopener noreferrer" class="social-icon-link twitter">
-                <i class="fab fa-twitter"></i>
-              </a>
-            </li>
-            
-            <!-- Instagram -->
-            <li class="social-icon-item">
-              <a href="https://instagram.com/yourprofile" title="Follow us on Instagram" target="_blank" rel="noopener noreferrer" class="social-icon-link instagram">
-                <i class="fab fa-instagram"></i>
-              </a>
-            </li>
-            
-            <!-- TikTok -->
-            <li class="social-icon-item">
-              <a href="https://www.tiktok.com/@marshalcoreofnigeria?_t=ZM-8ympBVpKsMS&_r=1" title="Follow us on TikTok" target="_blank" rel="noopener noreferrer" class="social-icon-link tiktok">
-                <i class="fab fa-tiktok"></i>
-              </a>
-            </li>
-            
-            <!-- WhatsApp -->
-            <li class="social-icon-item">
-              <a href="https://whatsapp.com/channel/0029Va73CEQEgGfDxFSFpU0d" title="Message us on WhatsApp" target="_blank" rel="noopener noreferrer" class="social-icon-link whatsapp">
-                <i class="fab fa-whatsapp"></i>
-              </a>
-            </li>
-            
-            <!-- LinkedIn -->
-            <li class="social-icon-item">
-              <a href="https://linkedin.com/company/yourcompany" title="Follow us on LinkedIn" target="_blank" rel="noopener noreferrer" class="social-icon-link linkedin">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </li>
-            
-            <!-- YouTube -->
-            <li class="social-icon-item">
-              <a href="https://youtube.com/shorts/IplFLfqOnSY?si=7X-imxb99EWeWbel" title="Subscribe to our YouTube" target="_blank" rel="noopener noreferrer" class="social-icon-link youtube">
-                <i class="fab fa-youtube"></i>
-              </a>
-            </li>
-            
-            <!-- Telegram -->
-            <li class="social-icon-item">
-              <a href="https://t.me/yourchannel" title="Join us on Telegram" target="_blank" rel="noopener noreferrer" class="social-icon-link telegram">
-                <i class="fab fa-telegram-plane"></i>
-              </a>
-            </li>
-            
-            <!-- Email -->
-            <li class="social-icon-item">
-              <a href="mailto:info@marshalcoreofnigeria.ng" title="Email us" class="social-icon-link email">
-                <i class="fas fa-envelope"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
+ <!-- info section -->
+ <section class="info_section layout_padding">
+  <div class="container">
+   <div class="contact_location_container">
+    <!-- Contact Info and Map in Rectangle Layout -->
+    <div class="contact-map-wrapper">
+     <!-- Contact Information Column (RED BACKGROUND) -->
+     <div class="contact-info-column">
+      <div class="contact-details-box">
+       <h3>Contact Information</h3>
+       <div class="contact-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Address: Km. 3, Marshal Core of Nigeria, National Headquarters, Abumwenrenre Community, Ekiadolor/Agekponu Road, Benin City, Edo State, Nigeria.</span>
+       </div>
+       <div class="contact-item">
+        <i class="fas fa-phone"></i>
+        <span>Tel: +234 9137 428 031</span>
+       </div>
+       <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:info@marshalcoreofnigeria.ng" style="color: #254a93;">
+          info@marshalcoreofnigeria.ng
+        </a>
+       </div>
+       <div class="contact-item">
+        <i class="fas fa-user-tie"></i>
+        <a href="mailto:oseoboh@marshalcoreofnigeria.ng" style="color: #254a93;">
+          oseoboh@marshalcoreofnigeria.ng
+        </a>
+       </div>
+       <div class="contact-item">
+        <i class="fas fa-briefcase"></i>
+        <a href="mailto:recruitment@marshalcoreofnigeria.ng" style="color: #254a93;">
+          recruitment@marshalcoreofnigeria.ng
+        </a>
+       </div>
+       <div class="contact-item">
+        <i class="fas fa-headset"></i>
+        <span>
+        <a href="mailto:support@marshalcoreofnigeria.ng" style="color: #254a93;">
+          support@marshalcoreofnigeria.ng
+        </a>
+        </span>
+       </div>
       </div>
+     </div>
+     
+     <!-- Map Column -->
+     <div class="contact-info-column">
+      <div class="map-container">
+       <iframe 
+        id="footerMap"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.148218802958!2d5.5870417!3d6.2193962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1040d39f063a9c9f%3A0x9f5b5b5b5b5b5b5b!2sBenin%20City%2C%20Edo%20State%2C%20Nigeria!5e0!3m2!1sen!2sng!4v1647456789012!5m2!1sen!2sng"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+       </iframe>
+      </div>
+     </div>
+    </div>
+    
+    <!-- Social Media Section with Font Icons -->
+    <div class="social-media-section">
+     <h3>Follow Us</h3>
+     <ul class="social-icons-horizontal">
+      <!-- Facebook -->
+      <li class="social-icon-item">
+       <a href="https://www.facebook.com/share/193pU1bn3Z/" title="Follow us on Facebook" target="_blank" rel="noopener noreferrer" class="social-icon-link facebook">
+        <i class="fab fa-facebook-f"></i>
+       </a>
+      </li>
       
-      <div class="row mt-4">
-        <div class="col-md-6 info_detail">
-          <div>
-            <p>
-              Marshal Core of Nigeria is committed to discipline, service, and national development. We inspire purpose-driven citizens to lead with honor and integrity, building a safer and more united Nigeria through excellence and professional conduct.<br>
-              Motto: Always Ready!
-            </p>
-          </div>
-        </div>
-        <div class="col-md-6 news_container">
-          <div>
-            <h3>Newsletter</h3>
-            <form action="">
-              <input type="email" placeholder="ENTER YOUR EMAIL">
-              <div>
-                <button type="submit">
-                  Subscribe
-                </button>
-              </div>
-            </form>
-          </div>
+      <!-- Twitter (X) -->
+      <li class="social-icon-item">
+       <a href="https://twitter.com/yourprofile" title="Follow us on Twitter" target="_blank" rel="noopener noreferrer" class="social-icon-link twitter">
+        <i class="fab fa-twitter"></i>
+       </a>
+      </li>
+      
+      <!-- Instagram -->
+      <li class="social-icon-item">
+       <a href="https://instagram.com/yourprofile" title="Follow us on Instagram" target="_blank" rel="noopener noreferrer" class="social-icon-link instagram">
+        <i class="fab fa-instagram"></i>
+       </a>
+      </li>
+      
+      <!-- TikTok -->
+      <li class="social-icon-item">
+       <a href="https://www.tiktok.com/@marshalcoreofnigeria?_t=ZM-8ympBVpKsMS&_r=1" title="Follow us on TikTok" target="_blank" rel="noopener noreferrer" class="social-icon-link tiktok">
+        <i class="fab fa-tiktok"></i>
+       </a>
+      </li>
+      
+      <!-- WhatsApp -->
+      <li class="social-icon-item">
+       <a href="https://whatsapp.com/channel/0029Va73CEQEgGfDxFSFpU0d" title="Message us on WhatsApp" target="_blank" rel="noopener noreferrer" class="social-icon-link whatsapp">
+        <i class="fab fa-whatsapp"></i>
+       </a>
+      </li>
+      
+      <!-- LinkedIn -->
+      <li class="social-icon-item">
+       <a href="https://linkedin.com/company/yourcompany" title="Follow us on LinkedIn" target="_blank" rel="noopener noreferrer" class="social-icon-link linkedin">
+        <i class="fab fa-linkedin-in"></i>
+       </a>
+      </li>
+      
+      <!-- YouTube -->
+      <li class="social-icon-item">
+       <a href="https://youtube.com/shorts/IplFLfqOnSY?si=7X-imxb99EWeWbel" title="Subscribe to our YouTube" target="_blank" rel="noopener noreferrer" class="social-icon-link youtube">
+        <i class="fab fa-youtube"></i>
+       </a>
+      </li>
+      
+      <!-- Telegram -->
+      <li class="social-icon-item">
+       <a href="https://t.me/yourchannel" title="Join us on Telegram" target="_blank" rel="noopener noreferrer" class="social-icon-link telegram">
+        <i class="fab fa-telegram-plane"></i>
+       </a>
+      </li>
+      
+      <!-- Email -->
+      <li class="social-icon-item">
+       <a href="mailto:info@marshalcoreofnigeria.ng" title="Email us" class="social-icon-link email">
+        <i class="fas fa-envelope"></i>
+       </a>
+      </li>
+     </ul>
+    </div>
+   </div>
+   
+   <div class="row mt-4">
+    <div class="col-md-6 info_detail">
+     <div>
+      <p>
+       Marshal Core of Nigeria is committed to discipline, service, and national development. We inspire purpose-driven citizens to lead with honor and integrity, building a safer and more united Nigeria through excellence and professional conduct.<br>
+       Motto: Always Ready!
+      </p>
+     </div>
+    </div>
+    <div class="col-md-6 news_container">
+     <div>
+      <h3>Newsletter</h3>
+      <form action="">
+       <input type="email" placeholder="ENTER YOUR EMAIL">
+       <div>
+        <button type="submit">
+         Subscribe
+        </button>
+       </div>
+      </form>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+ <!-- end info section -->
+
+
+   <!-- footer section -->
+  
+  <!-- footer section -->
+
+ <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+ <script type="text/javascript" src="js/bootstrap.js"></script>
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js">
+ </script>
+ <script type="text/javascript">
+  $(".owl-carousel").owlCarousel({
+   loop: true,
+   margin: 20,
+   nav: true,
+   navText: [],
+   autoplay: true,
+   autoplayHoverPause: true,
+   responsive: {
+    0: {
+     items: 1
+    },
+    600: {
+     items: 2
+    },
+    1000: {
+     items: 3
+    }
+   }
+  });
+ </script>
+
+ <script>
+  $(".nav_search-btn").click(function () {
+   if ($(".nav_search-input").hasClass("d-none")) {
+    event.preventDefault();
+    $(".nav_search-input")
+     .animate({
+       left: "-1000px"
+      },
+      "1000000"
+     )
+     .removeClass("d-none");
+   } else {
+    $(".nav_search-input")
+     .animate({
+       left: "0px"
+      },
+      "1000000"
+     )
+     .addClass("d-none");
+   }
+  });
+  
+  // Remove "Limited" from all text on page load
+  document.addEventListener('DOMContentLoaded', function() {
+   // Function to remove "Limited" text from all elements
+   function removeLimitedText(node) {
+    if (node.nodeType === 3) { // Text node
+     node.textContent = node.textContent.replace(/\s*Limited\s*/gi, '');
+     node.textContent = node.textContent.replace(/Marshal Core Of Nigeria Limited/gi, 'Marshal Core of Nigeria');
+    } else if (node.nodeType === 1) { // Element node
+     // Check and update placeholder text if it exists
+     if (node.placeholder) {
+      node.placeholder = node.placeholder.replace(/\s*Limited\s*/gi, '');
+     }
+     // Check and update value if it exists
+     if (node.value) {
+      node.value = node.value.replace(/\s*Limited\s*/gi, '');
+     }
+     // Process all child nodes
+     node.childNodes.forEach(removeLimitedText);
+    }
+   }
+   
+   // Remove "Limited" from the entire document
+   removeLimitedText(document.body);
+  });
+ </script>
+
+ <script>
+  // Main map for contact section
+  function initMap() {
+   var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 11,
+    center: {
+     lat: 6.5078499,
+     lng: 5.5896313
+    },
+   });
+
+   var image = 'images/maps-and-flags.png';
+   var beachMarker = new google.maps.Marker({
+    position: {
+     lat: 6.5078499,
+     lng: 5.5896313
+    },
+    map: map,
+    icon: image
+   });
+  }
+  
+  // Initialize Google Maps
+  if (typeof google !== 'undefined') {
+   initMap();
+  }
+ </script>
+ <!-- google map js -->
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap">
+ </script>
+ <!-- end google map js -->
+
+  <!-- Footer Section -->
+  <section class="container-fluid footer_section" style="background: #1f233e; color: #ffffff; text-align: center; padding: 30px 20px; margin-top: 50px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <p style="margin: 0 0 5px 0; font-size: 14px;">
+            Copyright &copy; 2025 Marshal Core of Nigeria. All rights reserved.
+          </p>
+          <p style="margin: 0 0 10px 0; font-size: 12px; color: #ffd700;">
+            Powered by Marshal Board Committee (MBC)
+          </p>
+          <p style="margin: 0;">
+            <a href="privacy.html" style="color: #ffd700; text-decoration: none; font-size: 12px;">
+              Privacy Policy
+            </a>
+          </p>
         </div>
       </div>
     </div>
   </section>
-  <!-- end info section -->
+  <!-- PRIVACY POPUP MODAL (SLIDE UP) -->
+  <div id="privacyPopup" class="privacy-popup-overlay">
+    <div class="privacy-popup-container">
+      <div class="privacy-popup-header">
+        <span class="close-popup" onclick="closePrivacyPopup()">&times;</span>
+        <h2 style="color: #fff; margin: 0;">
+          DATA PROTECTION & PRIVACY POLICY
+        </h2>
+        <p style="color: #ffd700; margin: 5px 0 0 0;">
+          Marshal Board Committee (MBC) | Marshal Core of Nigeria
+        </p>
+      </div>
+      <div class="privacy-popup-body">
+        <h3>1. Introduction</h3>
+        <p>The Marshal Board Committee (MBC) is a Federal Executive Body under the Marshal Core of Nigeria, responsible for appointing persons to offices and exercising disciplinary control. The MBC is committed to safeguarding the privacy, integrity, and security of personal data.</p>
+        
+        <h3>2. Information We Collect</h3>
+        <p>We may collect the following types of personal information:</p>
+        <ul>
+          <li>Names and contact details</li>
+          <li>Date of birth and photographs</li>
+          <li>Academic records and employment history</li>
+          <li>Biometric data (facial recognition, fingerprints)</li>
+          <li>State/LGA of origin and next of kin details</li>
+        </ul>
+        
+        <h3>3. How We Use Your Information</h3>
+        <p>Your personal data is used for recruitment screening, candidate evaluation, aptitude testing, final selection, promotion, and disciplinary functions.</p>
+        
+        <h3>4. Data Protection</h3>
+        <p>We implement appropriate technical and physical measures to safeguard your information. Access is restricted to authorized personnel only.</p>
+        
+        <h3>5. Contact Us</h3>
+        <p>Data Protection Officer: info@marshalcoreofnigeria.ng</p>
+        <p>For data requests, consent withdrawal, or privacy concerns, please contact our DPO.</p>
+        
+        <p style="margin-top: 20px; font-size: 0.85rem; color: #aaa;">Effective Date: March 2025 | Last Updated: April 2026</p>
+      </div>
+      <div class="privacy-popup-footer">
+        <button class="btn-accept" onclick="acceptPrivacy()">I Understand & Accept</button>
+        <button class="btn-cancel" onclick="closePrivacyPopup()">Cancel</button>
+      </div>
+    </div>
+  </div>
+<script>
+  // Privacy Popup Functions
+  if (!localStorage.getItem('privacyAccepted')) {
+    setTimeout(function() {
+      var popup = document.getElementById('privacyPopup');
+      if (popup) popup.classList.add('active');
+    }, 1000);
+  }
+  
+  function acceptPrivacy() {
+    localStorage.setItem('privacyAccepted', 'true');
+    closePrivacyPopup();
+  }
+  
+  function closePrivacyPopup() {
+    var popup = document.getElementById('privacyPopup');
+    if (popup) popup.classList.remove('active');
+  }
+</script>
+<style>
+
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    background: #1f233e;
+    border: 2px solid #ffd700;
+    border-radius: 50px;
+    padding: 10px 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.theme-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+.theme-toggle i {
+    color: #ffd700;
+    font-size: 20px;
+    margin-right: 8px;
+}
+.theme-toggle span {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}
 
 
-  <!-- footer section -->
-<section class="container-fluid footer_section">
-  <p>
-    Copyright ©️ 2025<br>
-    All right reserved by <strong>MARSHAL CORE OF NIGERIA</strong><br>
-    <span style="font-size: 0.9em;">powered by <strong>MARSHAL BOARD COMMITTEE</strong></span>
-  </p>
-</section>
-<!-- footer section -->
+body.dark-mode {
+    background: linear-gradient(135deg, #1f233e 0%, #0f1123 100%);
+}
+body.dark-mode .welcome_section, body.dark-mode .welcome_detail, body.dark-mode .welcome_detail p, body.dark-mode .welcome_detail strong { background: transparent !important; color: #cbd5e1 !important; } body.dark-mode .welcome_detail { background: rgba(255,255,255,0.05) !important; backdrop-filter: blur(10px) !important; border-radius: 12px !important; padding: 30px !important; } body.dark-mode .welcome_section,
+body.dark-mode .service_section,
+body.dark-mode .story_section, body.dark-mode .story_detail, body.dark-mode .story_detail p, body.dark-mode .story_detail strong { background: transparent !important; color: #cbd5e1 !important; } body.dark-mode .story_detail { background: rgba(255,255,255,0.05) !important; backdrop-filter: blur(10px) !important; border-radius: 12px !important; padding: 30px !important; } body.dark-mode .story_section,
+body.dark-mode .info_section {
+    background: linear-gradient(135deg, #1f233e 0%, #0f1123 100%);
+}
+ .welcome_detail h2, .service_detail h2, .story_detail h2, .welcome_detail h3, .service_detail h3, .story_detail h3 { color: #d32f2f !important; } body.dark-mode .welcome_detail h2,
+body.dark-mode .service_detail h2,
 
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js">
-  </script>
-  <script type="text/javascript">
-    $(".owl-carousel").owlCarousel({
-      loop: true,
-      margin: 20,
-      nav: true,
-      navText: [],
-      autoplay: true,
-      autoplayHoverPause: true,
-      responsive: {
-        0: {
-          items: 1
-        },
-        600: {
-          items: 2
-        },
-        1000: {
-          items: 3
-        }
-      }
-    });
-  </script>
+body.dark-mode .welcome_detail h3,
+body.dark-mode .service_detail h3,
 
-  <script>
-    $(".nav_search-btn").click(function () {
-      if ($(".nav_search-input").hasClass("d-none")) {
-        event.preventDefault();
-        $(".nav_search-input")
-          .animate({
-              left: "-1000px"
-            },
-            "1000000"
-          )
-          .removeClass("d-none");
-      } else {
-        $(".nav_search-input")
-          .animate({
-              left: "0px"
-            },
-            "1000000"
-          )
-          .addClass("d-none");
-      }
-    });
+body.dark-mode .welcome_detail p,
+body.dark-mode .service_detail p,
+body.dark-mode .story_detail p,
+body.dark-mode .welcome_detail li,
+body.dark-mode .service_detail li {
+    color: #cbd5e1;
+}
+body.dark-mode .service-card,
+body.dark-mode .welcome_detail,
+
+body.dark-mode .contact_box_full {
+    background: rgba(255, 255, 255, 0.95);
+}
+body.dark-mode .contact_box_full h3 {
+    color: #d32f2f;
+}
+body.dark-mode .info_section .contact_location_container {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+body.dark-mode .info_section .info_detail p,
+body.dark-mode .info_section .address_container span {
+    color: #cbd5e1;
+}
+body.dark-mode .info_section .address_container h3,
+body.dark-mode .info_section .news_container h3 {
+    color: #ffd700;
+}
+body.dark-mode .news_container input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+body.dark-mode .news_container input::placeholder {
+    color: #94a3b8;
+}
+body.dark-mode .social-media-section {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+body.dark-mode .social-media-section h3 {
+    color: #ffd700;
+}
+
+
+body.light-mode .welcome_detail h2,
+body.light-mode .service_detail h2,
+
+body.light-mode .welcome_detail h3,
+body.light-mode .service_detail h3,
+
+body.light-mode .welcome_detail p,
+body.light-mode .service_detail p,
+body.light-mode .story_detail p,
+body.light-mode .welcome_detail li,
+body.light-mode .service_detail li {
+    color: #555;
+}
+body.light-mode .service-card,
+body.light-mode .welcome_detail,
+
+body.light-mode .info_section .contact_location_container {
     
-    // Remove "Limited" from all text on page load
-    document.addEventListener('DOMContentLoaded', function() {
-      // Function to remove "Limited" text from all elements
-      function removeLimitedText(node) {
-        if (node.nodeType === 3) { // Text node
-          node.textContent = node.textContent.replace(/\s*Limited\s*/gi, '');
-          node.textContent = node.textContent.replace(/Marshal Core Of Nigeria Limited/gi, 'Marshal Core of Nigeria');
-        } else if (node.nodeType === 1) { // Element node
-          // Check and update placeholder text if it exists
-          if (node.placeholder) {
-            node.placeholder = node.placeholder.replace(/\s*Limited\s*/gi, '');
-          }
-          // Check and update value if it exists
-          if (node.value) {
-            node.value = node.value.replace(/\s*Limited\s*/gi, '');
-          }
-          // Process all child nodes
-          node.childNodes.forEach(removeLimitedText);
-        }
-      }
-      
-      // Remove "Limited" from the entire document
-      removeLimitedText(document.body);
-    });
-  </script>
-
-  <script>
-    // Main map for contact section
-    function initMap() {
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 11,
-        center: {
-          lat: 6.5078499,
-          lng: 5.5896313
-        },
-      });
-
-      var image = 'images/maps-and-flags.png';
-      var beachMarker = new google.maps.Marker({
-        position: {
-          lat: 6.5078499,
-          lng: 5.5896313
-        },
-        map: map,
-        icon: image
-      });
-    }
+    border: 1px solid #e0e0e0;
+}
+body.light-mode .info_section .info_detail p,
+body.light-mode .info_section .address_container span {
+    color: #555;
+}
+body.light-mode .info_section .address_container h3,
+body.light-mode .info_section .news_container h3 {
+    color: #1f233e;
+}
+body.light-mode .news_container input {
     
-    // Initialize Google Maps
-    if (typeof google !== 'undefined') {
-      initMap();
-    }
-  </script>
-  <!-- google map js -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap">
-  </script>
-  <!-- end google map js -->
+    border: 1px solid #ddd;
+    color: #333;
+}
+body.light-mode .social-media-section {
+    
+    border: 1px solid #e0e0e0;
+}
+body.light-mode .social-media-section h3 {
+    color: #1f233e;
+}
 
+
+body {
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.story_detail-btn a {
+    text-decoration: none;
+}
+.story_detail-btn a span {
+    color: white;
+}
+</style>
+
+<style>
+
+:root {
+    --bg-color: linear-gradient(135deg, #1f233e 0%, #0f1123 100%);
+    --text-color: #ffffff;
+    --text-secondary: #cbd5e1;
+    --heading-color: #ffffff;
+    --subheading-color: #ffd700;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-border: 1px solid rgba(255, 255, 255, 0.1);
+    --input-bg: rgba(255, 255, 255, 0.1);
+    --input-border: 1px solid rgba(255, 255, 255, 0.2);
+    --input-text: #ffffff;
+    --placeholder-color: #94a3b8;
+}
+
+body.light-mode {
+    --bg-color: #f8f9fa;
+    --text-color: #1f233e;
+    --text-secondary: #555555;
+    --heading-color: #1f233e;
+    --subheading-color: #d32f2f;
+    --card-bg: #ffffff;
+    --card-border: 1px solid #e0e0e0;
+    --input-bg: #ffffff;
+    --input-border: 1px solid #dddddd;
+    --input-text: #333333;
+    --placeholder-color: #999999;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+
+.welcome_section, .service_section, .story_section, .info_section {
+    background: var(--bg-color);
+}
+
+.welcome_detail h2, .service_detail h2, .story_detail h2 {
+    color: var(--heading-color);
+}
+
+.welcome_detail h3, .service_detail h3, .story_detail h3 {
+    color: var(--subheading-color);
+}
+
+.welcome_detail p, .service_detail p, .story_detail p,
+.welcome_detail li, .service_detail li, .welcome_detail strong,
+.service_detail strong, .story_detail strong {
+    color: var(--text-secondary);
+}
+
+.service-card, .welcome_detail, .story_detail {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: var(--card-border);
+}
+
+.contact_box_full {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.contact_box_full h3 {
+    color: #d32f2f;
+}
+
+.info_section .contact_location_container {
+    background: var(--card-bg);
+    border: var(--card-border);
+}
+
+.info_section .info_detail p,
+.info_section .address_container span {
+    color: var(--text-secondary);
+}
+
+.info_section .address_container h3,
+.info_section .news_container h3 {
+    color: var(--subheading-color);
+}
+
+.news_container input {
+    background: var(--input-bg);
+    border: var(--input-border);
+    color: var(--input-text);
+}
+
+.news_container input::placeholder {
+    color: var(--placeholder-color);
+}
+
+.social-media-section {
+    background: var(--card-bg);
+    border: var(--card-border);
+}
+
+.social-media-section h3 {
+    color: var(--subheading-color);
+}
+
+
+.info_detail p, .address_container span, .contact-item span {
+    color: var(--text-secondary);
+}
+
+.contact-details-box {
+    background: #d32f2f; border: 2px solid #ffd700;
+    color: white;
+}
+
+.contact-details-box h3 {
+    color: white;
+}
+
+.contact-details-box a {
+    color: #ffd700;
+}
+
+
+.footer_section {
+    background: #1f233e;
+    color: #ffffff;
+}
+
+
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    background: #1f233e;
+    border: 2px solid #ffd700;
+    border-radius: 50px;
+    padding: 10px 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.theme-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+.theme-toggle i {
+    color: #ffd700;
+    font-size: 20px;
+    margin-right: 8px;
+}
+.theme-toggle span {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.story_detail-btn a {
+    text-decoration: none;
+}
+.story_detail-btn a span {
+    color: white;
+}
+</style>
+
+
+<div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+    <i class="fas fa-moon"></i>
+    <span>Dark Mode</span>
+</div>
+
+<script>
+// Theme Toggle Function
+function toggleTheme() {
+    const body = document.body;
+    const toggleBtn = document.getElementById('themeToggle');
+    
+    if (body.classList.contains('dark-mode')) {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+        localStorage.setItem('theme', 'light');
+        toggleBtn.innerHTML = '<i class="fas fa-sun"></i><span>Light Mode</span>';
+    } else {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
+        toggleBtn.innerHTML = '<i class="fas fa-moon"></i><span>Dark Mode</span>';
+    }
+}
+
+// Load saved theme on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme');
+    const body = document.body;
+    const toggleBtn = document.getElementById('themeToggle');
+    
+    if (savedTheme === 'light') {
+        body.classList.add('light-mode');
+        body.classList.remove('dark-mode');
+        toggleBtn.innerHTML = '<i class="fas fa-sun"></i><span>Light Mode</span>';
+    } else {
+        body.classList.add('dark-mode');
+        body.classList.remove('light-mode');
+        toggleBtn.innerHTML = '<i class="fas fa-moon"></i><span>Dark Mode</span>';
+    }
+});
+</script>
 </body>
 </html>
+
+
+
+
+
+
+
+

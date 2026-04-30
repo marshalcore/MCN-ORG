@@ -1,951 +1,248 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="MARSHAL CORE OF NIGERIA" />
-  <meta name="description" content="MARSHAL CORE OF NIGERIA" />
-  <meta name="author" content="MARSHAL CORE OF NIGERIA" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>MCN-NG | About Us</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto:400,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/responsive.css" rel="stylesheet" />
+    <style>
+/* COMPLETE THEME STYLES */
+:root {
+    --bg-color: linear-gradient(135deg, #1f233e 0%, #0f1123 100%);
+    --text-color: #ffffff;
+    --text-secondary: #cbd5e1;
+}
+body.light-mode {
+    --bg-color: #f8f9fa;
+    --text-color: #1f233e;
+    --text-secondary: #555555;
+}
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+body.dark-mode { background: linear-gradient(135deg, #1f233e 0%, #0f1123 100%); }
+body.light-mode { background: #f8f9fa; }
+body.dark-mode .header_section { background-color: #1f233e; }
+body.light-mode .header_section { background-color: #254a93; }
+.welcome_detail h2, .service_detail h2, .story_detail h2,
+.welcome_detail h3, .service_detail h3, .story_detail h3 {
+    color: #d32f2f !important;
+}
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    background: #1f233e;
+    border: 2px solid #ffd700;
+    border-radius: 50px;
+    padding: 10px 18px;
+    cursor: pointer;
+}
+.theme-toggle i { color: #ffd700; font-size: 20px; margin-right: 8px; }
+.theme-toggle span { color: white; font-size: 14px; font-weight: 600; }
+body.light-mode .theme-toggle { background: #ffffff; border-color: #254a93; }
+body.light-mode .theme-toggle i,
+body.light-mode .theme-toggle span { color: #254a93; }
 
-  <title>MCN-NG | About Us</title>
+/* About page specific styles */
+.hero { background: linear-gradient(135deg, #d32f2f, #b71c1c); color: white; padding: 60px 0; text-align: center; margin-bottom: 40px; border-radius: 0 0 20px 20px; }
+.hero h1 { font-size: 42px; margin-bottom: 15px; }
+.hero p { font-size: 18px; opacity: 0.95; }
+.about-card { background: var(--card-bg, rgba(255,255,255,0.08)); border-radius: 16px; padding: 25px; margin-bottom: 30px; border: 1px solid rgba(255,255,255,0.1); }
+.about-card h3 { color: #d32f2f; margin-bottom: 20px; font-size: 24px; }
+.about-card h3 i { margin-right: 10px; }
+.about-card ul { padding-left: 20px; }
+.about-card ul li { margin-bottom: 10px; color: var(--text-secondary); }
+.color-box { display: inline-block; width: 20px; height: 20px; border-radius: 4px; margin-right: 8px; vertical-align: middle; }
+.leader-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+.btn-leader { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #d32f2f, #b71c1c); color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; border: 2px solid #ffd700; }
+.btn-leader:hover { transform: translateY(-3px); color: white; }
+body.light-mode .about-card { background: #ffffff; border: 1px solid #e0e0e0; }
+body.light-mode .about-card ul li { color: #555; }
+</style>
+<style>
+.logo_box { width: 380px !important; display: inline-block !important; vertical-align: middle !important; }
+.logo_box img { width: 100% !important; max-height: 150px !important; display: block !important; object-fit: contain !important; }
+.navbar-brand { display: flex !important; align-items: center !important; gap: 20px !important; flex-wrap: wrap !important; }
+@media (max-width: 1200px) { .logo_box { width: 350px !important; } .logo_box img { max-height: 140px !important; } }
+@media (max-width: 992px) { .logo_box { width: 320px !important; } .logo_box img { max-height: 130px !important; } }
+@media (max-width: 768px) { .logo_box { width: 300px !important; } .logo_box img { max-height: 120px !important; } .navbar-brand { justify-content: center !important; } }
+@media (max-width: 576px) { .logo_box { width: 260px !important; } .logo_box img { max-height: 100px !important; } }
 
-  <!-- slider stylesheet -->
-  <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
-
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-
-  <!-- fonts style -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto:400,500&display=swap"
-    rel="stylesheet" />
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
-  
-  <style>
-    /* IMPROVED STYLING FOR CONSISTENCY WITH INDEX.HTML */
-    
-    /* 1. Welcome Section Improvements */
-    .welcome_section {
-      padding: 60px 0;
+</style>
+<style>
+/* Smaller registration number for all pages */
+.rc-number {
+    background: rgba(211, 47, 47, 0.15);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #ffd700;
+    border-left: 3px solid #d32f2f;
+    display: inline-block;
+    white-space: nowrap;
+    margin-right: 10px;
+}
+@media (max-width: 768px) {
+    .rc-number {
+        font-size: 8px;
+        padding: 2px 6px;
     }
-    
-    .welcome_detail h3 {
-      color: #1a237e;
-      font-size: 1.1rem;
-      margin-bottom: 10px;
-      position: relative;
-      display: inline-block;
+}
+@media (max-width: 576px) {
+    .rc-number {
+        font-size: 7px;
+        padding: 2px 5px;
     }
-    
-    .welcome_detail h3::after {
-      content: '';
-      position: absolute;
-      width: 60px;
-      height: 3px;
-      background: #d32f2f;
-      bottom: -5px;
-      left: 0;
-    }
-    
-    .welcome_detail h2 {
-      color: #1a237e;
-      font-size: 2.2rem;
-      font-weight: bold;
-      margin: 15px 0 20px 0;
-    }
-    
-    .welcome_detail h4 {
-      color: #1a237e;
-      font-size: 1.3rem;
-      margin: 25px 0 15px 0;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #eee;
-    }
-    
-    .welcome_detail p {
-      color: #555;
-      line-height: 1.7;
-      margin-bottom: 15px;
-    }
-    
-    .welcome_detail ul {
-      margin-left: 20px;
-      margin-bottom: 20px;
-    }
-    
-    .welcome_detail ul li {
-      margin-bottom: 10px;
-      color: #555;
-      line-height: 1.6;
-    }
-    
-    .welcome_detail strong {
-      color: #333;
-    }
-    
-    /* 2. Flag Image Container */
-    .flag-container {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-      margin: 30px 0;
-      text-align: center;
-      border: 1px solid #e0e0e0;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    .flag-container img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 5px;
-    }
-    
-    .flag-label {
-      color: #1a237e;
-      font-weight: bold;
-      font-size: 1.1rem;
-      margin-top: 15px;
-      text-align: center;
-    }
-    
-    /* 3. Read More Button */
-    .read-more-container {
-      text-align: center;
-      margin: 30px 0 20px 0;
-    }
-    
-    .btn-read-more {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #6e8efb 0%, #a777e3 100%);
-      color: white;
-      padding: 14px 28px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 16px;
-      box-shadow: 0 4px 15px rgba(106, 142, 251, 0.3);
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .btn-read-more:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(106, 142, 251, 0.4);
-      text-decoration: none;
-      color: white;
-    }
-    
-    .btn-read-more span {
-      margin-right: 8px;
-    }
-    
-    /* 4. Meet Founder Button */
-    .welcome_detail-btn .btn-founder {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
-      color: white;
-      padding: 15px 30px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 16px;
-      box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      margin: 10px auto;
-    }
-    
-    .welcome_detail-btn .btn-founder:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(211, 47, 47, 0.4);
-      text-decoration: none;
-      color: white;
-    }
-    
-    /* 5. Founder Section Improvements */
-    .founder-section {
-      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-      padding: 40px 20px;
-      margin: 40px auto;
-      border-radius: 15px;
-      max-width: 1200px;
-      width: 95%;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
-    
-    .founder-container {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    
-    .founder-header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    
-    .founder-header h2 {
-      color: #d32f2f;
-      font-size: 2rem;
-      margin-bottom: 10px;
-      position: relative;
-      display: inline-block;
-    }
-    
-    .founder-header h2:after {
-      content: '';
-      position: absolute;
-      width: 80px;
-      height: 4px;
-      background: #1a237e;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      border-radius: 2px;
-    }
-    
-    .founder-header p {
-      color: #666;
-      font-size: 1rem;
-      max-width: 700px;
-      margin: 20px auto 0;
-      line-height: 1.6;
-    }
-    
-    .founder-content {
-      display: grid;
-      grid-template-columns: 350px 1fr;
-      gap: 30px;
-      align-items: start;
-    }
-    
-    .founder-image-col {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    
-    .founder-img-container {
-      text-align: center;
-      background: white;
-      padding: 15px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-    
-    .founder-img {
-      width: 100%;
-      max-width: 320px;
-      border-radius: 10px;
-      border: 5px solid white;
-    }
-    
-    .personal-card {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      border-top: 4px solid #1a237e;
-    }
-    
-    .personal-card h4 {
-      color: #1a237e;
-      margin-bottom: 15px;
-      font-size: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    .personal-card p {
-      margin-bottom: 8px;
-      color: #333;
-      line-height: 1.5;
-    }
-    
-    .personal-card strong {
-      color: #d32f2f;
-      font-weight: 600;
-      min-width: 120px;
-      display: inline-block;
-    }
-    
-    .founder-details-col {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-    }
-    
-    .founder-header-info {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      border-left: 4px solid #d32f2f;
-    }
-    
-    .founder-name {
-      color: #d32f2f;
-      font-size: 1.8rem;
-      margin-bottom: 5px;
-      font-weight: 700;
-    }
-    
-    .founder-title {
-      color: #1a237e;
-      font-size: 1.2rem;
-      margin-bottom: 15px;
-      font-weight: 600;
-    }
-    
-    .founder-bio {
-      line-height: 1.7;
-      color: #444;
-    }
-    
-    .founder-bio p {
-      margin-bottom: 12px;
-    }
-    
-    .paramilitary-card {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      border-top: 4px solid #1a237e;
-    }
-    
-    .paramilitary-card h4 {
-      color: #1a237e;
-      margin-bottom: 20px;
-      font-size: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    
-    .paramilitary-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-    }
-    
-    .paramilitary-item {
-      margin-bottom: 12px;
-    }
-    
-    .paramilitary-item strong {
-      color: #d32f2f;
-      font-weight: 600;
-      min-width: 140px;
-      display: inline-block;
-    }
-    
-    .service-record {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      border-top: 4px solid #d32f2f;
-      grid-column: 1 / -1;
-      margin-top: 10px;
-    }
-    
-    .service-record h3 {
-      color: #d32f2f;
-      margin-bottom: 20px;
-      padding-bottom: 15px;
-      border-bottom: 2px solid #eee;
-      font-size: 1.4rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-    
-    .service-column {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    
-    .service-item {
-      padding: 15px;
-      background: #f9f9f9;
-      border-radius: 8px;
-      border-left: 4px solid #4CAF50;
-    }
-    
-    .service-item strong {
-      color: #1a237e;
-      display: block;
-      margin-bottom: 8px;
-      font-size: 1.05rem;
-    }
-    
-    .service-item ul {
-      margin-left: 20px;
-      margin-top: 8px;
-    }
-    
-    .service-item li {
-      margin-bottom: 5px;
-      position: relative;
-      padding-left: 15px;
-      color: #555;
-    }
-    
-    .service-item li:before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: #1a237e;
-      font-weight: bold;
-    }
-    
-    .social-links {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      margin-top: 10px;
-    }
-    
-    .social-links > p {
-      color: #666;
-      font-weight: 600;
-      font-size: 1.1rem;
-      margin-bottom: 15px;
-    }
-    
-    .social-icons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    
-    .social-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: #333;
-      color: white;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-size: 1.1rem;
-    }
-    
-    .social-link:hover {
-      transform: translateY(-5px) scale(1.1);
-      text-decoration: none;
-    }
-    
-    .social-link.facebook { background: #3b5998; }
-    .social-link.twitter { background: #000000; }
-    .social-link.instagram { background: linear-gradient(45deg, #405DE6, #833AB4, #C13584, #E1306C, #FD1D1D); }
-    .social-link.whatsapp { background: #25D366; }
-    .social-link.linkedin { background: #0077B5; }
-    
-    /* 6. Responsive Design */
-    @media (max-width: 992px) {
-      .founder-content {
-        grid-template-columns: 1fr;
-        gap: 25px;
-      }
-      
-      .founder-image-col {
-        order: 1;
-      }
-      
-      .founder-details-col {
-        order: 2;
-      }
-      
-      .founder-img {
-        max-width: 300px;
-      }
-      
-      .paramilitary-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .service-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    
-    @media (max-width: 768px) {
-      .welcome_section {
-        padding: 40px 0;
-      }
-      
-      .welcome_detail h2 {
-        font-size: 1.8rem;
-      }
-      
-      .founder-section {
-        padding: 30px 15px;
-        margin: 30px auto;
-        width: 100%;
-        border-radius: 10px;
-      }
-      
-      .founder-header h2 {
-        font-size: 1.8rem;
-      }
-      
-      .founder-name {
-        font-size: 1.6rem;
-      }
-      
-      .founder-title {
-        font-size: 1.1rem;
-      }
-      
-      .personal-card, .paramilitary-card, .service-record, .social-links {
-        padding: 20px;
-      }
-      
-      .flag-container {
-        margin: 20px 10px;
-        padding: 15px;
-      }
-    }
-    
-    @media (max-width: 576px) {
-      .welcome_detail h2 {
-        font-size: 1.6rem;
-      }
-      
-      .welcome_detail h4 {
-        font-size: 1.1rem;
-      }
-      
-      .founder-section {
-        padding: 25px 12px;
-        margin: 25px auto;
-      }
-      
-      .founder-header h2 {
-        font-size: 1.6rem;
-      }
-      
-      .btn-read-more, .welcome_detail-btn .btn-founder {
-        padding: 12px 24px;
-        font-size: 15px;
-      }
-      
-      .paramilitary-item strong {
-        min-width: 120px;
-      }
-    }
-  </style>
+}
+</style>
 </head>
-
-<body>
-  <!-- header section strats -->
-  <header class="header_section">
-    <div class="container">
-      <nav class="navbar navbar-expand-lg custom_nav-container ">
-        <a class="navbar-brand" href="#">
-          <span class="rc-number">YA/CLB/10100</span>
-          <div class="logo_box">
-            <img src="images/logo.png" alt="" />
-          </div>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto mr-2">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="about.html">About Us <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="service.html">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="blog.html">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://portal.marshalcoreofnigeria.ng">Login </a>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control nav_search-input mr-sm-2 d-none" type="search" placeholder="Search"
-              aria-label="Search" value="" />
-            <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
-          </form>
-        </div>
-      </nav>
-    </div>
-  </header>
-  <!-- end header section -->
-
-  <!-- welcome section -->
-  <section class="welcome_section layout_padding">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-6">
-          <div>
-            <img class="img-fluid" src="images/jol-1.jpg" alt="Marshal Core of Nigeria" style="border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);" />
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="welcome_detail">
-            <h3>About</h3>
-            <h2>The Marshal Core of Nigeria</h2>
-            <p>The <strong>Marshal Core of Nigeria</strong> was founded on <strong>March 19, 2025</strong>, by <strong>Director General Oseoboh Joshua Eromonsele</strong> of the <strong>Nigeria Police Force (NPF)</strong>. The organization is structured into three key divisions:</p>
-            <ul>
-              <li><strong>Marshal Board Committee (MBC)</strong></li>
-              <li><strong>Marshal Board of Trustees (MBT)</strong></li>
-              <li><strong>Marshal Core of Nigeria (MCN)</strong></li>
-            </ul>
-            <p>The <strong>MBC</strong> and <strong>MBT</strong> are responsible for overseeing and directing the affairs of the organization.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Continue content after image row -->
-      <div class="row mt-4">
-        <div class="col-12">
-          <h4>Aims and Objectives</h4>
-          <ul>
-            <li><strong>(a)</strong> To promote social and economic development by engaging members and volunteers in collaborative initiatives with government agencies, schools, non-profit organizations, and NGOs—aimed at productively engaging Nigerian youth.</li>
-            <li><strong>(b)</strong> To empower Nigerian youths by creating job opportunities and providing alternative employment pathways.</li>
-            <li><strong>(c)</strong> To instill strong moral values, patriotism, volunteerism, and a commitment to community service and nation-building among young Nigerians.</li>
-            <li><strong>(d)</strong> To train and equip youths with skills in education, conflict resolution, reconciliation, and confidence-building.</li>
-            <li><strong>(e)</strong> To offer youth-focused orientation and engage them in essential community services, including:</li>
-          </ul>
-          
-          <ul>
-            <li><strong>(i)</strong> Participation in public health initiatives such as immunization drives, census activities, and sanitation campaigns, especially in urban centers and local government capitals.</li>
-            <li><strong>(ii)</strong> Distribution of refuse bins, wastebaskets, and portable waste bags in public facilities, buses, and schools to reduce environmental pollution.</li>
-            <li><strong>(iii)</strong> Assisting in planting economic trees and engaging in environmental conservation programs.</li>
-            <li><strong>(iv)</strong> Supporting crowd control during public events and contributing to neighborhood watch efforts to help improve community security.</li>
-          </ul>
-          
-          <ul>
-            <li><strong>(f)</strong> To establish a centralized database of trained, qualified professionals and non-professional youths, providing accessible manpower for national development.</li>
-          </ul>
-          
-          <h4>Duties and Responsibilities of Marshal Core Officers</h4>
-          <ul>
-            <li>Maintaining law and order</li>
-            <li>Protecting lives and property</li>
-            <li>Providing private security services</li>
-            <li>Creating job opportunities for citizens</li>
-            <li>Supporting federal government security efforts in enforcing peace and order within society</li>
-          </ul>
-
-          <h4>History and Symbols</h4>
-          <ul>
-            <li><strong>Logo:</strong> Designed by Director General Oseoboh Joshua Eromonsele (NPF/MBC)</li>
-            <li><strong>Flag:</strong> Designed by Director General Oseoboh Joshua Eromonsele (NPF/MBC)</li>
-            <li><strong>Motto:</strong> "Always Ready" — by Director General Oseoboh Joshua Eromonsele (NPF/MBC)</li>
-            <li><strong>Constitution:</strong> Established on <strong>April 23, 2025</strong>, by <strong>Director General Oseoboh Joshua Eromonsele (NPF/MBC)</strong></li>
-          </ul>
-          
-          <h4>Marshal Day</h4>
-          <p><strong>March 19</strong> is officially celebrated every year as <strong>Marshal Day</strong>.</p>
-
-          <h4>Flag Description and Identity</h4>
-          <p>The Marshal Core flag features a bold red and deep navy blue bisection, sharply divided diagonally, housing the organization's insignia at its heart.</p>
-          <p><strong>Color Meanings:</strong></p>
-          <p><strong>🔴 Red –</strong> Symbolizes courage, valor, and sacrifice. It reflects the bravery of every officer and the burning passion to uphold justice and national peace.</p>
-          <p><strong>🔵 Navy Blue –</strong> Represents discipline, loyalty, and authority. It speaks to the structured system of command, honor, and service that guides every Marshal.</p>
-          <p><strong>Core Emblem:</strong></p>
-          <p><strong>🛡️ Shield & Scales –</strong> Justice, protection, and moral authority.</p>
-          <p><strong>🕊️ Eagle atop –</strong> National sovereignty and readiness to rise above challenges.</p>
-          <p><strong>🌿 Laurel Wreath –</strong> Honor and victory earned through service.</p>
-
-          <!-- Flag Image in Container -->
-          <div class="flag-container">
-            <img src="images/flag.jpg" alt="Marshal Core Flag" />
-            <p class="flag-label">The Marshal Core Flag</p>
-          </div>
-          
-          <!-- Read More Button -->
-          <div class="read-more-container">
-            <a href="mcnlbc.html" class="btn-read-more">
-              <span>Read More</span>
-              <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Founder Section Button -->
-      <div class="row mt-2">
-        <div class="col-12 text-center">
-          <div class="welcome_detail-btn">
-            <a href="#founderSection" class="btn-founder">
-              <i class="fas fa-user-tie" style="margin-right: 10px;"></i> Meet Our Founder
-              <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- end welcome section -->
-
-  <!-- Founder Section -->
-  <section id="founderSection" class="founder-section">
-    <div class="founder-container">
-      <div class="founder-header">
-        <h2>About The Founder</h2>
-        <p>Meet the visionary leader behind Marshal Core of Nigeria</p>
-      </div>
-      
-      <!-- Main content grid -->
-      <div class="founder-content">
-        <!-- Left Column: Image and Personal Details -->
-        <div class="founder-image-col">
-          <div class="founder-img-container">
-            <img src="images/Dg.jpg" alt="Director General Oseoboh Joshua Eromonsele" class="founder-img" />
-          </div>
-          
-          <div class="personal-card">
-            <h4><i class="fas fa-user-circle"></i> Personal Details</h4>
-            <p><strong>Born:</strong> 1996</p>
-            <p><strong>State of Origin:</strong> Edo State</p>
-            <p><strong>LGA Origin:</strong> Esan North East</p>
-            <p><strong>Marital Status:</strong> Married</p>
-            <p><strong>Education:</strong> WAEC</p>
-          </div>
-        </div>
-        
-        <!-- Right Column: Main Details -->
-        <div class="founder-details-col">
-          <div class="founder-header-info">
-            <h3 class="founder-name">DG Oseoboh Joshua Eromonsele</h3>
-            <p class="founder-title">Director General, Marshal Core of Nigeria</p>
-            <div class="founder-bio">
-              <p><strong>DG Oseoboh Joshua Eromonsele</strong> is a distinguished Nigerian Police Officer who serves as the <strong>Director General of the Marshal Core of Nigeria</strong>. With a passion for national service and youth development, he has dedicated his career to building a more secure and disciplined Nigeria.</p>
-            </div>
-          </div>
-          
-          <div class="paramilitary-card">
-            <h4><i class="fas fa-shield-alt"></i> Para-Military Service</h4>
-            <div class="paramilitary-grid">
-              <div class="paramilitary-item">
-                <strong>Allegiance:</strong> Nigeria
-              </div>
-              <div class="paramilitary-item">
-                <strong>Branch/Service:</strong> Nigeria Police Force
-              </div>
-              <div class="paramilitary-item">
-                <strong>Years of Service:</strong> 2020 - Present
-              </div>
-              <div class="paramilitary-item">
-                <strong>Rank:</strong> Police Constable
-              </div>
-              <div class="paramilitary-item">
-                <strong>Department:</strong> EOD CBRN
-              </div>
-              <div class="paramilitary-item">
-                <strong>Role:</strong> Bomb Technician
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Service Record -->
-        <div class="service-record">
-          <h3><i class="fas fa-history"></i> Service History & Experience</h3>
-          <div class="service-grid">
-            <div class="service-column">
-              <div class="service-item">
-                <strong>2020 - Present</strong>
-                <p>Nigeria Police Force - EOD CBRN Department</p>
-              </div>
-              <div class="service-item">
-                <strong>2025</strong>
-                <p>Founded Marshal Core of Nigeria (March 19, 2025)</p>
-              </div>
-            </div>
-            <div class="service-column">
-              <div class="service-item">
-                <strong>2008 - 2020</strong>
-                <p>Voluntary Officer in various security organizations including:</p>
-                <ul>
-                  <li>Man O' War Nigeria</li>
-                  <li>Peace Marshal</li>
-                  <li>Peace Guard</li>
-                  <li>Nigeria Intelligent Defence Force</li>
-                  <li>Marine Guard of Nigeria</li>
-                </ul>
-              </div>
-              <div class="service-item">
-                <strong>Leadership</strong>
-                <p>Established the organizational structure, constitution, and operational framework of MCN</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Social Links -->
-        <div class="social-links">
-          <p>Connect with DG Eromonsele:</p>
-          <div class="social-icons">
-            <a href="https://facebook.com" class="social-link facebook" title="Facebook">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://twitter.com" class="social-link twitter" title="Twitter">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https://instagram.com" class="social-link instagram" title="Instagram">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://whatsapp.com" class="social-link whatsapp" title="WhatsApp">
-              <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="https://linkedin.com" class="social-link linkedin" title="LinkedIn">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- info section -->
-  <section class="info_section layout_padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 info_detail">
-          <div>
-            <p>
-              Marshal Core of Nigeria is committed to discipline, service, and national development. We inspire purpose-driven citizens to lead with honor and integrity, building a safer and more united Nigeria through excellence and professional conduct.<br>
-              Motto: Always Ready!
-            </p>
-          </div>
-        </div>
-        <div class="col-md-4 address_container">
-          <div>
-            <h3>Address:</h3>
-            <div class="address_link-container">
-              <a href="">
-                <img src="images/location.png" alt="">
-                <span> Address: Km. 3, Marshal Core of Nigeria, National Headquarters, Abumwenrenre Community, Ekiadolor/Agekponu Road, Benin City, Edo State, Nigeria.</span>
-              </a>
-              <a href="">
-                <img src="images/phone.png" alt="">
-                <span> Tel: +234 9137 428 031</span>
-              </a>
-              <a href="">
-                <img src="images/mail.png" alt="">
-                <span>info@marshalcoreofnigeria.ng</span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 news_container">
-          <div>
-            <div>
-              <h3>Newsletter</h3>
-              <form action="">
-                <input type="email" placeholder="ENTER YOUR EMAIL">
-                <div>
-                  <button type="submit">Subscribe</button>
+<body class="dark-mode">
+    <header class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg custom_nav-container">
+                <a class="navbar-brand" href="index.html">
+                    <span class="rc-number"><i class="fas fa-id-card"></i> REG: YA/CLB/10100</span>
+                    <div class="logo_box"><img src="images/logo.png" alt="Marshal Core of Nigeria Logo" /></div>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mr-2">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://portal.marshalcoreofnigeria.ng">Login</a></li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control nav_search-input mr-sm-2 d-none" type="search" placeholder="Search" />
+                        <button class="btn my-2 my-sm-0 nav_search-btn" type="submit"></button>
+                    </form>
                 </div>
-              </form>
-            </div>
-          </div>
+            </nav>
         </div>
-      </div>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <h1>About Marshal Core of Nigeria</h1>
+            <p>Committed to discipline, service, and national development</p>
+        </div>
     </div>
-  </section>
-  <!-- end info section -->
 
-  <!-- footer section -->
-<section class="container-fluid footer_section">
-  <p>
-    Copyright ©️ 2025<br>
-    All right reserved by <strong>MARSHAL CORE OF NIGERIA</strong><br>
-    <span style="font-size: 0.9em;">powered by <strong>MARSHAL BOARD COMMITTEE</strong></span>
-  </p>
-</section>
-<!-- footer section -->
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
-  
-  <script>
-    // Smooth scroll to founder section
-    document.querySelector('.btn-founder').addEventListener('click', function(e) {
-      e.preventDefault();
-      const founderSection = document.getElementById('founderSection');
-      founderSection.scrollIntoView({ behavior: 'smooth' });
-    });
-    
-    // Owl Carousel initialization
-    $(".owl-carousel").owlCarousel({
-      loop: true,
-      margin: 20,
-      nav: true,
-      navText: [],
-      autoplay: true,
-      autoplayHoverPause: true,
-      responsive: {
-        0: { items: 1 },
-        600: { items: 2 },
-        1000: { items: 3 }
-      }
-    });
+    <div class="container" style="padding: 40px 0;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="about-card">
+                    <h3><i class="fas fa-info-circle"></i> Who We Are</h3>
+                    <p>The <strong>Marshal Core of Nigeria</strong> was founded on <strong>March 19, 2025</strong> as a registered and government-recognized voluntary organization. We are committed to empowering Nigerian youths through volunteerism, promoting discipline, and supporting national development through community service and patriotic engagement.</p>
+                    <p>As a voluntary service organization under the National Youth Council of Nigeria, our mission is built on integrity, dedication, and selfless service to the nation.</p>
+                </div>
+                
+                <div class="about-card">
+                    <h3><i class="fas fa-bullseye"></i> Aims and Objectives</h3>
+                    <ul>
+                        <li>To promote social and economic development by engaging members in collaborative initiatives with government agencies and NGOs</li>
+                        <li>To empower Nigerian youths by creating job opportunities and providing alternative employment pathways</li>
+                        <li>To instill strong moral values, patriotism, volunteerism, and commitment to community service</li>
+                        <li>To train and equip youths with skills in education, conflict resolution, and confidence-building</li>
+                        <li>To assist in crowd control, neighborhood watch, and community security efforts</li>
+                    </ul>
+                </div>
+                
+                <div class="about-card">
+                    <h3><i class="fas fa-shield-alt"></i> Duties and Responsibilities</h3>
+                    <ul>
+                        <li>Maintaining law and order</li>
+                        <li>Protecting lives and property</li>
+                        <li>Providing private security services</li>
+                        <li>Creating job opportunities for citizens</li>
+                        <li>Supporting federal government security efforts</li>
+                    </ul>
+                </div>
+                
+                <div class="about-card">
+                    <h3><i class="fas fa-flag"></i> Flag & Symbolism</h3>
+                    <p>The Marshal Core flag features a bold red and deep navy blue bisection, sharply divided diagonally, housing the organization's insignia at its heart.</p>
+                    <p><span class="color-box" style="background: #d32f2f;"></span> <strong>Red</strong> � Courage, valor, and sacrifice. Reflects the bravery of every officer and passion to uphold justice.</p>
+                    <p><span class="color-box" style="background: #1f233e;"></span> <strong>Navy Blue</strong> � Discipline, loyalty, and authority. Represents structured command and honor.</p>
+                    <p><strong>??? Shield & Scales</strong> � Justice, protection, and moral authority.</p>
+                    <p><strong>?? Eagle atop</strong> � National sovereignty and readiness to rise above challenges.</p>
+                    <p><strong>?? Laurel Wreath</strong> � Honor and victory earned through service.</p>
+                    <div class="flag-container text-center mt-3">
+                        <img src="images/flag.jpg" alt="Marshal Core Flag" style="max-width: 200px; border-radius: 10px;" onerror="this.style.display='none'">
+                        <p class="mt-2"><strong>Motto:</strong> "Always Ready"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    // Search functionality
-    $(".nav_search-btn").click(function () {
-      if ($(".nav_search-input").hasClass("d-none")) {
-        event.preventDefault();
-        $(".nav_search-input")
-          .animate({ left: "-1000px" }, "1000000")
-          .removeClass("d-none");
-      } else {
-        $(".nav_search-input")
-          .animate({ left: "0px" }, "1000000")
-          .addClass("d-none");
-      }
+        <div class="leader-buttons">
+            <a href="founder.html" class="btn-leader"><i class="fas fa-user-shield"></i> Meet The Founder</a>
+            <a href="commander.html" class="btn-leader"><i class="fas fa-star-of-life"></i> Meet The National Commander</a>
+        </div>
+    </div>
+
+    <section class="container-fluid footer_section" style="background: #1f233e; color: #ffffff; text-align: center; padding: 30px 20px; margin-top: 50px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p style="margin: 0 0 5px 0;">Copyright &copy; 2025 Marshal Core of Nigeria. All rights reserved.</p>
+                    <p style="margin: 0 0 10px 0; font-size: 12px; color: #ffd700;">Powered by Marshal Board Committee (MBC)</p>
+                    <p style="margin: 0;"><a href="privacy.html" style="color: #ffd700; text-decoration: none;">Privacy Policy</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+        <span>Dark Mode</span>
+    </div>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+    function toggleTheme() {
+        const body = document.body;
+        const toggleBtn = document.getElementById('themeToggle');
+        if (body.classList.contains('dark-mode')) {
+            body.classList.remove('dark-mode');
+            body.classList.add('light-mode');
+            localStorage.setItem('theme', 'light');
+            toggleBtn.innerHTML = '<i class="fas fa-sun"></i><span>Light Mode</span>';
+        } else {
+            body.classList.remove('light-mode');
+            body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark');
+            toggleBtn.innerHTML = '<i class="fas fa-moon"></i><span>Dark Mode</span>';
+        }
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme');
+        const body = document.body;
+        const toggleBtn = document.getElementById('themeToggle');
+        if (savedTheme === 'light') {
+            body.classList.add('light-mode');
+            body.classList.remove('dark-mode');
+            if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-sun"></i><span>Light Mode</span>';
+        } else {
+            body.classList.add('dark-mode');
+            body.classList.remove('light-mode');
+            if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-moon"></i><span>Dark Mode</span>';
+        }
     });
-  </script>
+    </script>
 </body>
 </html>
